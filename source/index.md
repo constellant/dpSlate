@@ -16,12 +16,15 @@ title_page: true
 
 language_tabs:
   - shell: Sample
+  - java: Java
+  - python: Python
+  - c++: C++
   
 toc_enabled: true
 
 search: true
   
-toc_selectors: h1, h2, h3
+toc_selectors: h1,h2,h3,h4
   
 toc_footers:
  - Copyright &copy; 2014 by Cisco Systems, Inc.
@@ -29,7 +32,7 @@ toc_footers:
 
 ---
 
-# Authoring a DevNet API Reference Manual 
+# Introduction 
 
 DevNet is Cisco's Developer Program aimed a helping developers gain access to Cisco Technology such that they can build cool and exciting products.  Wether a developer is an IT Professional working inside of a Cisco Customer's IT organization, a System Integrator, or a developer at an Independent Software Developer Program, Cisco DevNet is there to help make your professional life easier.
 

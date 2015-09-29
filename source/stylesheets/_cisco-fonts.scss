@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'CiscoSansBold';
+    src: font-url('ciscosansbold-webfont.eot'); /* IE9 compat Mode */
+    src: font-url('ciscosansbold-webfont.eot?#iefix') format('embedded-opentype'), /* Ie6-Ie8 */
+         font-url('ciscosansbold-webfont.woff') format('woff'), /* Modern Browser */
+         font-url('ciscosansbold-webfont.ttf') format('truetype'), /* Safari, Android, iOS */
+         font-url('iscosansbold-webfont.svg#CiscoSansBold') format('svg'); /* Legacy iOS */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CiscoSansHeavy';
+    src: font-url('ciscosansheavy-webfont.eot');
+    src: font-url('ciscosansheavy-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('ciscosansheavy-webfont.woff') format('woff'),
+         font-url('ciscosansheavy-webfont.ttf') format('truetype'),
+         font-url('ciscosansheavy-webfont.svg#CiscoSansHeavy') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CiscoSansLight';
+    src: font-url('CiscoSansTTLight.eot'); /* IE9 compat Mode */
+    src: font-url('CiscoSansTTLight.eot?#iefix') format('embedded-opentype'), /* Ie6-Ie8 */
+         font-url('CiscoSansTTLight.woff') format('woff'), /* Modern Browser */
+         font-url('CiscoSansTTLight.ttf') format('truetype'); /* Safari, Android, iOS */          
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CiscoSansExtraLightOblique';
+    src: font-url('ciscosansextralightoblique-webfont.eot');
+    src: font-url('ciscosansextralightoblique-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('ciscosansextralightoblique-webfont.woff') format('woff'),
+         font-url('ciscosansextralightoblique-webfont.ttf') format('truetype'),
+         font-url('ciscosansextralightoblique-webfont.svg#CiscoSansExtraLightOblique') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'CiscoSansBoldOblique';
+    src: font-url('ciscosansboldoblique-webfont.eot');
+    src: font-url('ciscosansboldoblique-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('ciscosansboldoblique-webfont.woff') format('woff'),
+         font-url('ciscosansboldoblique-webfont.ttf') format('truetype'),
+         font-url('ciscosansboldoblique-webfont.svg#CiscoSansBoldOblique') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CiscoSansExtraLight';
+    src: font-url('ciscosansextralight-webfont.eot');
+    src: font-url('ciscosansextralight-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('ciscosansextralight-webfont.woff') format('woff'),
+         font-url('ciscosansextralight-webfont.ttf') format('truetype'),
+         font-url('ciscosansextralight-webfont.svg#CiscoSansExtraLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CiscoSansThinOblique';
+    src: font-url('ciscosansthinoblique-webfont.eot');
+    src: font-url('ciscosansthinoblique-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('ciscosansthinoblique-webfont.woff') format('woff'),
+         font-url('ciscosansthinoblique-webfont.ttf') format('truetype'),
+         font-url('ciscosansthinoblique-webfont.svg#CiscoSansThinOblique') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CiscoSansThin';
+    src: font-url('ciscosansthin-webfont.eot');
+    src: font-url('ciscosansthin-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('ciscosansthin-webfont.woff') format('woff'),
+         font-url('ciscosansthin-webfont.ttf') format('truetype'),
+         font-url('ciscosansthin-webfont.svg#CiscoSansThin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CiscoSansHeavyOblique';
+    src: font-url('ciscosansheavyoblique-webfont.eot');
+    src: font-url('ciscosansheavyoblique-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('ciscosansheavyoblique-webfont.woff') format('woff'),
+         font-url('ciscosansheavyoblique-webfont.ttf') format('truetype'),
+         font-url('ciscosansheavyoblique-webfont.svg#CiscoSansHeavyOblique') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CiscoSansRegular';
+    src: font-url('ciscosansregular-webfont.eot');
+    src: font-url('ciscosansregular-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('ciscosansregular-webfont.woff') format('woff'),
+         font-url('ciscosansregular-webfont.ttf') format('truetype'),
+         font-url('ciscosansregular-webfont.svg#CiscoSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CiscoSansRegularOblique';
+    src: font-url('ciscosansregularoblique-webfont.eot');
+    src: font-url('ciscosansregularoblique-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('ciscosansregularoblique-webfont.woff') format('woff'),
+         font-url('ciscosansregularoblique-webfont.ttf') format('truetype'),
+         font-url('ciscosansregularoblique-webfont.svg#CiscoSansOblique') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+

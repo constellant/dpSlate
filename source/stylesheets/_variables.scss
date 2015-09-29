@@ -24,14 +24,14 @@ under the License.
 // BACKGROUND COLORS
 ////////////////////
 $nav-bg: #ffffff;
-$examples-bg: #393939;
-$code-bg: #292929;
+$examples-bg: #47585F;
+$code-bg: #333333;
 $code-annotation-bg: #1c1c1c;
 $nav-subitem-bg: #ffffff;
-$nav-active-bg: #38669E;
+$nav-active-bg: #F2F9FE;
 $lang-select-border: #000;
 $lang-select-bg: #222;
-$lang-select-active-bg: $examples-bg; // feel free to change this to blue or something
+$lang-select-active-bg: #DCF4FC; // feel free to change this to blue or something
 $lang-select-pressed-bg: #111; // color of language tab bg when mouse is pressed
 $main-bg: #ffffff;
 $aside-notice-bg: #a7dbfa;
@@ -43,11 +43,12 @@ $search-notice-bg: #f7979d;
 // TEXT COLORS
 ////////////////////
 $main-text: #333; // main content text color
-$nav-text: #38669E;
-$nav-active-text: #ffffff;
-$lang-select-text: #fff; // color of unselected language tab text
-$lang-select-active-text: #fff; // color of selected language tab text
-$lang-select-pressed-text: #fff; // color of language tab text when mouse is pressed
+$nav-text: #333; // color of the ToC text
+$nav-active-text: #0097E6; // color of the selected ToC element
+$nav-subheader-text: #808080; // color of the subheader text in the ToC
+$lang-select-text: #C4C4C4; // color of unselected language tab text
+$lang-select-active-text: #0097e6; // color of selected language tab text
+$lang-select-pressed-text: #0097e6; // color of language tab text when mouse is pressed
 
 
 // SIZES
@@ -69,13 +70,14 @@ $phone-width: $tablet-width - $nav-width; // min width before reverting to mobil
 // FONTS
 ////////////////////
 %default-font {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif;
+  font-family: "CiscoSansRegular","Helvetica Neue", Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif;
   font-size: 13px;
 }
 
 %header-font {
   @extend %default-font;
   font-weight: bold;
+  color: #0097E6;
 }
 
 %code-font {
@@ -88,11 +90,11 @@ $phone-width: $tablet-width - $nav-width; // min width before reverting to mobil
 // OTHER
 ////////////////////
 $nav-active-shadow: #000;
-$nav-footer-border-color: #666;
+$nav-footer-border-color: #E8E8E8;
 $nav-embossed-border-top: #000;
-$nav-embossed-border-bottom: #939393;
+$nav-embossed-border-bottom: #F1F1F1;
 $main-embossed-text-shadow: 0px 0px 0px #fff;
-$search-box-border-color: #666;
+$search-box-border-color: #E8E8E8;
 
 
 ////////////////////////////////////////////////////////////////////////////////

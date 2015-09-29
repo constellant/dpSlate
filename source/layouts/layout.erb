@@ -42,13 +42,15 @@ under the License.
         
           var makeToc = function() {
             global.toc = $("#toc").tocify({
-              selectors: '<%= current_page.data.toc_selectors || "h1, h2, h3" %>',
+              ignoreSelector: null,
+              selectors: "<%= current_page.data.toc_selectors || 'h1,h2,h3' %>",
               extendPage: false,
-              theme: 'none',
+              theme: "none",
               smoothScroll: false,
+              showAndHide: false,
+              showEffect: "slideDown",
               showEffectSpeed: 0,
               hideEffectSpeed: 180,
-              ignoreSelector: '.toc-ignore',
               highlightOffset: 60,
               scrollTo: 50,
               scrollHistory: true,
@@ -110,52 +112,35 @@ under the License.
         </div>
       <% end %>
       <% if toc %>
-        <% if current_page.data.search %>
-          <div class="search">
-            <input type="text" class="search" id="input-search" placeholder="Search">
-          </div>
-          <ul class="search-results"></ul>
-        <% end %>
-        <div id="toc">
-        </div>
-        <% if current_page.data.toc_footers %>
-          <ul class="toc-footer">
-            <li><%= current_page.data.version %></li>
-            <% current_page.data.toc_footers.each do |footer| %>
-              <li><%= footer %></li>
-            <% end %>
-            <li>Published <%= datestring %></li> 
-          </ul>
-        <% end %>
-      <% end %>
-    </div>
-    <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
         <% if current_page.data.title_page %>
-          <div class="about">
-            <div class="about-control"><span>About this Document</span>
-            </div>
-            <div class="title-page">
-              <% if current_page.data.title %>
-                <p><strong>Title: </strong><%= current_page.data.title %> </p>
-              <% end %>
-              <% if current_page.data.version %>
-                <p><strong>Version: </strong><%= current_page.data.version %></p>
-              <% end %>
-              <% if current_page.data.copyrigh %>
-                <p><strong>Copyright: </strong><%= current_page.data.copyright %></p>
-              <% end %>
-              <% if current_page.data.publisher %>
-                <p><strong>Publisher: </strong><%= current_page.data.publisher %></p>
-              <% end %>
-              <% if current_page.data.publisher_address %>
-                <p><strong>Publisher Address: </strong><%= current_page.data.publisher_address %></p>
-              <% end %>
-              <% if current_page.data.comments %>
-                <p><strong>Comments: </strong><%= current_page.data.comments %></p>
-              <% end %>
-              <p><strong>Published Date: </strong><%= datestring %></p>
+          <div class=toc-header>
+            <div class=toc-title><%= current_page.data.title %></div>
+            <div class="about">
+              <div class="about-control"><span>about</span>
+              </div>
+              <div class="title-page">
+                <ul>
+                <% if current_page.data.title %>
+                  <li><strong><i>Title: </i></strong><%= current_page.data.title %> </li>
+                <% end %>
+                <% if current_page.data.version %>
+                  <li><strong><i>Version: </i></strong><%= current_page.data.version %></li>
+                <% end %>
+                <% if current_page.data.copyright %>
+                  <li><strong><i>Copyright: </i></strong><%= current_page.data.copyright %></li>
+                <% end %>
+                <% if current_page.data.publisher %>
+                  <li><strong><i>Publisher: </i></strong><%= current_page.data.publisher %></li>
+                <% end %>
+                <% if current_page.data.publisher_address %>
+                  <li><strong><i>Publisher Address: </i></strong><%= current_page.data.publisher_address %></li>
+                <% end %>
+                <% if current_page.data.comments %>
+                  <li><strong><i>Comments: </i></strong><%= current_page.data.comments %></li>
+                <% end %>
+                  <li><strong><i>Published Date: </i></strong><%= datestring %></li>
+                </ul>
+              </div>
             </div>
           </div>
           <script>      
@@ -169,12 +154,36 @@ under the License.
                 //change text of header based on visibility of content div
                 $header.text(function () {
                   //change text based on condition
-                  return $content.is(":visible") ? "hide" : "About this Document";
+                  return $content.is(":visible") ? "hide" : "about";
                 });
               });
             });
           </script>
         <% end %>
+        <% if current_page.data.search %>
+          <div class="search">
+            <input type="text" class="search" id="input-search" placeholder="Search Doc">
+          </div>
+          <ul class="search-results"></ul>
+        <% end %>  
+        <div id="toc">
+        </div>
+        <% if current_page.data.toc_footers %>
+          <div class="toc-footer">
+            <ul class="toc-footer">
+              <li><%= current_page.data.version %></li>
+              <% current_page.data.toc_footers.each do |footer| %>
+                <li><%= footer %></li>
+              <% end %>
+              <li>Published <%= datestring %></li> 
+            </ul>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
         <%= yield %>
         <% current_page.data.includes && current_page.data.includes.each do |include| %>
           <%= partial "includes/#{include}" %>

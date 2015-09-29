@@ -1,6 +1,7 @@
 @charset "utf-8";
 @import 'normalize';
 @import 'compass';
+@import 'cisco-fonts';
 @import 'variables';
 @import 'syntax';
 @import 'icon-font';
@@ -51,16 +52,15 @@ html, body {
 
 @mixin embossed-bg {
   background:
-    linear-gradient(to bottom, rgba(#000, 0.2), rgba(#000, 0) 8px),
-    linear-gradient(to top, rgba(#000, 0.2), rgba(#000, 0) 8px),
-    linear-gradient(to bottom, rgba($nav-embossed-border-top, 1), rgba($nav-embossed-border-top, 0) 1.5px),
-    linear-gradient(to top, rgba($nav-embossed-border-bottom, 1), rgba($nav-embossed-border-bottom, 0) 1.5px),
+    //linear-gradient(to bottom, rgba(#000, 0.2), rgba(#000, 0) 8px),
+    //linear-gradient(to top, rgba(#000, 0.2), rgba(#000, 0) 8px),
+    //linear-gradient(to bottom, rgba($nav-embossed-border-top, 1), rgba($nav-embossed-border-top, 0) 1.5px),
+    //linear-gradient(to top, rgba($nav-embossed-border-bottom, 1), rgba($nav-embossed-border-bottom, 0) 1.5px),
     $nav-subitem-bg;
 }
 
 .tocify-wrapper {
   transition: left 0.3s ease-in-out;
-
   overflow-y: auto;
   overflow-x: hidden;
   position: fixed;
@@ -70,9 +70,11 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 13px;
-  font-weight: bold;
-  border-right: solid #ddd 1px;
+  font-size: 16px;
+  //font-weight: bold;
+  border-right: solid $nav-footer-border-color 2px;
+  border-top: solid $nav-footer-border-color 2px;
+  border-bottom: solid $nav-footer-border-color 2px;
 
   // language selector for mobile devices
   .lang-selector {
@@ -90,6 +92,8 @@ html, body {
 
   &>.search {
     position: relative;
+    border-bottom-color: black ;
+    border-bottom: 1px;
 
     input {
       background: $nav-bg;
@@ -98,10 +102,10 @@ html, body {
       padding: 6px 0 6px 20px;
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
-      width: $nav-width - 30;
+      width: $nav-width - 45;
       outline: none;
       color: $nav-text;
-      border-radius: 0; /* ios has a default border radius */
+      border-radius: 6px; /* ios has a default border radius */
     }
 
     &:before {
@@ -149,12 +153,17 @@ html, body {
   }
 
 
-  .tocify-item>a, .toc-footer li {
-    padding: 0 $nav-padding 0 -$nav-padding;
+  .tocify-item>a, li {
+    padding: 20px $nav-padding 20px -$nav-padding;
     display: block;
     overflow-x: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    line-height: 1.5;
+    &:hover {
+        overflow-x: visible;
+        white-space: pre-wrap;
+    }
   }
 
   // The Table of Contents is composed of multiple nested
@@ -165,19 +174,20 @@ html, body {
     margin: 0;
     padding: 0;
     padding-left: $nav-indent;
-    line-height: 28px;
+    line-height: 38px;
   }
 
   li {
     color: $nav-text;
-    transition-property: background;
-    transition-timing-function: linear;
-    transition-duration: 230ms;
+    //transition-property: background;
+    //transition-timing-function: linear;
+    //transition-duration: 230ms;
   }
 
   // This is the currently selected ToC entry
   .tocify-focus {
-    box-shadow: 0px 1px 0px $nav-active-shadow;
+    //box-shadow: 0px 1px 0px $nav-active-shadow;
+    box-shadow: none;  
     background-color: $nav-active-bg;
     color: $nav-active-text;
   }
@@ -185,12 +195,13 @@ html, body {
   // Subheaders are the submenus that slide open
   // in the table of contents.
   .tocify-subheader {
-    display: none; // tocify will override this when needed
+    //display: none; // remove this to always display everything tocify will override this when needed
     background-color: $nav-subitem-bg;
     font-weight: 500;
     .tocify-item>a {
       // padding-left: $nav-padding + $nav-indent;
-      font-size: 12px;
+      font-size: 14px;
+      color: $nav-subheader-text;
     }
 
     // for embossed look:
@@ -199,25 +210,95 @@ html, body {
       box-shadow: none; // otherwise it'll overflow out of the subheader
     }
   }
-
-  .toc-footer {
-    padding: 1em 0;
-    margin-top: 1em;
-    border-top: 1px dashed $nav-footer-border-color;
-
-    li,a {
+    
+  .toc-header {
+    padding-left: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-bottom: 2px solid $nav-footer-border-color;
+      
+    .toc-title {
+        padding-left: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin-top: 20px;
+        margin-bottom: 0px;
+        font-style:italic;
+        font-weight: bold;
+        overflow-x: visible;
+        white-space: pre-wrap;
+        font-size: 20px;
+        color: $nav-active-text;
+    
+    }
+    
+    .about .title-page  {
+        display: none;
+        
+        ul {
+            display: inline-block;
+        
+            li, a {
+                line-height: 1.3;
+                font-size: 10pt;
+                margin-top: 5px;
+                margin-bottom: 5px;
+                padding : 3px;
+                overflow-x: visible;
+                white-space: pre-wrap;
+                color: $nav-subheader-text;
+                //border-bottom: 2px solid $nav-footer-border-color;
+            }
+        }
+    }
+  
+    .about-control {
+        cursor: pointer; cursor: hand;
+        font-size: 10pt;
+        padding: 5px;
+        color: #085777;
+        text-decoration: none;
+    }
+      
+    ul, li,a {
       color: $nav-text;
+      text-decoration: none;
+      font-size: 10pt;
+      line-height: 1;
       text-decoration: none;
     }
 
     a:hover {
       text-decoration: underline;
     }
+  }
+    
+    
 
-    li {
-      font-size: 0.8em;
-      line-height: 1.7;
-      text-decoration: none;
+  .toc-footer {
+    padding: 0;
+    margin-top: 1em;
+    overflow-x: visible;
+    white-space: pre-wrap;
+    //border-top: 2px solid $nav-footer-border-color;
+    //border-bottom: 2px solid $nav-footer-border-color;
+
+    ul {
+      display: inline-block;
+      line-height: 5px;
+        
+      li,a {
+        color: $nav-text;
+        text-decoration: none;
+        font-size: 10pt;
+        line-height: 1.3;
+        text-decoration: none;
+    
+      }
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   }
 
@@ -288,31 +369,40 @@ html, body {
   .lang-selector {
     position: fixed;
     z-index: 50;
-    border-bottom: 5px solid $lang-select-active-bg;
+    border-bottom: 1px solid $lang-select-text;
   }
 }
 
 .lang-selector {
   background-color: $lang-select-bg;
   width: 100%;
-  font-weight: bold;
+  //font-weight: bold;
   a {
+    padding: 5px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 5px; 
     display: block;
     float:left;
     color: $lang-select-text;
     text-decoration: none;
     padding: 0 10px;
-    line-height: 30px;
+    line-height: 20px;
     outline: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $lang-select-text;
 
     &:active, &:focus {
       background-color: $lang-select-pressed-bg;
       color: $lang-select-pressed-text;
+      border-color: $lang-select-pressed-text;
     }
 
     &.active {
       background-color: $lang-select-active-bg;
       color: $lang-select-active-text;
+      border-color: $lang-select-active-text;
     }
   }
 
@@ -363,11 +453,11 @@ html, body {
     font-size: 30px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid #ccc;
+    //border-bottom: 1px solid #ccc;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-    border-top: 1px solid #ddd;
-    background-image: linear-gradient(to bottom, #fff, #f9f9f9);
+    //border-top: 1px solid #ddd;
+    //background-image: linear-gradient(to bottom, #fff, #f9f9f9);
   }
 
   h1:first-child, div:first-child + h1 {
@@ -380,10 +470,10 @@ html, body {
     font-size: 20px;
     margin-top: 4em;
     margin-bottom: 0;
-    border-top: 1px solid #ccc;
+    //border-top: 1px solid #ccc;
     padding-top: 1.2em;
     padding-bottom: 1.2em;
-    background-image: linear-gradient(to bottom, rgba(#fff, 0.4), rgba(#fff, 0));
+    //background-image: linear-gradient(to bottom, rgba(#fff, 0.4), rgba(#fff, 0));
   }
 
   // h2s right after h1s should bump right up
@@ -527,19 +617,6 @@ html, body {
     background: linear-gradient(to top left, #F7E633 0%, #F1D32F 100%);
   }
   
-  .about .title-page {
-    display: none;
-    font-size: 8pt;
-    padding : 3px;
-  }
-  
-  .about-control {
-    cursor: pointer; cursor: hand;
-    font-size: 10pt;
-    padding: 5px;
-    color: #085777;
-    text-decoration: underline;
-  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////

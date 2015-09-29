@@ -20,13 +20,15 @@
         
           var makeToc = function() {
             global.toc = $("#toc").tocify({
-              selectors: 'h1, h2, h3',
+              ignoreSelector: null,
+              selectors: "h1,h2,h3,h4",
               extendPage: false,
-              theme: 'none',
+              theme: "none",
               smoothScroll: false,
+              showAndHide: false,
+              showEffect: "slideDown",
               showEffectSpeed: 0,
               hideEffectSpeed: 180,
-              ignoreSelector: '.toc-ignore',
               highlightOffset: 60,
               scrollTo: 50,
               scrollHistory: true,
@@ -59,7 +61,7 @@
       </script>
       <script>
         $(function() {
-          setupLanguages(["shell"]);
+          setupLanguages(["shell","java","python","c++"]);
         });
       </script>
   </head>
@@ -75,33 +77,26 @@
     <div class="tocify-wrapper">
         <div class="lang-selector">
               <a href="#" data-language-name="shell">Sample</a>
+              <a href="#" data-language-name="java">Java</a>
+              <a href="#" data-language-name="python">Python</a>
+              <a href="#" data-language-name="c++">C++</a>
         </div>
-          <div class="search">
-            <input type="text" class="search" id="input-search" placeholder="Search">
-          </div>
-          <ul class="search-results"></ul>
-        <div id="toc">
-        </div>
-          <ul class="toc-footer">
-            <li>V2.0.1</li>
-              <li>Copyright &copy; 2014 by Cisco Systems, Inc.</li>
-              <li>All Rights Reserved.</li>
-            <li>Published August 04, 2015</li> 
-          </ul>
-    </div>
-    <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
-          <div class="about">
-            <div class="about-control"><span>About this Document</span>
-            </div>
-            <div class="title-page">
-                <p><strong>Title: </strong>Authoring a DevNet API Reference Manual </p>
-                <p><strong>Version: </strong>V2.0.1</p>
-                <p><strong>Publisher: </strong>DevNet, Cisco's Developer Program</p>
-                <p><strong>Publisher Address: </strong>Cisco Systems, Inc., 150 W Tasman Dr, San Jose, CA 95134, USA</p>
-                <p><strong>Comments: </strong>DevNet Slate is based upon the open source project called Slate</p>
-              <p><strong>Published Date: </strong>August 04, 2015</p>
+          <div class=toc-header>
+            <div class=toc-title>Authoring a DevNet API Reference Manual</div>
+            <div class="about">
+              <div class="about-control"><span>about</span>
+              </div>
+              <div class="title-page">
+                <ul>
+                  <li><strong><i>Title: </i></strong>Authoring a DevNet API Reference Manual </li>
+                  <li><strong><i>Version: </i></strong>V2.0.1</li>
+                  <li><strong><i>Copyright: </i></strong>Copyright &copy; 2014-2015 by Cisco Systems, Inc., All Rights Reserved.</li>
+                  <li><strong><i>Publisher: </i></strong>DevNet, Cisco's Developer Program</li>
+                  <li><strong><i>Publisher Address: </i></strong>Cisco Systems, Inc., 150 W Tasman Dr, San Jose, CA 95134, USA</li>
+                  <li><strong><i>Comments: </i></strong>DevNet Slate is based upon the open source project called Slate</li>
+                  <li><strong><i>Published Date: </i></strong>September 29, 2015</li>
+                </ul>
+              </div>
             </div>
           </div>
           <script>      
@@ -115,12 +110,30 @@
                 //change text of header based on visibility of content div
                 $header.text(function () {
                   //change text based on condition
-                  return $content.is(":visible") ? "hide" : "About this Document";
+                  return $content.is(":visible") ? "hide" : "about";
                 });
               });
             });
           </script>
-        <h1 id="authoring-a-devnet-api-reference-manual">Authoring a DevNet API Reference Manual</h1>
+          <div class="search">
+            <input type="text" class="search" id="input-search" placeholder="Search Doc">
+          </div>
+          <ul class="search-results"></ul>
+        <div id="toc">
+        </div>
+          <div class="toc-footer">
+            <ul class="toc-footer">
+              <li>V2.0.1</li>
+                <li>Copyright &copy; 2014 by Cisco Systems, Inc.</li>
+                <li>All Rights Reserved.</li>
+              <li>Published September 29, 2015</li> 
+            </ul>
+          </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
 
 <p>DevNet is Cisco&rsquo;s Developer Program aimed a helping developers gain access to Cisco Technology such that they can build cool and exciting products.  Wether a developer is an IT Professional working inside of a Cisco Customer&rsquo;s IT organization, a System Integrator, or a developer at an Independent Software Developer Program, Cisco DevNet is there to help make your professional life easier.</p>
 
@@ -1153,6 +1166,9 @@ cd -
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">Sample</a>
+                <a href="#" data-language-name="java">Java</a>
+                <a href="#" data-language-name="python">Python</a>
+                <a href="#" data-language-name="c++">C++</a>
           </div>
       </div>
     </div>
