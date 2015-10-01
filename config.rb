@@ -16,7 +16,6 @@ set :js_dir, 'javascripts'
 set :images_dir, 'images'
 set :fonts_dir, 'fonts'
 
-
 # Activate the syntax highlighter
 activate :syntax
 
@@ -46,5 +45,7 @@ helpers do
     Time.now.strftime('%B %d, %Y')
     end
 end
+
+
 
 

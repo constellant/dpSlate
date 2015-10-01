@@ -47,6 +47,20 @@ Or use the included Dockerfile! (must install Docker first)
 
 ```shell
 docker build -t slate .
+docker run -d -p 4567:4567 --name slate -v $(pwd)/source:/app/source slate
+```
+
+You can now see the docs at <http://localhost:4567>. Whoa! That was fast!
+
+*Note: if you're using the Docker setup on OSX, the docs will be
+availalable at the output of `boot2docker ip` instead of `localhost:4567`.*
+
+Now that Slate is all set up your machine, you'll probably want to learn more about [editing Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax), or [how to publish your docs](https://github.com/tripit/slate/wiki/Deploying-Slate).
+
+### Alternative Setup with Docker
+
+```shell
+docker build -t slate .
 docker run -d -p 4567:4567 slate
 ```
 
