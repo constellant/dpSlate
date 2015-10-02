@@ -12,7 +12,8 @@
       <script src="javascripts/all.js" type="text/javascript"></script>
       <script>
         (function (global) {
-        
+          'use strict';
+          
           var closeToc = function() {
             $(".tocify-wrapper").removeClass('open');
             $("#nav-button").removeClass('open');
@@ -20,8 +21,7 @@
         
           var makeToc = function() {
             global.toc = $("#toc").tocify({
-              ignoreSelector: null,
-              selectors: "h1,h2,h3,h4",
+              selectors: "h1,h2,h3",
               extendPage: false,
               theme: "none",
               smoothScroll: false,
@@ -59,6 +59,7 @@
           $(animate);
         })(window);
       </script>
+      
       <script>
         $(function() {
           setupLanguages(["shell","java","python","c++"]);
@@ -94,7 +95,7 @@
                   <li><strong><i>Publisher: </i></strong>DevNet, Cisco's Developer Program</li>
                   <li><strong><i>Publisher Address: </i></strong>Cisco Systems, Inc., 150 W Tasman Dr, San Jose, CA 95134, USA</li>
                   <li><strong><i>Comments: </i></strong>DevNet Slate is based upon the open source project called Slate</li>
-                  <li><strong><i>Published Date: </i></strong>September 29, 2015</li>
+                  <li><strong><i>Published Date: </i></strong>October 01, 2015</li>
                 </ul>
               </div>
             </div>
@@ -119,6 +120,9 @@
             <input type="text" class="search" id="input-search" placeholder="Search Doc">
           </div>
           <ul class="search-results"></ul>
+        <div class=toc-header>
+          <div class=toc-title>Table of Contents</div>
+        </div>
         <div id="toc">
         </div>
           <div class="toc-footer">
@@ -126,7 +130,7 @@
               <li>V2.0.1</li>
                 <li>Copyright &copy; 2014 by Cisco Systems, Inc.</li>
                 <li>All Rights Reserved.</li>
-              <li>Published September 29, 2015</li> 
+              <li>Published October 01, 2015</li> 
             </ul>
           </div>
     </div>
@@ -422,8 +426,6 @@ Remember that only level 1, 2, and 3 headers will appear in the Table of Content
     You can also use underscores to create __bold__ or _italic_.
 
     Finally, you can combine ***bold and italic***.
-
-
 </span></code></pre>
 
 <p>This text is <strong>bold</strong>, this is <em>italic</em>, and this is an</p>
@@ -711,8 +713,7 @@ to the right will create the list below:</p>
 <blockquote>
 <p>Large Python Program</p>
 </blockquote>
-<pre class="highlight python"><code>
-<span class="kn">import</span> <span class="nn">collections</span>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">collections</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">sys</span>
@@ -1058,6 +1059,7 @@ to the right will create the list below:</p>
 <p>Command to Start Your Preview Server</p>
 </blockquote>
 <pre class="highlight markdown"><code>bundle exec middleman server
+
 </code></pre>
 
 <blockquote>

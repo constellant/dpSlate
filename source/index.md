@@ -24,7 +24,7 @@ toc_enabled: true
 
 search: true
   
-toc_selectors: h1,h2,h3,h4
+toc_selectors: h1,h2,h3
   
 toc_footers:
  - Copyright &copy; 2014 by Cisco Systems, Inc.
@@ -56,18 +56,11 @@ ruby 2.0.0p247 (2013-06-27 revision 41674)
 
 ```
 
-<<<<<<< HEAD
 > Install the Dependencies
 
 ```md
 $ cd DevNetSlate
 $ bundle install
-=======
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
->>>>>>> tripit/master
 ```
 
 > Start Your Test Server
@@ -244,11 +237,7 @@ There are a number of directives for controlling how the Table of Contents is pr
 * toc_footers: this is a bullet list of text that will appear at the bottom of the table of contents.  The footer statement is used to place text and links at the bottom of the Table of Contents.  In addition to the values that you specify, the version number (see the version directive above) will be included, followed by the values that you provide, and finally the date that the document was built.
 
 <aside class="notice">
-<<<<<<< HEAD
 Overtime, using the TOC footer to show copyright information will be deprecated for DevNet documents in favor of using the Title Page.
-=======
-You must replace <code>meowmeowmeow</code> with your personal API key.
->>>>>>> tripit/master
 </aside>
 
 
@@ -279,8 +268,6 @@ On the right are a list of headers in markdown and below is how they will appear
 #### H6 Header
 
 ```
-
-<<<<<<< HEAD
 # H1 Header
 ## H2 Header
 ### H3 Header
@@ -314,15 +301,6 @@ Make sure the lines above below your paragraph are empty.
     You can also use underscores to create __bold__ or _italic_.
     
     Finally, you can combine ***bold and italic***.
-    
-
-=======
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
->>>>>>> tripit/master
 ```
 
     This text is **bold**, this is *italic*, and this is an
@@ -370,14 +348,10 @@ Here's an inline link to [Google](http://www.google.com/).
 Here's a reference-style link to [Google][1].
 Here's a very readable link to [Yahoo!][yahoo].
 
-<<<<<<< HEAD
   [1]: http://www.google.com/
   [yahoo]: http://www.yahoo.com/
   
 The link definitions can appear anywhere in the document -- before or after the place where you use them. The link definition names [1] and [yahoo] can be any unique string, and are case-insensitive; [yahoo] is the same as [YAHOO].
-=======
-`GET http://example.com/api/kittens`
->>>>>>> tripit/master
 
 ## Using HTML Standard Links
 
@@ -602,8 +576,6 @@ Code samples are an important way of communicating how to use an API.  DevNet Sl
 > Large Python Program
 
 ```python
-<<<<<<< HEAD
-
 import collections
 import itertools
 import re
@@ -932,17 +904,7 @@ Or, I can use the `>` to place an image into the right hand panel.  I can even u
 
 ```md
 bundle exec middleman server
-=======
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
->>>>>>> tripit/master
 ```
 
 >Output:
@@ -1040,12 +1002,5 @@ Before we get into the specifics, let's deal with the high-level guidelines or g
 
 
 REST (or RESTful) APIs are becoming the standard.  Developers like using REST APIs because they are simple and universal.  Because REST APIs use HTTP protocol along with JSON or XML, it is easy to call a REST API from pretty much any programming language.  As a result, there is a natural tendency for the API engineer to think that language libraries (wrappers that make the REST call in the programming language of choice) is not needed. This is a fallacy.
-
-<<<<<<< HEAD
-=======
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
->>>>>>> tripit/master
 
 A Programmer can call REST in a language like Python, Java, or C, with four to five lines of code.  When faced with this, the Programmer will typically write their own library of wrappers (code that encapsulates each REST end point) to make programming more module and cleaner.  Thus, if you want your API to be simple to use, you should have the wrappers for popular libraries built.  Next, you should use the language tabs of DevNet Slate to provide the syntax for each of the programming languages that you will be supporting.

@@ -52,26 +52,15 @@ html, body {
 
 @mixin embossed-bg {
   background:
-<<<<<<< HEAD
     //linear-gradient(to bottom, rgba(#000, 0.2), rgba(#000, 0) 8px),
     //linear-gradient(to top, rgba(#000, 0.2), rgba(#000, 0) 8px),
     //linear-gradient(to bottom, rgba($nav-embossed-border-top, 1), rgba($nav-embossed-border-top, 0) 1.5px),
     //linear-gradient(to top, rgba($nav-embossed-border-bottom, 1), rgba($nav-embossed-border-bottom, 0) 1.5px),
-=======
-    linear-gradient(to bottom, rgba(#000, 0.2), rgba(#000, 0) 8px),
-    linear-gradient(to top, rgba(#000, 0.2), rgba(#000, 0) 8px),
-    linear-gradient(to bottom, rgba($nav-embossed-border-top, 1), rgba($nav-embossed-border-top, 0) 1.5px),
-    linear-gradient(to top, rgba($nav-embossed-border-bottom, 1), rgba($nav-embossed-border-bottom, 0) 1.5px),
->>>>>>> tripit/master
     $nav-subitem-bg;
 }
 
 .tocify-wrapper {
   transition: left 0.3s ease-in-out;
-<<<<<<< HEAD
-=======
-
->>>>>>> tripit/master
   overflow-y: auto;
   overflow-x: hidden;
   position: fixed;
@@ -190,25 +179,15 @@ html, body {
 
   li {
     color: $nav-text;
-<<<<<<< HEAD
     //transition-property: background;
     //transition-timing-function: linear;
     //transition-duration: 230ms;
-=======
-    transition-property: background;
-    transition-timing-function: linear;
-    transition-duration: 230ms;
->>>>>>> tripit/master
   }
 
   // This is the currently selected ToC entry
   .tocify-focus {
-<<<<<<< HEAD
     //box-shadow: 0px 1px 0px $nav-active-shadow;
     box-shadow: none;  
-=======
-    box-shadow: 0px 1px 0px $nav-active-shadow;
->>>>>>> tripit/master
     background-color: $nav-active-bg;
     color: $nav-active-text;
   }
@@ -408,16 +387,11 @@ html, body {
     color: $lang-select-text;
     text-decoration: none;
     padding: 0 10px;
-<<<<<<< HEAD
     line-height: 20px;
     outline: 0;
     border-style: solid;
     border-width: 1px;
     border-color: $lang-select-text;
-=======
-    line-height: 30px;
-    outline: 0;
->>>>>>> tripit/master
 
     &:active, &:focus {
       background-color: $lang-select-pressed-bg;
@@ -482,13 +456,9 @@ html, body {
     //border-bottom: 1px solid #ccc;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-<<<<<<< HEAD
     //border-top: 1px solid #ddd;
     //background-image: linear-gradient(to bottom, #fff, #f9f9f9);
-=======
-    border-top: 1px solid #ddd;
-    background-image: linear-gradient(to bottom, #fff, #f9f9f9);
->>>>>>> tripit/master
+
   }
 
   h1:first-child, div:first-child + h1 {
@@ -504,11 +474,7 @@ html, body {
     //border-top: 1px solid #ccc;
     padding-top: 1.2em;
     padding-bottom: 1.2em;
-<<<<<<< HEAD
     //background-image: linear-gradient(to bottom, rgba(#fff, 0.4), rgba(#fff, 0));
-=======
-    background-image: linear-gradient(to bottom, rgba(#fff, 0.4), rgba(#fff, 0));
->>>>>>> tripit/master
   }
 
   // h2s right after h1s should bump right up
@@ -520,16 +486,10 @@ html, body {
 
   h3, h4, h5, h6 {
     @extend %header-font;
-<<<<<<< HEAD
     font-size: 18px;
     margin-top: 2.5em;
     margin-bottom: 0.8em;
     // text-transform: uppercase;
-=======
-    font-size: 15px;
-    margin-top: 2.5em;
-    margin-bottom: 0.8em;
->>>>>>> tripit/master
   }
 
 
@@ -677,13 +637,8 @@ html, body {
     float:right;
     clear:right;
 
-<<<<<<< HEAD
     @include box-sizing(border-box);
     @include text-shadow(0px 0px 0px rgba(0,0,0,0.4));
-=======
-    box-sizing: border-box;
-    @include text-shadow(0px 1px 2px rgba(0,0,0,0.4));
->>>>>>> tripit/master
 
     @extend %right-col;
 
