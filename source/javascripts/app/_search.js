@@ -49,13 +49,15 @@
 
       if (results.length) {
         searchResults.empty();
-        $.each(results, function (index, result) {
-          var elem = document.getElementById(result.ref);
-          searchResults.append("<li><a href='#" + result.ref + "'>" + $(elem).text() + "</a></li>");
-        });
+        //$.each(results, function (index, result) {
+        //  var elem = document.getElementById(result.ref);
+        //  searchResults.append("<li><a href='#" + result.ref + "'>" + $(elem).text() + "</a></li>");
+        //});
         highlight.call(this);
+        searchResults.html('<li style="color:green"></li>');
+        $('.search-results li').text( $('.search-highlight').length.toLocaleString('en') + ' Results Found and Highlighted');
       } else {
-        searchResults.html('<li></li>');
+        searchResults.html('<li style="color:red"></li>');
         $('.search-results li').text('No Results Found for "' + this.value + '"');
       }
     } else {

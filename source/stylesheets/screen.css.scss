@@ -126,7 +126,8 @@ html, body {
     box-sizing: border-box;
     height: 0;
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: visible;
+    white-space: normal;
     transition-property: height, margin;
     transition-duration: 180ms;
     transition-timing-function: ease-in-out;
@@ -135,11 +136,13 @@ html, body {
       margin-bottom: 1em;
     }
 
-    @include embossed-bg;
+    //@include embossed-bg;
 
     li {
       margin: 1em $nav-padding;
       line-height: 1;
+      white-space: normal;
+      overflow-x: visible;
     }
 
     a {
@@ -215,7 +218,7 @@ html, body {
     padding-left: 20px;
     padding-top: 0px;
     padding-bottom: 0px;
-    border-bottom: 2px solid $nav-footer-border-color;
+    border-top: 2px solid $nav-footer-border-color;
       
     .toc-title {
         padding-left: 0px;
@@ -614,7 +617,7 @@ html, body {
     margin: -2px;
     border-radius: 4px;
     border: 1px solid #F7E633;
-    @include text-shadow(1px 1px 0 #666);
+    //@include text-shadow(1px 1px 0 #666);
     background: linear-gradient(to top left, #F7E633 0%, #F1D32F 100%);
   }
   
