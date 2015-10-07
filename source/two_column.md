@@ -1,16 +1,16 @@
 ---
 
-title: Authoring a API Tutorial Using dpSlate
+title: Authoring a API Tutorial using dpSlate in 2 Column
 
 version: V2.1 
 
-copyright: Copyright &copy; 2013-2015 Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.
+copyright: Copyright &copy; 2013-2015 Perigee Capital, LLC, All Rights Reserved.
 
-publisher: DeveloperProgram.com
+publisher: DevNet, Cisco's Developer Program
 
-publisher_address: Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA
+publisher_address: Cisco Systems, Inc., 150 W Tasman Dr, San Jose, CA 95134, USA
 
-comments: dpSlate is Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitationsunder the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.
+comments: dpSlate is Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitationsunder the License.
 
 title_page: true
 
@@ -23,25 +23,29 @@ language_tabs:
   
 toc_enabled: true
 
-codePanel_off: false
+codePanel_off: true
 
 search: true
   
 toc_selectors: h1,h2,h3
   
 toc_footers:
+ - Copyright &copy; 2014-2015 by Cisco Systems, Inc.
+ - All Rights Reserved.
 
 ---
 
 # Introduction 
 
-A Developer Program aimed a helping developers gain access a technology such as an API or an SDK such that the developer can build cool and exciting products.  Whether a developer is an IT Professional working inside of an Enterprise IT organization, a System Integrator, or a developer at an Independent Software Developer Program, the developer program is there to help make the developer's professional life easier.
+DevNet is Cisco's Developer Program aimed a helping developers gain access to Cisco Technology such that they can build cool and exciting products.  Wether a developer is an IT Professional working inside of a Cisco Customer's IT organization, a System Integrator, or a developer at an Independent Software Developer Program, Cisco DevNet is there to help make your professional life easier.
 
-There are hundreds of thousands of APIs for developers and the number is growing.  We want to make it easy for them to find your API such that they can get their job done and in turn use your API and platform.  To do this, we are providing a _best-in-class_ format for the presentation of API and SDK tutorials.
+Cisco has hundreds of product API's for developers.  We want to make it easy for you to find the API that you need to get your job done but we also want to make it easy for you to use the API of choice.  To do this, we are providing a standard format for the documentation of API's with Cisco.
 
-This document describes how an engineer or tech writer would write an API reference manual for publication on a developer portal.  The toolchain that we are using is based upon dpSlate, the open source tool derived from TripIt Slate, which in turn was inspired by the API Reference Manual published by Stripe.  Like many developers, we love the simple, elegant, yet powerful way that Stripe documented their API.  In particular we loved how, within the context of any given API call, you can choose a programming language and see the sample code in that language - we knew that we were not alone and we chose to build a toolchain to create documents on these concepts.  Overtime, we have had many ideas on how we can update and modify this format to better suit the needs of both the tech writer and the developer community.  We will continue to make these changes but I now present to you, Version 2.x.
+This document describes how an engineer or tech writer within Cisco would write an API reference manual for publication on DevNet.  The toolchain that we are using is based upon dpSlate, the open source tool derived from TripIt, which in turn was inspired by the API Reference Manual published by Stripe.  Like many developers, we love the simple, elegant, yet powerful way that Stripe documented their API.  In particular we loved how within the context of any given API call, you can choose a language and see sample code - we knew that we were not alone and thus we chose to model our own documentation on this style.
 
-# Getting Started with dpSlate
+Overtime, we have ideas on how we can update and modify this format to better suit the needs of the developer community and we are already planning those changes.  But for now, we have this initial version.
+
+# Getting Started with DevNet Slate
 
 ## Installing the Prerequisites  
 
@@ -57,7 +61,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674)
 > Install the Dependencies
 
 ```md
-$ cd dpSlate
+$ cd DevNetSlate
 $ bundle install
 ```
 
@@ -71,15 +75,15 @@ $ bundle exec middleman server
 
 ```
 
- 1. Login to Github and fork this repository on Github (https://github.com/pnerger/dpSlate)
- 2. Clone *your forked repository* (not our original one) to your hard drive with `git clone https://github.com/{YOURUSERNAME}/dpSlate.git`
- 3. `cd dpSlate`
+ 1. Login to Github and fork this repository on Github (https://github.com/pnerger/DevNetSlate)
+ 2. Clone *your forked repository* (not our original one) to your hard drive with `git clone https://github.com/{YOURUSERNAME}/DevNetSlate.git`
+ 3. `cd DevNetSlate`
  4. Install all dependencies: `bundle install`
  5. Start the test server: `bundle exec middleman server`
  
  ___OR___
 
- 1. Login to Github and download the dpSlate Zip file (https://github.com/pnerger/dpSlate)
+ 1. Login to Github and download the DevNet Slate Zip file (https://github.com/pnerger/DevNetSlate)
  2. unzip the zip file into the directory that you want to work in.
  3. cd to that directory.
  4. Install all dependencies: `bundle install`
@@ -88,13 +92,13 @@ $ bundle exec middleman server
 You can now see the docs using your browser at <http://localhost:4567>. And as you edit and save your `source/index.md`, your server should automatically update! Whoa! That was fast!
 
 
-# How dpSlate Works
+# How DevNet Slate Works
 
-dpSlate is an HTML document generator that is written and executed in Ruby.  The software reads a source-file in Github Flavored Markdown (GFM) that is used to generate an HTML API Reference Manual along with the accompanying Javascript and CSS files.  The Javascript and CSS files are simply included into the HTML that is generated from the GFM File.
+Cisco's implementation of Slate is an HTML document generator that is written and executed in Ruby.  The software reads a source-file in Github Flavored Markdown (GFM) that is used to generate an HTML API Reference Manual along with the accompanying Javascript and CSS files.  The Javascript and CSS files are simply included into the HTML that is generated from the GFM File.
 
-It all sounds simple, but it is a bit more complicated than that.  To get a consistent look and feel to your API documentation, we want the authors of API Reference Manuals and Tutorials to use the GFM tags in a particular way such that we get a common and consistent look and feel to your API documents.  It is important to achieve this cross-product consistency for if a developer gets trained and used to on your API Reference manual but now needs to use an API from another business unit, we want to leverage their experience and make the cross training experience simple and pleasant.
+It all sounds simple, but it is a bit more complicated than that.  To get a consistent look and feel to Cisco API documentation, we want the authors of API Reference Manuals to use the GFM tags in a particular way such that we get a common and consistent look and feel to Cisco API documents.  It is important to achieve this cross-product consistency for if a developer gets trained and used to on Cisco API Reference manual but now needs to use an API from another business unit, we want to leverage their experience and make the cross training experience simple and pleasant.
 
-## Structure of a dpSlate Document
+## Structure of a DevNet Slate Document
 
 As you look at this document, you will notice that there are a couple of feature.  First, to the left is the Table of Contents area.  Next, in the center is the Body of the document, and to the Right (in the dark area) are code examples.  Each of these elements have the following characteristics:
 
@@ -102,10 +106,9 @@ As you look at this document, you will notice that there are a couple of feature
 
 The TOC panel on the left hand side of the panel is composed of the following elements starting at the top and moving to the bottom:
 
-* Title Page - At the very top, is the title of the document.  If you've enabled the Title Page function, then an _about_ link will be created and when clicked it will open up a title page and provide more information about the document.
 * Search Box - If search is enabled, a Search Box will appear above the Table of Contents.  The Search Box is used to search the document looking for phrases of interest.  The phrases are then highlighted in the Table of Contents.
 * The Table of Contents - The Table of Contents are automatically built if the feature has been turned on.  By default, on the H1 is normally displayed.  If a user selects a H1 item, the TOC will expand to display the H2 items underneath it.  If the user selects a H2 item, the TOC will expand to display the H3 items underneath it.  Directives are used to control the table of contents.
-* The TOC Footer - you can use this to store information at the bottom of the table of contents.
+* The TOC Footer - for this we want Cisco Copyright Information.
 
 ### Document Body
 
@@ -126,17 +129,13 @@ The body of the document is found in the center panel and contains the main text
 
 ### Code Samples
 
-The key part of the dpSlate format for API documentation is that code samples can be viewed alongside of the API call that they illustrate.  Further sample code can be held simultaneously in several different programming languages (important for SOAP and REST API's).  Because programmers tend to only work in a single language at a time, the dpSlate format accommodates this by having the programming language as a tab on the far right panel.  Thus, the developer is able to choose a programming language and then use the documentation in that language without being distracted by any other language.
+The key part of the DevNet Slate format for API documentation is that code samples can be viewed alongside of the API call that they illustrate.  Further sample code can be held simultaneously in several different programming languages (important for SOAP and REST API's).  Because programmers tend to only work in a single language at a time, the DevNet Slate format accommodates this by having the programming language as a tab on the far right panel.  Thus, the developer is able to choose a programming language and then use the documentation in that language without being distracted by any other language.
 
 Sample code is anchored to either the H1 or H2 heading that they are inserted under; that is, they are placed under the Heading and will move up or down with the main text body. Code samples have the following elements that are used to control their placement:
 
 * Language - there is a tab for each language that is supported and specified in the header.  
 * Code Annotations - these are highlighted areas that are not code but used to point out a code section.
 * Shared Code Samples - it is possible to make code that appears in all of the tabs.
-
-<aside class="notice">
-The default behavior is to place code samples into a dedicated right-hand panel.  However, you can also turn off the right-hand panel and the code samples will appear inline with the text in the main panel of the document.
-</aside>
   
 # Specifying Your GFM Headers
 
@@ -144,52 +143,49 @@ The default behavior is to place code samples into a dedicated right-hand panel.
 
 ```markdown
 ---
-title: Authoring a API Tutorial using dpSlate
+title: Authoring a DevNet API Reference Manual
 
-version: V2.1 
+version: V2.0.1 
 
-copyright: Copyright &copy; 2014-2015 Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.
+copyright: Copyright &copy; 2014-2015 by Cisco Systems, Inc., All Rights Reserved.
 
-publisher: DeveloperProgram.com
+publisher: DevNet, Cisco's Developer Program
 
-publisher_address: Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA
+publisher_address: Cisco Systems, Inc., 150 W Tasman Dr, San Jose, CA 95134, USA
 
-comments: dpSlate is Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitationsunder the License.
+comments: DevNet Slate is based upon the open source project called Slate
 
 title_page: true
 
+languages:
+
 language_tabs:
   - shell: Sample
-  - java: Java
-  - python: Python
-  - c++: C++
-  
   
 toc_enabled: true
 
-codePanel_off: false
-
 search: true
   
-toc_selectors: h1,h2,h3
+toc_selectors: h1, h2, h3
   
 toc_footers:
-  - That's all folks!
+ - Copyright &copy; 2014 by Cisco Systems, Inc.
+ - All Rights Reserved.
 
 ---
 ```
-The source document that is used to generate a dpSlate API Reference Manual is a GFM Document.  The GFM document is a plain text document that starts with headers that set variables that are used to control how the document is formatted. These items about the document and include:
+The source document that is used to generate a DevNet Slate API Reference Manual is a GFM Document.  The GFM document is a plain text document that starts with headers that set variables that are used to control how the document is formatted. These items about the document and include:
 
 ## Title Page
 
 There are a number of variables that are used for display in the title page of the document.  The Title Page is displayed at the very top of the document is the text "About this Document" which is a link.  When the link is selected, the Title Page will open up and display information about the document from the variables in the header including:
 
-* title_page: if set to _true_ then the Title Page feature is turned on. 
+* title_page: if set to _true_ then the Title Page is turned on. 
 * title: text string contains the name of the document and is used for both the Title Page and the &lt;title&gt; tag in the header of the page.
-* version: a text string used to display the current version of the document in both the Title Page and the TOC Footer (if both are turned on).
-* copyright: a text string that contains the copyright statement for the document.  Copyright statements should contain the word "Copyright", followed by the copyright symbol of &copy;, followed by the years that the work was first created and the year that it was last modified, and finished off with the phrase "All Rights Reserved."
-* publisher: a text string that contains the name of the document publisher.
-* publisher_address: a text string that contains the address of the publisher.
+* version: a text string used to display the current version of the document in both the Title Page and the TOC Footer if it is turned on.
+* copyright: a text string that contains the copyright statement for the document.  Copyright statements should contain the word "Copyright", followed by the copyright symbol of &copy;, followed by the years that the work was first created and the year that it was last modified, and finished off with the phrase "All Rights Reservered."
+* publisher: a text string that contains the Cisco Organization followed by ", Cisco Systems, Inc."
+* publisher_address: a text string that contains the address of the publisher which should be "Cisco Systems, Inc., 150 W Tasman Dr, San Jose, CA 95134, USA".
 * comments:  a free text string that allows the author to put in information about the document that will help the reader understand the context.
 
 In addition to these values that are set for the Title Page, the date that the document was "built" is displayed at the bottom of the "Title Page" as the "Published Date".
@@ -199,7 +195,7 @@ In addition to these values that are set for the Title Page, the date that the d
 There is a _language_tab_ statement for each language that will be on the tab in the Sample Code section of the the document.  The _language_tab_ statement is followed by
 one or more lines that contain a statement that contains two blank spaces, a dash, the name of the language for use in encoding the document, an option ":", followed by an optional display name for the language.
 
-The name of the language must be recognized by the system such that the display engine will automatically perform syntax highlighting on the code.  The engine supports lots of different languages but the most common values used are:
+The name of the language must be recognized by the system such that the display engine will automatically perform syntax highlighting on the code.  The engine supports lots of different languages but for Cisco documents, these are the standard values that we want to use:
 
 * c++:C++
 * c#:C#
@@ -220,12 +216,19 @@ The name of the language must be recognized by the system such that the display 
 * yaml:YAML
 
 <aside class="notice">
-Only list the languages that you want to have as tabs in your document.  Each time you list a language as a _language_tab_, dpSlate will automatically create the language tab regardless if that language is used in the document.
+Only list the languages that you want to have as tabs in your document.  Each time you list a language as a _language_tab_, DevNet Slate will automatically create the language
+tab regardless if that language is used in the document.
+</aside>
+
+<aside class="notice">
+
+Please use the language tabs as stated above such that the Tabs are consistent between API's.
+
 </aside>
 
 # Creating a Table of Contents
 
-If turned on, the Table of Contents (ToC) appears in the far left panel of the document.  The ToC is automatically generated from the Headers found in your GFM source document but it is controlled by the values you set for directives in the headers of your documents.  If the ToC is enabled, then the headers that you designate using one or more `#` characters are used to collect the entries of the ToC. 
+The Table of Contents (ToC) appears in the far left panel of a document if it is turned on.  The ToC is automatically generated from the Headers found in your GFM source document but it is controlled by the values you set for directives in the headers of your documents.  If the ToC is enabled, then the headers that you designate using one or more `#` characters are used to collect the entries of the ToC. 
 
 ## ToC Directives
 
@@ -235,9 +238,14 @@ There are a number of directives for controlling how the Table of Contents is pr
 * toc_selectors: this is a comma list of the document elements that will be selected for inclusion into the table of contents.  If the statement is missing, then the default value is "h1, h2, h3" which means that Headers 1, 2, and 3 will be included into the Table of Contents.  If you were to choose "h2, h3, h4, h5" then the first level headers would be ignored and only the second, third, fourth, and fifth levels will be selected for inclusion into the Table of Contents.
 * toc_footers: this is a bullet list of text that will appear at the bottom of the table of contents.  The footer statement is used to place text and links at the bottom of the Table of Contents.  In addition to the values that you specify, the version number (see the version directive above) will be included, followed by the values that you provide, and finally the date that the document was built.
 
+<aside class="notice">
+Overtime, using the TOC footer to show copyright information will be deprecated for DevNet documents in favor of using the Title Page.
+</aside>
+
+
 ## Turning on Document Search
 
-dpSlate has the option of providing readers with a local search.  When you insert the line `search: true` into your header, the search option becomes enabled and a search box will appear in the Table of Contents right below the logo.
+DevNet Slate has the option of providing readers with a local search.  When you insert the line `search: true` into your header, the search option becomes enabled and a search box will appear in the Table of Contents right below the logo.
 
 When a user types in text into the search box, the Table of Contents is automatically filtered to remove sections that do not contain the search term.  Text that matches the search term will be highlighted with a yellow background.
 
@@ -352,12 +360,12 @@ The link definitions can appear anywhere in the document -- before or after the 
 > Using HTML Links in GRM
 
 ```html
-<a href="http://www.developerprogram.com" title="DP.com">DeveloperProgram.com Web Site</a>
+<a href="http://developer.cisco.com" title="DevNet">Cisco DevNet</a>
 ```
 
 You can also use standard HTML hyperlink syntax.  The HTML example to the right produces the text below:
 
-<a href="http://www.developerprogram.com" title="DP.com">DeveloperProgram.com Web Site</a>
+<a href="http://developer.cisco.com" title="DevNet">Cisco DevNet</a>
 
 
 ## Inserting an Image
@@ -365,12 +373,12 @@ You can also use standard HTML hyperlink syntax.  The HTML example to the right 
 > GFM for Inserting an Image Stored Locally
 
 ```markdown
-![DP Logo](/images/logo.png).
+![Cisco Logo](/images/logo.png).
 ```
 
-![DP Logo](/images/logo.png).
+![Cisco Logo](/images/logo.png).
 
-The Markdown to the right shows how an image can be inserted, in this case, it is the DP Logo that is right above this.  The text inside the square brackets, `[DP Logo]` will become the alt text for the image in the HTML `alt=` parameter.
+The Markdown to the right shows how an image can be inserted, in this case, it is the Cisco Logo that is right above this.  The text inside the square brackets, `[Cisco Logo]` will become the alt text for the image in the HTML `alt=` parameter.
 
 <aside class="success">
 Images essentially look just like a link except that they start with a '!' .
@@ -563,7 +571,7 @@ Use the `class="notice"` for blue notes, `class="warning"` for red warnings, and
     ```
 ```
 
-Code samples are an important way of communicating how to use an API.  dpSlate does an excellent job of handling code samples in multiple languages simultaneously through the use of the tabbed sample code panel on the right hand side.
+Code samples are an important way of communicating how to use an API.  DevNet Slate does an excellent job of handling code samples in multiple languages simultaneously through the use of the tabbed sample code panel on the right hand side.
 
 ## Inserting Large Code Samples
 
@@ -821,17 +829,17 @@ class PageElement(object):
 
 ```
 
-Sometimes you will need to insert a very large block of sample code that might be too wide or extremely deep.  dpSlate manages this by automatically creating vertical and horizontal scroll bars such that the sample code is preserved without taking up too much space.  The example to the right is an extremely large python program pulled from the Internet.  There is no wrapping of text, instead, your readers need to use horizontal scrolling to see the full code sample.  Also, it is very long, but a maximum height of 50 cm has been set for the display area.  If your sample code exceeds this, then dpSlate will also provide vertical scrolling such that the space is better managed. 
+Sometimes you will need to insert a very large block of sample code that might be too wide or extremely deep.  DevNet Slate manages this by automatically creating vertical and horizontal scroll bars such that the sample code is preserved without taking up too much space.  The example to the right is an extremely large python program pulled from the Internet.  There is no wrapping of text, instead, your readers need to use horizontal scrolling to see the full code sample.  Also, it is very long, but a maximum height of 50 cm has been set for the display area.  If your sample code exceeds this, then DevNet Slate will also provide vertical scrolling such that the space is better managed. 
 
 ## Inserting a Sample Code into a Particular Tab
 
 You denote a code samples by using three left-single-quote marks followed by the name of the language.  The name of the language is used to place the code sample into the proper tab. Each code samples will appear in the dark area to the right of the main text. Code samples need to appear right under the Level 1 or Level 2 headers in your markdown file to allow them to be anchored properly.
 
-The "language tabs" are the tabs that appear in the upper right of dpSlate Documents. Users browsing the docs use them to select their programming language of choice.
+The "language tabs" are the tabs that appear in the upper right of DevNet Slate Documents. Users browsing the docs use them to select their programming language of choice.
 
-In the sample GFM code to the right, the Ruby code will appear in the Ruby tab, while the Python code will appear in the Python tab. Because the dpSlate engine understands the syntax of most computer programming languages, the sample code will have its language syntax highlighted automatically in a way that would make sense to the developer.
+In the sample GFM code to the right, the Ruby code will appear in the Ruby tab, while the Python code will appear in the Python tab. Because the DevNet Slate engine understands the syntax of most computer programming languages, the sample code will have its language syntax highlighted automatically in a way that would make sense to the developer.
 
-But just because a language is used as sample code within a dpSlate document it does not mean that the tab will appear.  You tell the system which Language tabs you want to display by editing the `language-tabs` list at the top of your GFM source document.
+But just because a language is used as sample code within a DevNet Slate document it does not mean that the tab will appear.  You tell the system which Language tabs you want to display by editing the `language-tabs` list at the top of your GFM source document.
 
 <aside class="success"> Sometimes it is useful to share code between multiple tabs, you can do this by placing tagging the sample code using a language that is not used as a tab name.  For example if you tag sample code as `all` and `all` is not listed in the `language-tabs` then that sample code will appear in all of the tabs.</aside>
 
@@ -879,18 +887,18 @@ For example, I can use the `>` to place a table into the right hand panel.
 
 ```markdown
 
-> ![DP Logo](/images/logo.png).
+> ![Cisco Logo](/images/logo.png).
 
 ```
 
 > will result in the image placed into the right hand panel:
 
-> ![DP Logo](/images/logo.png)
+> ![Cisco Logo](/images/logo.png)
 
 
 Or, I can use the `>` to place an image into the right hand panel.  I can even use the `>` to place HTML code such as a YouTube video or any other content.
 
-# Creating your dpSlate Document
+# Creating your DevNet Slate Document
 
 ## Previewing your Docs
 
@@ -919,7 +927,7 @@ rake build
 > Output:
 
 ```md
-cd dpSlate
+cd DevNetSlate
 bundle exec middleman build --clean
       create  build/images/logo.png
       create  build/images/Untitled.png
@@ -976,11 +984,11 @@ The Middleman _build_ option builds your document to the `build` directory of yo
 
 ## Getting Your Document On DevNet
 
-Once you have built and tested your document using dpSlate, you can now get it publish it on DevNet.  You will need to raise a ticket to get your new static HTML files on DevNet for publishing.  You can do this by placing your build directory (with all subdirectories) into a zip, a Box.net folder or a Dropbox folder that you can share with the DevNet team. 
+Once you have built and tested your document using DevNet Slate, you can now get it publish it on DevNet.  You will need to raise a ticket to get your new static HTML files on DevNet for publishing.  You can do this by placing your build directory (with all subdirectories) into a zip, a Box.net folder or a Dropbox folder that you can share with the DevNet team. 
 
-# Elements of Style for API Documentation
+# Elements of Style for Cisco APIs'
 
-Now that you understand the mechanics of dpSlate.  Now we need to get into the specifics of how to use these tools to present a common, consistent, and great developer experience on DevNet for your API.
+Now that you understand the mechanics of DevNet Slate.  Now we need to get into the specifics of how to use these tools to present a common, consistent, and great developer experience on DevNet for your API.
 
 ## The Basics
 
@@ -997,4 +1005,4 @@ Before we get into the specifics, let's deal with the high-level guidelines or g
 
 REST (or RESTful) APIs are becoming the standard.  Developers like using REST APIs because they are simple and universal.  Because REST APIs use HTTP protocol along with JSON or XML, it is easy to call a REST API from pretty much any programming language.  As a result, there is a natural tendency for the API engineer to think that language libraries (wrappers that make the REST call in the programming language of choice) is not needed. This is a fallacy.
 
-A Programmer can call REST in a language like Python, Java, or C, with four to five lines of code.  When faced with this, the Programmer will typically write their own library of wrappers (code that encapsulates each REST end point) to make programming more module and cleaner.  Thus, if you want your API to be simple to use, you should have the wrappers for popular libraries built.  Next, you should use the language tabs of dpSlate to provide the syntax for each of the programming languages that you will be supporting.
+A Programmer can call REST in a language like Python, Java, or C, with four to five lines of code.  When faced with this, the Programmer will typically write their own library of wrappers (code that encapsulates each REST end point) to make programming more module and cleaner.  Thus, if you want your API to be simple to use, you should have the wrappers for popular libraries built.  Next, you should use the language tabs of DevNet Slate to provide the syntax for each of the programming languages that you will be supporting.
