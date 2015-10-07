@@ -4,7 +4,7 @@
   'use strict';
 
   var content, searchResults;
-  var highlightOpts = { element: 'span', className: 'search-highlight' };
+  var matchOpts = { element: 'span', className: 'match' };
 
   var index = new lunr.Index();
 
@@ -36,8 +36,10 @@
   }
 
   function search(event) {
-    unhighlight();
+    unmatch();
     searchResults.addClass('visible');
+    $(".toc-title").addClass('invisible'); 
+    $(".tocify").addClass('invisible');  //hide the Table of Contents when searching
 
     // ESC clears the field
     if (event.keyCode === 27) this.value = '';
@@ -49,28 +51,58 @@
 
       if (results.length) {
         searchResults.empty();
-        //$.each(results, function (index, result) {
-        //  var elem = document.getElementById(result.ref);
-        //  searchResults.append("<li><a href='#" + result.ref + "'>" + $(elem).text() + "</a></li>");
-        //});
-        highlight.call(this);
+        match.call(this);
         searchResults.html('<li style="color:green"></li>');
-        $('.search-results li').text( $('.search-highlight').length.toLocaleString('en') + ' Results Found and Highlighted');
+        var matches = $('.match');
+        $('.search-results li').text( matches.length.toLocaleString('en') + ' Results Found and Highlighted');
+        $('.search-results li').append('<span id="searchPrev"> &lt;&lt;prev </span><span id="searchNext"> next&gt;&gt; </span>');
+        // keep track of next and previous. Start at one because on SEARCH the forst one was already highlightes
+        var matchIndex = 1;
+        // look out for user click on NEXT
+        $('#searchNext').on('click', function() {
+          //Re-set match index to create a wrap effect if the amount if next clicks exceeds the amount of matches found
+          if (matchIndex >= matches.length){
+            matchIndex = 0;
+          }
+          var currentMatch = $('.match');
+          currentMatch.removeClass('search-highlight');
+          var nextMatch = $('.match').eq(matchIndex);
+          matchIndex += 1;
+          nextMatch.addClass('search-highlight');
+          // scroll to the top of the next found instance -n to allow easy viewing
+          $(window).scrollTop(nextMatch.offset().top-30);
+        });
+        // look out for user click on PREVIOUS
+        $('#searchPrev').on('click', function() {
+          //Re-set match index to create a wrap effect if the amount if next clicks exceeds the amount of matches found
+          if (matchIndex < 0){
+            matchIndex = matches.length-1;
+          }
+          var currentMatch = $('.match');
+          currentMatch.removeClass('search-highlight');
+          var previousMatch = $('.match').eq(matchIndex-2);
+          matchIndex -= 1;
+          previousMatch.addClass('search-highlight');
+          // scroll to the top of the next found instance -n to allow easy viewing
+          $(window).scrollTop(previousMatch.offset().top-30);
+        });
       } else {
         searchResults.html('<li style="color:red"></li>');
         $('.search-results li').text('No Results Found for "' + this.value + '"');
       }
     } else {
-      unhighlight();
+      unmatch();
       searchResults.removeClass('visible');
+      $(".toc-title").removeClass('invisible'); 
+      $(".tocify").removeClass('invisible');  //restore the toc
     }
   }
 
-  function highlight() {
-    if (this.value) content.highlight(this.value, highlightOpts);
+  function match() {
+    if (this.value) content.highlight(this.value, matchOpts);
   }
 
-  function unhighlight() {
-    content.unhighlight(highlightOpts);
+  function unmatch() {
+    content.unhighlight(matchOpts);
   }
 })();

@@ -50,6 +50,11 @@ html, body {
   width: 20px;
 }
 
+.invisible {
+  display: none;
+}
+  
+
 @mixin embossed-bg {
   background:
     //linear-gradient(to bottom, rgba(#000, 0.2), rgba(#000, 0) 8px),
@@ -131,6 +136,15 @@ html, body {
     transition-property: height, margin;
     transition-duration: 180ms;
     transition-timing-function: ease-in-out;
+    
+    span, .searchPrev, .searchNext {
+      cursor: pointer; cursor: hand;
+      font-size: 10pt;
+      color: #085777;
+      padding: 5px;
+      text-decoration: none;
+    }
+    
     &.visible {
       height: 30%;
       margin-bottom: 1em;
@@ -148,11 +162,8 @@ html, body {
     a {
       color: $nav-text;
       text-decoration: none;
-
-      &:hover {
-        text-decoration: none;
-      }
     }
+    
   }
 
 
@@ -246,6 +257,7 @@ html, body {
                 font-size: 10pt;
                 margin-top: 5px;
                 margin-bottom: 5px;
+                width: 90%;
                 padding : 3px;
                 overflow-x: visible;
                 white-space: pre-wrap;
@@ -612,13 +624,23 @@ html, body {
     @extend %icon-ok-sign;
   }
 
-  .search-highlight {
+  .match{
     padding: 2px;
     margin: -2px;
     border-radius: 4px;
     border: 1px solid #F7E633;
     //@include text-shadow(1px 1px 0 #666);
     background: linear-gradient(to top left, #F7E633 0%, #F1D32F 100%);
+  }
+  
+  .search-highlight {
+    padding: 2px;
+    margin: -2px;
+    border-radius: 4px;
+    border: 1px solid #4E9A06;
+    color: white;
+    //@include text-shadow(1px 1px 0 #666);
+    background: linear-gradient(to top left, #4E9A06 0%, #4E9A06 100%);
   }
   
 }
