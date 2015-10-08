@@ -3,7 +3,7 @@ dpSlate
 
 dpSlate helps you create beautiful single-page API documentation. Think of it as an intelligent, responsive documentation template for your API. This variation is based upon the Slate work done by Tripit which in turn was inspired by the API documentation by Stripe.
 
-![Sample Screenshot of Format](images/dpSlate.png)
+![Sample Screenshot of Format](source/images/dpSlate.png)
 
 [View the live, interactive document now!](build/index.html)
 
