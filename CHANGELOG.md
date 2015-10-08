@@ -1,49 +1,30 @@
 # Changelog
 
-## Version 1.2
+## Version 2.0
 
-*June 20, 2015*
+*October 7, 2015*
 
-**Fixes:**
+- Merged in all of the changes from TripIt Slate including search and responsive design
+- Added new Title Page Directives and Title Page Display
+- Added an automatic publish date that is taken from the time of the build
+- Added ability to specify that Code Samples should be inline rather than in a separate panel
+- Added an ability to specify which elements should be used for ToC via a directive
+- Enhanced search such that it displays the number of results and allows the user to step through previous and next matches
+- Made Table of Contents disappear when Search was activated
+- Changed Table of Contents to remain open
+- Enabled strikethrough in Markdown
+- Updated manual to describe how to use the tool
+- Changed styling to make it lighter and more modern
+- Changed Language Tabs to be buttons rather than tabs
+- Changed name to be consistently dpSlate for this Forked version
 
-- Remove crash on invalid languages
-- Update Tocify to scroll to the highlighted header in the Table of Contents
-- Fix variable leak and update search algorithms
-- Update Python examples to be valid Python
-- Update gems
-- More misc. bugfixes of Javascript errors
-- Add Dockerfile
-- Remove unused gems
-- Optimize images, fonts, and generated asset files
-- Add chinese font support
-- Remove RedCarpet header ID patch
-- Update language tabs to not disturb existing query strings
-
-## Version 1.1
-
-*July 27th, 2014*
-
-**Fixes:**
-
-- Finally, a fix for the redcarpet upgrade bug
 
 ## Version 1.0
 
-*July 2, 2014*
+*December, 2013*
 
-[View Issues](https://github.com/tripit/slate/issues?milestone=1&state=closed)
+- Forked from TripIt Slate
+- Changed Styling
+- Created a User Manual
 
-**Features:**
 
-- Responsive designs for phones and tablets
-- Started tagging versions
-
-**Fixes:**
-
-- Fixed 'unrecognized expression' error
-- Fixed #undefined hash bug
-- Fixed bug where the current language tab would be unselected
-- Fixed bug where tocify wouldn't highlight the current section while searching
-- Fixed bug where ids of header tags would have special characters that caused problems
-- Updated layout so that pages with disabled search wouldn't load search.js
-- Cleaned up Javascript
