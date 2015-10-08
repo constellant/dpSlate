@@ -3,9 +3,9 @@ dpSlate
 
 dpSlate helps you create beautiful single-page API documentation. Think of it as an intelligent, responsive documentation template for your API. This variation is based upon the Slate work done by Tripit which in turn was inspired by the API documentation by Stripe.
 
-![Sample Screenshot of Format](https://rawgithub.com/pnerger/dpSlate/dpSlate/source/images/dpSlate.png)
+![Sample Screenshot of Format](images/dpSlate.png)
 
-[View the live, interactive document now!](http://rawgithub.com/pnerger/dpSlate/dpSlate/build/index.html)
+[View the live, interactive document now!](build/index.html)
 
 Features
 ------------
@@ -62,17 +62,6 @@ You can now see the docs at <http://localhost:4567>. Whoa! That was fast!
 
 Now that Slate is all set up your machine, you'll probably want to learn more about [editing Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax), or [how to publish your docs](https://github.com/tripit/slate/wiki/Deploying-Slate).
 
-### Alternative Setup with Docker
-
-```shell
-docker build -t slate .
-docker run -d -p 4567:4567 slate
-```
-
-You can now see the docs at <http://localhost:4567>. Whoa! That was fast!
-
-*Note: if you're using the Docker setup on OSX, the docs will be
-availalable at the output of `boot2docker ip` instead of `localhost:4567`.*
 
 Learn How to Create a dpSlate API Document
 ---------------------------------
