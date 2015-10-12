@@ -127,7 +127,7 @@ html, body {
   }
 
   .search-results {
-    margin-top: 0;
+    margin: 0;
     box-sizing: border-box;
     height: 0;
     overflow-y: auto;
@@ -136,20 +136,15 @@ html, body {
     transition-property: height, margin;
     transition-duration: 180ms;
     transition-timing-function: ease-in-out;
-      &>a, li {
-        padding: 20px $nav-padding 20px -$nav-padding;
-        display: block;
-        overflow-x: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        line-height: 1.5;
-        &:hover {
-          overflow-x: hidden;
-          white-space: normal;
-        }
+    &>a, li {
+      margin: 0px;
+      padding: 5px;
+      display: block;
+      overflow-x: visible;
+      white-space: pre-wrap;
+      line-height: 1.5;
     }
 
-    
     span, .searchPrev, .searchNext {
       cursor: pointer; cursor: hand;
       font-size: 10pt;
@@ -162,6 +157,8 @@ html, body {
       height: 30%;
       margin-bottom: 1em;
     }
+    
+  }
 
     //@include embossed-bg;
 
@@ -177,7 +174,6 @@ html, body {
       text-decoration: none;
     }
     
-  }
 
 
   .tocify-item>a, li {
