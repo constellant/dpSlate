@@ -136,6 +136,19 @@ html, body {
     transition-property: height, margin;
     transition-duration: 180ms;
     transition-timing-function: ease-in-out;
+      &>a, li {
+        padding: 20px $nav-padding 20px -$nav-padding;
+        display: block;
+        overflow-x: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        line-height: 1.5;
+        &:hover {
+          overflow-x: hidden;
+          white-space: normal;
+        }
+    }
+
     
     span, .searchPrev, .searchNext {
       cursor: pointer; cursor: hand;
@@ -231,7 +244,7 @@ html, body {
     padding-bottom: 0px;
     border-top: 2px solid $nav-footer-border-color;
       
-    .toc-title {
+    .toc-title, .doc-title {
         padding-left: 0px;
         padding-top: 0px;
         padding-bottom: 0px;
