@@ -57,7 +57,7 @@
         $('.search-results li').text( matches.length.toLocaleString('en') + ' Results Found and Highlighted');
         $('.search-results li').append('<span id="searchPrev"> &lt;&lt;prev </span><span id="searchNext"> next&gt;&gt; </span>');
         // keep track of next and previous. Start at one because on SEARCH the forst one was already highlightes
-        var matchIndex = 1;
+        var matchIndex = 0;
         // look out for user click on NEXT
         $('#searchNext').on('click', function() {
           //Re-set match index to create a wrap effect if the amount if next clicks exceeds the amount of matches found
