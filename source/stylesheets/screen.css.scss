@@ -640,6 +640,7 @@ html, body {
     border: 1px solid #F8FF00;
     //@include text-shadow(1px 1px 0 #666);
     background: #F8FF00;
+    color: #000000;
   }
   
   .search-highlight {
@@ -647,9 +648,9 @@ html, body {
     margin: -2px;
     border-radius: 4px;
     border: 1px solid #F89000;
-    color: white;
     //@include text-shadow(1px 1px 0 #666);
     background: #F89000;
+    color: #000000;
   }
   
 }

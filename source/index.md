@@ -1,6 +1,6 @@
 ---
 
-title: Authoring a API Tutorial Using dpSlate
+title: Authoring an API Tutorial Using dpSlate
 
 version: V2.1 
 
