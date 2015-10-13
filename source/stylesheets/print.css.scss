@@ -42,8 +42,10 @@ body {
 }
 
 .about .title-page  {
-  display: block; ul {
-      display: inline-block;  
+  display: block !important;
+  
+  ul {
+      display: block;  
       li, a {
         line-height: 1.3;
         font-size: 10pt;
