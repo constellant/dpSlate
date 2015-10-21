@@ -23,7 +23,7 @@ language_tabs:
   
 toc_enabled: true
 
-codePanel_off: false
+codePanel_off: true
 
 search: true
   
