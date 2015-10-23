@@ -15,6 +15,8 @@ License for the specific language governing permissions and limitations
 under the License.
 %>
 <% codePanel_off = (current_page.data.codePanel_off || false) %>
+<% toc = (current_page.data.toc_enabled || true) %>
+<% toc_accordion = (current_page.data.toc_accordion || false ) %>
 <% language_tabs = current_page.data.language_tabs %>
 <!doctype html>
 <html>
@@ -36,7 +38,6 @@ under the License.
     <% else %>
       <%= javascript_include_tag  "all_nosearch" %>
     <% end %>
-    <% toc = (current_page.data.toc_enabled || true) %>
     <% if toc %>
       <script>
         (function (global) {
@@ -53,9 +54,10 @@ under the License.
               extendPage: false,
               theme: "none",
               smoothScroll: false,
-              showAndHide: false,
+              showAndHide: <%= toc_accordion %>,
               showEffect: "slideDown",
-              showEffectSpeed: 0,
+              showEffectSpeed: 180,
+              hideEffect: "slideUp",
               hideEffectSpeed: 180,
               highlightOffset: 60,
               scrollTo: 50,
@@ -87,6 +89,14 @@ under the License.
           $(animate);
         })(window);
       </script>
+      
+      <% if toc_accordion %>
+        <style>
+          .tocify-subheader {
+             display: none;
+          }  
+        </style>
+      <% end %>
       
     <% end %>
     <% if language_tabs %>
