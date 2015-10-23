@@ -23,14 +23,16 @@ language_tabs:
   
 toc_enabled: true
 
+toc_selectors: h1,h2,h3
+
+toc_accordion: true
+
 codePanel_off: false
 
 search: true
-  
-toc_selectors: h1,h2,h3
-  
-toc_footers:
 
+toc_footers:
+  
 ---
 
 # Introduction 
@@ -167,6 +169,8 @@ language_tabs:
   
 toc_enabled: true
 
+toc_accordion: true
+
 codePanel_off: false
 
 search: true
@@ -231,8 +235,9 @@ If turned on, the Table of Contents (ToC) appears in the far left panel of the d
 
 There are a number of directives for controlling how the Table of Contents is presented.  These are:
 
-* search: this true or false value will be used to turn on/off the search function.  The search function will only be enabled if the Table of Contents are turned on.
+* search: this true or false value will be used to turn on/off the search function.  The search function will only be enabled if the Table of Contents are turned on.  
 * toc_selectors: this is a comma list of the document elements that will be selected for inclusion into the table of contents.  If the statement is missing, then the default value is "h1, h2, h3" which means that Headers 1, 2, and 3 will be included into the Table of Contents.  If you were to choose "h2, h3, h4, h5" then the first level headers would be ignored and only the second, third, fourth, and fifth levels will be selected for inclusion into the Table of Contents.
+* toc_accordion: this is a true or false value that is used to either fully expand the table of contents (_i.e.,_ true) or to make the table of contents interactive in which case only the very top level is displayed and when the user clicks on an entry, any sub-headers open up in an accordion (_i.e.,_ false).  The default value is false.
 * toc_footers: this is a bullet list of text that will appear at the bottom of the table of contents.  The footer statement is used to place text and links at the bottom of the Table of Contents.  In addition to the values that you specify, the version number (see the version directive above) will be included, followed by the values that you provide, and finally the date that the document was built.
 
 ## Turning on Document Search
