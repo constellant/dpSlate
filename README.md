@@ -1,11 +1,10 @@
-dpSlate
-========
+dpSlate V4
+==========
 
 dpSlate helps you create beautiful single-page API documentation. Think of it as an intelligent, responsive documentation template for your API. This variation is based upon the Slate work done by Tripit which in turn was inspired by the API documentation by Stripe.
 
-![Sample Screenshot of Format](source/images/dpSlate.png)
+dpSlate has extensive revisions and enhancements including the integration with dpEngine, the developer portal Software-as-a-Service from DeveloperProgram.com (www.developerprogram.com)
 
-[View the live, interactive document now!](build/index.html)
 
 Features
 ------------
@@ -35,13 +34,20 @@ Getting Started with Slate
 
 ### Prerequisites
 
-You're going to need:
+There are two ways to install dpSlate; standalone or with dpEngine.
 
- - **Linux or OS X** — Windows will probably work, but is unsupported.
+ 
+If you are using dpEngine, no setup is required and all you will need is a browser to connect to your developer program portal.
+
+To install it Standalone, you will need the following pre-requisites:
+
+ - **Linux, OS X, or Windows** will probably work, but is unsupported.
  - **Ruby, version 1.9.3 or newer**
  - **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
+.
+ 
 
-### Getting Set Up
+### Getting Started
 
  1. Fork this repository on Github.
  2. Clone *your forked repository* (not our original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/dpSlate.git`
@@ -62,9 +68,6 @@ You can now see the docs at <http://localhost:4567>. Whoa! That was fast!
 
 Now that Slate is all set up your machine, you'll probably want to learn more about [editing Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax), or [how to publish your docs](https://github.com/tripit/slate/wiki/Deploying-Slate).
 
-
-Learn How to Create a dpSlate API Document
----------------------------------
 
 Contributors
 --------------------
