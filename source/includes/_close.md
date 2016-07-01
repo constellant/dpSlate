@@ -1,89 +1,3 @@
----
-
-title: "dpSlate User's Guide"
-
-version: "V4.0" 
-
-copyright: "Copyright &copy; 2013-2015 Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved."
-
-publisher: "DeveloperProgram.com"
-
-publisher_address: "Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA"
-
-comments: "dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC."
-
-titlePage: ON
-
-tableOfContents: ON
-
-tocAccordian: ON
-
-rightPanel: ON
-
-leftPanel: ON
-
-documentSearch: ON
-
-language_tabs:
-  - shell: Sample
-  - python: Python
-  - ruby: Ruby
-  
-toc_selectors: "h1,h2,h3"
-  
-toc_footers:
-
----
-
-# Introduction 
-
-dpSlate is an HTML authoring tool that help authors more effectively communicate to an audience.  Originally designed specifically to author API reference manuals, it has been expanded to create a much wider selection of documents.  As a result of enhancements to dpSlate, it can now be used to create many different types of documents including:
-
-* Overviews
-* Getting Started Guides
-* Tutorials
-* Technical Reference Manuals
-* Sample Apps
-
-To accommodate the need to deal with different types of documents, dpSlate allows the document author to control the structure of how the document will be formatted.  dpSlate can have up to three different panels that the author can turn on or off as required by the type of document:
-
-* _Left Hand Panel_ - used for document meta-data such as a title page, document search, and table of contents.
-
-* _Center Panel_ - used for the contents of the document.
-
-* _Right Hand Panel_ used for code samples and other technical reference materials.
-
-This document describes how an engineer or tech writer can use dpSlate to publish technical materials on a developer portal powered by dpEngine.  
-
-## Document with Left and Right Panel Turned On
-
-> dpSlate Document with all three panels on
-
-> ![dpSlate with Three Panels](/images/dpslate/threePanel.png)
-
-When all three panels are turned on, the dpSlate document will look as shown.  The three panels are for the document meta-data (left), body of the document, and supporting materials to the right.
-
-## Document with Right Panel Turned Off
-
-> dpSlate Document with two panels on
-
-> ![dpSlate with Two Panels](/images/dpslate/twoPanel.png)
-
-
-When the right panel is turned off, the supporting materials that were in the right hand panel are not brought into the center panel at the appropriate place.  The left hand panel is not imacted.
-
-## Document with the Left Panel Turned Off
-
-> dpSlate Document with one panel on
-
-> ![dpSlate with One Panels](/images/dpslate/onePanel.png).
-
-Finally, when the left hand panel is turned off, the document becomes a single column document with the meta-data at the top and the body of the document below.  
-
-<aside class="notice">
-When the Left Hand Panel is turned off, the Right Hand Panel will also be turned off at the same time.
-</aside>
-
 # Getting Started with dpSlate
 
 dpSlate can be used either stand alone on a PC or can be used to automatically publish documents to your portal if it is powered by dpEngine.  
@@ -1098,69 +1012,9 @@ bundle exec middleman build --clean
 ```
 The Middleman _build_ option builds your document to the `build` directory of your project.
 
-# Includes or Partials
+## Getting Your Document On DevNet
 
->
-
-```erb
-
----
-
-title: "Document Built from Partials"
-
-version: "V4.0" 
-
-copyright: "Copyright &copy; 2013-2016"
-
-publisher: "Paul Nerger"
-
-publisher_address: "San Francisco, CA 94110"
-
-comments: "dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
-
-titlePage: ON
-
-tableOfContents: ON
-
-tocAccordian: ON
-
-rightPanel: ON
-
-leftPanel: ON
-
-documentSearch: ON
-
-language_tabs:
-  - shell: Sample
-  - python: Python
-  - ruby: Ruby
-  
-toc_selectors: "h1,h2,h3"
-  
-toc_footers:
-
----
-
-<%= partial "site/test/includes/intro.md" %>
-
-# Body of the Document
-
-This contains the text that is the body of the dpSlate document.  I can put whatever Markdown that I want in the body.
-
-<%= partial "site/test/includes/close.md" %>
-
-```
-
-Often, users want to be able to share a common set of markdown text between multiple documents.  Unfortunately, standard GFM does not have a facility to do that.  Fortunately, dpSlate does.
-
-The way that I recommend using includes is using the _Partial_ feature of Middleman - the static document generator behind dpSlate.  Middleman is a ruby static site generator that knows how to transform different document types into HTML including Markdown.  One of the supported document types is the .erb file which is the Embedded RuBy file.  Typically these are files with the .html.erb extension which says that it is an HTML file with embedded ruby tags, but we're interested in the .md.erb file type which is a Markdown File with embedded ruby tags.
-
-When you have an .md.erb file, you can embed Ruby Logic into the file and Middleman will process the logic building a temporary Markdown file which is then processed into an HTML file using the dpSlate logic.  Thus, it is possible to build an markdown file that includes other Markdown files using the erb tag called the partial.
-
-For example, let's say that we have a document in the folder `source/site/example/index.md.erg` and we want to build this from two included Markdown files that are `source/site/example/includes/_intro.md` and `source/site/example/includes/_close.md'.  We can use these includes using the code to the right in our `index.md.erb` file.   
-
-
-<aside class="notice"> You should note, that the file name starts with a `_` (underscore) character while the reference to it in the partial tag does not. </aside>
+Once you have built and tested your document using dpSlate, you can now get it publish it on DevNet.  You will need to raise a ticket to get your new static HTML files on DevNet for publishing.  You can do this by placing your build directory (with all subdirectories) into a zip, a Box.net folder or a Dropbox folder that you can share with the DevNet team. 
 
 # Elements of Style for API Documentation
 
@@ -1177,6 +1031,7 @@ Before we get into the specifics, let's deal with the high-level guidelines or g
 * _Use Graphics_ - a picture is worth a thousand words.  The right graphic in the right place helps you to keep things simple.
 
 ## Language Libraries
+
 
 REST (or RESTful) APIs are becoming the standard.  Developers like using REST APIs because they are simple and universal.  Because REST APIs use HTTP protocol along with JSON or XML, it is easy to call a REST API from pretty much any programming language.  As a result, there is a natural tendency for the API engineer to think that language libraries (wrappers that make the REST call in the programming language of choice) is not needed. This is a fallacy.
 
