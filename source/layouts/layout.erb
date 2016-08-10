@@ -59,91 +59,10 @@
       <% language_tabs = [] %>
     <% end %>
     
-    <script>
-        window.jQuery || document.write('<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"><\/script>')
-    </script>
-    
     <style>
       <%= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
     </style>
-
-    <% if search %>
-      <%= javascript_include_tag  "all" %>
-    <% else %>
-      <%= javascript_include_tag  "all_nosearch" %>
-    <% end %>
       
-    <% if language_tabs %>
-      <script>
-        $(function() {
-          setupLanguages(<%= language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>);
-        });
-      </script>
-    <% end %>
-      
-    <% if toc %>
-      <script>
-          
-        (function (global) {
-          'use strict';
-          
-          var closeToc = function() {
-            $(".tocify-wrapper").removeClass('open');
-            $("#nav-button").removeClass('open');
-          };
-        
-          var makeToc = function() {
-            global.toc = $("#toc").tocify({
-              selectors: "<%= current_page.data.toc_selectors || 'h1,h2,h3' %>",
-              extendPage: false,
-              theme: "none",
-              smoothScroll: false,
-              showAndHide: <%= toc_accordion %>,
-              showEffect: "slideDown",
-              showEffectSpeed: 180,
-              hideEffect: "slideUp",
-              hideEffectSpeed: 180,
-              highlightOffset: 60,
-              scrollTo: 50,
-              scrollHistory: true,
-              hashGenerator: function (text, element) {
-                return element.prop('id');
-              }
-            }).data('toc-tocify');
-        
-            $("#nav-button").click(function() {
-              $(".tocify-wrapper").toggleClass('open');
-              $("#nav-button").toggleClass('open');
-              return false;
-            });
-        
-            $(".page-wrapper").click(closeToc);
-            $(".tocify-item").click(closeToc);
-          };
-        
-          // Hack to make already open sections to start opened,
-          // instead of displaying an ugly animation
-          function animate () {
-            setTimeout(function() {
-              toc.setOption('showEffectSpeed', 180);
-            }, 50);
-          }
-        
-          $(makeToc);
-          $(animate);
-        })(window);
-
-      </script>
-      
-      <% if toc_accordion %>
-        <style>
-          .tocify-subheader {
-             display: none;
-          }  
-        </style>
-      <% end %>
-      
-    <% end %>
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
@@ -197,15 +116,7 @@
               </div>
             </div>
           </div>
-          <script>      
-            $(".about-control").click(function () {
-              $(".title-page").slideToggle(500, function () {
-                $(".about-control").text(function () {
-                  return $(".title-page").is(":visible") ? "hide" : "about";
-                });
-              });
-            });
-          </script>
+
         <% end %>
         <% if search %>
           <div class="search">
@@ -258,5 +169,110 @@
         <% end %>
       </div>
     </div>
+
+<!-- Add all of the JavaScript at the end -->      
+
+<%= javascript_include_tag "jquery.min" %>      
+<%= javascript_include_tag  "energize" %>
+<%= javascript_include_tag  "lang" %>
+<% if search %>
+  <%= javascript_include_tag  "lunr" %>
+  <%= javascript_include_tag  "jquery.highlight" %>      
+  <%= javascript_include_tag  "search" %>
+<% end %>
+<%= javascript_include_tag  "jquery_ui" %>
+<% if toc %>      
+  <%= javascript_include_tag  "jquery.tocify" %>
+<% end %>      
+<%= javascript_include_tag  "imagesloaded.min" %>
+
+<!-- Configure the table of contents --> 
+      
+<% if toc %>
+  <% if toc_accordion %>
+    <style>
+        .tocify-subheader {
+            display: none;
+        }  
+    </style>
+  <% end %>      
+      
+  <script>        
+    (function (global) {
+        'use strict';
+          
+        var closeToc = function() {
+            $(".tocify-wrapper").removeClass('open');
+            $("#nav-button").removeClass('open');
+        };
+        
+        var makeToc = function() {
+            global.toc = $("#toc").tocify({
+              selectors: "<%= current_page.data.toc_selectors || 'h1,h2,h3' %>",
+              extendPage: false,
+              theme: "none",
+              smoothScroll: false,
+              showAndHide: <%= toc_accordion %>,
+              showEffect: "slideDown",
+              showEffectSpeed: 180,
+              hideEffect: "slideUp",
+              hideEffectSpeed: 180,
+              highlightOffset: 60,
+              scrollTo: 50,
+              scrollHistory: true,
+              hashGenerator: function (text, element) {
+                return element.prop('id');
+              }
+            }).data('toc-tocify');
+        
+            $("#nav-button").click(function() {
+              $(".tocify-wrapper").toggleClass('open');
+              $("#nav-button").toggleClass('open');
+              return false;
+            });
+        
+            $(".page-wrapper").click(closeToc);
+            $(".tocify-item").click(closeToc);
+          };
+        
+          // Hack to make already open sections to start opened,
+          // instead of displaying an ugly animation
+          function animate () {
+            setTimeout(function() {
+              toc.setOption('showEffectSpeed', 180);
+            }, 50);
+          }
+        
+          $(makeToc);
+          $(animate);
+    })(window);
+
+  </script>
+<% end %>  
+
+<!-- Turn on the toggle for the Title Page -->
+      
+<% if title_page %>      
+  <script>      
+    $(".about-control").click(function () {
+        $(".title-page").slideToggle(500, function () {
+            $(".about-control").text(function () {
+                return $(".title-page").is(":visible") ? "hide" : "about";
+            });
+        });
+    });
+  </script>
+<% end %> 
+
+<!-- Configure the language tabs -->
+      
+<% if language_tabs %>
+  <script>
+    $(function() {
+        setupLanguages(<%= language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>);
+    });
+  </script>
+<% end %>   
+      
 </body>
 </html>
