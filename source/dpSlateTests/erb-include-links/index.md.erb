@@ -1,0 +1,59 @@
+---
+
+title: "Test of Erb includes"
+
+version: "Version 1.0" 
+
+copyright: ""
+
+publisher: ""
+
+publisherAddress: ""
+
+comments: " "
+
+titlePage: ON
+
+tableOfContents: ON
+
+tocAccordian: ON
+
+rightPanel: ON
+
+leftPanel: ON
+
+documentSearch: ON
+
+languageTabs:
+  - erb: Embedded Ruby
+  
+tocSelectors: "h1,h2,h3"
+  
+tocFooters:
+
+---
+
+# Test description
+
+```erb
+
+<%%= partial "_ErbVariables.erb" %>
+
+```
+
+Include the erb partial show on the right.
+
+<%= partial "_ErbVariables.erb" %>
+
+# Test results
+
+```erb
+
+<%% VariableOne = "VariableOne" %>
+<%% VariableTwo = "Another Variable" %>
+
+```
+The partial read the variables shown on the right.  And below the test should be substituted.
+
+VariableOne is _<%= VariableOne %>_.
+VariableTwo is _<%= VariableTwo %>_.

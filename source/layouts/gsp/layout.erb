@@ -1,0 +1,115 @@
+<% if File.exists? ('source/defaults.yml') %>
+    <% defaults = YAML.load_file('source/defaults.yml') %>
+<% else %>
+    <% defaults = {} %>
+<% end %>    
+
+<% !defaults["title"].nil? ? title = defaults["title"] : title = "" %>
+<% !defaults["version"].nil? ? version = defaults["version"] : version = "" %> 
+<% !defaults["copyright"].nil? ? copyright = defaults["copyright"] : copyright = "" %>
+<% !defaults["publisher"].nil? ? publisher = defaults["publisher"] : publisher = "" %>
+<% !defaults["publisherAddress"].nil? ? publisherAddress = defaults["publisherAddress"] : publisherAddress = "" %>
+<% !defaults["comments"].nil? ? comments = defaults["comments"] : comments = "" %>
+<% !defaults["titlePage"].nil? ? titlePage = defaults["titlePage"] : titlePage = true %>
+<% !defaults["ableOfContents"].nil? ? tableOfContents = defaults["tableOfContents"] : tableOfContents = true %> 
+<% !defaults["tocAccordion"].nil? ? tocAccordion = defaults["tocAccordion"] : tocAccordion = true %>
+<% !defaults["rightPanel"].nil? ? rightPanel = defaults["rightPanel"] : rightPanel = true %>
+<% !defaults["leftPanel"].nil? ? leftPanel = defaults["leftPanel"] : leftPanel = true %>
+<% !defaults["documentSearch"].nil? ? documentSearch = defaults["documentSearch"] : documentSearch = true %>
+<% !defaults["languageTabs"].nil? ? languageTabs = defaults["languageTabs"] : languageTabs = [ {'default' => "Default"} ] %>
+<% !defaults["tocSelectors"].nil? ? tocSelectors = defaults["tocSelectors"] : tocSelectors = "h1,h2,h3" %>
+<% !defaults["tocFooters"].nil? ? tocFooters = defaults["tocFooters"] : tocFooters = [] %>
+
+<%# load the default directives in the Markdown file %>
+<% !current_page.data.title.nil? ? title = current_page.data.title : title=title %>
+<% !current_page.data.version.nil? ? version = current_page.data.version : version=version %> 
+<% !current_page.data.copyright.nil? ? copyright = current_page.data.copyright :  copyright=copyright%>
+<% !current_page.data.publisher.nil? ? publisher = current_page.data.publisher :  publisher=publisher %>
+<% !current_page.data.publisherAddress.nil? ? publisherAddress = current_page.data.publisherAddress : publisherAddress=publisherAddress%>
+<% !current_page.data.comments.nil? ? comments = current_page.data.comments :  comments=comments%>
+<% !current_page.data.titlePage.nil? ? titlePage = current_page.data.titlePage : titlePage=titlePage%>
+<% !current_page.data.tableOfContents.nil? ? tableOfContents = current_page.data.tableOfContents :  tableOfContents = tableOfContents%> 
+<% !current_page.data.tocAccordion.nil? ? tocAccordion = current_page.data.tocAccordion :  tocAccordion=tocAccordion %>
+<% !current_page.data.rightPanel.nil? ? rightPanel = current_page.data.rightPanel :  rightPanel=rightPanel%>
+<% !current_page.data.leftPanel.nil? ? leftPanel = current_page.data.leftPanel :  leftPanel=leftPanel %>
+<% !current_page.data.documentSearch.nil? ? documentSearch = current_page.data.documentSearch : documentSearch=documentSearch %>
+<% !current_page.data.languageTabs.nil? ? languageTabs = current_page.data.languageTabs : languageTabs=languageTabs%>
+<% !current_page.data.tocSelectors.nil? ? tocSelectors = current_page.data.tocSelectors : tocSelectors=tocSelectors%>
+<% !current_page.data.tocFooters.nil? ? tocFooters = current_page.data.tocFooters : tocFooters=tocFooters%>
+
+
+<g:applyLayout name='bizwrap-wide-slate'>
+
+  <content tag="headIncludes">
+    <% if !leftPanel %>
+      <%= stylesheet_link_tag :inlinetoc_screen, media: :screen %>
+      <%= stylesheet_link_tag :inlinecode_screen, media: :screen %>
+      <% languageTabs = [] %>
+    <% end %>
+    <% if !rightPanel %>
+      <%= stylesheet_link_tag :inlinecode_screen, media: :screen %>
+      <% languageTabs = [] %>
+    <% end %>
+    
+    <style>
+      <%= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
+    </style>
+  </content> 
+
+  <content tag="lang-anchors" >
+    <% languageTabs.each_with_index do |lang, index| %>
+        <% if lang.is_a? Hash %>
+              <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
+        <% else %>
+              <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
+        <% end %>
+    <% end %> 
+  </content>   
+
+<% if titlePage %>    
+  <content tag="doc-title">
+    <%= title %>
+  </content>  
+
+  <content tag="about-title">    
+     <%= title %>
+  </content>  
+
+  <content tag="about-version">   
+     <%= version %>
+  </content>  
+
+  <content tag="about-copyright">   
+    <%= copyright %>
+  </content>  
+
+  <content tag="about-publisher">   
+    <%= publisher %> 
+  </content>  
+
+  <content tag="about-publisher-address">  
+    <%= publisherAddress %> 
+  </content>
+
+  <content tag="about-comments">  
+      <%= version %>
+  </content>    
+
+  <content tag="about-published-date"> 
+      <%= datestring %>   
+  </content>    
+<% end %>
+  
+  <content tag="output-from-markdown">  
+      <%= yield %>
+      <% current_page.data.includes && current_page.data.includes.each do |include| %>
+          <%= partial "includes/#{include}" %>
+      <% end %>
+  </content>         
+ 
+
+  <content tag="js-includes">
+
+  </content>
+
+</g:applyLayout>
