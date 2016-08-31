@@ -44,6 +44,8 @@
 <html>
     
   <head>   
+    <!-- get Bootstrap from CDN -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
     <% if !leftPanel %>
@@ -171,6 +173,7 @@
 <!-- Add all of the JavaScript at the end -->      
 
 <%= javascript_include_tag "jquery.min" %>      
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
 <%= javascript_include_tag  "energize" %>
 <%= javascript_include_tag  "lang" %>
 <% if documentSearch %>
