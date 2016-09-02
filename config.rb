@@ -33,14 +33,14 @@ activate :syntax
 #set :relative_links, true
 
 
-# dpEngine configuration call with $ DP=true bundle exec middleman build
-if ENV['DP']
-  set :layouts_dir, 'layouts/gsp/'
-  template_extensions :md => :gsp, :erb => :gsp
-end
-
 # Build configuraton
 configure :build do
+  # dpEngine configuration call with '$ DP=true bundle exec middleman build'    
+  if ENV['DP']
+    set :layouts_dir, 'layouts/gsp/'
+    template_extensions :md => :gsp, :erb => :gsp
+    set :http_prefix, "/site"    
+  end
   activate :minify_css
   activate :minify_javascript
   # activate :relative_assets

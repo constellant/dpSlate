@@ -6,11 +6,11 @@ titlePage: ON
 
 tableOfContents: ON
 
-tocAccordian: OFF
+tocAccordion: OFF 
 
 rightPanel: OFF
 
-leftPanel: OFF
+leftPanel: ON
 
 languageTabs:
   - md: Markdown
@@ -28,7 +28,7 @@ This is a Markdown Fidelity test.  It is used to test various Markdown facilitie
 This test is successful if the markdown generates the proper HTML.  The test is successful if:
 
 - The content below is rendered properly.
-- The document is in a Single Pane with Markdown Samples inline
+- The document has two Panes, with a Table of Contents to the left but with Markdown Samples inline
 - The document has a collapsable Title Page at the Top
 - The title page has a copyright, publisher, and publisherAddress which comes from the `default.yml`
 - The document does NOT have a search box (search boxes go away in single column documents)

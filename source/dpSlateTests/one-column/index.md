@@ -1,6 +1,6 @@
 ---
 
-title: "dpSlate Two Column Test"
+title: "dpSlate One Column Test"
 
 version: "V4.0" 
 
@@ -16,11 +16,11 @@ titlePage: ON
 
 tableOfContents: ON
 
-tocAccordian: ON
+tocAccordion: ON
 
 rightPanel: OFF
 
-leftPanel: ON
+leftPanel: OFF
 
 documentSearch: ON
 
@@ -41,7 +41,11 @@ This document presents a test case for the two-column format in which the right-
 
 This test is sucessful if:
 
-1.  The page is displayed with two columns; a Table of Contents on the Left and the main panel.
+1.  The page is displayed with one columns.
+2.  The Title Page and the Table of Contents appear at the top of the page.
+3.  The Title Page is not expanded.
+4.  The Table of Contents is expaned.
+5.  There is no document search facility.
 2.  Below, you see a code that is inline in this main panel.
 3.  The code does not scroll within a code window but is displayed within the window in full.
 

@@ -68,7 +68,7 @@ under the License.
   transition: left 0.3s ease-in-out;
   overflow-y: auto;
   overflow-x: hidden;
-  position: fixed;
+  position: absolute; 
   z-index: 30;
   top: 0;
   left: 0;
@@ -141,7 +141,7 @@ under the License.
       padding: 5px;
       display: block;
       overflow-x: visible;
-      white-space: pre-wrap;
+      //white-space: pre-wrap;
       line-height: 1.5;
     }
 
@@ -180,12 +180,12 @@ under the License.
     padding: 20px $nav-padding 20px -$nav-padding;
     display: block;
     overflow-x: hidden;
-    white-space: nowrap;
+    //white-space: nowrap;
     text-overflow: ellipsis;
     line-height: 1.5;
     &:hover {
         overflow-x: visible;
-        white-space: pre-wrap;
+        //white-space: pre-wrap;
     }
   }
 
@@ -249,7 +249,7 @@ under the License.
         font-style:italic;
         font-weight: bold;
         overflow-x: visible;
-        white-space: pre-wrap;
+       //white-space: pre-wrap;
         font-size: 20px;
         color: $nav-active-text;
 
@@ -269,7 +269,7 @@ under the License.
                 width: 90%;
                 padding : 3px;
                 overflow-x: visible;
-                white-space: pre-wrap;
+                //white-space: pre-wrap;
                 color: $nav-subheader-text;
                 //border-bottom: 2px solid $nav-footer-border-color;
             }
@@ -303,7 +303,7 @@ under the License.
     padding: 0;
     margin-top: 1em;
     overflow-x: visible;
-    white-space: pre-wrap;
+    //white-space: pre-wrap;
     //border-top: 2px solid $nav-footer-border-color;
     //border-bottom: 2px solid $nav-footer-border-color;
 

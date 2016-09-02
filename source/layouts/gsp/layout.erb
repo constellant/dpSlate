@@ -45,6 +45,8 @@
       <%= stylesheet_link_tag :inlinetoc_screen, media: :screen %>
       <%= stylesheet_link_tag :inlinecode_screen, media: :screen %>
       <% languageTabs = [] %>
+      <% tocAccordion = false %>
+      <style> #slateWrapper .tocify-wrapper { position: static; } </style>
     <% end %>
     <% if !rightPanel %>
       <%= stylesheet_link_tag :inlinecode_screen, media: :screen %>
@@ -54,16 +56,7 @@
     <style>
       <%= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
     </style>
-  </content> 
-
-  <content tag="lang-anchors" >
-    <% languageTabs.each_with_index do |lang, index| %>
-        <% if lang.is_a? Hash %>
-              <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
-        <% else %>
-              <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
-        <% end %>
-    <% end %> 
+      
   </content>   
 
 <% if titlePage %>    
@@ -105,8 +98,43 @@
       <% current_page.data.includes && current_page.data.includes.each do |include| %>
           <%= partial "includes/#{include}" %>
       <% end %>
-  </content>         
- 
+  </content>
+
+  <content tag="lang-anchors">
+    <% languageTabs.each do |lang| %>
+      <% if lang.is_a? Hash %>
+        <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
+      <% else %>
+        <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
+      <% end %>
+    <% end %>    
+  </content>
+
+  <content tag="js-lang-array">
+    <%= languageTabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>  
+  </content>
+
+  <content tag="toc-js">
+    var makeToc = function() {
+        global.toc = $("#toc").tocify({
+        context: '.content',    
+        selectors: "<%= tocSelectors || 'h1,h2,h3' %>",
+        extendPage: false,
+        theme: "none",
+        smoothScroll: false,
+        showAndHide: <%= tocAccordion %>,
+        showEffect: "slideDown",
+        showEffectSpeed: 180,
+        hideEffect: "slideUp",
+        hideEffectSpeed: 180,
+        highlightOffset: 60,
+        scrollTo: 50,
+        scrollHistory: true,
+        hashGenerator: function (text, element) {
+        return element.prop('id');
+        }
+     }).data('toc-tocify');
+  </content>    
 
   <content tag="js-includes">
 
