@@ -56,7 +56,7 @@ There is no need to modify this file.  Any subdirectory will automatically be in
 Below are links to each of the test cases that are located in sub-directories of `/source/dpSlateTests/`.
     
 <% Dir.foreach("source/dpSlateTests/") do |file| next if file[0] == '.' or file == 'index.md.erb' %>
-  <% url = '/dpSlateTests/' + file %>
+  <% url = config[:http_prefix] + 'dpSlateTests/' + file %>
 
 ## _Test:_ <%= file %> 
     

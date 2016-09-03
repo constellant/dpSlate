@@ -39,7 +39,7 @@ configure :build do
   if ENV['DP']
     set :layouts_dir, 'layouts/gsp/'
     template_extensions :md => :gsp, :erb => :gsp
-    set :http_prefix, "/site"    
+    set :http_prefix, "/site/"    
   end
   activate :minify_css
   activate :minify_javascript
