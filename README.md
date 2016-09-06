@@ -68,7 +68,7 @@ You can now see the docs at <http://localhost:4567>. Whoa! That was fast!
 
 Now that Slate is all set up your machine, you'll probably want to learn more about [editing Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax), or [how to publish your docs](https://github.com/tripit/slate/wiki/Deploying-Slate).
 
-Migrating from dpSlate v4.0
+Migrating from dpSlate v4.0 to dpSlate V4.1
 ---------------------------
 
 dpSlate v4.1 adds new features that allows improved integration into dpEngine, this was the major goal of v4.1.  To achieve this goal, we made it such that dpSlate is:
@@ -78,17 +78,8 @@ dpSlate v4.1 adds new features that allows improved integration into dpEngine, t
 * enabled the building of .gsp pages instead of .html pages when dpSlate is running on a dpEngine server.
 * enable the ability to create a default `defaults.yml` file in the `/source` directory which will allow you to set your document directives globally for the site.  Thus, you will no longer need to bother with YAML directives which do not change from page to page; you just set it in the new defaults.yml.  As part of this we changed the name of the directives to make them more consistent. 
 
-To enable this to work, we needed to change the way that dpSlate works and as such there will be some conversion that you will need to make some changes to migrate your documents to dpSlate V4.1.
+To enable this to work, we needed to change the way that dpSlate works and as such there will be some conversion that you will need to make some changes to migrate your documents to dpSlate V4.1.  You will find this information in the dpSlate Manual in the Release Notes.
 
- ## The build directory has moved.  
- 
- Previously, the `build` directory was located in your git repository.  The new location of the build directory is not in your git repository but will be parallel to your git root directory and will be called `/site`
-
-## The `\images` directory has moved.  
-
-Previously, you simply specified your images being in the root `/images` directory.  To ensure that your dpSlate images do not conflict with other images being used on dpSlate, images are now located in the file `/dpSlateStatic/images` and thus you will need to add the `/dpSlateStatic` to the front of your image references.
-
-## The YAML directives have been updated.
 
 Contributors
 --------------------

@@ -2,7 +2,7 @@
 
 title: "dpSlate User's Guide"
 
-version: "V4.0" 
+version: "V4.1" 
 
 copyright: "Copyright &copy; 2013-2015 Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved."
 
@@ -16,7 +16,7 @@ titlePage: ON
 
 tableOfContents: ON
 
-tocAccordian: ON
+tocAccordion: ON
 
 rightPanel: ON
 
@@ -45,15 +45,13 @@ dpSlate is an HTML authoring tool that help authors more effectively communicate
 * Technical Reference Manuals
 * Sample Apps
 
-To accommodate the need to deal with different types of documents, dpSlate allows the document author to control the structure of how the document will be formatted.  dpSlate can have up to three different panels that the author can turn on or off as required by the type of document:
+To accommodate the need to deal with different types of documents, dpSlate allows the document author to control the structure of how the document will be formatted.  Each dpSlate document can have up to three different panels that the author can turn on or off as required:
 
 * _Left Hand Panel_ - used for document meta-data such as a title page, document search, and table of contents.
 
 * _Center Panel_ - used for the contents of the document.
 
-* _Right Hand Panel_ used for code samples and other technical reference materials.
-
-This document describes how an engineer or tech writer can use dpSlate to publish technical materials on a developer portal powered by dpEngine.  
+* _Right Hand Panel_ used for code samples and other technical reference materials. 
 
 ## Document with Left and Right Panel Turned On
 
@@ -86,7 +84,7 @@ When the Left Hand Panel is turned off, the Right Hand Panel will also be turned
 
 # Getting Started with dpSlate
 
-dpSlate can be used either stand alone on a PC or can be used to automatically publish documents to your portal if it is powered by dpEngine.  
+dpSlate can be used either stand alone on a PC or can be used to automatically publish documents to your portal if it is powered by dpEngine.  When you use dpSlate, you need to determine if you want to work in _Stand Alone Mode_ or _dpEngine Mode_.  
 
 ## Installing and Using dpSlate in Stand Alone Mode  
 
@@ -137,31 +135,38 @@ You can now see the docs using your browser at <http://localhost:4567>. And as y
 > dpSlate directory structure in Bitbucket
 
 ```
-\dpslate
+\dpSlate
 	\source
+        _defaults.yml - this file contains your site defaults for YAML directives
 		\site
 			\xyz
 				\abc
-					index.md			
-		\images
-			\xyz
-				\abc
-					image1.png
-					image2.jpeg
-	\build
-		\site
-			\xyz
-				\abc
-					index.html
-		\images
-			\xyz
-				\abc
-					image1.png
-					image2.jpeg
+				index.md - this is your source document
+        \dpSlateStatic
+            \images
+			     \xyz
+				    \abc
+					   image1.png - these are your images for your document
+            \css
+            \data
+            \fonts
+            \includes
+                \xyz
+                    \abc
+                        _partial1.md - these are your partials for inclusion into your document
+
 \site
 	\xyz
 		\abc
-			index.gsp
+			index.gsp - this is your formatted document for your portal
+    \dpSlateStatic
+        \images
+			 \xyz
+				\abc
+				    image1.png - these are your compressed images
+        \css
+        \data
+        \fonts
 
 ```
 
@@ -190,7 +195,7 @@ The second method is to view the document using your browser in the staging envi
 
 # How dpSlate Works
 
-dpSlate generates HTML documents from Github Flavored Markdown (GFM), a particular dialect of Markdown.  dpSlate software is written in Ruby and takes advantage of some popular Ruby software including Middleman, RedCarpet, and Rouge.  The dpSlate software reads a .md (markdown) source-file and will output a .html file along with the accompanying Javascript and CSS files.
+When used in _Stand Alone Mode_, dpSlate generates HTML documents from Github Flavored Markdown (GFM), a particular dialect of Markdown.  When used in _dpEngine Mode_, dpSlate generates GSP documents from the GFM Markdown in a particular format that dpEngine wants. dpSlate software is written in Ruby and takes advantage of some popular Ruby software including Middleman, RedCarpet, and Rouge.  The dpSlate software reads a .md (markdown) source-file and will output a .html file along with the accompanying Javascript and CSS files.
 
 To get a consistent look and feel to your web documentation, you will want your  authors to use the GFM tags in a particular to we get a common and consistent look and feel.
 
@@ -246,13 +251,13 @@ The default behavior is to place code samples into a dedicated right-hand panel.
 ---
 title: "Authoring Documents dpSlate"
 
-version: "V4.0" 
+version: "V4.1" 
 
 copyright: "Copyright &copy; 2013-2015 Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved."
 
 publisher: "DeveloperProgram.com"
 
-publisher_address: "Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA"
+publisherAddress: "Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA"
 
 comments: "dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC."
 
@@ -260,7 +265,7 @@ titlePage: ON
 
 tableOfContents: ON
 
-tocAccordian: OFF
+tocAccordion: OFF
 
 rightPanel: ON
 
@@ -268,16 +273,13 @@ leftPanel: ON
 
 documentSearch: ON
 
-language_tabs:
+languageTabs:
   - shell: Sample
   - python: Python
   - ruby: Ruby
   
-toc_selectors: "h1,h2,h3"
+tocSelectors: "h1,h2,h3"
   
-toc_footers:
-  - That's all folks!
-
 ---
 ```
 A GitHub Flavored Markdown (GFM) source document is used to generate each of the dpSlate Documents that are presented on the portal.  Each dpSlate GFM source document is a plain text document that starts with a Yet Another Markup Language (YAML) header that contains directives used to control how the document will be formatted.  The YAML header starts and ends with a line that has three dashes, `---`, that start in the first column of the line.
@@ -316,14 +318,14 @@ There are a number of variables that are used for display in the title page of t
 * `version:` a text string used to display the current version of the document in both the Title Page and the TOC Footer (if both are turned on).
 * `copyright:` a text string that contains the copyright statement for the document.  Copyright statements should contain the word "Copyright", followed by the copyright symbol of &copy;, followed by the years that the work was first created and the year that it was last modified, and finished off with the phrase "All Rights Reserved."
 * `publisher:` a text string that contains the name of the document publisher.
-* `publisher_address:` a text string that contains the address of the publisher.
+* `publisherAddress:` a text string that contains the address of the publisher.
 * `comments:`  a free text string that allows the author to put in information about the document that will help the reader understand the context.
 
 In addition to these values that are set for the Title Page, the date that the document was "built" is displayed at the bottom of the "Title Page" as the "Published Date".
 
 ## Turning on Language Tabs
 
-The _language_tab_ directive is used to create the programming language tabs that make up the right hand panel of a dpSlate document.  The _language_tab_ directive is a list and thus the _language_tab_ statement is followed by one or more lines containing a statement that contains two blank spaces, a dash, the name of the language for use in encoding the document, an option ":", followed by an optional display name for the language.
+The _languageTab_ directive is used to create the programming language tabs that make up the right hand panel of a dpSlate document.  The _languageTab_ directive is a list and thus the _languageTab_ statement is followed by one or more lines containing a statement that contains two blank spaces, a dash, the name of the language for use in encoding the document, an option ":", followed by an optional display name for the language.
 
 The name of the language must be recognized by the system such that the display engine will automatically perform syntax highlighting on the code.  The engine supports lots of different languages but the most common values used are:
 
@@ -346,7 +348,7 @@ The name of the language must be recognized by the system such that the display 
 * yaml:YAML
 
 <aside class="notice">
-Only list the languages that you want to have as tabs in your document.  Each time you list a language as a _language_tab_, dpSlate will automatically create the language tab regardless if that language is used in the document.
+Only list the languages that you want to have as tabs in your document.  Each time you list a language as a _languageTab_, dpSlate will automatically create the language tab regardless if that language is used in the document.
 </aside>
 
 # The Left Hand Panel
@@ -358,12 +360,15 @@ When turned on, the far left panel of a dpSlate document contains the title page
 There are a number of directives for controlling how the Table of Contents is presented.  These are:
 
 * `documentSearch:` a boolean used to turn the document search feature on and off.
-* `toc_selectors:` this string is a comma list of the document elements that will be selected for inclusion into the table of contents.  If the statement is missing, then the default value is "h1, h2, h3" which means that Headers 1, 2, and 3 will be included into the Table of Contents.  If you were to choose "h2, h3, h4, h5" then the first level headers would be ignored and only the second, third, fourth, and fifth levels will be selected for inclusion into the Table of Contents.
-* `toc_footers:` this list will be used to create a bullet list of text that will appear at the bottom of the table of contents.  The footer statement is used to place text and links at the bottom of the Table of Contents.  In addition to the values that you specify, the version number (see the version directive above) will be included, followed by the values that you provide, and finally the date that the document was built.
+* `tocSelectors:` this string is a comma list of the document elements that will be selected for inclusion into the table of contents.  If the statement is missing, then the default value is "h1, h2, h3" which means that Headers 1, 2, and 3 will be included into the Table of Contents.  If you were to choose "h2, h3, h4, h5" then the first level headers would be ignored and only the second, third, fourth, and fifth levels will be selected for inclusion into the Table of Contents.
 
 <aside class="notice">
 Document Search is dpSlate's way of providing a full text index for readers.  When you turn on document search in your document, a search box will appear above the  Table of Contents. When the reader types in text into the search box, the Table of Contents will be removed and text in the document that matches the search term will be highlighted with a yellow background.  A _next_ and _prev_ button will be provided to allow the reader to jump to the next and previous hit on the search term.
 </aside>
+
+## Default Directives
+
+The YAML directives can be set at a site wide level for all of your documents. Thus, you can avoid typing in the same text for each of the directives for each document.  This feature also allows you to set your site defaults for directives and then change them for all documents quickly.  You do this by modifying the file at `\dpSlate\source\_defaults.yml`.  This file contains all of the directives that you will see in your document and you can set them globally for your site.  If you later define a directive in a specific document, the document value will overide the default value that you set.
 
 # Creating the Body of a dpSlate Document
 
@@ -1160,7 +1165,7 @@ When you have an .md.erb file, you can embed Ruby Logic into the file and Middle
 For example, let's say that we have a document in the folder `source/site/example/index.md.erg` and we want to build this from two included Markdown files that are `source/site/example/includes/_intro.md` and `source/site/example/includes/_close.md'.  We can use these includes using the code to the right in our `index.md.erb` file.   
 
 
-<aside class="notice"> You should note, that the file name starts with a `_` (underscore) character while the reference to it in the partial tag does not. </aside>
+<aside class="notice"> You should note, that the file name starts with a `_` (underscore) character while the reference to it in the partial tag does not.  With dpSlate, any file that begins with an `_` (underscore) will not be processed and thus it is used for partials and other files that are included into your document. </aside>
 
 # Elements of Style for API Documentation
 
@@ -1181,3 +1186,65 @@ Before we get into the specifics, let's deal with the high-level guidelines or g
 REST (or RESTful) APIs are becoming the standard.  Developers like using REST APIs because they are simple and universal.  Because REST APIs use HTTP protocol along with JSON or XML, it is easy to call a REST API from pretty much any programming language.  As a result, there is a natural tendency for the API engineer to think that language libraries (wrappers that make the REST call in the programming language of choice) is not needed. This is a fallacy.
 
 A Programmer can call REST in a language like Python, Java, or C, with four to five lines of code.  When faced with this, the Programmer will typically write their own library of wrappers (code that encapsulates each REST end point) to make programming more module and cleaner.  Thus, if you want your API to be simple to use, you should have the wrappers for popular libraries built.  Next, you should use the language tabs of dpSlate to provide the syntax for each of the programming languages that you will be supporting.
+
+# Release Notes - dpSlate V4.1
+
+dpSlate v4.1 adds new features that allows improved integration into dpEngine, this was the major goal of v4.1.  To achieve this goal, we made it such that dpSlate is:
+
+* based upon the Bootstrap CSS framework from Twitter
+* builds directly into the /site directory which is where dpEngine holds its content
+* enabled the building of .gsp pages instead of .html pages when dpSlate is running on a dpEngine server.
+* enable the ability to create a default `defaults.yml` file in the `/source` directory which will allow you to set your document directives globally for the site.  Thus, you will no longer need to bother with YAML directives which do not change from page to page; you just set it in the new defaults.yml.  As part of this we changed the name of the directives to make them more consistent. 
+
+To enable this to work, we needed to change the way that dpSlate works and as such there will be some conversion that you will need to make some changes to migrate your documents to dpSlate V4.1.
+
+## Migrating to dpSlate V4.1
+
+### The build directory has moved.  
+ 
+ Previously, the `build` directory was located in your git repository.  The new location of the build directory is not in your git repository but will be parallel to your git root directory and will be called `/site`
+
+### The `\images` directory has moved.  
+
+> dpSlate V4.0
+
+```md
+
+[/images/myimage.png]
+
+```
+
+> dpSlate V4.1
+
+```md
+
+[/dpSlateStatic/images/myimage.png]
+
+```
+
+Previously, your images were located in a root `/images` directory.  To ensure that your dpSlate images do not conflict with other images being used on dpSlate, images are now located in the file `/dpSlateStatic/images`.  Thus, you will need to add the `/dpSlateStatic` to the front of your image references.  For example, if you have an imag
+
+### Updated YAML Directives
+
+In V4.0, some of the YAML directives were in _camel case_ format while others were not.  We've decided to make these consistent by placing them all in _camel case_ format.  Below are the old directives and new:
+
+| V4.0  | New V4.1 | Description |
+|---------- | --------- | :------------|
+| title     | _same_     | the title of your document |
+| copyright | _same_ | the copyright statement for your document |
+| publisher | _same_ | your company name |
+| publisher_address | publisherAddress | the main address for your company |
+| commments | _same_ | any additional information that you want to put on the title page |
+| titlePage | _same_ | Boolean to turn titlePage ON or OFF |
+| tableOfContents | _same_ | Boolean to turn table of contents ON or OFF |
+| tocAccordian | tocAccordion | Boolean to turn the expanding ToC feature ON or OFF |
+| rightPanel | _same_ | Boolean to turn the right hand panel ON or OFF, when OFF code samples are moved in-line |
+| leftPanel | _same_ | Boolean to turn the left hand panel off, when turned off Title Page and ToC are moved to the top |
+| documentSearch | _same_ | Boolean to turn the document search feature ON or OFF |
+| language_tabs | languageTabs | Array to add the language name, and display name for each language tab |
+| toc_selectors | tocSelectors | comma list of HTML headings that will be used in the Table of Contents |
+| toc_footers | _deprecated_ | Deprecated.  You should use _comments_ instead | 
+
+### Default YAML Directives
+
+Make sure that you take advantage of the new default YAML directive capability by setting your default values in the file at `/dpSlate/source/_defaults.yml`.
