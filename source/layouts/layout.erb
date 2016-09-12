@@ -43,17 +43,22 @@
 <!doctype html>
 <html>
     
-  <head>   
+  <head> 
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= stylesheet_link_tag 'bootstrap.min', media: :screen %>
     <%= stylesheet_link_tag :screen, media: :screen %>
+    <% if tableOfContents %> 
+    <%= stylesheet_link_tag 'tocbot', media: :screen %>
+    <% end %>
     <%= stylesheet_link_tag :print, media: :print %>
-    <% if !leftPanel %>
-      <%= stylesheet_link_tag :inlinetoc_screen, media: :screen %>
+
+    <% if !leftPanel %>       
       <%= stylesheet_link_tag :inlinecode_screen, media: :screen %>
       <% languageTabs = [] %>
-      <% tocAccordion = false %>
-      <style> #slateWrapper .tocify-wrapper { position: static; } </style>
-    <% else %>
-      <style> #slateWrapper .tocify-wrapper { position: fixed; } </style>
+      <% tocAccordion = false %>  
     <% end %>
     <% if !rightPanel %>
       <%= stylesheet_link_tag :inlinecode_screen, media: :screen %>
@@ -64,204 +69,170 @@
     </style>
   </head>
 
-  <body class="<%= page_classes %>" data-languages="<%= languageTabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
-  <div id="slateWrapper">
-      <a href="#" id="nav-button">
-      <span>
-        NAV
-        <%= image_tag('navbar.png') %>
-      </span>
-    </a>
-      
-      
-    <div class="tocify-wrapper">
-      <% if languageTabs %>
-        <div class="lang-selector">
-          <% languageTabs.each do |lang| %>
-            <% if lang.is_a? Hash %>
-              <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
-            <% else %>
-              <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>   
-      <% if tableOfContents %>
-        <% if titlePage %>
-          <div class=toc-header>
-            <div class=doc-title><%= title %></div>
-            <div class="about">
-              <div class="about-control"><span>about</span></div>
-              <div class="title-page">
-                <ul>
-                <% if title %>
-                  <li><strong><i>Title: </i></strong><%= title %> </li>
-                <% end %>
-                <% if version %>
-                  <li><strong><i>Version: </i></strong><%= version %></li>
-                <% end %>
-                <% if copyright %>
-                  <li><strong><i>Copyright: </i></strong><%= copyright %></li>
-                <% end %>
-                <% if publisher %>
-                  <li><strong><i>Publisher: </i></strong><%= publisher %></li>
-                <% end %>
-                <% if publisherAddress %>
-                  <li><strong><i>Publisher Address: </i></strong><%= publisherAddress %></li>
-                <% end %>
-                <% if comments %>
-                  <li><strong><i>Comments: </i></strong><%= comments %></li>
-                <% end %>
-                  <li><strong><i>Published Date: </i></strong><%= datestring %></li>
-                </ul>
+  <body class="<%= page_classes %>" 
+        data-languages="<%= languageTabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
+
+ <div class="container-fluid slate-fluid">     
+   <!-- Example row of columns -->
+      <div class="row-fluid slate-fluid">      
+
+        <div id="slateWrapper">   
+            
+           <div class="span3 <% if !leftPanel %> col-xs-12 <% else %>col-xs-12 col-md-3<% end %>">  
+
+            <div id="toc">
+
+
+            <% if tableOfContents %>
+
+              <% if titlePage %>
+
+                <div class=toc-header>
+
+                  <div class=doc-title><%= title %></div>
+
+                  <!-- going to make this a bootstrap modal -->
+                  <div class="about" style="display:none;"> 
+
+                    <div class="about-control"><span>about</span></div>
+                    <div class="title-page">
+                      <ul>
+                      <% if title %>
+                        <li><strong><i>Title: </i></strong><%= title %> </li>
+                      <% end %>
+                      <% if version %>
+                        <li><strong><i>Version: </i></strong><%= version %></li>
+                      <% end %>
+                      <% if copyright %>
+                        <li><strong><i>Copyright: </i></strong><%= copyright %></li>
+                      <% end %>
+                      <% if publisher %>
+                        <li><strong><i>Publisher: </i></strong><%= publisher %></li>
+                      <% end %>
+                      <% if publisherAddress %>
+                        <li><strong><i>Publisher Address: </i></strong><%= publisherAddress %></li>
+                      <% end %>
+                      <% if comments %>
+                        <li><strong><i>Comments: </i></strong><%= comments %></li>
+                      <% end %>
+                        <li><strong><i>Published Date: </i></strong><%= datestring %></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                </div>
+
+              <% end %>
+              <% if documentSearch %>
+                <div class="search">
+                  <input type="text" class="search" id="input-search" placeholder="Search Document">
+                  <ul class="search-results"></ul>
+                </div>
+              <% end %>
+              <div class=toc-header>
+                <div class=toc-title>Table of Contents</div>
               </div>
+
+              <div class="toc js-toc"> </div>
+
+              <% if !tocFooters.blank? %>
+                <div class="toc-footer">
+                  <ul class="toc-footer">
+                    <% tocFooters.each do |footer| %>
+                      <li><%= footer %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>    
+
+        <div class="span9 col-xs-12 col-md-9"> 
+          
+          <div class="page-wrapper">
+
+            <div class="dark-box"></div>
+
+            <div class="content">
+              <%= yield %>
+              <% current_page.data.includes && current_page.data.includes.each do |include| %>
+                <%= partial "includes/#{include}" %>
+              <% end %>
             </div>
+
+            <div class="dark-box">
+              <% if languageTabs %>
+                <div class="lang-selector" id="myLang">
+                  <% languageTabs.each_with_index do |lang, index| %>
+                    <% if index == 0 %>
+                      <% classValue = "class='active'" %>
+                    <% else %>
+                      <% classValue = "" %>
+                    <% end %>
+                    <% if lang.is_a? Hash %>
+                      <a href="#" data-language-name="<%= lang.keys.first %>" <%= classValue %> ><%= lang.values.first %></a>
+                    <% else %>
+                      <a href="#" data-language-name="<%= lang %>" <%= classValue %> ><%= lang %></a>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+
           </div>
 
-        <% end %>
-        <% if documentSearch %>
-          <div class="search">
-            <input type="text" class="search" id="input-search" placeholder="Search Document">
-            <ul class="search-results"></ul>
-          </div>
-        <% end %>
-        <div class=toc-header>
-          <div class=toc-title>Table of Contents</div>
-        </div>
-        <div id="toc">
-        </div>
-        <% if !tocFooters.blank? %>
-          <div class="toc-footer">
-            <ul class="toc-footer">
-              <% tocFooters.each do |footer| %>
-                <li><%= footer %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-    <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
-        <%= yield %>
-        <% current_page.data.includes && current_page.data.includes.each do |include| %>
-          <%= partial "includes/#{include}" %>
-        <% end %>
+         </div>
+
+        </div>   
+
       </div>
-      <div class="dark-box">
-        <% if languageTabs %>
-          <div class="lang-selector">
-            <% languageTabs.each_with_index do |lang, index| %>
-              <% if index == 0 %>
-                <% classValue = "class='active'" %>
-              <% else %>
-                <% classValue = "" %>
-              <% end %>
-              <% if lang.is_a? Hash %>
-                <a href="#" data-language-name="<%= lang.keys.first %>" <%= classValue %> ><%= lang.values.first %></a>
-              <% else %>
-                <a href="#" data-language-name="<%= lang %>" <%= classValue %> ><%= lang %></a>
-              <% end %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-</div>      
+
+  </div>   
 
 <!-- Add all of the JavaScript at the end -->      
 
-<%= javascript_include_tag "jquery.min" %>      
+<%= javascript_include_tag "jquery.min" %>   
+<%= javascript_include_tag "bootstrap.min" %>    
 <%= javascript_include_tag  "energize" %>
 <%= javascript_include_tag  "lang" %>
+<%= javascript_include_tag "jquery-scrolltofixed-min" %>  
 <% if documentSearch %>
   <%= javascript_include_tag  "lunr" %>
   <%= javascript_include_tag  "jquery.highlight" %>      
   <%= javascript_include_tag  "search" %>
 <% end %>
-<%= javascript_include_tag  "jquery_ui" %>
+ 
 <% if tableOfContents %>      
-  <%= javascript_include_tag  "jquery.tocify" %>
+  <%= javascript_include_tag  "tocbot.min" %>
 <% end %>      
 <%= javascript_include_tag  "imagesloaded.min" %>
 
 <!-- Configure the table of contents --> 
       
-<% if tableOfContents %>
-  <% if tocAccordion %>
-    <style>
-        .tocify-subheader {
-            display: none;
-        }  
-    </style>
-  <% end %>      
+<% if tableOfContents %> 
       
   <script>        
-    (function (global) {
-        'use strict';
-          
-        var closeToc = function() {
-            $(".tocify-wrapper").removeClass('open');
-            $("#nav-button").removeClass('open');
-        };
-        
-        var makeToc = function() {
-            global.toc = $("#toc").tocify({
-              context: '.content',    
-              selectors: "<%= tocSelectors || 'h1,h2,h3' %>",
-              extendPage: false,
-              theme: "none",
-              smoothScroll: false,
-              showAndHide: <%= tocAccordion %>,
-              showEffect: "slideDown",
-              showEffectSpeed: 180,
-              hideEffect: "slideUp",
-              hideEffectSpeed: 180,
-              highlightOffset: 60,
-              scrollTo: 50,
-              scrollHistory: true,
-              hashGenerator: function (text, element) {
-                return element.prop('id');
-              }
-            }).data('toc-tocify');
-        
-            $("#nav-button").click(function() {
-              $(".tocify-wrapper").toggleClass('open');
-              $("#nav-button").toggleClass('open');
-              return false;
-            });
-        
-            $(".page-wrapper").click(closeToc);
-            $(".tocify-item").click(closeToc);
-          };
-        
-          // Hack to make already open sections to start opened,
-          // instead of displaying an ugly animation
-          function animate () {
-            setTimeout(function() {
-              toc.setOption('showEffectSpeed', 180);
-            }, 50);
-          }
-        
-          $(makeToc);
-          $(animate);
-    })(window);
+ 
+  
+    tocbot.init({
+      tocSelector: '.js-toc',
+      contentSelector: '.content',
+      headingSelector: 'h1, h2, h3',
+      positionFixedSelector: '#toc',
+      collapseDepth: 0,
+    }); 
 
   </script>
+
 <% end %>  
 
 <!-- Turn on the toggle for the Title Page -->
       
 <% if titlePage %>      
   <script>      
-    $(".about-control").click(function () {
-        $(".title-page").slideToggle(500, function () {
-            $(".about-control").text(function () {
-                return $(".title-page").is(":visible") ? "hide" : "about";
-            });
-        });
-    });
+    //add js to do about modal here:
+
   </script>
 <% end %> 
 
@@ -271,7 +242,13 @@
   <script>
     $(function() {
         setupLanguages(<%= languageTabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>);
+    }); 
+
+   $('#myLang').scrollToFixed({marginTop: 0,
+      preFixed: function() {},
+      postFixed: function() {}
     });
+
   </script>
 <% end %>   
       
