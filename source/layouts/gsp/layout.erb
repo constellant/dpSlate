@@ -41,12 +41,11 @@
 <g:applyLayout name='bizwrap-wide-slate'>
 
   <content tag="headIncludes">
-    <% if !leftPanel %>
-      <%= stylesheet_link_tag :inlinetoc_screen, media: :screen %>
+
+    <% if !leftPanel %>       
       <%= stylesheet_link_tag :inlinecode_screen, media: :screen %>
       <% languageTabs = [] %>
-      <% tocAccordion = false %>
-      <style> #slateWrapper .tocify-wrapper { position: static; } </style>
+      <% tocAccordion = false %>       
     <% end %>
     <% if !rightPanel %>
       <%= stylesheet_link_tag :inlinecode_screen, media: :screen %>
@@ -115,25 +114,13 @@
   </content>
 
   <content tag="toc-js">
-    var makeToc = function() {
-        global.toc = $("#toc").tocify({
-        context: '.content',    
-        selectors: "<%= tocSelectors || 'h1,h2,h3' %>",
-        extendPage: false,
-        theme: "none",
-        smoothScroll: false,
-        showAndHide: <%= tocAccordion %>,
-        showEffect: "slideDown",
-        showEffectSpeed: 180,
-        hideEffect: "slideUp",
-        hideEffectSpeed: 180,
-        highlightOffset: 60,
-        scrollTo: 50,
-        scrollHistory: true,
-        hashGenerator: function (text, element) {
-        return element.prop('id');
-        }
-     }).data('toc-tocify');
+    tocbot.init({
+      tocSelector: '.js-toc',
+      contentSelector: '.content',
+      headingSelector: '<%= tocSelectors %>',
+      positionFixedSelector: '#toc',
+      collapseDepth: <%= tocAccordion %>,
+    }); 
   </content>    
 
   <content tag="js-includes">
