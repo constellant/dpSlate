@@ -16,7 +16,7 @@ titlePage: ON
 
 tableOfContents: ON
 
-tocAccordian: ON
+tocAccordion: 2
 
 rightPanel: ON
 

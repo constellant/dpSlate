@@ -50,7 +50,7 @@ titlePage: true
 
 tableOfContents: true
 
-tocAccordion: true
+tocAccordion: 1
 
 rightPanel: true
 

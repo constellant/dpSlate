@@ -6,7 +6,7 @@ titlePage: ON
 
 tableOfContents: ON
 
-tocAccordion: OFF 
+tocAccordion: 2 
 
 rightPanel: OFF
 

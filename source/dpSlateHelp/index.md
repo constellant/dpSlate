@@ -16,7 +16,7 @@ titlePage: ON
 
 tableOfContents: ON
 
-tocAccordion: ON
+tocAccordion: 1
 
 rightPanel: ON
 
@@ -265,7 +265,7 @@ titlePage: ON
 
 tableOfContents: ON
 
-tocAccordion: OFF
+tocAccordion: 1
 
 rightPanel: ON
 
@@ -284,13 +284,15 @@ tocSelectors: "h1,h2,h3"
 ```
 A GitHub Flavored Markdown (GFM) source document is used to generate each of the dpSlate Documents that are presented on the portal.  Each dpSlate GFM source document is a plain text document that starts with a Yet Another Markup Language (YAML) header that contains directives used to control how the document will be formatted.  The YAML header starts and ends with a line that has three dashes, `---`, that start in the first column of the line.
 
-The YAML header contains directives that control how the document will look and appear when it is converted to HTML.  The directives consist of a YAML variable name, the directive, followed by a `:`.  There are three types of YAML variables:
+The YAML header contains directives that control how the document will look and appear when it is converted to HTML.  The directives consist of a YAML variable name, the directive, followed by a `:`.  There are four types of YAML variables:
 
 * _Boolean_ - booleans variables are used to turn things on or off using various keywords to represent true or false.  YAML is flexible and the values for true and false are anything that kinda looks like a true or false.  For example true can be represented by `T, TRUE, Y, Yes, or ON` independent of case while the values for false are similar and can be represented by `F, FALSE, N, NO, or OFF` regardless of case.
 
 * _String_ - a string is either a string of text or quoted text.  Text can be quoted either by a double, `"`, or single, `'`, quotation mark.  Boolean keywords that are not in quotes might be interpreted as a boolean directive.
 
 * _List_ -  a list is a collection of items.  The items in the list are strings that are also know as a “hash” or a “dictionary”.  Directives that are lists consist of the directive followed by a number of lines that are indented and start with a dash, `-`, followed by a space. 
+
+* _Integer_ - a numerical value.
 
 
 The valid dpSlate YAML document directives include:
@@ -351,20 +353,28 @@ The name of the language must be recognized by the system such that the display 
 Only list the languages that you want to have as tabs in your document.  Each time you list a language as a _languageTab_, dpSlate will automatically create the language tab regardless if that language is used in the document.
 </aside>
 
-# The Left Hand Panel
+## The Left Hand Panel
 
 When turned on, the far left panel of a dpSlate document contains the title page, the document search box, and the Table of Contents.  The title page is generated from the directives already discussed, the ToC is automatically generated from the Headers found in your GFM source document but it is controlled by the values you set for directives in the headers of your documents.
 
-## ToC Directives
+### ToC Directives
 
 There are a number of directives for controlling how the Table of Contents is presented.  These are:
 
 * `documentSearch:` a boolean used to turn the document search feature on and off.
-* `tocSelectors:` this string is a comma list of the document elements that will be selected for inclusion into the table of contents.  If the statement is missing, then the default value is "h1, h2, h3" which means that Headers 1, 2, and 3 will be included into the Table of Contents.  If you were to choose "h2, h3, h4, h5" then the first level headers would be ignored and only the second, third, fourth, and fifth levels will be selected for inclusion into the Table of Contents.
 
 <aside class="notice">
-Document Search is dpSlate's way of providing a full text index for readers.  When you turn on document search in your document, a search box will appear above the  Table of Contents. When the reader types in text into the search box, the Table of Contents will be removed and text in the document that matches the search term will be highlighted with a yellow background.  A _next_ and _prev_ button will be provided to allow the reader to jump to the next and previous hit on the search term.
+Document Search is dpSlate's way of providing a full text index for readers.  When you turn on document search in your document, a search box will appear above the  Table of Contents. When the reader types in text into the search box, the Table of Contents will be removed and text in the document that matches the search term will be highlighted with a yellow background.  A _next_ and _prev_ button will be provided to allow the reader to jump to the next and previous hit on the search term.  Search is turned off when the leftPanel is set to `OFF`.
 </aside>
+
+* `tocSelectors:` this string is a comma list of the document elements that will be selected for inclusion into the table of contents.  If the statement is missing, then the default value is "h1, h2, h3" which means that Headers 1, 2, and 3 will be included into the Table of Contents.  If you were to choose "h2, h3, h4, h5" then the first level headers would be ignored and only the second, third, fourth, and fifth levels will be selected for inclusion into the Table of Contents.
+* `tocAccordion:` this is an integer value that is used to controlling the hiding (collapsing) of items in the table of contents.  The value is set to how many heading levels should open by default (_i.e._, not be collpased).  For example, number 6 will show everything in the Table of Contents since there are only 6 heading levels while the number 0 will hide all of the Table of Content entries until it is time for them to open.  The entries in the Table of Contents that are initially hidden will open when you scroll into those headings and will then close again as you scroll out of them.
+
+<aside class="notice">
+When the leftPanel is turned off, the `tocAccordion` has no effect.  This is because the Table of Contents will be moved to be above the main body of the document and the accordion nature of the Table of Contents would interfere with the scrolling through the document.
+</aside>
+
+
 
 ## Default Directives
 
@@ -1237,7 +1247,7 @@ In V4.0, some of the YAML directives were in _camel case_ format while others we
 | commments | _same_ | any additional information that you want to put on the title page |
 | titlePage | _same_ | Boolean to turn titlePage ON or OFF |
 | tableOfContents | _same_ | Boolean to turn table of contents ON or OFF |
-| tocAccordian | tocAccordion | Boolean to turn the expanding ToC feature ON or OFF |
+| tocAccordian | tocAccordion | Has been changed from a Boolean to an Integer.  It is used turn the expanding ToC feature ON or OFF.  The new integer value is used to control how many levels are open by default.  Thus, the old ON value can be achieved with a 6 and the old OFF value can be achieved with a 1. |
 | rightPanel | _same_ | Boolean to turn the right hand panel ON or OFF, when OFF code samples are moved in-line |
 | leftPanel | _same_ | Boolean to turn the left hand panel off, when turned off Title Page and ToC are moved to the top |
 | documentSearch | _same_ | Boolean to turn the document search feature ON or OFF |

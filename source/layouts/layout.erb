@@ -218,9 +218,9 @@
     tocbot.init({
       tocSelector: '.js-toc',
       contentSelector: '.content',
-      headingSelector: 'h1, h2, h3',
+      headingSelector: '<%= tocSelectors %>',
       positionFixedSelector: '#toc',
-      collapseDepth: 0,
+      collapseDepth: <%= tocAccordion %>,
     }); 
 
   </script>
