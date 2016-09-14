@@ -1,7 +1,7 @@
 # set the folders up for dpEngine
 
 set :source, 'source'
-set :build_dir, '../site'
+set :build_dir, 'site'
 set :layouts_dir, 'layouts'
 set :partials_dir, 'includes'
 set :images_dir, 'dpSlateStatic/images'
@@ -37,6 +37,7 @@ activate :syntax
 configure :build do
   # dpEngine configuration call with '$ DP=true bundle exec middleman build'    
   if ENV['DP']
+    set :build_dir, '../site'
     set :layouts_dir, 'layouts/gsp/'
     template_extensions :md => :gsp, :erb => :gsp
     set :http_prefix, "/site/"    
