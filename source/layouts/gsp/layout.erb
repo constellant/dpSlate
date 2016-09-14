@@ -12,7 +12,7 @@
 <% !defaults["comments"].nil? ? comments = defaults["comments"] : comments = "" %>
 <% !defaults["titlePage"].nil? ? titlePage = defaults["titlePage"] : titlePage = true %>
 <% !defaults["ableOfContents"].nil? ? tableOfContents = defaults["tableOfContents"] : tableOfContents = true %> 
-<% !defaults["tocAccordion"].nil? ? tocAccordion = defaults["tocAccordion"] : tocAccordion = true %>
+<% !defaults["tocAccordion"].nil? ? tocAccordion = defaults["tocAccordion"] : tocAccordion = 8 %>
 <% !defaults["rightPanel"].nil? ? rightPanel = defaults["rightPanel"] : rightPanel = true %>
 <% !defaults["leftPanel"].nil? ? leftPanel = defaults["leftPanel"] : leftPanel = true %>
 <% !defaults["documentSearch"].nil? ? documentSearch = defaults["documentSearch"] : documentSearch = true %>
@@ -40,13 +40,18 @@
 
 <g:applyLayout name='bizwrap-wide-slate'>
 
+  <% if !leftPanel %>
+  <% tocAccordion = 8 %>       
+  <content tag="oneCol">true</content>
+  <%end%> 
+  
+
   <content tag="headIncludes">
-    <% if !leftPanel %>
-      <%= stylesheet_link_tag :inlinetoc_screen, media: :screen %>
+
+    <% if !leftPanel %>       
       <%= stylesheet_link_tag :inlinecode_screen, media: :screen %>
       <% languageTabs = [] %>
-      <% tocAccordion = false %>
-      <style> #slateWrapper .tocify-wrapper { position: static; } </style>
+      
     <% end %>
     <% if !rightPanel %>
       <%= stylesheet_link_tag :inlinecode_screen, media: :screen %>
@@ -115,25 +120,13 @@
   </content>
 
   <content tag="toc-js">
-    var makeToc = function() {
-        global.toc = $("#toc").tocify({
-        context: '.content',    
-        selectors: "<%= tocSelectors || 'h1,h2,h3' %>",
-        extendPage: false,
-        theme: "none",
-        smoothScroll: false,
-        showAndHide: <%= tocAccordion %>,
-        showEffect: "slideDown",
-        showEffectSpeed: 180,
-        hideEffect: "slideUp",
-        hideEffectSpeed: 180,
-        highlightOffset: 60,
-        scrollTo: 50,
-        scrollHistory: true,
-        hashGenerator: function (text, element) {
-        return element.prop('id');
-        }
-     }).data('toc-tocify');
+    tocbot.init({
+      tocSelector: '.js-toc',
+      contentSelector: '.content',
+      headingSelector: '<%= tocSelectors %>',
+      positionFixedSelector: '#toc',
+      collapseDepth: <%= tocAccordion %>,
+    }); 
   </content>    
 
   <content tag="js-includes">
