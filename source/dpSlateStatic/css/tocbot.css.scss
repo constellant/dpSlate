@@ -1,4 +1,7 @@
- 
+@charset "utf-8";
+@import 'normalize';
+@import 'compass';
+@import 'variables'; 
 
 .toc>ul {
    
@@ -38,7 +41,7 @@ a.toc-link {
 }
 
 .is-active-link {
-    font-weight: 700
+    font-weight: 700;
 }
 
 .toc-link::before {
@@ -60,8 +63,7 @@ a.toc-link {
   .toc-header {
     
     padding-top: 0px;
-    padding-bottom: 0px;
-    border-top: 2px solid #999; 
+    padding-bottom: 3px;
   
 
     }
@@ -77,5 +79,5 @@ a.toc-link {
         overflow-x: visible;
        //white-space: pre-wrap;
         font-size: 20px;
-        color: #CCC;
+        color: $nav-active-text;
     }
