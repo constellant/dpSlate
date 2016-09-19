@@ -38,7 +38,7 @@
 <% !current_page.data.tocFooters.nil? ? tocFooters = current_page.data.tocFooters : tocFooters=tocFooters%>
 
 
-<g:applyLayout name='bizwrap-wide-slate'>
+<g:applyLayout name='darwin-slate'>
 
   <% if !leftPanel %>
   <% tocAccordion = 8 %>       
@@ -64,38 +64,12 @@
       
   </content>   
 
-<% if titlePage %>    
+<% if titlePage %>   
+ 
   <content tag="doc-title">
     <%= title %>
-  </content>  
-
-  <content tag="about-title">    
-     <%= title %>
-  </content>  
-
-  <content tag="about-version">   
-     <%= version %>
-  </content>  
-
-  <content tag="about-copyright">   
-    <%= copyright %>
-  </content>  
-
-  <content tag="about-publisher">   
-    <%= publisher %> 
-  </content>  
-
-  <content tag="about-publisher-address">  
-    <%= publisherAddress %> 
-  </content>
-
-  <content tag="about-comments">  
-      <%= version %>
-  </content>    
-
-  <content tag="about-published-date"> 
-      <%= datestring %>   
-  </content>    
+  </content> 
+   
 <% end %>
   
   <content tag="output-from-markdown">  
@@ -132,5 +106,38 @@
   <content tag="js-includes">
 
   </content>
+
+
+  <% if titlePage %>   
+
+  <content tag="about-title">    
+     <%= title %>
+  </content>  
+
+  <content tag="about-version">   
+     <%= version %>
+  </content>  
+
+  <content tag="about-copyright">   
+    <%= copyright %>
+  </content>  
+
+  <content tag="about-publisher">   
+    <%= publisher %> 
+  </content>  
+
+  <content tag="about-publisher-address">  
+    <%= publisherAddress %> 
+  </content>
+
+  <content tag="about-comments">  
+      <%= version %>
+  </content>    
+
+  <content tag="about-published-date"> 
+      <%= datestring %>   
+  </content> 
+
+<% end %>
 
 </g:applyLayout>
