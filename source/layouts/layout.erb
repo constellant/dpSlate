@@ -92,8 +92,8 @@
                   <div class=doc-title><%= title %></div>
 
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                    About
+                  <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                    Title Page
                   </button>  
 
                 </div>
@@ -245,33 +245,31 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">About</h4>
+          <h4 class="modal-title" id="myModalLabel">Title Page</h4>
         </div>
 
         <div class="modal-body about">
 
             <div class="title-page">
-              <ul>
               <% if title %>
-                <li><strong><i>Title: </i></strong><%= title %> </li>
+                <p><strong><i>Title: </i></strong><%= title %> </p>
               <% end %>
               <% if version %>
-                <li><strong><i>Version: </i></strong><%= version %></li>
+                <p><strong><i>Version: </i></strong><%= version %></p>
               <% end %>
               <% if copyright %>
-                <li><strong><i>Copyright: </i></strong><%= copyright %></li>
+                <p><strong><i>Copyright: </i></strong><%= copyright %></p>
               <% end %>
               <% if publisher %>
-                <li><strong><i>Publisher: </i></strong><%= publisher %></li>
+                <p><strong><i>Publisher: </i></strong><%= publisher %></p>
               <% end %>
               <% if publisherAddress %>
-                <li><strong><i>Publisher Address: </i></strong><%= publisherAddress %></li>
+                <p><strong><i>Publisher Address: </i></strong><%= publisherAddress %></p>
               <% end %>
               <% if comments %>
-                <li><strong><i>Comments: </i></strong><%= comments %></li>
+                <p><strong><i>Comments: </i></strong><%= comments %></p>
               <% end %>
-                <li><strong><i>Published Date: </i></strong><%= datestring %></li>
-              </ul>
+                <p><strong><i>Published Date: </i></strong><%= datestring %></p>
             </div>
            
         </div>

@@ -119,22 +119,10 @@
 
                   <div class=doc-title>Test of Tabs</div>
 
-                  <!-- going to make this a bootstrap modal -->
-                  <div class="about" style="display:none;"> 
-
-                    <div class="about-control"><span>about</span></div>
-                    <div class="title-page">
-                      <ul>
-                        <li><strong><i>Title: </i></strong>Test of Tabs </li>
-                        <li><strong><i>Version: </i></strong>V4.0</li>
-                        <li><strong><i>Copyright: </i></strong>Copyright &copy; 2013-2015 Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.</li>
-                        <li><strong><i>Publisher: </i></strong>DeveloperProgram.com</li>
-                        <li><strong><i>Publisher Address: </i></strong>Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA</li>
-                        <li><strong><i>Comments: </i></strong>dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.</li>
-                        <li><strong><i>Published Date: </i></strong>September 14, 2016</li>
-                      </ul>
-                    </div>
-                  </div>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                    About
+                  </button>  
 
                 </div>
 
@@ -249,6 +237,47 @@ This should only appear on the shell tab
     });
 
   </script>
+
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+    <div class="modal-dialog" role="document">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">About</h4>
+        </div>
+
+        <div class="modal-body about">
+
+            <div class="title-page">
+                <p><strong><i>Title: </i></strong>Test of Tabs </p>
+                <p><strong><i>Version: </i></strong>V4.0</p>
+                <p><strong><i>Copyright: </i></strong>Copyright &copy; 2013-2015 Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.</p>
+                <p><strong><i>Publisher: </i></strong>DeveloperProgram.com</p>
+                <p><strong><i>Publisher Address: </i></strong>Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA</p>
+                <p><strong><i>Comments: </i></strong>dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.</p>
+                <p><strong><i>Published Date: </i></strong>September 19, 2016</p>
+            </div>
+           
+        </div>
+
+        <div class="modal-footer">
+        
+          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">Close</button>                          
+        </div>
+
+      </div>
+    </div>
+  </div>
+
       
 </body>
 </html>

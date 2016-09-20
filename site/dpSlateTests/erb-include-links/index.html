@@ -119,22 +119,10 @@
 
                   <div class=doc-title>Test of Erb includes</div>
 
-                  <!-- going to make this a bootstrap modal -->
-                  <div class="about" style="display:none;"> 
-
-                    <div class="about-control"><span>about</span></div>
-                    <div class="title-page">
-                      <ul>
-                        <li><strong><i>Title: </i></strong>Test of Erb includes </li>
-                        <li><strong><i>Version: </i></strong>Version 1.0</li>
-                        <li><strong><i>Copyright: </i></strong></li>
-                        <li><strong><i>Publisher: </i></strong></li>
-                        <li><strong><i>Publisher Address: </i></strong></li>
-                        <li><strong><i>Comments: </i></strong> </li>
-                        <li><strong><i>Published Date: </i></strong>September 14, 2016</li>
-                      </ul>
-                    </div>
-                  </div>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                    About
+                  </button>  
 
                 </div>
 
@@ -247,6 +235,47 @@ VariableTwo is <em>Another Variable</em>.</p>
     });
 
   </script>
+
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+    <div class="modal-dialog" role="document">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">About</h4>
+        </div>
+
+        <div class="modal-body about">
+
+            <div class="title-page">
+                <p><strong><i>Title: </i></strong>Test of Erb includes </p>
+                <p><strong><i>Version: </i></strong>Version 1.0</p>
+                <p><strong><i>Copyright: </i></strong></p>
+                <p><strong><i>Publisher: </i></strong></p>
+                <p><strong><i>Publisher Address: </i></strong></p>
+                <p><strong><i>Comments: </i></strong> </p>
+                <p><strong><i>Published Date: </i></strong>September 19, 2016</p>
+            </div>
+           
+        </div>
+
+        <div class="modal-footer">
+        
+          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">Close</button>                          
+        </div>
+
+      </div>
+    </div>
+  </div>
+
       
 </body>
 </html>

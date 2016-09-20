@@ -11,6 +11,10 @@
     
 }
 
+a:focus, a:hover {
+    color: $nav-active-text;
+    text-decoration: none;
+}
 
 
 .toc-list {
@@ -18,8 +22,8 @@
     padding-left: 10px
 }
 
-a.toc-link {
-    color: currentColor;
+.toc-link {
+    color: $nav-text;
     height: 100%
 }
 
@@ -42,10 +46,12 @@ a.toc-link {
 
 .is-active-link {
     font-weight: 700;
+    color: $nav-active-text;
+    background-color: $nav-active-bg;
 }
 
 .toc-link::before {
-    background-color: #EEE;
+    background-color: $nav-border-bg;
     content: ' ';
     display: inline-block;
     height: inherit;
@@ -56,7 +62,8 @@ a.toc-link {
 }
 
 .is-active-link::before {
-    background-color: #000
+    background-color: $nav-active-text;
+    color: $nav-active-text;
 }
 
 

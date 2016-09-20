@@ -119,22 +119,10 @@
 
                   <div class=doc-title>dpSlate YAML Default Tests</div>
 
-                  <!-- going to make this a bootstrap modal -->
-                  <div class="about" style="display:none;"> 
-
-                    <div class="about-control"><span>about</span></div>
-                    <div class="title-page">
-                      <ul>
-                        <li><strong><i>Title: </i></strong>dpSlate YAML Default Tests </li>
-                        <li><strong><i>Version: </i></strong>dpSlate V4.1</li>
-                        <li><strong><i>Copyright: </i></strong>Loaded from the local file</li>
-                        <li><strong><i>Publisher: </i></strong>Publisher is overridden</li>
-                        <li><strong><i>Publisher Address: </i></strong>Publisher Address is overriddent</li>
-                        <li><strong><i>Comments: </i></strong>Comments are overwritten</li>
-                        <li><strong><i>Published Date: </i></strong>September 14, 2016</li>
-                      </ul>
-                    </div>
-                  </div>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                    About
+                  </button>  
 
                 </div>
 
@@ -302,6 +290,47 @@
     });
 
   </script>
+
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+    <div class="modal-dialog" role="document">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">About</h4>
+        </div>
+
+        <div class="modal-body about">
+
+            <div class="title-page">
+                <p><strong><i>Title: </i></strong>dpSlate YAML Default Tests </p>
+                <p><strong><i>Version: </i></strong>dpSlate V4.1</p>
+                <p><strong><i>Copyright: </i></strong>Loaded from the local file</p>
+                <p><strong><i>Publisher: </i></strong>Publisher is overridden</p>
+                <p><strong><i>Publisher Address: </i></strong>Publisher Address is overriddent</p>
+                <p><strong><i>Comments: </i></strong>Comments are overwritten</p>
+                <p><strong><i>Published Date: </i></strong>September 19, 2016</p>
+            </div>
+           
+        </div>
+
+        <div class="modal-footer">
+        
+          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">Close</button>                          
+        </div>
+
+      </div>
+    </div>
+  </div>
+
       
 </body>
 </html>
