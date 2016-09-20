@@ -102,7 +102,7 @@
               <% if documentSearch %>
                 <div class="search">
                   <input type="text" class="search" id="input-search" placeholder="Search Document">
-                  <ul class="search-results"></ul>
+                  <ul class="search-results invisible"></ul>
                 </div>
               <% end %>
               <div class=toc-header>
@@ -252,24 +252,24 @@
 
             <div class="title-page">
               <% if title %>
-                <p><strong><i>Title: </i></strong><%= title %> </p>
+                <h1><%= title %> </h1>
               <% end %>
               <% if version %>
-                <p><strong><i>Version: </i></strong><%= version %></p>
+                <h2><%= version %></h2>
               <% end %>
               <% if copyright %>
-                <p><strong><i>Copyright: </i></strong><%= copyright %></p>
+                <p><%= copyright %></p>
               <% end %>
               <% if publisher %>
-                <p><strong><i>Publisher: </i></strong><%= publisher %></p>
+                <p><%= publisher %></p>
               <% end %>
               <% if publisherAddress %>
-                <p><strong><i>Publisher Address: </i></strong><%= publisherAddress %></p>
+                <p><%= publisherAddress %></p>
               <% end %>
               <% if comments %>
-                <p><strong><i>Comments: </i></strong><%= comments %></p>
+                <p><%= comments %></p>
               <% end %>
-                <p><strong><i>Published Date: </i></strong><%= datestring %></p>
+                <p><%= datestring %></p>
             </div>
            
         </div>

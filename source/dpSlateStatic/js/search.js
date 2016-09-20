@@ -35,9 +35,9 @@
 
   function search(event) {
     unmatch();
-    searchResults.addClass('visible');
+    searchResults.removeClass('invisible');
     $(".toc-title").addClass('invisible'); 
-    $(".tocify").addClass('invisible');  //hide the Table of Contents when searching
+    $(".toc").addClass('invisible');  //hide the Table of Contents when searching
 
     // ESC clears the field
     if (event.keyCode === 27) this.value = '';
@@ -90,9 +90,9 @@
       }
     } else {
       unmatch();
-      searchResults.removeClass('visible');
+      searchResults.addClass('invisible');
       $(".toc-title").removeClass('invisible'); 
-      $(".tocify").removeClass('invisible');  //restore the toc
+      $(".toc").removeClass('invisible');  //restore the toc
     }
   }
 
