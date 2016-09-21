@@ -1,3 +1,20 @@
+# create a custom renderer for dpSlate Markdown
+
+require "middleman-core/renderers/redcarpet"
+
+class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
+
+  def initialize
+    $headCount = 0
+    super
+  end    
+  
+  def header(text, header_level)
+    $headCount = $headCount + 1
+    "<h%s id=\"%s-%d\">%s</h%s>" % [header_level, text.parameterize, $headCount, text, header_level]
+  end
+end
+
 # set the folders up for dpEngine
 
 set :source, 'source'
@@ -23,7 +40,8 @@ set :markdown,
     tables: true,
     with_toc_data: true,
     no_intra_emphasis: true,
-    strikethrough: true
+    strikethrough: true,
+    renderer: DpSlateRenderer
 
 # Activate the syntax highlighter
 activate :syntax
@@ -61,3 +79,4 @@ helpers do
     Time.now.strftime('%B %d, %Y')
     end
 end
+
