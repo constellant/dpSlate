@@ -120,15 +120,15 @@
                   <div class=doc-title>dpSlate YAML Default Tests</div>
 
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                    About
+                  <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                    Title Page
                   </button>  
 
                 </div>
 
                 <div class="search">
                   <input type="text" class="search" id="input-search" placeholder="Search Document">
-                  <ul class="search-results"></ul>
+                  <ul class="search-results invisible"></ul>
                 </div>
               <div class=toc-header>
                 <div class=toc-title>Table of Contents</div>
@@ -146,21 +146,16 @@
             <div class="dark-box"></div>
 
             <div class="content">
-              <h1 id="introduction">Introduction</h1>
-
-<p>This is a test of the new YAML default tests.  dpSlate from V4.1 and on uses YAML to define variables that are used to configure dpSlate.  The system has defaults which are hard coded, next the system will apply the site level defaults found in <code class="prettyprint">/dpslate/source/defaults.yml</code>.  The system will then look for <code class="prettyprint">defaults.yml</code> files all the way down the directory tree applying those defaults.  Finally, the values that are found in the document are applied.</p>
-
-<h1 id="success-criteria">Success Criteria</h1>
-
-<p>This test is successful if the markdown generates the proper HTML and the resulting dpSlate document exhibits the behavior defined in the default YAML file in <code class="prettyprint">/source/defaults.yml</code>  The test is successful if:</p>
+              <h1 id="introduction-111">Introduction</h1>
+<p>This is a test of the new YAML default tests.  dpSlate from V4.1 and on uses YAML to define variables that are used to configure dpSlate.  The system has defaults which are hard coded, next the system will apply the site level defaults found in <code>/dpslate/source/defaults.yml</code>.  The system will then look for <code>defaults.yml</code> files all the way down the directory tree applying those defaults.  Finally, the values that are found in the document are applied.</p>
+<h1 id="success-criteria-112">Success Criteria</h1>
+<p>This test is successful if the markdown generates the proper HTML and the resulting dpSlate document exhibits the behavior defined in the default YAML file in <code>/source/defaults.yml</code>  The test is successful if:</p>
 
 <ol>
 <li> The page displays the Title Page and Table of Contents</li>
 <li> The values in the Title Page and the Language tabs come from the document and not the defaul (see below).</li>
 </ol>
-
-<h2 id="default-values">Default Values</h2>
-<pre class="highlight yaml"><code>
+<h2 id="default-values-113">Default Values</h2><pre class="highlight yaml"><code>
 <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
 
 <span class="s">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
@@ -194,10 +189,8 @@
 
 </code></pre>
 
-<p>The page will use the values of the YAML directives to the right as default as these are set in the file <code class="prettyprint">/source/_defaults.yml</code>.</p>
-
-<h2 id="page-overides">Page Overides</h2>
-<pre class="highlight yaml"><code>
+<p>The page will use the values of the YAML directives to the right as default as these are set in the file <code>/source/_defaults.yml</code>.</p>
+<h2 id="page-overides-114">Page Overides</h2><pre class="highlight yaml"><code>
 <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">dpSlate</span><span class="nv"> </span><span class="s">YAML</span><span class="nv"> </span><span class="s">Default</span><span class="nv"> </span><span class="s">Tests"</span>
 
 <span class="s">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">dpSlate</span><span class="nv"> </span><span class="s">V4.1"</span>
@@ -305,19 +298,19 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">About</h4>
+          <h4 class="modal-title" id="myModalLabel">Title Page</h4>
         </div>
 
         <div class="modal-body about">
 
             <div class="title-page">
-                <p><strong><i>Title: </i></strong>dpSlate YAML Default Tests </p>
-                <p><strong><i>Version: </i></strong>dpSlate V4.1</p>
-                <p><strong><i>Copyright: </i></strong>Loaded from the local file</p>
-                <p><strong><i>Publisher: </i></strong>Publisher is overridden</p>
-                <p><strong><i>Publisher Address: </i></strong>Publisher Address is overriddent</p>
-                <p><strong><i>Comments: </i></strong>Comments are overwritten</p>
-                <p><strong><i>Published Date: </i></strong>September 19, 2016</p>
+                <h1>dpSlate YAML Default Tests </h1>
+                <h2>dpSlate V4.1</h2>
+                <p>Loaded from the local file</p>
+                <p>Publisher is overridden</p>
+                <p>Publisher Address is overriddent</p>
+                <p>Comments are overwritten</p>
+                <p>September 23, 2016</p>
             </div>
            
         </div>

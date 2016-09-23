@@ -2,17 +2,15 @@
 
 require "middleman-core/renderers/redcarpet"
 
-class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
+$headCount =0  # create a sequential counter use in rendering headers to ensure each has a unique ID cross the site
 
-  def initialize
-    $headCount = 0
-    super
-  end    
-  
+class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
+    
   def header(text, header_level)
     $headCount = $headCount + 1
     "<h%s id=\"%s-%d\">%s</h%s>" % [header_level, text.parameterize, $headCount, text, header_level]
   end
+    
 end
 
 # set the folders up for dpEngine

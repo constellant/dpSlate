@@ -121,15 +121,15 @@
                   <div class=doc-title>dpSlate Markdown Fidelity Test</div>
 
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                    About
+                  <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                    Title Page
                   </button>  
 
                 </div>
 
                 <div class="search">
                   <input type="text" class="search" id="input-search" placeholder="Search Document">
-                  <ul class="search-results"></ul>
+                  <ul class="search-results invisible"></ul>
                 </div>
               <div class=toc-header>
                 <div class=toc-title>Table of Contents</div>
@@ -147,30 +147,23 @@
             <div class="dark-box"></div>
 
             <div class="content">
-              <h1 id="introduction">Introduction</h1>
-
+              <h1 id="introduction-90">Introduction</h1>
 <p>This is a Markdown Fidelity test.  It is used to test various Markdown facilities to determine if they are working.</p>
-
-<h1 id="success-criteria">Success Criteria</h1>
-
+<h1 id="success-criteria-91">Success Criteria</h1>
 <p>This test is successful if the markdown generates the proper HTML.  The test is successful if:</p>
 
 <ul>
 <li>The content below is rendered properly.</li>
 <li>The document has two Panes, with a Table of Contents to the left but with Markdown Samples inline</li>
 <li>The document has a collapsable Title Page at the Top</li>
-<li>The title page has a copyright, publisher, and publisherAddress which comes from the <code class="prettyprint">default.yml</code></li>
+<li>The title page has a copyright, publisher, and publisherAddress which comes from the <code>default.yml</code></li>
 <li>The document does NOT have a search box (search boxes go away in single column documents)</li>
 <li>The document has a Table of contents under the Title Page</li>
 <li>Only Headers h1 and h2 are shown in the Table of contents</li>
 </ul>
-
-<h1 id="test-cases">Test Cases</h1>
-
+<h1 id="test-cases-92">Test Cases</h1>
 <p>Below are the test cases for the document.</p>
-
-<h2 id="headers">Headers</h2>
-
+<h2 id="headers-93">Headers</h2>
 <p>On the right are a list of headers in markdown and below is how they will appear in the document:</p>
 
 <blockquote>
@@ -183,17 +176,7 @@
 <span class="gu">#### H6 Header</span>
 
 </code></pre>
-
-<h3 id="h3-header">H3 Header</h3>
-
-<h4 id="h4-header">H4 Header</h4>
-
-<h4 id="h5-header">H5 Header</h4>
-
-<h4 id="h6-header">H6 Header</h4>
-
-<h2 id="text-attributes">Text Attributes</h2>
-
+<h3 id="h3-header-94">H3 Header</h3><h4 id="h4-header-95">H4 Header</h4><h4 id="h5-header-96">H5 Header</h4><h4 id="h6-header-97">H6 Header</h4><h2 id="text-attributes-98">Text Attributes</h2>
 <blockquote>
 <p>Formatting Text in GFM</p>
 </blockquote>
@@ -210,25 +193,21 @@
 
 <p>This text is <strong>bold</strong>, this is <em>italic</em>, and this is an</p>
 
-<p><code class="prettyprint">Inline code block in the main section.</code></p>
+<p><code>Inline code block in the main section.</code></p>
 
 <p>You can also use underscores to create <strong>bold</strong> or <em>italic</em>.</p>
 
 <p>Finally, you can combine <strong><em>bold and italic</em></strong>.</p>
-
-<h2 id="strikethrough">Strikethrough</h2>
-<pre class="highlight markdown"><code>
+<h2 id="strikethrough-99">Strikethrough</h2><pre class="highlight markdown"><code>
 Strikethrough allows you to show text that is ~~no longer relevant by using strikethrough~~<span class="sb">
 
 
 </span></code></pre>
 
-<p>You can format text with a strikethrough by enclosing the text in double tildes, <code class="prettyprint">~~</code>.  The example to the right becomes:</p>
+<p>You can format text with a strikethrough by enclosing the text in double tildes, <code>~~</code>.  The example to the right becomes:</p>
 
 <p>Strikethrough allows you to show text that is <del>no longer relevant by using strikethrough</del></p>
-
-<h2 id="markdown-links">Markdown Links</h2>
-
+<h2 id="markdown-links-100">Markdown Links</h2>
 <blockquote>
 <p>The Three Ways to Create GFM Links</p>
 </blockquote>
@@ -242,14 +221,12 @@ Here's a very readable link to <span class="p">[</span><span class="nv">Yahoo!</
 
 <p>There are three ways to write links in GFM. Each is easier to read than the last.  The code to the right will generate the following:</p>
 
-<p>Here&rsquo;s an inline link to <a href="http://www.google.com/">Google</a>.
-Here&rsquo;s a reference-style link to <a href="http://www.google.com/">Google</a>.
-Here&rsquo;s a very readable link to <a href="http://www.yahoo.com/">Yahoo!</a>.</p>
+<p>Here&#39;s an inline link to <a href="http://www.google.com/">Google</a>.
+Here&#39;s a reference-style link to <a href="http://www.google.com/">Google</a>.
+Here&#39;s a very readable link to <a href="http://www.yahoo.com/">Yahoo!</a>.</p>
 
-<p>The link definitions can appear anywhere in the document &ndash; before or after the place where you use them. The link definition names <a href="http://www.google.com/">1</a> and <a href="http://www.yahoo.com/">yahoo</a> can be any unique string, and are case-insensitive; <a href="http://www.yahoo.com/">yahoo</a> is the same as <a href="http://www.yahoo.com/">YAHOO</a>.</p>
-
-<h2 id="html-standard-links">HTML Standard Links</h2>
-
+<p>The link definitions can appear anywhere in the document -- before or after the place where you use them. The link definition names <a href="http://www.google.com/">1</a> and <a href="http://www.yahoo.com/">yahoo</a> can be any unique string, and are case-insensitive; <a href="http://www.yahoo.com/">yahoo</a> is the same as <a href="http://www.yahoo.com/">YAHOO</a>.</p>
+<h2 id="html-standard-links-101">HTML Standard Links</h2>
 <blockquote>
 <p>Using HTML Links in GRM</p>
 </blockquote>
@@ -259,9 +236,7 @@ Here&rsquo;s a very readable link to <a href="http://www.yahoo.com/">Yahoo!</a>.
 <p>You can also use standard HTML hyperlink syntax.  The HTML example to the right produces the text below:</p>
 
 <p><a href="http://www.developerprogram.com" title="DP.com">DeveloperProgram.com Web Site</a></p>
-
-<h2 id="images">Images</h2>
-
+<h2 id="images-102">Images</h2>
 <blockquote>
 <p>GFM for Inserting an Image Stored Locally</p>
 </blockquote>
@@ -270,11 +245,9 @@ Here&rsquo;s a very readable link to <a href="http://www.yahoo.com/">Yahoo!</a>.
 
 <p><img alt="DP Logo" src="/dpSlateStatic/images/logo.png" />.</p>
 
-<p>The Markdown to the right shows how an image can be inserted, in this case, it is the DP Logo that is right above this.  The text inside the square brackets, <code class="prettyprint">[DP Logo]</code> will become the alt text for the image in the HTML <code class="prettyprint">alt=</code> parameter.</p>
-
-<h2 id="inserting-horizontal-rules">Inserting Horizontal Rules</h2>
-
-<p>Sometimes you just need a Horizontal Rule (line) to convey something.  GFM does this with either three or more consecutive Hyphens <code class="prettyprint">-</code>, Asterisks <code class="prettyprint">*</code>, or Underscores <code class="prettyprint">_</code>.</p>
+<p>The Markdown to the right shows how an image can be inserted, in this case, it is the DP Logo that is right above this.  The text inside the square brackets, <code>[DP Logo]</code> will become the alt text for the image in the HTML <code>alt=</code> parameter.</p>
+<h2 id="inserting-horizontal-rules-103">Inserting Horizontal Rules</h2>
+<p>Sometimes you just need a Horizontal Rule (line) to convey something.  GFM does this with either three or more consecutive Hyphens <code>-</code>, Asterisks <code>*</code>, or Underscores <code>_</code>.</p>
 <pre class="highlight markdown"><code>Three or more...
 <span class="p">
 ---
@@ -290,7 +263,7 @@ Asterisks
 Underscores
 </code></pre>
 
-<p>Three or more&hellip;</p>
+<p>Three or more...</p>
 
 <hr>
 
@@ -303,9 +276,7 @@ Underscores
 <hr>
 
 <p>Underscores</p>
-
-<h2 id="html-in-markdown">HTML in Markdown</h2>
-<pre class="highlight markdown"><code><span class="nt">&lt;dl&gt;</span>
+<h2 id="html-in-markdown-104">HTML in Markdown</h2><pre class="highlight markdown"><code><span class="nt">&lt;dl&gt;</span>
   <span class="nt">&lt;dt&gt;</span>Definition list<span class="nt">&lt;/dt&gt;</span>
   <span class="nt">&lt;dd&gt;</span>Is something people use sometimes.<span class="nt">&lt;/dd&gt;</span>
 
@@ -314,7 +285,7 @@ Underscores
 <span class="nt">&lt;/dl&gt;</span>
 </code></pre>
 
-<p>You can also use raw HTML in your Markdown, and it&rsquo;ll mostly work pretty well.</p>
+<p>You can also use raw HTML in your Markdown, and it&#39;ll mostly work pretty well.</p>
 
 <dl>
   <dt>Definition list</dt>
@@ -323,9 +294,7 @@ Underscores
   <dt>Markdown in HTML</dt>
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
 </dl>
-
-<h2 id="creating-a-table">Creating a Table</h2>
-
+<h2 id="creating-a-table-105">Creating a Table</h2>
 <blockquote>
 <p>GFM for Creating a Table</p>
 </blockquote>
@@ -357,9 +326,7 @@ Row 2 col 1 | Row 2 col 2 | Row 2 col 3
 </tbody></table>
 
 <p>Notice the colons in the line underneath the header line.  These are used align that columns of the table. A no colon or only a colon to the left will cause the column to align to the left.  A colon to the right will cause the column to align right.  And a colon to the left and the right will cause the column to center.</p>
-
-<h2 id="creating-numbered-lists">Creating Numbered Lists</h2>
-
+<h2 id="creating-numbered-lists-106">Creating Numbered Lists</h2>
 <blockquote>
 <p>GFM for Numbered Lists</p>
 </blockquote>
@@ -388,9 +355,7 @@ Row 2 col 1 | Row 2 col 2 | Row 2 col 3
 <li>Ordered</li>
 <li>List</li>
 </ol>
-
-<h2 id="creating-bulleted-lists">Creating Bulleted Lists</h2>
-
+<h2 id="creating-bulleted-lists-107">Creating Bulleted Lists</h2>
 <blockquote>
 <p>GFM for created bullet lists</p>
 </blockquote>
@@ -418,9 +383,7 @@ to the right will create the list below:</p>
 <li>Bullet</li>
 <li>List</li>
 </ul>
-
-<h2 id="creating-special-notes-and-warnings">Creating Special Notes and Warnings</h2>
-
+<h2 id="creating-special-notes-and-warnings-108">Creating Special Notes and Warnings</h2>
 <blockquote>
 <p>Sample for creating Notes and Warnings</p>
 </blockquote>
@@ -442,10 +405,8 @@ to the right will create the list below:</p>
 
 <aside class="success"> This is a sample hint.</aside>
 
-<p>Use the <code class="prettyprint">class=&quot;notice&quot;</code> for blue notes, <code class="prettyprint">class=&quot;warning&quot;</code> for red warnings, and <code class="prettyprint">class=&quot;success&quot;</code> for green notes.</p>
-
-<h2 id="sample-code">Sample Code</h2>
-
+<p>Use the <code>class=&quot;notice&quot;</code> for blue notes, <code>class=&quot;warning&quot;</code> for red warnings, and <code>class=&quot;success&quot;</code> for green notes.</p>
+<h2 id="sample-code-109">Sample Code</h2>
 <blockquote>
 <p>Sample GFM to Denote Sample Code</p>
 </blockquote>
@@ -456,9 +417,7 @@ to the right will create the list below:</p>
     # this is some ruby code
     <span class="sb">```</span>
 </code></pre>
-
-<h2 id="creating-code-sample-annotations">Creating Code Sample Annotations</h2>
-
+<h2 id="creating-code-sample-annotations-110">Creating Code Sample Annotations</h2>
 <blockquote>
 <p>Code Sample Annotations</p>
 </blockquote>
@@ -553,19 +512,19 @@ to the right will create the list below:</p>
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">About</h4>
+          <h4 class="modal-title" id="myModalLabel">Title Page</h4>
         </div>
 
         <div class="modal-body about">
 
             <div class="title-page">
-                <p><strong><i>Title: </i></strong>dpSlate Markdown Fidelity Test </p>
-                <p><strong><i>Version: </i></strong></p>
-                <p><strong><i>Copyright: </i></strong></p>
-                <p><strong><i>Publisher: </i></strong></p>
-                <p><strong><i>Publisher Address: </i></strong></p>
-                <p><strong><i>Comments: </i></strong></p>
-                <p><strong><i>Published Date: </i></strong>September 19, 2016</p>
+                <h1>dpSlate Markdown Fidelity Test </h1>
+                <h2></h2>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p>September 23, 2016</p>
             </div>
            
         </div>

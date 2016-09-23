@@ -120,15 +120,15 @@
                   <div class=doc-title>Test Suite</div>
 
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                    About
+                  <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                    Title Page
                   </button>  
 
                 </div>
 
                 <div class="search">
                   <input type="text" class="search" id="input-search" placeholder="Search Document">
-                  <ul class="search-results"></ul>
+                  <ul class="search-results invisible"></ul>
                 </div>
               <div class=toc-header>
                 <div class=toc-title>Table of Contents</div>
@@ -146,50 +146,35 @@
             <div class="dark-box"></div>
 
             <div class="content">
-              <h1 id="dpslate-regression-test">dpSlate Regression Test</h1>
-
-<p>This file contains a number of test cases for performing regression testing on dpSlate.  Each test case is its own subdirectory in the source directory of <code class="prettyprint">/dpSlateTests</code>.  The directories should have meaningful names as the directory names are used to distinguish the test cases.  In each test case subdirectory there should be an index file to execute the test.  The extension of the file should be set depending upon the type of test that is being run.  </p>
+              <h1 id="dpslate-regression-test-77">dpSlate Regression Test</h1>
+<p>This file contains a number of test cases for performing regression testing on dpSlate.  Each test case is its own subdirectory in the source directory of <code>/dpSlateTests</code>.  The directories should have meaningful names as the directory names are used to distinguish the test cases.  In each test case subdirectory there should be an index file to execute the test.  The extension of the file should be set depending upon the type of test that is being run.  </p>
 
 <p>There is no need to modify this file.  Any subdirectory will automatically be included onto this page as this page is Embedded Ruby and it loops through the directories building a header and paragraph for each test.  As such this page is also a test.  </p>
-
-<h1 id="success-criteria">Success Criteria</h1>
-
+<h1 id="success-criteria-78">Success Criteria</h1>
 <ul>
 <li>This page should be displayed in the two column format - there is no right hand column.</li>
 <li>The page should have a collapsable title page on the left.</li>
 <li>The page should have a table of contents to the left.</li>
-<li>The test cases should be generated as <code class="prettyprint">&lt;h2&gt;</code> below</li>
+<li>The test cases should be generated as <code>&lt;h2&gt;</code> below</li>
 <li>Each test case should appear in the Table of Contents</li>
 <li>The Table of Contents should be fully expanded for the Test Cases (not accordian mode).</li>
 <li>Each test case should have a link that goes to the test case page.</li>
 </ul>
-
-<h1 id="test-cases">Test Cases</h1>
-
-<p>Below are links to each of the test cases that are located in sub-directories of <code class="prettyprint">/source/dpSlateTests/</code>.</p>
-
-<h2 id="test-erb-include-links"><em>Test:</em> erb-include-links</h2>
-
+<h1 id="test-cases-79">Test Cases</h1>
+<p>Below are links to each of the test cases that are located in sub-directories of <code>/source/dpSlateTests/</code>.</p>
+<h2 id="em-test-em-erb-include-links-80"><em>Test:</em> erb-include-links</h2>
 <p>Click here for the test at <a href="/dpSlateTests/erb-include-links"> /dpSlateTests/erb-include-links </a>.</p>
-
-<h2 id="test-erb-partials"><em>Test:</em> erb-partials</h2>
-
+<h2 id="em-test-em-erb-partials-81"><em>Test:</em> erb-partials</h2>
 <p>Click here for the test at <a href="/dpSlateTests/erb-partials"> /dpSlateTests/erb-partials </a>.</p>
-
-<h2 id="test-language-tabs"><em>Test:</em> language-tabs</h2>
-
+<h2 id="em-test-em-identical-headers-82"><em>Test:</em> identical-headers</h2>
+<p>Click here for the test at <a href="/dpSlateTests/identical-headers"> /dpSlateTests/identical-headers </a>.</p>
+<h2 id="em-test-em-language-tabs-83"><em>Test:</em> language-tabs</h2>
 <p>Click here for the test at <a href="/dpSlateTests/language-tabs"> /dpSlateTests/language-tabs </a>.</p>
-
-<h2 id="test-one-column"><em>Test:</em> one-column</h2>
-
+<h2 id="em-test-em-one-column-84"><em>Test:</em> one-column</h2>
 <p>Click here for the test at <a href="/dpSlateTests/one-column"> /dpSlateTests/one-column </a>.</p>
-
-<h2 id="test-two-column-markdown-fidelity"><em>Test:</em> two-column-markdown-fidelity</h2>
-
+<h2 id="em-test-em-two-column-markdown-fidelity-85"><em>Test:</em> two-column-markdown-fidelity</h2>
 <p>Click here for the test at <a href="/dpSlateTests/two-column-markdown-fidelity"> /dpSlateTests/two-column-markdown-fidelity </a>.</p>
-
-<h2 id="test-yml-defaults"><em>Test:</em> yml-defaults</h2>
-
+<h2 id="em-test-em-yml-defaults-86"><em>Test:</em> yml-defaults</h2>
 <p>Click here for the test at <a href="/dpSlateTests/yml-defaults"> /dpSlateTests/yml-defaults </a>.</p>
 
             </div>
@@ -278,19 +263,19 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">About</h4>
+          <h4 class="modal-title" id="myModalLabel">Title Page</h4>
         </div>
 
         <div class="modal-body about">
 
             <div class="title-page">
-                <p><strong><i>Title: </i></strong>Test Suite </p>
-                <p><strong><i>Version: </i></strong>V4.1</p>
-                <p><strong><i>Copyright: </i></strong>Copyright &copy; 2013-2015 Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.</p>
-                <p><strong><i>Publisher: </i></strong>DeveloperProgram.com</p>
-                <p><strong><i>Publisher Address: </i></strong>Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA</p>
-                <p><strong><i>Comments: </i></strong>dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.</p>
-                <p><strong><i>Published Date: </i></strong>September 19, 2016</p>
+                <h1>Test Suite </h1>
+                <h2>V4.1</h2>
+                <p>Copyright &copy; 2013-2015 Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.</p>
+                <p>DeveloperProgram.com</p>
+                <p>Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA</p>
+                <p>dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.</p>
+                <p>September 23, 2016</p>
             </div>
            
         </div>

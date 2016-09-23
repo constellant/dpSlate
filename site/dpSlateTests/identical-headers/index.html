@@ -17,6 +17,7 @@
     <link href="/dpSlateStatic/css/tocbot.css" rel="stylesheet" media="screen" />
     <link href="/dpSlateStatic/css/print.css" rel="stylesheet" media="print" />
 
+      <link href="/dpSlateStatic/css/inlinecode_screen.css" rel="stylesheet" media="screen" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -99,8 +100,8 @@
     </style>
   </head>
 
-  <body class="dpSlateTests dpSlateTests_erb-include-links dpSlateTests_erb-include-links_index" 
-        data-languages="["erb"]">
+  <body class="dpSlateTests dpSlateTests_identical-headers dpSlateTests_identical-headers_index" 
+        data-languages="[]">
 
  <div class="container-fluid slate-fluid">     
    <!-- Example row of columns -->
@@ -117,7 +118,7 @@
 
                 <div class=toc-header>
 
-                  <div class=doc-title>Test of Erb includes</div>
+                  <div class=doc-title>dpSlate Identical Headers Test</div>
 
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
@@ -146,28 +147,45 @@
             <div class="dark-box"></div>
 
             <div class="content">
-              <h1 id="test-description-62">Test description</h1><pre class="highlight erb"><code>
-<span class="cp">&lt;%=</span> <span class="n">partial</span> <span class="s2">"_ErbVariables.erb"</span> <span class="cp">%&gt;</span>
+              <h1 id="introduction-66">Introduction</h1>
+<p>This is a test to make sure that dpSlate can handle identical headers properly in the Table of Contents.  That is, the same header text will be used in the same document to ensure that the Table of Contents can distinguish them.</p>
+<h1 id="success-criteria-67">Success Criteria</h1>
+<p>This test is successful if the markdown generates the proper HTML.  The test is successful if:</p>
 
-</code></pre>
-
-<p>Include the erb partial show on the right.</p>
-<h1 id="test-results-63">Test results</h1><pre class="highlight erb"><code>
-<span class="cp">&lt;%</span> <span class="no">VariableOne</span> <span class="o">=</span> <span class="s2">"VariableOne"</span> <span class="cp">%&gt;</span>
-<span class="cp">&lt;%</span> <span class="no">VariableTwo</span> <span class="o">=</span> <span class="s2">"Another Variable"</span> <span class="cp">%&gt;</span>
-
-</code></pre>
-
-<p>The partial read the variables shown on the right.  And below the test should be substituted.</p>
-
-<p>VariableOne is <em>VariableOne</em>.
-VariableTwo is <em>Another Variable</em>.</p>
+<ul>
+<li>The content below is rendered properly.</li>
+<li>Each header in the ToC can be found in the Text</li>
+<li>As you scroll down the text, each new header can be found in the Toc</li>
+<li>The document has two Panes, with a Table of Contents to the left but with Markdown Samples inline</li>
+<li>The document has a collapsable Title Page at the Top</li>
+<li>The title page has a copyright, publisher, and publisherAddress which comes from the <code>default.yml</code></li>
+<li>The document does NOT have a search box (search boxes go away in single column documents)</li>
+<li>The document has a Table of contents under the Title Page</li>
+<li>Headers h1, h2, and h3 are shown in the Table of contents</li>
+</ul>
+<h1 id="test-cases-68">Test Cases</h1>
+<p>This is the first H1 in the document.</p>
+<h2 id="h2-69">H2</h2>
+<p>This is the first H2.</p>
+<h3 id="h3-70">H3</h3>
+<p>This is the first H3.</p>
+<h1 id="test-cases-71">Test Cases</h1>
+<p>This is a second instance of the same H1.</p>
+<h2 id="h2-72">H2</h2>
+<p>This is the second identical H2.</p>
+<h3 id="h3-73">H3</h3>
+<p>This is the second identical H3.</p>
+<h1 id="test-cases-74">Test Cases</h1>
+<p>This is a third instance of the same H1.</p>
+<h2 id="h2-75">H2</h2>
+<p>This is the third identical H2.</p>
+<h3 id="h3-76">H3</h3>
+<p>This is the third identical H3.</p>
 
             </div>
 
             <div class="dark-box">
                 <div class="lang-selector" id="myLang">
-                      <a href="#" data-language-name="erb" class='active' >Embedded Ruby</a>
                 </div>
             </div>
 
@@ -206,7 +224,7 @@ VariableTwo is <em>Another Variable</em>.</p>
       contentSelector: '.content',
       headingSelector: 'h1,h2,h3',
       positionFixedSelector: '#toc',
-      collapseDepth: 1,
+      collapseDepth: 3,
     }); 
 
   </script>
@@ -223,7 +241,7 @@ VariableTwo is <em>Another Variable</em>.</p>
       
   <script>
     $(function() {
-        setupLanguages(["erb"]);
+        setupLanguages([]);
     }); 
 
    $('#myLang').scrollToFixed({marginTop: 0,
@@ -253,12 +271,12 @@ VariableTwo is <em>Another Variable</em>.</p>
         <div class="modal-body about">
 
             <div class="title-page">
-                <h1>Test of Erb includes </h1>
-                <h2>Version 1.0</h2>
+                <h1>dpSlate Identical Headers Test </h1>
+                <h2></h2>
                 <p></p>
                 <p></p>
                 <p></p>
-                <p> </p>
+                <p></p>
                 <p>September 23, 2016</p>
             </div>
            
