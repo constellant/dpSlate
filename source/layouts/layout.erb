@@ -78,48 +78,64 @@
 
         <div id="slateWrapper">   
             
-           <div class="span3 <% if !leftPanel %> col-xs-12 <% else %>col-xs-12 col-md-3<% end %>">  
+          <div class="span3 <% if !leftPanel %> col-xs-12 <% else %>col-xs-12 col-md-3<% end %>">  
 
-            <div id="toc">
-
+            <div id="frontmatter">
 
             <% if tableOfContents %>
 
-              <% if titlePage %>
+              <% if titlePage %> 
+
+                <div class=doc-title>
+                  <%= title %>                  
+                </div>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                  Title Page
+                </button>   
+
+              <% end %>
+
+              <% if documentSearch %>
+
+                <div class="search">
+
+                  <input type="text" 
+                         class="search" 
+                         id="input-search" 
+                         placeholder="Search Document">
+
+                  <ul class="search-results invisible"></ul>
+
+                </div>
+
+              <% end %>
+
+              <div id="toc">
 
                 <div class=toc-header>
 
-                  <div class=doc-title><%= title %></div>
-
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
-                    Title Page
-                  </button>  
+                  <div class=toc-title>
+                    Table of Contents
+                  </div>
 
                 </div>
 
-              <% end %>
-              <% if documentSearch %>
-                <div class="search">
-                  <input type="text" class="search" id="input-search" placeholder="Search Document">
-                  <ul class="search-results invisible"></ul>
-                </div>
-              <% end %>
-              <div class=toc-header>
-                <div class=toc-title>Table of Contents</div>
+                <div class="toc js-toc"> </div>
+
+                <% if !tocFooters.blank? %>
+                  <div class="toc-footer">
+                    <ul class="toc-footer">
+                      <% tocFooters.each do |footer| %>
+                        <li><%= footer %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+              
               </div>
 
-              <div class="toc js-toc"> </div>
-
-              <% if !tocFooters.blank? %>
-                <div class="toc-footer">
-                  <ul class="toc-footer">
-                    <% tocFooters.each do |footer| %>
-                      <li><%= footer %></li>
-                    <% end %>
-                  </ul>
-                </div>
-              <% end %>
             <% end %>
           </div>
         </div>    
