@@ -1,0 +1,84 @@
+ #navbar2 .col-sm-6, #navbar2 col-md-6{display:none;}   
+
+.affix-bottom {
+  position: absolute;
+  width: 310px;
+}
+
+ 
+.affix {
+  top: 0;
+  width: 310px;
+}
+
+ 
+#nav{
+  overflow-y:scroll;
+  width:310px;
+   
+}  
+
+
+ .nav .active {
+  font-weight: bold;
+   
+}
+
+.nav .nav {
+  display: none;
+}
+
+.nav .nav .nav {
+  display: none;
+}
+
+
+.nav .active .nav {
+  display: block;
+}
+
+.nav .nav a {
+  font-weight: normal;
+  font-size: .85em;
+} 
+ 
+
+.nav .active a,
+.nav .active:hover a,
+.nav .active:focus a {
+  font-weight: bold; 
+  border-left: 5px solid #00b4ad;
+ 
+}
+
+.nav .nav a{
+  padding-left: 30px;
+}
+.nav .nav > .active a,
+.nav .nav > .active:hover a,
+.nav .nav > .active:focus a {
+  font-weight: bold;
+  padding-left: 30px;
+  border-left: 5px solid #000;
+  background-color: #000;
+  color:#fff;
+}
+
+.nav .nav > .active span,
+.nav .nav > .active:hover span,
+.nav .nav > .active:focus span {
+  display: none;
+}
+
+.nav .nav .nav a{
+  padding-left: 40px;
+}
+.nav .nav .nav > .active a,
+.nav .nav .nav > .active:hover a,
+.nav .nav .nav > .active:focus a {
+  font-weight: bold;
+  padding-left: 40px;
+  border-left: 5px solid #3BC715;
+  background-color: #3BC715;
+  color:#fff;
+}

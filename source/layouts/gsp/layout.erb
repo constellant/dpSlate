@@ -2,7 +2,9 @@
     <% defaults = YAML.load_file('source/defaults.yml') %>
 <% else %>
     <% defaults = {} %>
-<% end %>    
+<% end %>  
+
+<% page_content = yield %>  
 
 <% !defaults["title"].nil? ? title = defaults["title"] : title = "" %>
 <% !defaults["version"].nil? ? version = defaults["version"] : version = "" %> 
@@ -64,13 +66,33 @@
       
   </content>   
 
-<% if titlePage %>   
- 
+  <% if titlePage %>   
+   
   <content tag="doc-title">
     <%= title %>
   </content> 
-   
-<% end %>
+     
+  <% end %>
+
+  <% if tableOfContents %> 
+
+     <content tag="toc-lis">
+     <% toc_data(page_content).each do |h1| %>
+        <li> 
+          <a href="#<%= h1[:id]%>" class="toc-h1"><%= h1[:content] %></a>
+          <ul class="toc-section nav">
+            <% h1[:children].each do |h2| %>
+              <li>
+                <a href="#<%= h2[:id]%>" class="toc-h2"><%= h2[:content] %></a>
+                
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </content>
+
+  <% end %>
   
   <content tag="output-from-markdown">  
       <%= yield %>
@@ -92,17 +114,7 @@
   <content tag="js-lang-array">
     <%= languageTabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>  
   </content>
-
-  <content tag="toc-js">
-    tocbot.init({
-      tocSelector: '.js-toc',
-      contentSelector: '.content',
-      headingSelector: '<%= tocSelectors %>',
-      positionFixedSelector: '#toc',
-      collapseDepth: <%= tocAccordion %>,
-    }); 
  
-  </content>    
 
   <content tag="js-includes">
 

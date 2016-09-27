@@ -32,301 +32,17 @@ under the License.
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   @extend %default-font;
-  background-color: $main-bg;
-  height: 100%;
+  background-color: $main-bg; 
   -webkit-text-size-adjust: none; /* Never autoresize text */
-  position: relative;
+ 
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////
 // TABLE OF CONTENTS
 ////////////////////////////////////////////////////////////////////////////////
-
-#slateWrapper #toc > ul > li > a > span {
-  float: right;
-  background-color: #2484FF;
-  border-radius: 40px;
-  width: 20px;
-}
-
-#slateWrapper .invisible {
-  display: none;
-}
-
-
-@mixin embossed-bg {
-  background:
-    //linear-gradient(to bottom, rgba(#000, 0.2), rgba(#000, 0) 8px),
-    //linear-gradient(to top, rgba(#000, 0.2), rgba(#000, 0) 8px),
-    //linear-gradient(to bottom, rgba($nav-embossed-border-top, 1), rgba($nav-embossed-border-top, 0) 1.5px),
-    //linear-gradient(to top, rgba($nav-embossed-border-bottom, 1), rgba($nav-embossed-border-bottom, 0) 1.5px),
-    $nav-subitem-bg;
-}
-
-#slateWrapper .tocify-wrapper {
-  transition: left 0.3s ease-in-out;
-  overflow-y: auto;
-  overflow-x: hidden;
-  position: absolute; 
-  z-index: 30;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: $nav-width;
-  background-color: $nav-bg;
-  font-size: 16px;
-  //font-weight: bold;
-  border-right: solid $nav-footer-border-color 2px;
-  border-top: solid $nav-footer-border-color 2px;
-  border-bottom: solid $nav-footer-border-color 2px;
-
-  // language selector for mobile devices
-  .lang-selector {
-    display: none;
-    a {
-      padding-top: 0.5em;
-      padding-bottom: 0.5em;
-    }
-  }
-
-  // This is the logo at the top of the ToC
-  &>img {
-    display: block;
-  }
-
-  &>.search {
-    position: relative;
-    border-bottom-color: black ;
-    border-bottom: 1px;
-
-    input {
-      background: $nav-bg;
-      border-width: 1px;
-      border-color: $search-box-border-color;
-      padding: 6px 0 6px 20px;
-      box-sizing: border-box;
-      margin: $nav-v-padding $nav-padding;
-      width: $nav-width - 45;
-      outline: none;
-      color: $nav-text;
-      border-radius: 6px; /* ios has a default border radius */
-    }
-
-    &:before {
-      position: absolute;
-      top: 18px;
-      left: $nav-padding+4px;
-      color: $nav-text;
-      @extend %icon-search;
-    }
-  }
-
-  img+.tocify {
-    margin-top: $logo-margin;
-  }
-
-  .search-results {
-    margin: 0;
-    box-sizing: border-box;
-    height: 0;
-    overflow-y: auto;
-    overflow-x: visible;
-    white-space: normal;
-    transition-property: height, margin;
-    transition-duration: 180ms;
-    transition-timing-function: ease-in-out;
-    &>a, li {
-      margin: 0px;
-      padding: 5px;
-      display: block;
-      overflow-x: visible;
-      //white-space: pre-wrap;
-      line-height: 1.5;
-    }
-
-    span, .searchPrev, .searchNext {
-      cursor: pointer; cursor: hand;
-      font-size: 10pt;
-      color: #085777;
-      padding: 5px;
-      text-decoration: none;
-    }
-
-    &.visible {
-      height: 30%;
-      margin-bottom: 1em;
-    }
-
-  }
-
-    //@include embossed-bg;
-
-    li {
-      margin: 1em $nav-padding;
-      line-height: 1;
-      white-space: normal;
-      overflow-x: visible;
-    }
-
-    a {
-      color: $nav-text;
-      text-decoration: none;
-    }
-
-
-
-  .tocify-item>a, li {
-    padding: 20px $nav-padding 20px -$nav-padding;
-    display: block;
-    overflow-x: hidden;
-    //white-space: nowrap;
-    text-overflow: ellipsis;
-    line-height: 1.5;
-    &:hover {
-        overflow-x: visible;
-        //white-space: pre-wrap;
-    }
-  }
-
-  // The Table of Contents is composed of multiple nested
-  // unordered lists.  These styles remove the default
-  // styling of an unordered list because it is ugly.
-  ul, li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    padding-left: $nav-indent;
-    line-height: 38px;
-  }
-
-  li {
-    color: $nav-text;
-    //transition-property: background;
-    //transition-timing-function: linear;
-    //transition-duration: 230ms;
-  }
-
-  // This is the currently selected ToC entry
-  .tocify-focus {
-    //box-shadow: 0px 1px 0px $nav-active-shadow;
-    box-shadow: none;
-    background-color: $nav-active-bg;
-    color: $nav-active-text;
-  }
-
-  // Subheaders are the submenus that slide open
-  // in the table of contents.
-  .tocify-subheader {
-    // display: none; // remove this to always display everything tocify will override this when needed
-    background-color: $nav-subitem-bg;
-    font-weight: 500;
-    .tocify-item>a {
-      // padding-left: $nav-padding + $nav-indent;
-      font-size: 14px;
-      color: $nav-subheader-text;
-    }
-
-    // for embossed look:
-    @include embossed-bg;
-    &>li:last-child {
-      box-shadow: none; // otherwise it'll overflow out of the subheader
-    }
-  }
-
-  .toc-header {
-    padding-left: 20px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    border-top: 2px solid $nav-footer-border-color;
-
-    .toc-title, .doc-title {
-        padding-left: 0px;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        margin-top: 20px;
-        margin-bottom: 0px;
-        font-style:italic;
-        font-weight: bold;
-        overflow-x: visible;
-       //white-space: pre-wrap;
-        font-size: 20px;
-        color: $nav-active-text;
-
-    }
-
-    .about .title-page  {
-        display: none;
-
-        ul {
-            display: inline-block;
-
-            li, a {
-                line-height: 1.3;
-                font-size: 10pt;
-                margin-top: 5px;
-                margin-bottom: 5px;
-                width: 90%;
-                padding : 3px;
-                overflow-x: visible;
-                //white-space: pre-wrap;
-                color: $nav-subheader-text;
-                //border-bottom: 2px solid $nav-footer-border-color;
-            }
-        }
-    }
-
-    .about-control {
-        cursor: pointer; cursor: hand;
-        font-size: 10pt;
-        padding: 5px;
-        color: #085777;
-        text-decoration: none;
-    }
-
-    ul, li,a {
-      color: $nav-text;
-      text-decoration: none;
-      font-size: 10pt;
-      line-height: 1;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  }
-
-
-
-  .toc-footer {
-    padding: 0;
-    margin-top: 1em;
-    overflow-x: visible;
-    //white-space: pre-wrap;
-    //border-top: 2px solid $nav-footer-border-color;
-    //border-bottom: 2px solid $nav-footer-border-color;
-
-    ul {
-      display: inline-block;
-      line-height: 5px;
-
-      li,a {
-        color: $nav-text;
-        text-decoration: none;
-        font-size: 10pt;
-        line-height: 1.3;
-        text-decoration: none;
-
-      }
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  }
-
-}
+  
+ 
 
 // button to show navigation on mobile devices
 #slateWrapper #nav-button {
@@ -723,15 +439,7 @@ under the License.
 // These are the styles for phones and tablets
 // There are also a couple styles disperesed
 
-@media (max-width: $tablet-width) {
-  #slateWrapper .tocify-wrapper {
-    left: -$nav-width;
-
-    &.open {
-      left: 0;
-    }
-  }
-
+ 
   #slateWrapper .page-wrapper {
     margin-left: 0;
   }
@@ -740,11 +448,7 @@ under the License.
     display: block;
   }
 
-  #slateWrapper .tocify-wrapper .tocify-item > a {
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
-  }
-}
+  
 
 @media (max-width: $phone-width) {
   #slateWrapper .dark-box {
@@ -755,10 +459,7 @@ under the License.
     margin-right: 0;
   }
 
-  #slateWrapper .tocify-wrapper .lang-selector {
-    display: block;
-  }
-
+  
   #slateWrapper .page-wrapper .lang-selector {
     display: none;
   }
