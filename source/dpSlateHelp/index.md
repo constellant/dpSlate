@@ -602,6 +602,8 @@ Notice the colons in the line underneath the header line.  These are used align 
 
 <aside class="notice"> Note that the pipes do not need to line up with each other on each line.</aside>
 
+<aside class="notice"> There must be at least three dashes in each segment of the separator between the header and the body of the table.</aside>
+
 <aside class="success"> If you don't like that syntax, feel free to use normal html \<table\>`s directly in your markdown.</aside>
 
 
