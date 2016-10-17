@@ -1,0 +1,195 @@
+@charset "utf-8";
+@import 'normalize';
+@import 'compass';
+@import 'variables';
+@import 'syntax';
+@import 'icon-font';
+
+// Title Page Rules
+
+.doc-title {
+    padding-left: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    font-style: italic;
+    font-weight: bold;
+    overflow-x: visible;
+    font-size: 20px;
+    color: #0097E6;
+}
+
+.title-page {
+    padding-left: 20px;    
+}
+
+
+// Search Rules
+    
+.search {
+    position: relative;
+
+    #input-search {
+      background: $nav-bg;
+      border-width: 1px;
+      border-color: $search-box-border-color;
+      padding: 6px 0 6px 20px;
+      box-sizing: border-box;
+      margin: $nav-v-padding $nav-padding;
+      width: $nav-width - 45;
+      outline: none;
+      color: $nav-text;
+      border-radius: 6px; /* ios has a default border radius */
+    }
+
+    &::before {
+      position: absolute;
+      top: 18px;
+      left: $nav-padding+4px;
+      color: $nav-text;
+      @extend %icon-search;
+    z-index: 99;
+    }
+
+    .search-results {
+        margin: 0;
+        margin-left: -20px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: visible;
+        height: 30%;
+        margin-bottom: 1em;
+        white-space: normal;
+        transition-property: height, margin;
+        transition-duration: 180ms;
+        transition-timing-function: ease-in-out;
+    }
+
+    .search-results a, li {
+        margin: 0px;
+        padding: 5px;
+        display: block;
+        overflow-x: visible;
+        white-space: pre-wrap;
+        line-height: 1.5;
+    }
+
+    .search-results span, .searchPrev, .searchNext {
+        cursor: pointer; cursor: hand;
+        font-size: 10pt;
+        color: #085777;
+        padding: 5px;
+        text-decoration: none;
+    }
+}
+
+
+// Table of Contents CSS Rules
+    
+.toc-title {
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    font-style: italic;
+    font-weight: bold;
+    overflow-x: visible;
+    font-size: 20px;
+    color: #0097E6;
+}
+
+#navbar2 .col-sm-6, #navbar2 col-md-6{display:none;}   
+
+.affix-bottom {
+    position: absolute;
+    width: 310px;
+}
+
+.affix {
+    top: 0;
+    width: 310px;
+}
+
+#nav{
+    overflow-y:scroll;
+    width:310px;
+}  
+
+
+.nav .active {
+    font-weight: bold;
+}
+
+// Second Level ToC - not active
+
+.nav .nav {
+    display: none;
+}
+
+// Third Level Toc - not active
+
+.nav .nav .nav {
+    display: none;
+}
+
+
+.nav .active .nav {
+    display: block;
+}
+
+.nav .nav a {
+    font-weight: normal;
+    font-size: .85em;
+    background-color: $nav-bg;
+    color: $nav-text;
+} 
+
+// First Level ToC Active
+
+.nav .active a,
+.nav .active:hover a,
+.nav .active:focus a {
+    font-weight: bold; 
+    border-left: 5px solid $nav-active-border;
+}
+
+.nav .active:focus a {
+    background-color: $nav-active-bg;
+    color: $nav-active-text;
+}
+
+// Second Level ToC Active
+
+.nav .nav a{
+    padding-left: 30px;
+}
+
+.nav .nav > .active a,
+.nav .nav > .active:hover a,
+.nav .nav > .active:focus a {
+    font-weight: bold;
+    padding-left: 30px;
+    border-left: 5px solid $nav-border-bg;
+}
+
+.nav .nav > .active span,
+.nav .nav > .active:hover span,
+.nav .nav > .active:focus span {
+    display: none;
+}
+
+// Third Level ToC Active
+
+.nav .nav .nav a{
+    padding-left: 40px;
+}
+
+.nav .nav .nav > .active a,
+.nav .nav .nav > .active:hover a,
+.nav .nav .nav > .active:focus a {
+    font-weight: bold;
+    padding-left: 40px;
+    border-left: 5px solid $nav-border-bg;
+}

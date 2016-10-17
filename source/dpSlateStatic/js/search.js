@@ -36,8 +36,8 @@
   function search(event) {
     unmatch();
     searchResults.removeClass('invisible');
-    $(".toc-title").addClass('invisible'); 
-    $(".toc").addClass('invisible');  //hide the Table of Contents when searching
+    //$(".toc-title").addClass('invisible'); 
+    $("#toc").addClass('invisible');  //hide the Table of Contents when searching
 
     // ESC clears the field
     if (event.keyCode === 27) this.value = '';
@@ -53,7 +53,7 @@
         searchResults.html('<li style="color:green"></li>');
         var matches = $('.match');
         $('.search-results li').text( matches.length.toLocaleString('en') + ' Results Found and Highlighted');
-        $('.search-results li').append('<span id="searchPrev"> &lt;&lt;prev </span><span id="searchNext"> next&gt;&gt; </span>');
+        $('.search-results li').append('<br><span id="searchPrev"> &lt;&lt;prev </span><span id="searchNext"> next&gt;&gt; </span>');
         // keep track of next and previous. Start at one because on SEARCH the forst one was already highlightes
         var matchIndex = 0;
         // look out for user click on NEXT
@@ -90,9 +90,10 @@
       }
     } else {
       unmatch();
+      $('.search-results li').text('');
       searchResults.addClass('invisible');
-      $(".toc-title").removeClass('invisible'); 
-      $(".toc").removeClass('invisible');  //restore the toc
+      //$(".toc-title").removeClass('invisible'); 
+      $("#toc").removeClass('invisible');  //restore the toc
     }
   }
 

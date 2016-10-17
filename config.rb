@@ -75,7 +75,7 @@ end
 helpers do
   # Define a helper to create a formated date string
   def datestring()
-    Time.now.strftime('%B %d, %Y')
+    Time.now.strftime('%B %d, %Y at %H:%M %Z')
   end
 
   # Nokogiri for TOC

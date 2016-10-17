@@ -84,7 +84,7 @@
             
           <div class="span3 <% if !leftPanel %> col-xs-12 <% else %>col-xs-12 col-md-3<% end %>">  
 
-            <div id="frontmatter">
+            <div id="frontmatter" data-spy="affix">
 
             <% if tableOfContents %>
 
@@ -95,10 +95,11 @@
                 </div>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
-                  Title Page
-                </button>   
-
+                  <div class=title-page>
+                    <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                        Title Page
+                    </button>   
+                  </div>
               <% end %>
 
               <% if documentSearch %>
@@ -118,17 +119,17 @@
       
               <% if tableOfContents %>  
  
-              <div id="toc" data-offset-top="60"                   data-spy="affix"  >
+              <div id="toc"  >
 
                 <div class=toc-header>
 
-                  <h5 class=toc-title>
+                  <div class=toc-title>
                     Table of Contents
-                  </h5>
+                  </div>
 
                 </div>
 
-                <div class="scrollspy"> 
+                 <div class="scrollspy">
 
                     <ul  id="nav"  
                          class="nav">
