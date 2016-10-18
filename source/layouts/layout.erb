@@ -53,8 +53,6 @@
 
     <%= stylesheet_link_tag 'bootstrap.min', media: :screen %>
     <%= stylesheet_link_tag :screen, media: :screen %>
-    <%= stylesheet_link_tag 'frontmatter', media: :screen %>
-     
     <%= stylesheet_link_tag :print, media: :print %>
 
     <% if !leftPanel %>       
@@ -66,9 +64,11 @@
       <%= stylesheet_link_tag :inlinecode_screen, media: :screen %>
       <% languageTabs = [] %>
     <% end %> 
-    <style>
+
+     <style>
       <%= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
     </style>
+ 
   </head>
 
   <body class="<%= page_classes %>"    
