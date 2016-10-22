@@ -1,5 +1,5 @@
-<% if File.exists? ('source/defaults.yml') %>
-    <% defaults = YAML.load_file('source/defaults.yml') %>
+<% if File.exists? ('source/_defaults.yml') %>
+    <% defaults = YAML.load_file('source/_defaults.yml') %>
 <% else %>
     <% defaults = {} %>
 <% end %>    
@@ -281,27 +281,13 @@
         <div class="modal-body about">
 
             <div class="title-page">
-              <% if title %>
                 <h1><%= title %> </h1>
-              <% end %>
-              <% if version %>
                 <h2><%= version %></h2>
-              <% end %>
-              <% if copyright %>
                 <p><%= copyright %></p>
-              <% end %>
-              <% if publisher %>
                 <p><%= publisher %></p>
-              <% end %>
-              <% if publisherAddress %>
                 <p><%= publisherAddress %></p>
-              <% end %>
-              <% if comments %>
                 <p><%= comments %></p>
-              <% end %>
-                <p><%= datestring %></p>
-            </div>
-           
+                <p><%= datestring %></p>           
         </div>
 
         <div class="modal-footer">

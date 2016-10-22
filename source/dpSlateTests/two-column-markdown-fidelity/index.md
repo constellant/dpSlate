@@ -2,6 +2,8 @@
 
 title: "dpSlate Markdown Fidelity Test"
 
+version: "v4.1"
+
 titlePage: ON
 
 tableOfContents: ON
