@@ -12,7 +12,9 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
   end
   
   def image(link, title, alt_text)
-    "<img class='lazy' data-original='#{link}' alt='#{alt_text}' />"
+    title.nil? ? titleParm = "" : titleParm = "title='#{title}'"
+    alt_text.nil? ? alt_textParm = "" : alt_textParm = "alt='#{alt_text}'"
+    "<img class='lazy' #{titleParm} #{alt_textParm} data-original='#{link}' />"
   end
     
 end

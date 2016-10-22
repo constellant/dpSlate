@@ -57,7 +57,7 @@ To accommodate the need to deal with different types of documents, dpSlate allow
 
 > dpSlate Document with all three panels on
 
-> ![dpSlate with Three Panels](/dpSlateStatic/images/dpslate/threePanel.png)
+> ![dpSlate with Three Panels](/dpSlateStatic/images/dpSlateHelp/threePanel.png)
 
 When all three panels are turned on, the dpSlate document will look as shown.  The three panels are for the document meta-data (left), body of the document, and supporting materials to the right.
 
@@ -65,7 +65,7 @@ When all three panels are turned on, the dpSlate document will look as shown.  T
 
 > dpSlate Document with two panels on
 
-> ![dpSlate with Two Panels](/dpSlateStatic/images/dpslate/twoPanel.png)
+> ![dpSlate with Two Panels](/dpSlateStatic/images/dpSlateHelp/twoPanel.png)
 
 
 When the right panel is turned off, the supporting materials that were in the right hand panel are not brought into the center panel at the appropriate place.  The left hand panel is not imacted.
@@ -74,7 +74,7 @@ When the right panel is turned off, the supporting materials that were in the ri
 
 > dpSlate Document with one panel on
 
-> ![dpSlate with One Panels](/dpSlateStatic/images/dpslate/onePanel.png).
+> ![dpSlate with One Panels](/dpSlateStatic/images/dpSlateHelp/onePanel.png).
 
 Finally, when the left hand panel is turned off, the document becomes a single column document with the meta-data at the top and the body of the document below.  
 
