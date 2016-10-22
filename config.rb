@@ -10,6 +10,10 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
     $headCount = $headCount + 1
     "<h%s id=\"%s-%d\">%s</h%s>" % [header_level, text.parameterize, $headCount, text, header_level]
   end
+  
+  def image(link, title, alt_text)
+    "<img class='lazy' data-original='#{link}' alt='#{alt_text}' />"
+  end
     
 end
 

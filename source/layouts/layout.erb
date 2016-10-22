@@ -221,16 +221,25 @@
 
 <!-- Add all of the JavaScript at the end -->      
 
-<%= javascript_include_tag "jquery.min" %>   
+<%= javascript_include_tag "jquery.min" %>
+<%= javascript_include_tag "jquery.lazyload.min" %>
 <%= javascript_include_tag "bootstrap.min" %>    
-<%= javascript_include_tag  "energize" %>
-<%= javascript_include_tag  "lang" %>
+<%= javascript_include_tag "energize" %>
+<%= javascript_include_tag "lang" %>
 <%= javascript_include_tag "jquery-scrolltofixed-min" %>  
 <% if documentSearch %>
   <%= javascript_include_tag  "lunr" %>
   <%= javascript_include_tag  "jquery.highlight" %>      
   <%= javascript_include_tag  "search" %>
 <% end %>
+
+<script>
+  $(function() {
+    $("img.lazy").lazyload({
+        threshold : 200
+    });  
+  });
+</script>    
  
 <% if tableOfContents %>      
   <%= javascript_include_tag  "tocbot.min" %>
