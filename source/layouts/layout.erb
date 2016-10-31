@@ -84,7 +84,7 @@
             
           <div class="span3 <% if !leftPanel %> col-xs-12 <% else %>col-xs-12 col-md-3<% end %>">  
 
-            <div id="frontmatter" data-spy="affix">
+            <div id="frontmatter">
 
             <% if tableOfContents %>
 
@@ -129,7 +129,7 @@
 
                 </div>
 
-                <div class="scrollspy">
+                <div class="scrollspy"  data-spy="affix" data-offset-top="205" data-offset-bottom="20">
                       <%= build_toc(page_content, tocSelectors) %>    
                 </div>
 
@@ -237,7 +237,7 @@
       postFixed: function() {}
     }); 
 
-   $('#nav').css("height", $(window).height()-100)  
+   //$('#nav').css("height", $(window).height()-100)  
 
   </script>
 <% end %>   
@@ -248,7 +248,35 @@
        if titlePage
   %>
 
-  
+  <!-- configure the accordion function on the table of contents -->
+  <style>  
+    <% if tocAccordion >= 2 %>
+        .nav .nav {
+            display: block;
+        }
+    <% end %>
+    <% if tocAccordion >= 3 %>  
+        .nav .nav .nav {
+            display: block;
+        }
+    <% end %>
+    <% if tocAccordion >= 4 %>      
+        .nav .nav .nav .nav {
+            display: block;
+        }
+    <% end %>      
+    <% if tocAccordion >= 5 %>
+        .nav .nav .nav .nav .nav {
+            display: block;
+        }
+    <% end %>
+    <% if tocAccordion >= 6 %>
+        .nav .nav .nav .nav .nav .nav {
+            display: block;
+        }
+    <% end %> 
+  </style>
+      
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 

@@ -117,20 +117,47 @@
     font-weight: bold;
 }
 
-// Second Level ToC - not active
+// Assume 2nd through 6th level ToC are not displayed (accordioned)
 
 .nav .nav {
     display: none;
 }
 
-// Third Level Toc - not active
-
 .nav .nav .nav {
     display: none;
 }
 
+.nav .nav .nav .nav {
+    display: none;
+}
 
-.active .nav {
+.nav .nav .nav .nav .nav {
+    display: none;
+}
+
+.nav .nav .nav .nav .nav .nav {
+    display: none;
+}
+
+// When the upper ToC lvel is active, turn on the lower
+
+.nav .active .nav {
+    display: block;
+}
+
+.nav .nav .active .nav {
+    display: block;
+}
+
+.nav .nav .nav .active .nav {
+    display: block;
+}
+
+.nav .nav .nav .nav .active .nav {
+    display: block;
+}
+
+.nav .nav .nav .nav .nav .active .nav {
     display: block;
 }
 
