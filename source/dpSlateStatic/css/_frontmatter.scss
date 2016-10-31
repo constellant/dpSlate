@@ -144,7 +144,7 @@
 // First Level ToC Active
 
 .nav .active a,
-.nav .active:hover a,
+.nav .active:hover a, 
 .nav .active:focus a {
     font-weight: bold; 
     border-left: 5px solid $nav-active-border;
@@ -153,6 +153,7 @@
 .nav .active:focus a {
     background-color: $nav-active-bg;
     color: $nav-active-text;
+    border-left: 5px solid $nav-active-border;
 }
 
 // Second Level ToC Active
