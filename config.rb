@@ -96,13 +96,16 @@ helpers do
       end
       if prevLevel > currLevel
         for i in (currLevel..(prevLevel-1))
-            tocContent += ' </ul>'
+            tocContent += ' </ul></li>'
         end
+      end
+      if prevLevel == currLevel
+          tocContent += ' </li>'
       end
       if prevLevel < currLevel
           tocContent += ' <ul class="toc-submenu nav">'
       end
-      tocContent += ' <li class="toc-' + header.name + '"> <a href="#' + header.attribute('id') + '" class="toc-' + header.name + '"> ' + header.content + ' </a></li>'
+      tocContent += ' <li class="toc-' + header.name + '"> <a href="#' + header.attribute('id') + '" class="toc-' + header.name + '"> ' + header.content + ' </a>'
       prevLevel = currLevel
     end
     tocContent += ' </ul>'

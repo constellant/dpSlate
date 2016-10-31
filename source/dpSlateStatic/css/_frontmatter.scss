@@ -130,7 +130,7 @@
 }
 
 
-.nav .active .nav {
+.active .nav {
     display: block;
 }
 
@@ -173,7 +173,7 @@
 .nav .nav > .active span,
 .nav .nav > .active:hover span,
 .nav .nav > .active:focus span {
-    display: none;
+    display: block;
 }
 
 // Third Level ToC Active
