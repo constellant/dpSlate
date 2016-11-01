@@ -201,4 +201,12 @@ $print-font-size: 12px;
   }
 }
 
+.modal {
+    display: block;
+}
+
+.title-page, .modal-header, .modal-footer {
+    display: none;
+}
+
 @import 'customerPrint';
