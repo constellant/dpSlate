@@ -1,4 +1,4 @@
-@charset "utf-8";  
+@charset "utf-8";
 
 // Title Page Rules
 
@@ -16,12 +16,12 @@
 }
 
 .title-page {
-    padding-left: 20px;    
+    padding-left: 20px;
 }
 
 
 // Search Rules
-    
+
 .search {
     position: relative;
 
@@ -81,7 +81,7 @@
 
 
 // Table of Contents CSS Rules
-    
+
 .toc-title {
     padding-left: 0px;
     padding-top: 0px;
@@ -95,22 +95,29 @@
     color: #0097E6;
 }
 
-#navbar2 .col-sm-6, #navbar2 col-md-6{display:none;}   
+#navbar2 .col-sm-6, #navbar2 col-md-6{display:none;}
 
-.affix-bottom {
-    position: absolute;
-    width: 310px;
-}
+ 
 
 .affix {
     top: 0;
-    width: 310px;
+    width: 100%;
+}
+
+
+.affix-top {
+  width: 100%;
+}
+
+.affix-bottom {
+  position: absolute;
+  width: 100%;
 }
 
 #nav{
     overflow-y:scroll;
     width:310px;
-}  
+}
 
 
 .nav .active {
@@ -166,14 +173,14 @@
     font-size: .85em;
     background-color: $nav-bg;
     color: $nav-text;
-} 
+}
 
 // First Level ToC Active
 
 .nav .active a,
-.nav .active:hover a, 
+.nav .active:hover a,
 .nav .active:focus a {
-    font-weight: bold; 
+    font-weight: bold;
     border-left: 5px solid $nav-active-border;
 }
 
@@ -216,5 +223,3 @@
     padding-left: 40px;
     border-left: 5px solid $nav-border-bg;
 }
-
- 
