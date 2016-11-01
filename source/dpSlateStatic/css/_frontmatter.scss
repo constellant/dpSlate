@@ -119,23 +119,11 @@
 
 // Assume 2nd through 6th level ToC are not displayed (accordioned)
 
-.nav .nav {
-    display: none;
-}
-
-.nav .nav .nav {
-    display: none;
-}
-
-.nav .nav .nav .nav {
-    display: none;
-}
-
-.nav .nav .nav .nav .nav {
-    display: none;
-}
-
-.nav .nav .nav .nav .nav .nav {
+.toc-submenu-2, 
+.toc-submenu-3,
+.toc-submenu-4,
+.toc-submenu-5,
+.toc-submenu-6 {
     display: none;
 }
 
@@ -171,9 +159,8 @@
 // First Level ToC Active
 
 .nav .active a,
-.nav .active:hover a, 
 .nav .active:focus a {
-    font-weight: bold; 
+    //font-weight: bold; 
     border-left: 5px solid $nav-active-border;
 }
 
@@ -190,17 +177,10 @@
 }
 
 .nav .nav > .active a,
-.nav .nav > .active:hover a,
 .nav .nav > .active:focus a {
-    font-weight: bold;
+    //font-weight: bold;
     padding-left: 30px;
     border-left: 5px solid $nav-border-bg;
-}
-
-.nav .nav > .active span,
-.nav .nav > .active:hover span,
-.nav .nav > .active:focus span {
-    display: block;
 }
 
 // Third Level ToC Active
@@ -210,10 +190,48 @@
 }
 
 .nav .nav .nav > .active a,
-.nav .nav .nav > .active:hover a,
 .nav .nav .nav > .active:focus a {
-    font-weight: bold;
+    //font-weight: bold;
     padding-left: 40px;
+    border-left: 5px solid $nav-border-bg;
+}
+
+// Fourth Level ToC Active
+
+.nav .nav .nav .nav a{
+    padding-left: 50px;
+}
+
+.nav .nav .nav .nav > .active a,
+.nav .nav .nav .nav > .active:focus a {
+    //font-weight: bold;
+    padding-left: 50px;
+    border-left: 5px solid $nav-border-bg;
+}
+
+// Fifth Level ToC Active
+
+.nav .nav .nav .nav .nav  a{
+    padding-left: 60px;
+}
+
+.nav .nav .nav .nav .nav > .active a,
+.nav .nav .nav .nav .nav > .active:focus a {
+    //font-weight: bold;
+    padding-left: 60px;
+    border-left: 5px solid $nav-border-bg;
+}
+
+// Sixth Level ToC Active
+
+.nav .nav .nav .nav .nav .nav a{
+    padding-left: 70px;
+}
+
+.nav .nav .nav .nav .nav .nav > .active a,
+.nav .nav .nav .nav .nav .nav > .active:focus a {
+    //font-weight: bold;
+    padding-left: 70px;
     border-left: 5px solid $nav-border-bg;
 }
 
