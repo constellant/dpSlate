@@ -103,6 +103,7 @@ helpers do
           tocContent += ' </li>'
       end
       if prevLevel < currLevel
+          tocContent += ' <ul class="toc-submenu-' + currLevel.to_s + ' nav">'
       end
       tocContent += ' <li class="toc-' + header.name + '"> <a href="#' + header.attribute('id') + '" class="toc-' + header.name + '"> ' + header.content + ' </a>'
       prevLevel = currLevel
