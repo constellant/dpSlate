@@ -35,9 +35,9 @@
 
   function search(event) {
     unmatch();
-    searchResults.removeClass('invisible');
-    //$(".toc-title").addClass('invisible'); 
-    $("#toc").addClass('invisible');  //hide the Table of Contents when searching
+    searchResults.removeClass('invisible'); 
+    $("#toc").addClass('invisible');            //hide the Table of Contents when searching
+    $("#frontmatter").css("position", "fixed");      //fix the search such that it does not scroll out of view
 
     // ESC clears the field
     if (event.keyCode === 27) this.value = '';
@@ -93,7 +93,8 @@
       $('.search-results li').text('');
       searchResults.addClass('invisible');
       //$(".toc-title").removeClass('invisible'); 
-      $("#toc").removeClass('invisible');  //restore the toc
+      $("#toc").removeClass('invisible');           //restore the toc
+      $("#frontmatter").removeAttr('style');        //remove the css style that was added to make it fixed
     }
   }
 
