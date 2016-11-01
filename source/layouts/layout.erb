@@ -215,8 +215,25 @@
 
                 </div>
 
+                <% if !tocFooters.blank? %>
 
-              </div>             
+                <div class="toc-footer">
+
+                  <ul class="toc-footer">
+
+                    <% tocFooters.each do |footer| %>
+
+                      <li><%= footer %></li>
+
+                    <% end %>
+
+                  </ul>
+
+                </div>
+
+                <% end %>
+
+              </div>
 
             <% end %>
 
@@ -230,11 +247,31 @@
 
             <div class="dark-box"></div>
 
-
+            <div class="content">
+             <%= page_content %>
+             <% current_page.data.includes && current_page.data.includes.each do |include| %>
+               <%= partial "includes/#{include}" %>
+             <% end %>
+           </div>
 
             <div class="dark-box">
 
-
+              <% if languageTabs %>
+                <div class="lang-selector" id="myLang">
+                  <% languageTabs.each_with_index do |lang, index| %>
+                    <% if index == 0 %>
+                      <% classValue = "class='active'" %>
+                    <% else %>
+                      <% classValue = "" %>
+                    <% end %>
+                    <% if lang.is_a? Hash %>
+                      <a href="#" data-language-name="<%= lang.keys.first %>" <%= classValue %> ><%= lang.values.first %></a>
+                    <% else %>
+                      <a href="#" data-language-name="<%= lang %>" <%= classValue %> ><%= lang %></a>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% end %>
 
             </div>
 
@@ -258,13 +295,81 @@
 <%= javascript_include_tag "jquery-scrolltofixed-min" %>
 <%= javascript_include_tag  "imagesloaded.min" %>
 
+<% if documentSearch %>
+  <%= javascript_include_tag  "lunr" %>
+  <%= javascript_include_tag  "jquery.highlight" %>
+  <%= javascript_include_tag  "search" %>
+<% end %>
+
+
+<script>
+
+  $(function() {
+    $("img.lazy").lazyload({
+        threshold : 200
+    });
+  });
+
+</script>
 
 
 <!-- Configure the language tabs -->
 
+<% if languageTabs %>
 
+  <script>
 
+    $(function() {
+        setupLanguages(<%= languageTabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>);
+    });
 
+   $('#myLang').scrollToFixed({marginTop: 0,
+      preFixed: function() {},
+      postFixed: function() {}
+    });
 
+  </script>
+
+<% end %>
+
+<% if tableOfContents  %>
+
+  <!-- configure the accordion function on the table of contents -->
+  <style>
+
+    <% if tocAccordion >= 2 %>
+        .nav .nav {
+            display: block;
+        }
+    <% end %>
+
+    <% if tocAccordion >= 3 %>
+        .nav .nav .nav {
+            display: block;
+        }
+    <% end %>
+
+    <% if tocAccordion >= 4 %>
+        .nav .nav .nav .nav {
+            display: block;
+        }
+    <% end %>
+
+    <% if tocAccordion >= 5 %>
+        .nav .nav .nav .nav .nav {
+            display: block;
+        }
+    <% end %>
+
+    <% if tocAccordion >= 6 %>
+        .nav .nav .nav .nav .nav .nav {
+            display: block;
+        }
+    <% end %>
+
+  </style>
+
+  <% end %>
+ 
 </body>
 </html>
