@@ -1,0 +1,332 @@
+---
+
+title: "Sample Tutorial"
+
+version: V4.1 
+
+titlePage: ON
+  
+tableOfContents: ON
+
+tocAccordion: 3
+
+rightPanel: ON
+
+leftPanel: ON
+
+documentSearch: ON
+  
+tocSelectors: h1, h2, h3
+
+languageTabs:
+  - markdown: API
+  - javascript: JavaScript
+  - swift: Swift
+  - java: Java
+  - python: Python
+
+---
+
+# <%= lorem.words 2 %>
+
+```markdown
+GET /environments/123
+GET /environments/123/zones
+```
+```javascript
+getEnvironment('123', function(info) {
+	var environment = info;
+	var name = environment.name;
+});
+
+getZones('123', function(zones) {
+	for (var i = 0; i < zones.length; i++) {
+		var zone = zones[i];
+		var name = zone.name;
+	}
+});
+```
+```swift
+flareManager.getEnvironment("123") {json in 
+	let environment = Environment(json)
+}
+
+flareManager.listZones("123") {jsonArray in 
+	for json in jsonArray {
+		let zone = Zone(json)
+	}
+}
+```
+```java
+flareManager.getEnvironment("123", (json) -> {
+	Environment environment = new Environment(json);
+});
+
+flareManager.listZones("123", (jsonArray) -> {
+	for (JSONObject json : jsonArray) {
+		Zone zone = new Zone(json);
+	}
+}
+```
+```python
+environment = flare.getEnvironment('123')
+
+for zone in flare.getZones('123'):
+    print(zone)
+
+```
+Click one of the languages above for detailed information about developing with that language. 
+
+<%= lorem.paragraphs 3 %>
+
+<aside class="notice">
+<%= lorem.paragraph %>
+</aside>
+
+## <%= lorem.words 2 %>
+
+<%= lorem.paragraph %>
+
+## <%= lorem.word %>
+
+```swift
+public init(host: String, port: Int)
+```
+```java
+public FlareManager(String host, int port)
+```
+Creates a FlareManager object. 
+
+(Not used in JavaScript or Python.)
+
+## Connect
+
+```swift
+func connect()
+```
+```java
+void connect()
+```
+<%= lorem.paragraphs 2 %>
+
+## <%= lorem.word %>
+
+```swift
+func disconnect()
+```
+```java
+void disconnect()
+```
+<%= lorem.paragraphs 3 %>
+
+# <%= lorem.words 3 %>
+    
+## <%= lorem.words 2 %>
+
+```markdown
+GET /environments
+GET /environments?latitude={latitude}&longitude={longitude}
+GET /environments?key={key}&value={value}
+```
+```javascript
+function getEnvironments(callback)
+function getEnvironmentsWithParams(params, callback)
+```
+```swift
+func listEnvironments(handler:(JSONArray) -> ())
+func listEnvironments(params: JSONDictionary, handler:(JSONArray) -> ())
+```
+```java
+void listEnvironments(ListHandler handler)
+void listEnvironments(Location location, ListHandler handler)
+```
+```python
+def getEnvironments(params={})
+```
+<%= lorem.paragraphs 4 %>
+
+## <%= lorem.words 2 %>
+
+```markdown
+POST /environments
+```
+```javascript
+function newEnvironment(data, callback)
+```
+```swift
+func newEnvironment(environment: JSONDictionary, handler:(JSONDictionary) -> ())
+```
+```java
+void newEnvironment(JSONObject message, Handler handler)
+```
+```python
+def newEnvironment(json)
+```
+<%= lorem.paragraphs 2 %>
+
+## <%= lorem.words 2 %>
+
+```markdown
+GET /environments/{environment_id}
+```
+```javascript
+function getEnvironment(environment_id, callback) 
+```
+```swift
+func getEnvironment(environmentId: String, handler:(JSONDictionary) -> ())
+```
+```java
+void getEnvironment(String environmentId, Handler handler)
+```
+```python
+def getEnvironment(environment_id)
+```
+<%= lorem.paragraphs 3 %>
+
+## <%= lorem.words 2 %>
+
+```markdown
+PUT /environments/{environment_id}
+```
+```javascript
+function updateEnvironment(environment_id, data, callback)
+```
+```swift
+func updateEnvironment(environmentId: String, environment: JSONDictionary, handler:(JSONDictionary) -> ())
+```
+```java
+void updateEnvironment(String environmentId, JSONObject message, Handler handler)
+```
+```python
+def updateEnvironment(environment_id, json)
+```
+<%= lorem.paragraphs 2 %>
+
+<aside class="warning">
+<%= lorem.paragraph %>
+</aside>
+
+## <%= lorem.words 2 %>
+
+```markdown
+DELETE /environments/{environment_id}
+```
+```javascript
+function deleteEnvironment(environment_id, callback)
+```
+```swift
+func deleteEnvironment(environmentId: String, handler:(JSONDictionary) -> ())
+```
+```java
+void deleteEnvironment(String environmentId, Handler handler)
+```
+```python
+def deleteEnvironment(environment_id)
+```
+<%= lorem.paragraphs 2 %>
+
+
+# <%= lorem.words 2 %>
+
+    
+## <%= lorem.words 2 %>
+
+```markdown
+GET /environments/{environment_id}/zones
+GET /environments/{environment_id}/zones?x={x}&y={y}
+GET /environments/{environment_id}/zones?key={key}&value={value}
+```
+```javascript
+function getZones(environment_id, callback)
+function getZonesWithParams(params, environment_id, callback)
+```
+```swift
+func listZones(environmentId: String, handler:(JSONArray) -> ())
+func listZones(environmentId: String, point: CGPoint, handler:(JSONArray) -> ())
+func listZones(environmentId: String, params: JSONDictionary?, handler:(JSONArray) -> ())
+```
+```java
+void listZones(String environmentId, ListHandler handler) 
+void listZones(String environmentId, PointF point, ListHandler handler)
+```
+```python
+def getZones(environment_id, params={})
+```
+<%= lorem.paragraphs 3 %>
+
+## <%= lorem.words 2 %>
+
+```markdown
+POST /environments/{environment_id}/zones
+```
+```javascript
+function newZone(environment_id, data, callback)
+```
+```swift
+func newZone(environmentId: String, zone: JSONDictionary, handler:(JSONDictionary) -> ())
+```
+```java
+void newZone(String environmentId, JSONObject message, Handler handler)
+```
+```python
+def newZone(environment_id, json)
+```
+<%= lorem.paragraphs 2 %>
+
+
+# <%= lorem.words 5 %>
+
+<%= lorem.paragraphs 5 %>
+
+## Console
+
+<%= lorem.paragraph %>
+
+
+## <%= lorem.word %>
+
+```markdown
+subscribe {environment:"123", "all": true}
+subscribe {zone:"456", "all": false}
+subscribe {thing:"789"}
+subscribe {device:"234"}
+```
+```javascript
+function subscribe(message, all)
+```
+```swift
+func subscribe(flare: Flare)
+func subscribe(flare: Flare, all: Bool)
+```
+```java
+void subscribe(Flare flare)
+void subscribe(Flare flare, boolean all)
+```
+```python
+def subscribe(message, all=false)
+```
+<%= lorem.paragraphs 5 %>
+
+<aside class="error">
+<%= lorem.paragraph %>
+</aside>
+
+## <%= lorem.word %>
+
+```markdown
+unsubscribe {"zone": "456"} 
+```
+```javascript
+function unsubscribe(message)
+```
+```swift
+func unsubscribe(flare: Flare)
+```
+```java
+void unsubscribe(Flare flare)
+```
+```python
+def unsubscribe(message)
+```
+<%= lorem.paragraphs 3 %>
+
