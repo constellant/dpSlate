@@ -17,6 +17,45 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
     "<img class='lazy' #{titleParm} #{alt_textParm} data-original='#{link}' />"
   end
     
+  #
+  # Override paragraph to support custom alerts.
+  #
+  # @param [String] text
+  # @return [String]
+  #
+  def paragraph(text)
+    add_alerts("#{text.strip}\n")
+  end
+    
+  #
+  # Add alert text to the given markdown.
+  #
+  # @param [String] text
+  # @return [String]
+  #
+  def add_alerts(text)
+    map = {
+      "=&gt;" => "success",
+      "-&gt;" => "notice",
+      "~&gt;" => "warning",
+      "!&gt;" => "danger",
+    }
+
+    regexp = map.map { |k, _| Regexp.escape(k) }.join("|")
+
+    if md = text.match(/^(#{regexp})/)
+      key = md.captures[0]
+      klass = map[key]
+      text.gsub!(/#{Regexp.escape(key)}\s+?/, "")
+
+      return <<-EOH.gsub(/^ {8}/, "")
+        <aside class="#{klass}">#{text}</aside>
+      EOH
+    else
+      return "<p>" + text + "</p>"
+    end
+  end
+    
 end
 
 # set the folders up for dpEngine
@@ -42,6 +81,7 @@ set :markdown,
     disable_indented_code_blocks: true,
     prettify: true,
     tables: true,
+    footnotes: true,
     with_toc_data: true,
     no_intra_emphasis: true,
     strikethrough: true,

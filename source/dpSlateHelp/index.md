@@ -78,9 +78,8 @@ When the right panel is turned off, the supporting materials that were in the ri
 
 Finally, when the left hand panel is turned off, the document becomes a single column document with the meta-data at the top and the body of the document below.  
 
-<aside class="notice">
-When the Left Hand Panel is turned off, the Right Hand Panel will also be turned off at the same time.
-</aside>
+-> When the Left Hand Panel is turned off, the Right Hand Panel will also be turned off at the same time.
+ 
 
 # Getting Started with dpSlate
 
@@ -239,9 +238,8 @@ Sample code is anchored to either the H1 or H2 heading that they are inserted un
 * Code Annotations - these are highlighted areas that are not code but used to point out a code section.
 * Shared Code Samples - it is possible to make code that appears in all of the tabs.
 
-<aside class="notice">
-The default behavior is to place code samples into a dedicated right-hand panel.  However, you can also turn off the right-hand panel and the code samples will appear inline with the text in the main panel of the document.
-</aside>
+-> The default behavior is to place code samples into a dedicated right-hand panel.  However, you can also turn off the right-hand panel and the code samples will appear inline with the text in the main panel of the document.
+ 
   
 # Specifying Your Document Directives
 
@@ -303,9 +301,8 @@ A dpSlate document is made up of up to three panels which are turned on or off w
 
 * `leftPanel:` is a boolean directive that is used to turn on the left hand panel.  When turned on, the left hand panel will contain the title page, the document search box, the table of contents, and the ToC footer if each of them are turned on.  If the leftPanel is turned off, then the items that should be included in the leftPanel are placed at the top of the center panel.
 
-<aside class="notice">
-When the Left Hand Panel is turned off, the Right Hand Panel will also be turned off at the same time and the rightPanel directive will be ignored.
-</aside>
+-> When the Left Hand Panel is turned off, the Right Hand Panel will also be turned off at the same time and the rightPanel directive will be ignored.
+ 
 
 * `rightPanel:` is a boolean directive that is used to turn on the right hand panel.  When turned on, the right hand panel contains tabs for each programming language that has sample code associated with it.  When the right hand panel is turned off, the code samples are inserted in-line in the center panel.
 
@@ -349,9 +346,8 @@ The name of the language must be recognized by the system such that the display 
 * xml:XML
 * yaml:YAML
 
-<aside class="notice">
-Only list the languages that you want to have as tabs in your document.  Each time you list a language as a _languageTab_, dpSlate will automatically create the language tab regardless if that language is used in the document.
-</aside>
+-> Only list the languages that you want to have as tabs in your document.  Each time you list a language as a _languageTab_, dpSlate will automatically create the language tab regardless if that language is used in the document.
+ 
 
 ## The Left Hand Panel
 
@@ -363,16 +359,14 @@ There are a number of directives for controlling how the Table of Contents is pr
 
 * `documentSearch:` a boolean used to turn the document search feature on and off.
 
-<aside class="notice">
-Document Search is dpSlate's way of providing a full text index for readers.  When you turn on document search in your document, a search box will appear above the  Table of Contents. When the reader types in text into the search box, the Table of Contents will be removed and text in the document that matches the search term will be highlighted with a yellow background.  A _next_ and _prev_ button will be provided to allow the reader to jump to the next and previous hit on the search term.  Search is turned off when the leftPanel is set to `OFF`.
-</aside>
+-> Document Search is dpSlate's way of providing a full text index for readers.  When you turn on document search in your document, a search box will appear above the  Table of Contents. When the reader types in text into the search box, the Table of Contents will be removed and text in the document that matches the search term will be highlighted with a yellow background.  A _next_ and _prev_ button will be provided to allow the reader to jump to the next and previous hit on the search term.  Search is turned off when the leftPanel is set to `OFF`.
+ 
 
 * `tocSelectors:` this string is a comma list of the document elements that will be selected for inclusion into the table of contents.  If the statement is missing, then the default value is "h1, h2, h3" which means that Headers 1, 2, and 3 will be included into the Table of Contents.  If you were to choose "h2, h3, h4, h5" then the first level headers would be ignored and only the second, third, fourth, and fifth levels will be selected for inclusion into the Table of Contents.
 * `tocAccordion:` this is an integer value that is used to controlling the hiding (collapsing) of items in the table of contents.  The value is set to how many heading levels should open by default (_i.e._, not be collpased).  For example, number 6 will show everything in the Table of Contents since there are only 6 heading levels while the number 0 will hide all of the Table of Content entries until it is time for them to open.  The entries in the Table of Contents that are initially hidden will open when you scroll into those headings and will then close again as you scroll out of them.
 
-<aside class="notice">
-When the leftPanel is turned off, the `tocAccordion` has no effect.  This is because the Table of Contents will be moved to be above the main body of the document and the accordion nature of the Table of Contents would interfere with the scrolling through the document.
-</aside>
+-> When the leftPanel is turned off, the `tocAccordion` has no effect.  This is because the Table of Contents will be moved to be above the main body of the document and the accordion nature of the Table of Contents would interfere with the scrolling through the document.
+ 
 
 
 
@@ -380,7 +374,7 @@ When the leftPanel is turned off, the `tocAccordion` has no effect.  This is bec
 
 The YAML directives can be set at a site wide level for all of your documents. Thus, you can avoid typing in the same text for each of the directives for each document.  This feature also allows you to set your site defaults for directives and then change them for all documents quickly.  You do this by modifying the file at `\dpSlate\source\_defaults.yml`.  This file contains all of the directives that you will see in your document and you can set them globally for your site.  If you later define a directive in a specific document, the document value will overide the default value that you set.
 
-# Creating the Body of a dpSlate Document
+# Using dpSlate Markdown
 
 ## Creating Headers
 
@@ -389,10 +383,9 @@ Headers are created by using one or more # characters starting in the first line
 On the right are a list of headers in markdown and below is how they will appear in the document:
 ######
 
-> Headings - Only H1 and H2 are shown in the TOC
+> Headings
 
 ```markdown
-
 # H1 Header
 ## H2 Header
 ### H3 Header
@@ -401,16 +394,14 @@ On the right are a list of headers in markdown and below is how they will appear
 #### H6 Header
 
 ```
-# H1 Header
-## H2 Header
+Below are some sample headers.
+
 ### H3 Header
 #### H4 Header
 #### H5 Header
 #### H6 Header
 
-<aside class="notice">
-Remember that only level 1, 2, and 3 headers will appear in the Table of Contents by default and that this you can change this using the "toc_selector" directive.
-</aside>
+-> Remember that only the headers that you specify in the YAML directives at the top of your document using the _tocSelector_ directive will appear in the _Table of Contents_.
 
 ## Creating a Paragraphs
 
@@ -444,9 +435,8 @@ Make sure the lines above below your paragraph are empty.
     
     Finally, you can combine ***bold and italic***.
 
-<aside class="success">
-You can use those formatting rules in code annotations, tables, paragraphs, lists, wherever.
-</aside>
+=> You can use those formatting rules in code annotations, tables, paragraphs, lists, wherever.
+
 
 ## Strikethrough
 
@@ -511,13 +501,9 @@ You can also use standard HTML hyperlink syntax.  The HTML example to the right 
 
 The Markdown to the right shows how an image can be inserted, in this case, it is the DP Logo that is right above this.  The text inside the square brackets, `[DP Logo]` will become the alt text for the image in the HTML `alt=` parameter.
 
-<aside class="success">
-Images essentially look just like a link except that they start with a '!' .
-</aside>
+=> Images essentially look just like a link except that they start with a '!' .
 
-<aside class="notice">
-Notice that this image is coming from the local image folder.  We recommend that you place your images inside the image folder within your source directory.
-</aside>
+-> Notice that this image is coming from the local image folder.  We recommend that you place your images inside the image folder within your source directory.
 
 ## Inserting Horizontal Rules
 
@@ -574,10 +560,7 @@ You can also use raw HTML in your Markdown, and it'll mostly work pretty well.
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
 </dl>
 
-<aside class="warning">
-Just because you can, doesn't mean that you should.  One of the features of Markdown is that you don't have to worry about the formatting details of HTML.  Also, it provides
-a separation of content and format which you loose when you start placing HTML into your Markdown.
-</aside>
+!> Just because you can, doesn't mean that you should.  One of the features of Markdown is that you don't have to worry about the formatting details of HTML.  Also, it provides a separation of content and format which you loose when you start placing HTML into your Markdown.
 
 ## Creating a Table
 
@@ -600,11 +583,11 @@ Row 2 col 1 | Row 2 col 2 | Row 2 col 3
 
 Notice the colons in the line underneath the header line.  These are used align that columns of the table. A no colon or only a colon to the left will cause the column to align to the left.  A colon to the right will cause the column to align right.  And a colon to the left and the right will cause the column to center.
 
-<aside class="notice"> Note that the pipes do not need to line up with each other on each line.</aside>
+-> Note that the pipes do not need to line up with each other on each line. 
 
-<aside class="notice"> There must be at least three dashes in each segment of the separator between the header and the body of the table.</aside>
+-> There must be at least three dashes in each segment of the separator between the header and the body of the table. 
 
-<aside class="success"> If you don't like that syntax, feel free to use normal html \<table\>`s directly in your markdown.</aside>
+=> If you don't like that syntax, feel free to use normal html \<table\>`s directly in your markdown. 
 
 
 ## Creating Numbered Lists
@@ -633,9 +616,9 @@ Numbered lists are created using the GFM markdown code to the right.  You can cr
 8. Ordered
 9. List
 
-<aside class="notice"> Notice that the order of the numbers do not make a difference.  It is just that a number is used that makes an ordered list. </aside>
+-> Notice that the order of the numbers do not make a difference.  It is just that a number is used that makes an ordered list.  
 
-<aside class="notice"> Note that by indenting by two characters, you are creating an indented list and the numbering restarts and when you go back, the numbering resumes.</aside>
+-> Note that by indenting by two characters, you are creating an indented list and the numbering restarts and when you go back, the numbering resumes.
 
 ## Creating Bulleted Lists
 
@@ -663,33 +646,53 @@ to the right will create the list below:
 * List
 
 
-<aside class="notice"> Notice that bullet lists can be created using a -, a +, or an \*. </aside>
+-> Notice that bullet lists can be created using a -, a +, or an \*.  
 
-<aside class="notice"> Note that by indenting by two characters, you are creating an indented list.</aside>
+-> Note that by indenting by two characters, you are creating an indented list. 
 
-## Creating Special Notes and Warnings
+## Creating Footnotes
+
+```markdown
+
+...defining the footnote.[^somesamplefootnote]
+
+[^somesamplefootnote]: Here is the text of the footnote itself.
+
+```
+
+Footnotes are created using the markdown for footnotes and then defining the footnote.[^somesamplefootnote]  When printing the document, the footnotes will appear at the end of the document and will be ordered sequentially starting with the cardinal number 1. 
+
+[^somesamplefootnote]: Here is the text of the footnote itself.  Footnotes can be a large body of text.  They will appear at the end of the document with a horizontal rule above them.  Footnotes can contain _markdown_ which will be processed properly.
+
+## Creating Alerts - Special Notes and Warnings
 
 > Sample for creating Notes and Warnings
 
 ```markdown
 
-<aside class="notice"> This is a sample note. </aside>
-    
-<aside class="warning"> This is a sample warning.</aside>
+=> This is a success message.
 
-<aside class="success"> This is a sample hint.</aside>
+-> This is an info or note message.
+
+~> This is a warning message.
+
+!> This is a danger message.
 
 ```
 
 You can add warnings and notes with just a little HTML embedded in your markdown document.  To the right, are three different examples of highlights using html.  Below you will see how each of the three examples will manifest themselves in the final document.
 
-<aside class="notice"> This is a sample note. </aside>
-    
-<aside class="warning"> This is a sample warning.</aside>
 
-<aside class="success"> This is a sample hint.</aside>
+=> This is a success message.
 
-Use the `class="notice"` for blue notes, `class="warning"` for red warnings, and `class="success"` for green notes.
+-> This is an info or note message.
+
+~> This is a warning message.
+
+!> This is a danger message.
+
+
+~> In previous versions of dpSlate, alerts were called _asides_ and they were done with HTML tags.  It is highly recommended that your use of asides be ported to the new markdown methods as you can now use markdown in your alerts.  Eventually, HTML tags will be deprecated and turned off to provide better security against cross site scripting.
 
 # Sample Code
 
@@ -974,7 +977,7 @@ In the sample GFM code to the right, the Ruby code will appear in the Ruby tab, 
 
 But just because a language is used as sample code within a dpSlate document it does not mean that the tab will appear.  You tell the system which Language tabs you want to display by editing the `language-tabs` list at the top of your GFM source document.
 
-<aside class="success"> Sometimes it is useful to share code between multiple tabs, you can do this by placing tagging the sample code using a language that is not used as a tab name.  For example if you tag sample code as `all` and `all` is not listed in the `language-tabs` then that sample code will appear in all of the tabs.</aside>
+=> Sometimes it is useful to share code between multiple tabs, you can do this by placing tagging the sample code using a language that is not used as a tab name.  For example if you tag sample code as `all` and `all` is not listed in the `language-tabs` then that sample code will appear in all of the tabs. 
 
 ## Creating Code Sample Annotations
 
@@ -985,8 +988,8 @@ But just because a language is used as sample code within a dpSlate document it 
 ```
 It is sometimes useful to highlight or annotate a part of the sample code.  This is done with code annotations.  By placing a > as the first character in your GFM line of text, you will create a code annotation that will appear in the area to the right, next to the code samples.
 
-<aside class="warning"> Make sure that you have a blank line after your Code Annotation.  If you do not, the annotation will continue until there is a blank line.
-</aside>
+~> Make sure that you have a blank line after your Code Annotation.  If you do not, the annotation will continue until there is a blank line.
+ 
 
 # Fun with the Right Hand Panel
 
@@ -1177,7 +1180,7 @@ When you have an .md.erb file, you can embed Ruby Logic into the file and Middle
 For example, let's say that we have a document in the folder `source/site/example/index.md.erg` and we want to build this from two included Markdown files that are `source/site/example/includes/_intro.md` and `source/site/example/includes/_close.md'.  We can use these includes using the code to the right in our `index.md.erb` file.   
 
 
-<aside class="notice"> You should note, that the file name starts with a `_` (underscore) character while the reference to it in the partial tag does not.  With dpSlate, any file that begins with an `_` (underscore) will not be processed and thus it is used for partials and other files that are included into your document. </aside>
+-> You should note, that the file name starts with a `_` (underscore) character while the reference to it in the partial tag does not.  With dpSlate, any file that begins with an `_` (underscore) will not be processed and thus it is used for partials and other files that are included into your document.  
 
 # Elements of Style for API Documentation
 

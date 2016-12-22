@@ -24,6 +24,10 @@
   @extend %icon;
   content: "\e600";
 }
+%icon-danger-sign {
+  @extend %icon;
+  content: "\e600";
+}
 %icon-info-sign {
   @extend %icon;
   content: "\e602";
