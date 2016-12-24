@@ -69,5 +69,32 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
       return "<p>" + text + "</p>"
     end
   end
-    
+      
+  #
+  # add the include markdown {{filename}}
+  #
+  # @param [String] full_document - the markdown text of the entire document prior to any processing
+  # @return [String] - the markdown text of the entire document with include files added
+  #
+  def preprocess(markdown)
+      get_includes (markdown)
+  end
+      
+  def get_includes(markdown)
+    # look for an include of the form {{filename}} split it into the leftHandString, the filename, and the rightHandString
+    if n = markdown.match(/^\{\{.*\}\}/)
+        include = n[0].gsub(/^\{\{|\}\}/, '')
+        parts = markdown.split(/^\{\{.*\}\}/, 2)
+        if File.exists? (include)
+            file = File.open(include, "r")
+            newmd = file.read
+            file.close
+        else
+            newmd = "\n**dpSlate ERROR**: Include File not found: " + include + "\n"
+        end
+        return [parts[0], get_includes([newmd, "\n", parts[1]].join(""))].join("")
+    else
+      return markdown
+    end
+  end       
 end

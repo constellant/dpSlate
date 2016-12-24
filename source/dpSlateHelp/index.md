@@ -2,7 +2,7 @@
 
 title: "dpSlate User's Guide"
 
-version: "V4.1" 
+version: "V4.2" 
 
 copyright: "Copyright &copy; 2013-2015 Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved."
 
@@ -680,7 +680,7 @@ Footnotes are created using the markdown for footnotes and then defining the foo
 
 ```
 
-You can add warnings and notes with just a little HTML embedded in your markdown document.  To the right, are three different examples of highlights using html.  Below you will see how each of the three examples will manifest themselves in the final document.
+Technical documents often have _alerts_ which are warning and notes that are intended for the reader.  Although standard markdown does not support this concept, dpSlate has been extended to support _alerts_.  You can add warnings and notes with just a little HTML embedded in your markdown document.  To the right, are three different examples of highlights using html.  Below you will see how each of the three examples will manifest themselves in the final document.
 
 
 => This is a success message.
@@ -693,6 +693,25 @@ You can add warnings and notes with just a little HTML embedded in your markdown
 
 
 ~> In previous versions of dpSlate, alerts were called _asides_ and they were done with HTML tags.  It is highly recommended that your use of asides be ported to the new markdown methods as you can now use markdown in your alerts.  Eventually, HTML tags will be deprecated and turned off to provide better security against cross site scripting.
+
+## Using Markdown Includes
+``` markdown
+
+ {{source/dpSlateHelp/goodmen.md}}
+
+ {{error.md}}
+
+```
+
+Sometimes you might want to break a markdown file into multiple parts such that you can reuse the parts in different documents. Although standard markdown does not support the concept of _includes_, dpSlate markdown has been extended to provide this support.  Anywhere within the markdown, you can add the contents of another file by simply using markdown include using two open curly brackets, followed by the path and filespec, and closed with two close curly brackets.  The include markdown statement must be at the start of a new line and of the form `{{filepath/filename.ext}}`  If the file is not found an error message is inserted in place of the include.  Below are two examples of includes.  In the markdown source, the statements to the right have been inserted.  In the first file, called `goodmen.md` the file exsists and contains the markdown text of `Now is the _time_ for all good men...`.  But the second example, the file, `error.md` does not exsist and will result in an error.
+
+{{source/dpSlateHelp/goodmen.md}}
+
+{{error.md}}
+
+-> The include directive for markdown __must__ start on a new line or it will be ignored.
+
+~> It is highly recommended that your included markdown files have a file name that begins with a `_` (underscore).  The dpSlate static file generator does not generate build files for files with filenames that begin with a `_` and thus, if you name your file this way, the fragment files that you are including will not be generated into their own, stand-alone page.
 
 # Sample Code
 
@@ -1263,3 +1282,17 @@ In V4.0, some of the YAML directives were in _camel case_ format while others we
 ### Default YAML Directives
 
 Make sure that you take advantage of the new default YAML directive capability by setting your default values in the file at `/dpSlate/source/_defaults.yml`.
+
+# Release Notes - dpSlate V4.2
+
+## Includes
+
+There is a new markdown that allows you to include another markdown file using the syntax `{{path\file.ext}}`.  
+
+## Footnotes
+
+You can now add footnotes to your markdown.
+
+## Alerts
+
+_Asides_ have been renamed _alerts_ and have been added as Markdown rather thatn using HTML.  In the future you should replace all of your HTML _asides_ with the new markdown _alerts_.
