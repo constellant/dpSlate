@@ -77,7 +77,7 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
   # @return [String] - the markdown text of the entire document with include files added
   #
   def preprocess(markdown)
-      get_includes (markdown)
+     add_abbr(get_includes (markdown))
   end
       
   def get_includes(markdown)
@@ -96,5 +96,23 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
     else
       return markdown
     end
-  end       
-end
+  end
+      
+  def add_abbr(markdown)
+    abbrRegex = /^\*\[([-A-Z0-9]+)\]: (.+)$/
+    abbreviations = markdown.scan(abbrRegex)
+    abbreviations = Hash[*abbreviations.flatten]
+    if abbreviations.any?
+      markdown.gsub!(abbrRegex, "")
+      markdown.rstrip!
+      abbreviations.each do |key, value|
+        html = '<abbr title="' + value +'">' + key + '</abbr>'
+        markdown.gsub!(/\b#{key}\b/, html)
+      end
+    end
+    markdown
+  end
+
+end      
+
+      
