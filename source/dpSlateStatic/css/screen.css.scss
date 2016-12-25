@@ -344,7 +344,7 @@ under the License.
   }
 
   aside.danger:before {
-    @extend %icon-exclamation-sign;
+    @extend %icon-danger-sign;
   }    
 
   aside.success:before {

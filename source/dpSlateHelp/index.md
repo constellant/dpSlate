@@ -694,6 +694,27 @@ Technical documents often have _alerts_ which are warning and notes that are int
 
 ~> In previous versions of dpSlate, alerts were called _asides_ and they were done with HTML tags.  It is highly recommended that your use of asides be ported to the new markdown methods as you can now use markdown in your alerts.  Eventually, HTML tags will be deprecated and turned off to provide better security against cross site scripting.
 
+## Using Markdown Abbreviations
+
+``` markdown
+  
+ *[HTML]: Hyper Text Markup Language
+
+ *[W3C]: World Wide Web Consortium
+
+```
+
+dpSlate markdown includes support for the PHP Markdown for abbreviations.  The examples to the right show two cases of abbreviations which are also included below.  The markdown must begin at a new line, if it does not, it will be recognized as text.
+
+
+*[HTML]: Hyper Text Markup Language
+
+*[W3C]: World Wide Web Consortium
+
+Because these abbreviations have been defined in the document, every occurance of HTML and W3C in the document will appeared as underlined with dashes.  When you hover over the abbreviation, a `?` will appear and eventually a _tool tip_ will appear with the defintion of the abbreviation.
+
+-> abbreviation only works in the web pages and not on the printed page.
+
 ## Using Markdown Includes
 ``` markdown
 
