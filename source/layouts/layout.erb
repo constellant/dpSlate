@@ -90,21 +90,9 @@
 
               <% if titlePage %>
 
-                <div class=doc-title>
-                  <%= title %>
+                <div class=doc-title class=title-page >
+                  <%= title %> <a href="#myModal" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-info-sign"></span></a>
                 </div>
-
-                <!-- Button to trigger modal Title Page -->
-                  <div class=title-page>
-
-                    <button type="button"
-                            class="btn btn-primary btn-xs"
-                            data-toggle="modal"
-                            data-target="#myModal">
-                        Title Page
-                    </button>
-
-                  </div>
 
                   <!-- Modal -->
                   <div class="modal fade"

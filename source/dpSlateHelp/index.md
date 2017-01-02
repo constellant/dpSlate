@@ -716,6 +716,7 @@ Because these abbreviations have been defined in the document, every occurance o
 -> abbreviation only works in the web pages and not on the printed page.
 
 ## Using Markdown Includes
+
 ``` markdown
 
  {{source/dpSlateHelp/goodmen.md}}
@@ -1312,8 +1313,16 @@ There is a new markdown that allows you to include another markdown file using t
 
 ## Footnotes
 
-You can now add footnotes to your markdown.
+You can now add footnotes to your markdown using the PHP Flavored Markdown.
+
+## Abbreviations
+
+You can now add abbreviations using the PHP Flavored Markdown.
 
 ## Alerts
 
 _Asides_ have been renamed _alerts_ and have been added as Markdown rather thatn using HTML.  In the future you should replace all of your HTML _asides_ with the new markdown _alerts_.
+
+## Glyph Fonts
+
+Because dpSlate now includes Bootstrap, the slate Glyph Font has been removed from the source and references to glyph icons have been converted to the Bootstrap Glyph Font.
