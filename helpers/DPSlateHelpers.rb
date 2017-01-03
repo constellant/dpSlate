@@ -1,6 +1,6 @@
 
 module DPSlateHelpers
-    
+  require 'pathname'
 #
 # build_toc - routine to build a static toc using HTML
 # inputs
@@ -51,8 +51,9 @@ module DPSlateHelpers
 # outputs
 #   a ruby hash that contains the defaults for the page directives 
     
-  def get_defaults () 
-      noDefaults = {
+  def get_defaults ( dirspec ) 
+      if (dirspec == "." or dirspec == "/")
+        noDefaults = {
           title: "",
           version: "",
           copyright: "",
@@ -68,13 +69,19 @@ module DPSlateHelpers
           tocSelectors: "h1,h2,h3",
           tocFooters: []
         }
-      
-      if File.exists? ('source/_defaults.yml')
-        defaults = YAML.load_file('source/_defaults.yml')
+        return noDefaults
       else
-        defaults = {}
+        defaults = read_defaults (dirspec + "/_defaults.yml")
+        return defaults.update(get_defaults(Pathname.new(dirspec).parent.to_s))    
+      end 
+  end
+
+  def read_defaults (filespec)
+      if File.exists? ( filespec)
+        return defaults = YAML.load_file(filespec)
+      else
+        return defaults = {}
       end  
-      return noDefaults.merge(defaults)
   end
 
 end 
