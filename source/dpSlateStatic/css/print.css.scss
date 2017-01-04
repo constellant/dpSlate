@@ -39,6 +39,12 @@ $print-font-size: 12px;
   line-height: 1.2;
   list-style-type: none;
 }
+#titlePage {
+    display: block !important;
+}
+#pageDirectives {
+    display: none;
+}
 
 #slateWrapper .about .title-page  {
   display: block !important;
