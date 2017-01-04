@@ -1,0 +1,6 @@
+
+comments: "this is read from the defaults.yml in the same directory as the markdown"
+
+userDefinedVariable1: true
+
+userDefinedVariable2: "test"

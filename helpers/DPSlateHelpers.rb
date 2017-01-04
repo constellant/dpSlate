@@ -1,6 +1,7 @@
 
 module DPSlateHelpers
   require 'pathname'
+  require 'pp'
 #
 # build_toc - routine to build a static toc using HTML
 # inputs
@@ -47,9 +48,22 @@ module DPSlateHelpers
   end
 
 #
-# get_defaults() - routine to read the _default.yml files
+# hash_to_yaml (hash) - routine to convert a ruby hash to a YAML string
+# input 
+#   hash - the hash that is to be converted
+# output
+#   string that contains a YAML version of the hash
+#  
+  def hash_to_yaml (hash) 
+      return "<pre> " + PP.pp(hash, "") + "</pre>"
+  end    
+#
+# get_defaults() - routine to get and merge the values of the _default.yml files along the directory path
+# inputs
+#   dirspec - the directory spec of the leaf folder to be used to look for the _defaults.yml files
 # outputs
-#   a ruby hash that contains the defaults for the page directives 
+#   a ruby hash that contains the defaults for the page directives it can also include any user defined variables
+#
     
   def get_defaults ( dirspec ) 
       if (dirspec == "." or dirspec == "/")
@@ -71,10 +85,18 @@ module DPSlateHelpers
         }
         return noDefaults
       else
-        defaults = read_defaults (dirspec + "/_defaults.yml")
-        return defaults.update(get_defaults(Pathname.new(dirspec).parent.to_s))    
+        this_defaults = read_defaults (dirspec + "/_defaults.yml")
+        return get_defaults(Pathname.new(dirspec).parent.to_s).update(this_defaults)    
       end 
   end
+    
+#
+# read_defaults() - routine to read the _default.yml files
+# inputs
+#   filespec - the filespec for the _defaults.yml files
+# outputs
+#   a ruby hash that contains the defaults read from the filespec, if the file is not found, then an empty has is returned
+#    
 
   def read_defaults (filespec)
       if File.exists? ( filespec)

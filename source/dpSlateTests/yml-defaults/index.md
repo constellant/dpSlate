@@ -6,12 +6,6 @@ version: "dpSlate V4.1"
 
 copyright: "Loaded from the local file"
 
-publisher: "Publisher is overridden"
-
-publisherAddress:  "Publisher Address is overriddent"
-
-comments: "Comments are overwritten"
-
 languageTabs:
   - shell: Overide Shell
   - python: Overide Python
@@ -28,7 +22,12 @@ This is a test of the new YAML default tests.  dpSlate from V4.1 and on uses YAM
 This test is successful if the markdown generates the proper HTML and the resulting dpSlate document exhibits the behavior defined in the default YAML file in `/source/defaults.yml`  The test is successful if:
 
 1.  The page displays the Title Page and Table of Contents
-2.  The values in the Title Page and the Language tabs come from the document and not the defaul (see below).
+2.  Open the Title Page, The following values in the Title Page will be set as:
+  * The Title, Version, Copyright, and LanguageTabs will be local to this file
+  * The comments will come from a `_defaults.yml` that is in the local directory folder
+  * Everything else will come from the global `_defaults.yml` that is in the top source directory folder
+3.  The Language Tabs will show up with Text from the local page.
+  
 
 ## Default Values
 
