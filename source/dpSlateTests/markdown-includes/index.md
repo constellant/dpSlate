@@ -22,12 +22,12 @@ languageTabs:
   - ruby: Ruby
   
 tocSelectors: "h1,h2,h3"
-  
-tocFooters:
 
 ---
 
-{{source/dpSlateTests/markdown-includes/includes/_intro.md}}
+# Header from Main File
+
+{{ source/dpSlateTests/markdown-includes/includes/_intro.md  }}
 {{source/dpSlateTests/markdown-includes/includes/_close.md}}
 
 
