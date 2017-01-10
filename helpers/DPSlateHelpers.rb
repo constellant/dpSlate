@@ -57,6 +57,7 @@ module DPSlateHelpers
   def hash_to_yaml (hash) 
       return "<pre> " + PP.pp(hash, "") + "</pre>"
   end    
+    
 #
 # get_defaults() - routine to get and merge the values of the _default.yml files along the directory path
 # inputs
@@ -68,20 +69,20 @@ module DPSlateHelpers
   def get_defaults ( dirspec ) 
       if (dirspec == "." or dirspec == "/")
         noDefaults = {
-          title: "",
-          version: "",
-          copyright: "",
-          publisher: "",
-          publisherAddress: "",
-          comments: "",
-          tableOfContents: true,
-          tocAccordion: 1,
-          rightPanel: true,
-          leftPanel: true,
-          documentSearch: true,
-          languageTabs: [ { 'default' => 'Default' } ],
-          tocSelectors: "h1,h2,h3",
-          tocFooters: []
+          "title" => "",
+          "version" => "",
+          "copyright" => "",
+          "publisher" => "",
+          "publisherAddress" => "",
+          "comments" => "",
+          "tableOfContents" => true,
+          "tocAccordion" => 1,
+          "rightPanel" => true,
+          "leftPanel" => true,
+          "documentSearch" => true,
+          "languageTabs" => [ { 'default' => 'Default' } ],
+          "tocSelectors" => "h1,h2,h3",
+          "tocFooters" => []
         }
         return noDefaults
       else
@@ -106,4 +107,18 @@ module DPSlateHelpers
       end  
   end
 
+
+#
+# add_sections() - routine to add section tags (page breaks) wherever there is a <p></p> with a string that contains "+++"
+# inputs
+#   document - the html output from the page
+# outputs
+#   document - the html output 
+#    
+
+  def add_sections (document)
+    return "<section>" + document.gsub(/\<p\>\+\+\+.*\n\<\/p\>/,"</section><section>") + "</section>"
+  end  
+
 end 
+
