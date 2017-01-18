@@ -1,4 +1,5 @@
 require "middleman-core/renderers/redcarpet"
+require "pp"
 
 $headCount =0  # create a sequential counter use in rendering headers to ensure each has a unique ID cross the site
 
@@ -38,7 +39,8 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
   # @return [String] - the text of the next markdown paragraph with the alert now as HTML
   #
   def paragraph(text)
-    add_alerts("#{text.strip}\n")
+      add_alerts("#{text.strip}\n")
+
   end
     
   #
@@ -69,16 +71,68 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
       return "<p>" + text + "</p>"
     end
   end
+  
+  def footnote_def(content, number)
+     numberStr = number.to_s
+     content.gsub!(/\<p\>|\<\/p\>/, "")
+     return "<div id='fn#{numberStr}' class='modal fade' role='dialog' >
+               <div class='modal-dialog' role='document'> 
+                 <div class='modal-content'> 
+                   <div class='modal-header' style='display:none'> </div>
+                   <div class='modal-body about'>
+                     <p>#{numberStr}. #{content}</p>
+                   </div>
+                   <div class='modal-footer'>
+                     <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
+                   </div>
+                 </div>
+               </div>
+             </div>" 
+  end
+  
+  def footnote_ref(number)
+      ref = number.to_s
+      return "<sup id='fnref#{ref}'><a data-toggle='modal' class='texttrigger' data-target='#fn#{ref}' href='#fn#{ref}'>#{ref}</a></sup>"
+  end
+      
+  def footnotes (content)
+    return "<div class='footnotes'>\n
+              <!-- Modals for Footnote Definitions -->
+              #{content}
+            </div>"
+  end
+    
+  #
+  # Postprocess the HTML comments for Markdown includes to fix up the 
+  #
+  # @param [String] text - the text of a markdown paragraph
+  # @return [String] - the text of the markdown paragraph with the include bracket transformed into xHTML
+  #
+  def postprocess(document)
+    document.gsub!(/\<\!\-\-include /, "<!--")
+    document.gsub!(/ include\-\-\>/, "-->")
+    return document
+  end      
       
   #
-  # add the include markdown {{filename}}
+  # Preprocess the document with extensions 
+  # 
+  # input
+  #   markdown - the full document in markdown prior to any processing
+  # output
+  #   preprocessed markdown - the full document but with abbreviations, includes, and sections resolved
+  #
+      
+  def preprocess(document)
+     add_abbr(get_includes (document))
+  end
+
+  #
+  # get the the includes - markdown {{filename}}
   #
   # @param [String] full_document - the markdown text of the entire document prior to any processing
-  # @return [String] - the markdown text of the entire document with include files added
+  # @return [String] - the markdown text of the entire document with includes files added
   #
-  def preprocess(markdown)
-     add_abbr(get_includes (markdown))
-  end
       
   def get_includes(markdown)
     # look for an include of the form {{filename}} split it into the leftHandString, the filename, and the rightHandString
@@ -92,11 +146,20 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
         else
             newmd = "\n**dpSlate ERROR**: Include File not found: " + include + "\n"
         end
+        newmd = "\n<!--include markdown-section data-src='" + include + "' include-->\n" + newmd + "\n<!--include /markdown-section include-->"
         return [parts[0], get_includes([newmd, "\n", parts[1]].join(""))].join("")
     else
       return markdown
     end
   end
+            
+  
+  #
+  # add_abbr - Change abbreviation markdown into HMTL and span each occurance in the document
+  #
+  # @param [String] full_document - the markdown text of the entire document prior to any processing
+  # @return [String] - the markdown text with all of the abbreviations processed
+  #      
       
   def add_abbr(markdown)
     abbrRegex = /^\*\[([-A-Z0-9]+)\]: (.+)$/
@@ -106,7 +169,8 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
       markdown.gsub!(abbrRegex, "")
       markdown.rstrip!
       abbreviations.each do |key, value|
-        html = '<abbr title="' + value +'">' + key + '</abbr>'
+        html = '<a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="' + value + '">' + key + '</a>'
+        # html = '<abbr title="' + value +'">' + key + '</abbr>'
         markdown.gsub!(/\b#{key}\b/, html)
       end
     end

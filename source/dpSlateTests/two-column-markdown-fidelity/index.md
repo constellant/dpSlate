@@ -144,10 +144,10 @@ You can also use standard HTML hyperlink syntax.  The HTML example to the right 
 > GFM for Inserting an Image Stored Locally
 
 ```markdown
-![DP Logo](/dpSlateStatic/images/logo.png).
+![DP Logo](/static/images/logo.png).
 ```
 
-![DP Logo](/dpSlateStatic/images/logo.png).
+![DP Logo](/static/images/logo.png).
 
 The Markdown to the right shows how an image can be inserted, in this case, it is the DP Logo that is right above this.  The text inside the square brackets, `[DP Logo]` will become the alt text for the image in the HTML `alt=` parameter.
 

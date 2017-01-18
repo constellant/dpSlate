@@ -6,14 +6,14 @@ set :source, 'source'
 set :build_dir, 'site'
 set :layouts_dir, 'layouts'
 set :partials_dir, 'includes'
-set :images_dir, 'dpSlateStatic/images'
+set :images_dir, 'static/images'
 
 # set the folders for Static files
 
-set :data_dir, 'dpSlateStatic/data'
-set :css_dir, 'dpSlateStatic/css'
-set :js_dir, 'dpSlateStatic/js'
-set :fonts_dir, 'dpSlateStatic/fonts'
+set :data_dir, 'static/data'
+set :css_dir, 'static/css'
+set :js_dir, 'static/js'
+set :fonts_dir, 'static/fonts'
 
 # Markdown
 set :markdown_engine, :redcarpet
@@ -41,7 +41,6 @@ activate :syntax
 configure :build do
   # dpEngine configuration call with '$ DP=true bundle exec middleman build'    
   if ENV['DP']
-    set :build_dir, '../site'
     set :layouts_dir, 'layouts/gsp/'
     template_extensions :md => :gsp, :erb => :gsp
     set :http_prefix, "/site/"    

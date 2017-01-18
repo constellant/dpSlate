@@ -23,6 +23,8 @@ leftPanel: true
 
 documentSearch: true
 
+paginateDocument: false
+
 languageTabs:
   - shell: Sample
   - python: Python

@@ -57,7 +57,7 @@ To accommodate the need to deal with different types of documents, dpSlate allow
 
 > dpSlate Document with all three panels on
 
-> ![dpSlate with Three Panels](/dpSlateStatic/images/dpSlateHelp/threePanel.png)
+> ![dpSlate with Three Panels](/static/images/dpSlateHelp/threePanel.png)
 
 When all three panels are turned on, the dpSlate document will look as shown.  The three panels are for the document meta-data (left), body of the document, and supporting materials to the right.
 
@@ -65,7 +65,7 @@ When all three panels are turned on, the dpSlate document will look as shown.  T
 
 > dpSlate Document with two panels on
 
-> ![dpSlate with Two Panels](/dpSlateStatic/images/dpSlateHelp/twoPanel.png)
+> ![dpSlate with Two Panels](/static/images/dpSlateHelp/twoPanel.png)
 
 
 When the right panel is turned off, the supporting materials that were in the right hand panel are not brought into the center panel at the appropriate place.  The left hand panel is not imacted.
@@ -74,7 +74,7 @@ When the right panel is turned off, the supporting materials that were in the ri
 
 > dpSlate Document with one panel on
 
-> ![dpSlate with One Panels](/dpSlateStatic/images/dpSlateHelp/onePanel.png).
+> ![dpSlate with One Panels](/static/images/dpSlateHelp/onePanel.png).
 
 Finally, when the left hand panel is turned off, the document becomes a single column document with the meta-data at the top and the body of the document below.  
 
@@ -137,11 +137,12 @@ You can now see the docs using your browser at <http://localhost:4567>. And as y
 \dpSlate
 	\source
         _defaults.yml - this file contains your site defaults for YAML directives
-		\site
-			\xyz
-				\abc
+        \xyz
+            _defaults.yml - this file contains default YAML directives for everything below it
+            \abc
+                _defaults.yml - this file contains default YAML directives for the adjacent markdown file
 				index.md - this is your source document
-        \dpSlateStatic
+        \static
             \images
 			     \xyz
 				    \abc
@@ -158,7 +159,7 @@ You can now see the docs using your browser at <http://localhost:4567>. And as y
 	\xyz
 		\abc
 			index.gsp - this is your formatted document for your portal
-    \dpSlateStatic
+    \static
         \images
 			 \xyz
 				\abc
@@ -494,10 +495,10 @@ You can also use standard HTML hyperlink syntax.  The HTML example to the right 
 > GFM for Inserting an Image Stored Locally
 
 ```markdown
-![DP Logo](/dpSlateStatic/images/logo.png).
+![DP Logo](/static/images/logo.png).
 ```
 
-![DP Logo](/dpSlateStatic/images/logo.png).
+![DP Logo](/static/images/logo.png).
 
 The Markdown to the right shows how an image can be inserted, in this case, it is the DP Logo that is right above this.  The text inside the square brackets, `[DP Logo]` will become the alt text for the image in the HTML `alt=` parameter.
 
@@ -1064,13 +1065,13 @@ For example, I can use the `>` to place a table into the right hand panel.
 
 ```markdown
 
-> ![DP Logo](/dpSlateStatic/images/logo.png).
+> ![DP Logo](/static/images/logo.png).
 
 ```
 
 > will result in the image placed into the right hand panel:
 
-> ![DP Logo](/dpSlateStatic/images/logo.png)
+> ![DP Logo](/static/images/logo.png)
 
 
 Or, I can use the `>` to place an image into the right hand panel.  I can even use the `>` to place HTML code such as a YouTube video or any other content.
@@ -1274,11 +1275,11 @@ To enable this to work, we needed to change the way that dpSlate works and as su
 
 ```md
 
-[/dpSlateStatic/images/myimage.png]
+[/static/images/myimage.png]
 
 ```
 
-Previously, your images were located in a root `/images` directory.  To ensure that your dpSlate images do not conflict with other images being used on dpSlate, images are now located in the file `/dpSlateStatic/images`.  Thus, you will need to add the `/dpSlateStatic` to the front of your image references.  For example, if you have an imag
+Previously, your images were located in a root `/images` directory.  To ensure that your dpSlate images do not conflict with other images being used on dpSlate, images are now located in the file `/static/images`.  Thus, you will need to add the `/dpSlateStatic` to the front of your image references.  For example, if you have an imag
 
 ### Updated YAML Directives
 

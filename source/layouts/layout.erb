@@ -53,6 +53,9 @@
 
                 <div class=doc-title class=title-page >
                     <%= defaults["title"] %> <a href="#titlePage" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-info-sign"></span></a>
+                    <% if defaults["documentSearch"] %>
+                       <a href="#" onclick="showsearch();"><span class="glyphicon glyphicon-search"></span></a>
+                    <% end %>
                 </div>
 
                   <!-- Modals -->
@@ -243,11 +246,16 @@
 
             <div class="dark-box"></div>
 
-            <div class="content">
-             <%= page_content %>
-             <% defaults["includes"] && defaults["includes"].each do |include| %>
-               <%= partial "includes/#{include}" %>
-             <% end %>
+            <div class="content" id="documentContent">
+               <% if defaults["paginateDocument"] %>
+                   <%= add_sections(page_content) %>
+                   <ul class="pager" id="sectionNav">
+                       <li class="previous" id="prevSection" ><a href="" class="prev">Previous</a></li>
+                       <li class="next" id="nextSection" ><a href="" class="next">Next</a></li>
+                   </ul>
+                <% else %>
+                   <%= page_content %>
+                <% end %>
            </div>
 
             <div class="dark-box">
@@ -291,12 +299,54 @@
 <%= javascript_include_tag "jquery-scrolltofixed-min" %>
 <%= javascript_include_tag  "imagesloaded.min" %>
 
+<% if defaults["paginateDocument"] %>
+      
+    <script>
+        $(document).ready(function(){
+            $("section").each(function(e) {
+                if (e != 0)
+                    $(this).hide();
+            });
+
+            $("#nextSection").click(function(){
+                if ($("section:visible").next().length != 0)
+                    $("section:visible").next().show().prev().hide();
+                else {
+                    $("section:visible").hide();
+                    $("section:first").show();
+                }
+                $(window).scrollTop($("section:visible").children(":first-child").offset());
+                return false;
+            });
+
+            $("#prevSection").click(function(){
+                if ($("section:visible").prev().length != 0)
+                    $("section:visible").prev().show().next().hide();
+                else {
+                    $("section:visible").hide();
+                    $("section:last").show();
+                }
+                $(window).scrollTop($("section:visible").children(":first-child").offset());
+                return false;
+            });
+        });
+    </script>
+      
+<% end %>
+      
 <% if defaults["documentSearch"] %>
   <%= javascript_include_tag  "lunr" %>
   <%= javascript_include_tag  "jquery.highlight" %>
   <%= javascript_include_tag  "search" %>
 <% end %>
 
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+    $('[data-toggle="popover"]').popover();   
+  });
+    
+</script>
 
 <script>
 
