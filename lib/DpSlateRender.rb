@@ -89,7 +89,14 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
                 <a href='javascript: void(0)' data-toggle='popover' data-container='body' data-placement='bottom' data-trigger='focus' data-html='true' data-content='replaceFnDef#{ref}'>#{ref}</a>
               </sup>"
   end
-  
+
+  #
+  # footnotes - take the final list of footnotes (as <li>) and save them to a global variable for subsequent use in the {{$footnotes}} include.  Then
+  # exit without doing anything such that the user can control if and when footnotes are output for print.
+  #
+  # @param [String] content - the text string with all of the <li> for the footnotes
+  # @return [String] - always return and empty string
+  #
   def footnotes(content)
     $footnoteDiv = "<ol>#{content}</ol>"
     return ""
