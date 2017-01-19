@@ -1,46 +1,35 @@
 require "middleman-core/renderers/redcarpet"
 require "pp"
 
-$headCount =0  # create a sequential counter use in rendering headers to ensure each has a unique ID cross the site
+$headCount =0       # create a sequential counter use in rendering headers to ensure each has a unique ID cross the site
+$footnoteDefs = {}  # create a hash that contains the footnote defs for creating the popovers in cleanup
+$footnoteDiv = ""   # a global string with the ordered list of all of the footnotes
+$abbrList = []      # create an array of strings that contain all of the abbreviations for the end of the document
 
 class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
-  
-  #
-  #  Override the Header tag to insert a unique identifer across all documents
-  #    
-  # @param [String] text - the text of the header
-  # @param [Integer] header_level - the level of the header (1 to 6)
-  # Global Variable [Integer] $headCount - the count of the total number of headers being used in the build
-  # @return [String] - return HTML for the h tag with a unique ID based upon the level and header count
-  #
-  def header(text, header_level)
-    $headCount = $headCount + 1
-    "<h%s id=\"%s-%d\">%s</h%s>" % [header_level, text.parameterize, $headCount, text, header_level]
-  end
-  
-  #
-  #  Overide the image tag to use lazyload.js and improve load performance by only loading images when needed
-  #     
-  # @param [String] link - the link (href) of the image
-  # @param [String] title - the title of the image
-  # @param [String] alt_text - the alternative text used for the image
-  # @return [String] - return HTML for the image tage set up for Lazyload
-  #
-  def image(link, title, alt_text)
-    title.nil? ? titleParm = "" : titleParm = "title='#{title}'"
-    alt_text.nil? ? alt_textParm = "" : alt_textParm = "alt='#{alt_text}'"
-    "<img class='lazy' #{titleParm} #{alt_textParm} data-original='#{link}' />"
-  end
-    
-  #
-  # Override paragraph to support custom alerts by calling the add_alerts method
-  #
-  # @param [String] text - the text of the next markdown paragraph
-  # @return [String] - the text of the next markdown paragraph with the alert now as HTML
-  #
-  def paragraph(text)
-      add_alerts("#{text.strip}\n")
 
+  #
+  # add_abbr - Change abbreviation markdown into HMTL and span each occurance in the document
+  #
+  # @param [String] full_document - the markdown text of the entire document prior to any processing
+  # @return [String] - the markdown text with all of the abbreviations processed
+  #      
+      
+  def add_abbr(markdown)
+    abbrRegex = /^\*\[([-A-Z0-9]+)\]: (.+)$/
+    abbreviations = markdown.scan(abbrRegex)
+    abbreviations = Hash[*abbreviations.flatten]
+    if abbreviations.any?
+      markdown.gsub!(abbrRegex, "")
+      markdown.rstrip!
+      abbreviations.each do |key, value|
+        html = "<a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='#{value}'>#{key}</a>"
+        # html = '<abbr title="' + value +'">' + key + '</abbr>'
+        markdown.gsub!(/\b#{key}\b/, html)
+        $abbrList.push ("<p><em>#{key}</em> - #{value}</p>")  
+      end
+    end
+    markdown
   end
     
   #
@@ -72,59 +61,38 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
     end
   end
   
+  # footnote_def - create the list element for each footnote definition.  Take the number of the footnote and the defintion and
+  # place it into a global hash such that it can be used in postprocessing to insert the definition into the footnote ref's popover
+  #
+  # @param [String] content - the string content of the footnote
+  # @param [integer] number - the cardinal value sequentially assigned to the footnote
+  # @return [String] - the HTML that will be inserted for the footnote reference
+  #        
   def footnote_def(content, number)
      numberStr = number.to_s
      content.gsub!(/\<p\>|\<\/p\>/, "")
-     return "<div id='fn#{numberStr}' class='modal fade' role='dialog' >
-               <div class='modal-dialog' role='document'> 
-                 <div class='modal-content'> 
-                   <div class='modal-header' style='display:none'> </div>
-                   <div class='modal-body about'>
-                     <p>#{numberStr}. #{content}</p>
-                   </div>
-                   <div class='modal-footer'>
-                     <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
-                   </div>
-                 </div>
-               </div>
-             </div>" 
+     key = "replaceFnDef#{numberStr}"
+     $footnoteDefs[key] = content 
+     return "<li>#{content}</li>" 
   end
-  
+
+  #
+  # footnote_ref - create a footnote reference for each occurance as a bootstrap popover.  Create a dummy string for the contents of the
+  # popover that will be replaced by the footnote definition in postprocessing
+  #
+  # @param [integer] number - the cardinal value sequentially assigned to the footnote
+  # @return [String] - the HTML that will be inserted for the footnote reference
+  #        
   def footnote_ref(number)
       ref = number.to_s
-      return "<sup id='fnref#{ref}'><a data-toggle='modal' class='texttrigger' data-target='#fn#{ref}' href='#fn#{ref}'>#{ref}</a></sup>"
+      return "<sup id='fnref#{ref}'>
+                <a href='javascript: void(0)' data-toggle='popover' data-container='body' data-placement='bottom' data-trigger='focus' data-html='true' data-content='replaceFnDef#{ref}'>#{ref}</a>
+              </sup>"
   end
-      
-  def footnotes (content)
-    return "<div class='footnotes'>\n
-              <!-- Modals for Footnote Definitions -->
-              #{content}
-            </div>"
-  end
-    
-  #
-  # Postprocess the HTML comments for Markdown includes to fix up the 
-  #
-  # @param [String] text - the text of a markdown paragraph
-  # @return [String] - the text of the markdown paragraph with the include bracket transformed into xHTML
-  #
-  def postprocess(document)
-    document.gsub!(/\<\!\-\-include /, "<!--")
-    document.gsub!(/ include\-\-\>/, "-->")
-    return document
-  end      
-      
-  #
-  # Preprocess the document with extensions 
-  # 
-  # input
-  #   markdown - the full document in markdown prior to any processing
-  # output
-  #   preprocessed markdown - the full document but with abbreviations, includes, and sections resolved
-  #
-      
-  def preprocess(document)
-     add_abbr(get_includes (document))
+  
+  def footnotes(content)
+    $footnoteDiv = "<ol>#{content}</ol>"
+    return ""
   end
 
   #
@@ -142,39 +110,84 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
         if File.exists? (include)
             file = File.open(include, "r")
             newmd = file.read
+            newmd = "\n<!--include markdown-section data-src='#{include}' include-->\n" + newmd + "\n\n<!--include /markdown-section include-->\n"
             file.close
         else
-            newmd = "\n**dpSlate ERROR**: Include File not found: " + include + "\n"
+            parts[0] = parts[0] + "{{ #{include} }}"
+            newmd = ""
         end
-        newmd = "\n<!--include markdown-section data-src='" + include + "' include-->\n" + newmd + "\n<!--include /markdown-section include-->"
-        return [parts[0], get_includes([newmd, "\n", parts[1]].join(""))].join("")
+        return [parts[0], get_includes([newmd, parts[1]].join(""))].join("")
     else
       return markdown
     end
-  end
-            
+  end 
   
   #
-  # add_abbr - Change abbreviation markdown into HMTL and span each occurance in the document
+  #  Override the Header tag to insert a unique identifer across all documents
+  #    
+  # @param [String] text - the text of the header
+  # @param [Integer] header_level - the level of the header (1 to 6)
+  # Global Variable [Integer] $headCount - the count of the total number of headers being used in the build
+  # @return [String] - return HTML for the h tag with a unique ID based upon the level and header count
   #
-  # @param [String] full_document - the markdown text of the entire document prior to any processing
-  # @return [String] - the markdown text with all of the abbreviations processed
-  #      
+  def header(text, header_level)
+    $headCount = $headCount + 1
+    "<h%s id=\"%s-%d\">%s</h%s>" % [header_level, text.parameterize, $headCount, text, header_level]
+  end
+  
       
-  def add_abbr(markdown)
-    abbrRegex = /^\*\[([-A-Z0-9]+)\]: (.+)$/
-    abbreviations = markdown.scan(abbrRegex)
-    abbreviations = Hash[*abbreviations.flatten]
-    if abbreviations.any?
-      markdown.gsub!(abbrRegex, "")
-      markdown.rstrip!
-      abbreviations.each do |key, value|
-        html = '<a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="' + value + '">' + key + '</a>'
-        # html = '<abbr title="' + value +'">' + key + '</abbr>'
-        markdown.gsub!(/\b#{key}\b/, html)
-      end
-    end
-    markdown
+  #
+  #  Overide the image tag to use lazyload.js and improve load performance by only loading images when needed
+  #     
+  # @param [String] link - the link (href) of the image
+  # @param [String] title - the title of the image
+  # @param [String] alt_text - the alternative text used for the image
+  # @return [String] - return HTML for the image tage set up for Lazyload
+  #
+  def image(link, title, alt_text)
+    title.nil? ? titleParm = "" : titleParm = "title='#{title}'"
+    alt_text.nil? ? alt_textParm = "" : alt_textParm = "alt='#{alt_text}'"
+    "<img class='lazy' #{titleParm} #{alt_textParm} data-original='#{link}' />"
+  end
+    
+  #
+  # Override paragraph to support custom alerts by calling the add_alerts method
+  #
+  # @param [String] text - the text of the next markdown paragraph
+  # @return [String] - the text of the next markdown paragraph with the alert now as HTML
+  #
+  def paragraph(text)
+      add_alerts("#{text.strip}\n")
+
+  end
+  
+  #
+  # Postprocess the HTML comments for Markdown includes to fix up the markdown include placeholders and to place the footnote definitions into the
+  # bootstrap popovers in the references
+  #
+  # @param [String] text - the text of a markdown paragraph
+  # @return [String] - the text of the markdown paragraph with the include bracket transformed into xHTML
+  #
+  def postprocess(document)
+    document.gsub!(/^\<\!\-\-include /, "<!--")
+    document.gsub!(/ include\-\-\>/, "-->")
+    $footnoteDefs.each_pair { |ref, fndef| document.gsub!(/#{ref}/,fndef) }  
+    document.gsub!(/\{\{\s\$abbreviations\s\}\}/, $abbrList.sort.map { |s| "#{s}" }.join(' ') )
+    document.gsub!(/\{\{\s\$footnotes\s\}\}/, $footnoteDiv )
+    return document
+  end      
+      
+  #
+  # Preprocess the document with extensions 
+  # 
+  # input
+  #   markdown - the full document in markdown prior to any processing
+  # output
+  #   preprocessed markdown - the full document but with abbreviations, includes, and sections resolved
+  #
+      
+  def preprocess(document)
+     add_abbr(get_includes (document))
   end
 
 end      

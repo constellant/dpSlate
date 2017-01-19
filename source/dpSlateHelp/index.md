@@ -25,9 +25,7 @@ leftPanel: ON
 documentSearch: ON
 
 languageTabs:
-  - shell: Sample
-  - python: Python
-  - ruby: Ruby
+  - shell: Examples
   
 tocSelectors: "h1,h2,h3"
   
@@ -89,7 +87,7 @@ dpSlate can be used either stand alone on a PC or can be used to automatically p
 
 > What Version of Ruby is Installed?
 
-```md
+```shell
 $ ruby -v
 
 ruby 2.0.0p247 (2013-06-27 revision 41674)
@@ -98,14 +96,14 @@ ruby 2.0.0p247 (2013-06-27 revision 41674)
 
 > Install the Dependencies
 
-```md
+```shell
 $ cd dpSlate
 $ bundle install
 ```
 
 > Start Your Test Server
 
-```md
+```shell
 $ bundle exec middleman server
 == The Middleman is loading
 == The Middleman is standing watch at http://0.0.0.0:4567
@@ -129,32 +127,37 @@ $ bundle exec middleman server
 
 You can now see the docs using your browser at <http://localhost:4567>. And as you edit and save your `source/index.md`, your server should automatically update! Whoa! That was fast!
 
+When you use dpSlate in a standalone mode, your markdown source will be in your `/source` subdirectory in your dpSlate folder while the generated output will be stored in the `/site` directory in your dpSlate folder.
+
 ## Using dpSlate with dpEngine
 
-> dpSlate directory structure in Bitbucket
+> Directory structure of the _dpSlate source repo_ on Bitbucket
 
 ```
-\dpSlate
-	\source
-        _defaults.yml - this file contains your site defaults for YAML directives
-        \xyz
-            _defaults.yml - this file contains default YAML directives for everything below it
-            \abc
-                _defaults.yml - this file contains default YAML directives for the adjacent markdown file
-				index.md - this is your source document
-        \static
-            \images
-			     \xyz
-				    \abc
-					   image1.png - these are your images for your document
-            \css
-            \data
-            \fonts
-            \includes
-                \xyz
-                    \abc
-                        _partial1.md - these are your partials for inclusion into your document
+\source
+    _defaults.yml - this file contains your site defaults for YAML directives
+    \xyz
+        _defaults.yml - this file contains default YAML directives for everything below it
+        \abc
+            _defaults.yml - this file contains default YAML directives for the adjacent markdown file
+            index.md - this is your source document
+    \static
+        \images
+             \xyz
+                \abc
+                   image1.png - these are your images for your document
+        \css
+        \data
+        \fonts
+        \includes
+            \xyz
+                \abc
+                    _partial1.md - these are your partials for inclusion into your document
+```
 
+> Directory structure of the _content repo_ on Bitbucket
+
+``` 
 \site
 	\xyz
 		\abc
@@ -172,11 +175,11 @@ You can now see the docs using your browser at <http://localhost:4567>. And as y
 
 If you have a portal that is powered by dpEngine, there is nothing to install for dpSlate works automatically with dpEngine.  
 
-When you use dpEngine, your web portal content is stored in a version of Git called Bitbucket.  You will be provided with access to Bitbucket for your portal's repository.  Your portal will contain a number of folders that in turn contain the documents that will be published to your portal. 
+When you use dpEngine, your web portal content is stored in a version of Git called Bitbucket in your _content repo_.  But for your dpSlate documents, you will store your markdown documents in your _dpSlate source repo_. You will be provided with access to Bitbucket for your portal's repository.  Your portal will contain a number of folders that in turn contain the documents that will be published to your portal.  To the right, the file structure of the repo is illustrated.
 
-When you create a GFM markdown file in \dpslate\site\source the markdown will automatically be converted into dpSlate HTML and placed in the shadow directory in the \dpslate\site\build folder.  Additionally, a shadow directory will be created in \site that will contain a `.gsp` file that is used by dpEngine to place headers and foooters into the document and to control access to the web page.
+When you create a dpSlate markdown file in the `\site` directory or any of its subdirectories in your dpSlate source repo, the markdown will automatically be converted into dpEngine grails server page (_i.e._, `.gsp`)  and placed in the \site folder in your content repo..  When this happens, the `.gsp` file will use the headers and footers defined for your site.
 
-The images that you include into your dpSlate markdown document will be stored in the \dpslate\source\images directory.  Once they are here, they will be automatically managed by dpSlate and dpEngine.  We recommend that you also use the additional directory structure for images as you do with your source file to help you better manage your images.
+The images that you include into your dpSlate markdown document will be stored in the `\site` directory.  Thus, when you edit your dpSlate markdown, the system will automatically manage the resulting dpEngine `.gsp` files on your dpEngine portal. 
 
 As mentioned earlier, when you use dpEngine, there is no need to install dpSlate, it is part of your dpEngine environment. 
 
@@ -195,15 +198,15 @@ The second method is to view the document using your browser in the staging envi
 
 # How dpSlate Works
 
-When used in _Stand Alone Mode_, dpSlate generates HTML documents from Github Flavored Markdown (GFM), a particular dialect of Markdown.  When used in _dpEngine Mode_, dpSlate generates GSP documents from the GFM Markdown in a particular format that dpEngine wants. dpSlate software is written in Ruby and takes advantage of some popular Ruby software including Middleman, RedCarpet, and Rouge.  The dpSlate software reads a .md (markdown) source-file and will output a .html file along with the accompanying Javascript and CSS files.
+When used in _Stand Alone Mode_, dpSlate generates HTML documents from _dp Flavored Markdown (DPFM)_, a particular dialect of Markdown.  When used in _dpEngine Mode_, dpSlate generates GSP documents from the DPFM Markdown in a particular format that dpEngine wants. dpSlate software is written in Ruby and takes advantage of some popular Ruby software including Middleman, RedCarpet, and Rouge.  The dpSlate software reads a .md (markdown) source-file and will output a .html file along with the accompanying Javascript and CSS files.
 
-To get a consistent look and feel to your web documentation, you will want your  authors to use the GFM tags in a particular to we get a common and consistent look and feel.
+To get a consistent look and feel to your web documentation, you will want your  authors to use the DPFM tags in a particular to we get a common and consistent look and feel.
 
-## Structure of a dpSlate Document
+# Structure of a dpSlate Document
 
 As you look at this document, you will notice that there are a couple of feature.  First, to the left is the Table of Contents area.  Next, in the center is the Body of the document, and to the Right (in the dark area) are code examples.  Each of these elements have the following characteristics:
 
-### Table of Contents
+## Table of Contents
 
 The TOC panel on the left hand side of the panel is composed of the following elements starting at the top and moving to the bottom:
 
@@ -212,7 +215,7 @@ The TOC panel on the left hand side of the panel is composed of the following el
 * _The Table of Contents_ - The Table of Contents are automatically built if the feature has been turned on.  By default, on the H1 is normally displayed.  If a user selects a H1 item, the TOC will expand to display the H2 items underneath it.  If the user selects a H2 item, the TOC will expand to display the H3 items underneath it.  Directives are used to control the table of contents.
 * _The TOC Footer_ - you can use this to store information at the bottom of the table of contents.
 
-### Document Body
+## Document Body
 
 The body of the document is found in the center panel and contains the main textual description of the API.  It uses a number of different elements and features to communicate what the API actually does and these include:
 
@@ -229,7 +232,7 @@ The body of the document is found in the center panel and contains the main text
 * Notes - These are Blue Highlighted Text
 * Links - HTML hyperlinks to external documents
 
-### Code Samples
+## Code Samples
 
 The key part of the dpSlate format for API documentation is that code samples can be viewed alongside of the API call that they illustrate.  Further sample code can be held simultaneously in several different programming languages (important for SOAP and REST API's).  Because programmers tend to only work in a single language at a time, the dpSlate format accommodates this by having the programming language as a tab on the far right panel.  Thus, the developer is able to choose a programming language and then use the documentation in that language without being distracted by any other language.
 
@@ -242,11 +245,11 @@ Sample code is anchored to either the H1 or H2 heading that they are inserted un
 -> The default behavior is to place code samples into a dedicated right-hand panel.  However, you can also turn off the right-hand panel and the code samples will appear inline with the text in the main panel of the document.
  
   
-# Specifying Your Document Directives
+# Document Directives
 
 > Directives for this Document
 
-```markdown
+```yaml
 ---
 title: "Authoring Documents dpSlate"
 
@@ -281,7 +284,8 @@ tocSelectors: "h1,h2,h3"
   
 ---
 ```
-A GitHub Flavored Markdown (GFM) source document is used to generate each of the dpSlate Documents that are presented on the portal.  Each dpSlate GFM source document is a plain text document that starts with a Yet Another Markup Language (YAML) header that contains directives used to control how the document will be formatted.  The YAML header starts and ends with a line that has three dashes, `---`, that start in the first column of the line.
+
+A DPFM source document is a document with a `.md` extension.  These source files are used by dpSlate to generate each of HTML or `gsp` documents that are presented on your portal.  Each dpSlate DPFM source document is a plain text document that starts with a YAML header that contains directives used to control how the document will be formatted.  The YAML header starts and ends with a line that has three dashes, `---`, that start in the first column of the line.
 
 The YAML header contains directives that control how the document will look and appear when it is converted to HTML.  The directives consist of a YAML variable name, the directive, followed by a `:`.  There are four types of YAML variables:
 
@@ -323,7 +327,7 @@ There are a number of variables that are used for display in the title page of t
 
 In addition to these values that are set for the Title Page, the date that the document was "built" is displayed at the bottom of the "Title Page" as the "Published Date".
 
-## Turning on Language Tabs
+## Language Tabs
 
 The _languageTab_ directive is used to create the programming language tabs that make up the right hand panel of a dpSlate document.  The _languageTab_ directive is a list and thus the _languageTab_ statement is followed by one or more lines containing a statement that contains two blank spaces, a dash, the name of the language for use in encoding the document, an option ":", followed by an optional display name for the language.
 
@@ -336,7 +340,7 @@ The name of the language must be recognized by the system such that the display 
 * json:JSON
 * java:Java
 * javascript:JavaScript
-* markdown:GFM
+* markdown:DPFM
 * objective-c:Objective-C
 * perl:Perl
 * php: PHP
@@ -352,9 +356,9 @@ The name of the language must be recognized by the system such that the display 
 
 ## The Left Hand Panel
 
-When turned on, the far left panel of a dpSlate document contains the title page, the document search box, and the Table of Contents.  The title page is generated from the directives already discussed, the ToC is automatically generated from the Headers found in your GFM source document but it is controlled by the values you set for directives in the headers of your documents.
+When turned on, the far left panel of a dpSlate document contains the title page, the document search box, and the Table of Contents.  The title page is generated from the directives already discussed, the ToC is automatically generated from the Headers found in your DPFM source document but it is controlled by the values you set for directives in the headers of your documents.
 
-### ToC Directives
+## ToC Directives
 
 There are a number of directives for controlling how the Table of Contents is presented.  These are:
 
@@ -367,19 +371,18 @@ There are a number of directives for controlling how the Table of Contents is pr
 * `tocAccordion:` this is an integer value that is used to controlling the hiding (collapsing) of items in the table of contents.  The value is set to how many heading levels should open by default (_i.e._, not be collpased).  For example, number 6 will show everything in the Table of Contents since there are only 6 heading levels while the number 0 will hide all of the Table of Content entries until it is time for them to open.  The entries in the Table of Contents that are initially hidden will open when you scroll into those headings and will then close again as you scroll out of them.
 
 -> When the leftPanel is turned off, the `tocAccordion` has no effect.  This is because the Table of Contents will be moved to be above the main body of the document and the accordion nature of the Table of Contents would interfere with the scrolling through the document.
- 
 
+# Default Directives
 
+The YAML directives can be set at a site wide level for all of your documents. Thus, you can avoid typing in the same text for each of the directives for each document.  This feature also allows you to set your site defaults for directives and then change them for all documents quickly.  You do this by modifying the file at `\site\_defaults.yml`.  This file contains all of the directives that you will see in your document and you can set them globally for your site.  If you later define a directive in a specific document, the document value will overide the default value that you set.
 
-## Default Directives
+Throughout your folder structure 
 
-The YAML directives can be set at a site wide level for all of your documents. Thus, you can avoid typing in the same text for each of the directives for each document.  This feature also allows you to set your site defaults for directives and then change them for all documents quickly.  You do this by modifying the file at `\dpSlate\source\_defaults.yml`.  This file contains all of the directives that you will see in your document and you can set them globally for your site.  If you later define a directive in a specific document, the document value will overide the default value that you set.
+# dpSlate Flavored Markdown
 
-# Using dpSlate Markdown
+## Headers
 
-## Creating Headers
-
-Headers are created by using one or more # characters starting in the first line of text within the GFM document. The sample to the right shows GFM that will result in a level 1, level 2, and level 3 headers.  Only the level 1 and level 2 headers will appear in the Table of Contents.  When you create sample code, it will anchor to a header.
+Headers are created by using one or more # characters starting in the first line of text within the DPFM document. The sample to the right shows DPFM that will result in a level 1, level 2, and level 3 headers.  Only the level 1 and level 2 headers will appear in the Table of Contents.  When you create sample code, it will anchor to a header.
 
 On the right are a list of headers in markdown and below is how they will appear in the document:
 ######
@@ -414,7 +417,7 @@ Make sure the lines above below your paragraph are empty.
 
 ## Creating Formatted Text
 
-> Formatting Text in GFM
+> Formatting Text in DPFM
 
 ```markdown
     This text is **bold**, this is *italic*, and this is an
@@ -453,9 +456,9 @@ You can format text with a strikethrough by enclosing the text in double tildes,
 Strikethrough allows you to show text that is ~~no longer relevant by using strikethrough~~
 
 
-## Creating Markdown Links
+## Links
 
-> The Three Ways to Create GFM Links
+> The Three Ways to Create DPFM Links
 
 ```markdown
 Here's an inline link to [Google](http://www.google.com/).
@@ -466,7 +469,7 @@ Here's a very readable link to [Yahoo!][yahoo].
   [yahoo]: http://www.yahoo.com/
 ```
 
-There are three ways to write links in GFM. Each is easier to read than the last.  The code to the right will generate the following:
+There are three ways to write links in DPFM. Each is easier to read than the last.  The code to the right will generate the following:
 
 Here's an inline link to [Google](http://www.google.com/).
 Here's a reference-style link to [Google][1].
@@ -477,7 +480,7 @@ Here's a very readable link to [Yahoo!][yahoo].
   
 The link definitions can appear anywhere in the document -- before or after the place where you use them. The link definition names [1] and [yahoo] can be any unique string, and are case-insensitive; [yahoo] is the same as [YAHOO].
 
-## Using HTML Standard Links
+## HTML Standard Links
 
 > Using HTML Links in GRM
 
@@ -492,7 +495,7 @@ You can also use standard HTML hyperlink syntax.  The HTML example to the right 
 
 ## Inserting an Image
 
-> GFM for Inserting an Image Stored Locally
+> DPFM for Inserting an Image Stored Locally
 
 ```markdown
 ![DP Logo](/static/images/logo.png).
@@ -506,9 +509,9 @@ The Markdown to the right shows how an image can be inserted, in this case, it i
 
 -> Notice that this image is coming from the local image folder.  We recommend that you place your images inside the image folder within your source directory.
 
-## Inserting Horizontal Rules
+## Horizontal Rules
 
-Sometimes you just need a Horizontal Rule (line) to convey something.  GFM does this with either three or more consecutive Hyphens `-`, Asterisks `*`, or Underscores `_`.
+Sometimes you just need a Horizontal Rule (line) to convey something.  DPFM does this with either three or more consecutive Hyphens `-`, Asterisks `*`, or Underscores `_`.
 
 
 ```markdown
@@ -542,7 +545,7 @@ Underscores
 
 ## Using HTML in Markdown
 
-```markdown
+```html
 <dl>
   <dt>Definition list</dt>
   <dd>Is something people use sometimes.</dd>
@@ -563,9 +566,9 @@ You can also use raw HTML in your Markdown, and it'll mostly work pretty well.
 
 !> Just because you can, doesn't mean that you should.  One of the features of Markdown is that you don't have to worry about the formatting details of HTML.  Also, it provides a separation of content and format which you loose when you start placing HTML into your Markdown.
 
-## Creating a Table
+## Table
 
-> GFM for Creating a Table
+> DPFM for Creating a Table
 
 ```markdown
 Table Header 1 | Table Header 2 | Table Header 3
@@ -591,9 +594,9 @@ Notice the colons in the line underneath the header line.  These are used align 
 => If you don't like that syntax, feel free to use normal html \<table\>`s directly in your markdown. 
 
 
-## Creating Numbered Lists
+## Numbered Lists
 
-> GFM for Numbered Lists
+> DPFM for Numbered Lists
 
 ```markdown
 1. This
@@ -606,7 +609,7 @@ Notice the colons in the line underneath the header line.  These are used align 
 9. List
 ```
 
-Numbered lists are created using the GFM markdown code to the right.  You can create nested lists, but the bullets are indented by two spaces.  The sample code to the right will create the list below:
+Numbered lists are created using the DPFM markdown code to the right.  You can create nested lists, but the bullets are indented by two spaces.  The sample code to the right will create the list below:
 
 1. This
 2. Is
@@ -621,9 +624,9 @@ Numbered lists are created using the GFM markdown code to the right.  You can cr
 
 -> Note that by indenting by two characters, you are creating an indented list and the numbering restarts and when you go back, the numbering resumes.
 
-## Creating Bulleted Lists
+## Bulleted Lists
 
-> GFM for created bullet lists
+> DPFM for created bullet lists
 
 ```markdown
 - This
@@ -635,7 +638,7 @@ Numbered lists are created using the GFM markdown code to the right.  You can cr
 * List
 ```
 
-Numbered lists are created using the GFM markdown code to the right.  you can create nested lists, but the bullets are indented by two spaces.  The sample code
+Numbered lists are created using the DPFM markdown code to the right.  you can create nested lists, but the bullets are indented by two spaces.  The sample code
 to the right will create the list below:
 
 - This
@@ -651,19 +654,23 @@ to the right will create the list below:
 
 -> Note that by indenting by two characters, you are creating an indented list. 
 
-## Creating Footnotes
+## Footnotes
 
 ```markdown
 
 ...defining the footnote.[^somesamplefootnote]
 
-[^somesamplefootnote]: Here is the text of the footnote itself.
+ [^somesamplefootnote]: Here is the text of the footnote itself.
 
 ```
 
-Footnotes are created using the markdown for footnotes and then defining the footnote.[^somesamplefootnote]  When printing the document, the footnotes will appear at the end of the document and will be ordered sequentially starting with the cardinal number 1. 
+Footnotes are created using the markdown for footnotes and then defining the footnote.[^somesamplefootnote]  When printing the document, the footnotes will appear at the end of the document and will be ordered sequentially starting with the cardinal number 1. When the document is displayed, footnotes will be superscripted and will be a link that generates a popup[^somesamplefootnote][^secondSamplefootnote].  If you insert a footnote but do not define the footnote, then it will simply appear as text in the document such as [^undefinedFootnote].
 
 [^somesamplefootnote]: Here is the text of the footnote itself.  Footnotes can be a large body of text.  They will appear at the end of the document with a horizontal rule above them.  Footnotes can contain _markdown_ which will be processed properly.
+
+[^secondSamplefootnote]: Here is the text of a second footnote.
+
+-> footnotes only works in the web pages and not on the printed page.  If you would like to include a list of all of the footnotes at the end of the document, you can do this by using the include markdown tag with the special variable for the footnotes, _i.e._, `{{$footnotes}}.`
 
 ## Creating Alerts - Special Notes and Warnings
 
@@ -695,30 +702,23 @@ Technical documents often have _alerts_ which are warning and notes that are int
 
 ~> In previous versions of dpSlate, alerts were called _asides_ and they were done with HTML tags.  It is highly recommended that your use of asides be ported to the new markdown methods as you can now use markdown in your alerts.  Eventually, HTML tags will be deprecated and turned off to provide better security against cross site scripting.
 
-## Using Markdown Abbreviations
+## Abbreviations
 
-``` markdown
+```markdown
   
- *[HTML]: Hyper Text Markup Language
-
- *[W3C]: World Wide Web Consortium
+  *[XYZ]: Xray Yankee Zulu  
 
 ```
 
 dpSlate markdown includes support for the PHP Markdown for abbreviations.  The examples to the right show two cases of abbreviations which are also included below.  The markdown must begin at a new line, if it does not, it will be recognized as text.
 
-
-*[HTML]: Hyper Text Markup Language
-
-*[W3C]: World Wide Web Consortium
-
 Because these abbreviations have been defined in the document, every occurance of HTML and W3C in the document will appeared as underlined with dashes.  When you hover over the abbreviation, a `?` will appear and eventually a _tool tip_ will appear with the defintion of the abbreviation.
 
--> abbreviation only works in the web pages and not on the printed page.
+-> abbreviation only works in the web pages and not on the printed page.  If you would like to include a sorted list of all abbreviations in your document you can do this by using the include markdown tag with the special variable for the abbreviations, _i.e._, `{{$abbreviations}}.`
 
 ## Using Markdown Includes
 
-``` markdown
+```markdown
 
  {{source/dpSlateHelp/goodmen.md}}
 
@@ -726,19 +726,30 @@ Because these abbreviations have been defined in the document, every occurance o
 
 ```
 
-Sometimes you might want to break a markdown file into multiple parts such that you can reuse the parts in different documents. Although standard markdown does not support the concept of _includes_, dpSlate markdown has been extended to provide this support.  Anywhere within the markdown, you can add the contents of another file by simply using markdown include using two open curly brackets, followed by the path and filespec, and closed with two close curly brackets.  The include markdown statement must be at the start of a new line and of the form `{{filepath/filename.ext}}`  If the file is not found an error message is inserted in place of the include.  Below are two examples of includes.  In the markdown source, the statements to the right have been inserted.  In the first file, called `goodmen.md` the file exsists and contains the markdown text of `Now is the _time_ for all good men...`.  But the second example, the file, `error.md` does not exsist and will result in an error.
+Sometimes you might want to break a markdown file into multiple parts such that you can reuse the parts in different documents. Although standard markdown does not support the concept of _includes_, dpSlate markdown has been extended to provide this support.  Anywhere within the markdown, you can add the contents of another file by simply using markdown include using two open curly brackets, followed by the path and filespec, and closed with two close curly brackets.  The include markdown statement must be at the start of a new line and of the form `{{filepath/filename.ext}}`  If the file is not found an error message is inserted in place of the include.  Below are two examples of includes.  In the markdown source, the statements to the right have been inserted.  
+
+Below is an example, the first include is for the file, called `goodmen.md`.  This file exsists and contains the markdown text of `Now is the _time_ for all good men...`.  In this case the markdown tag is replaced with the markdown in the referenced file.
 
 {{source/dpSlateHelp/goodmen.md}}
 
+This is followed by the second example, the file, `error.md` which does not exsist.  When this occurs, the markdown tag is left intact.
+
 {{error.md}}
+
+The include tag can also be used with special variables below:
+
+* $footnotes - when a markdown include tag has this variable, it will be substituted with the HTML list of all footnotes in order.  This can be used to place the footnotes at the end of the document for printing.
+* $abbreviations - when a markdown include tag has this variable, it will be substituted with the HTML text for an alphbetically ordered list of all abbreviations that were included in the document.  This can be used to place a list of abbreviations/acronyms in the document.
 
 -> The include directive for markdown __must__ start on a new line or it will be ignored.
 
 ~> It is highly recommended that your included markdown files have a file name that begins with a `_` (underscore).  The dpSlate static file generator does not generate build files for files with filenames that begin with a `_` and thus, if you name your file this way, the fragment files that you are including will not be generated into their own, stand-alone page.
 
+!> The new markdown include feature is the recommended method for doing includes.  Future versions of dpSlate will eliminate other include methods.
+
 # Sample Code
 
-> Sample GFM to Denote Sample Code
+> Sample DPFM to Denote Sample Code
 
 ```markdown
     ```python
@@ -751,7 +762,7 @@ Sometimes you might want to break a markdown file into multiple parts such that 
 
 Code samples are an important way of communicating how to use an API.  dpSlate does an excellent job of handling code samples in multiple languages simultaneously through the use of the tabbed sample code panel on the right hand side.
 
-## Inserting Large Code Samples
+## Large Code Samples
 
 > Large Python Program
 
@@ -1009,31 +1020,31 @@ class PageElement(object):
 
 Sometimes you will need to insert a very large block of sample code that might be too wide or extremely deep.  dpSlate manages this by automatically creating vertical and horizontal scroll bars such that the sample code is preserved without taking up too much space.  The example to the right is an extremely large python program pulled from the Internet.  There is no wrapping of text, instead, your readers need to use horizontal scrolling to see the full code sample.  Also, it is very long, but a maximum height of 50 cm has been set for the display area.  If your sample code exceeds this, then dpSlate will also provide vertical scrolling such that the space is better managed. 
 
-## Inserting a Sample Code into a Particular Tab
+## Sample Code and the Language Tabs
 
 You denote a code samples by using three left-single-quote marks followed by the name of the language.  The name of the language is used to place the code sample into the proper tab. Each code samples will appear in the dark area to the right of the main text. Code samples need to appear right under the Level 1 or Level 2 headers in your markdown file to allow them to be anchored properly.
 
 The "language tabs" are the tabs that appear in the upper right of dpSlate Documents. Users browsing the docs use them to select their programming language of choice.
 
-In the sample GFM code to the right, the Ruby code will appear in the Ruby tab, while the Python code will appear in the Python tab. Because the dpSlate engine understands the syntax of most computer programming languages, the sample code will have its language syntax highlighted automatically in a way that would make sense to the developer.
+In the sample DPFM code to the right, the Ruby code will appear in the Ruby tab, while the Python code will appear in the Python tab. Because the dpSlate engine understands the syntax of most computer programming languages, the sample code will have its language syntax highlighted automatically in a way that would make sense to the developer.
 
-But just because a language is used as sample code within a dpSlate document it does not mean that the tab will appear.  You tell the system which Language tabs you want to display by editing the `language-tabs` list at the top of your GFM source document.
+But just because a language is used as sample code within a dpSlate document it does not mean that the tab will appear.  You tell the system which Language tabs you want to display by editing the `language-tabs` list at the top of your DPFM source document.
 
 => Sometimes it is useful to share code between multiple tabs, you can do this by placing tagging the sample code using a language that is not used as a tab name.  For example if you tag sample code as `all` and `all` is not listed in the `language-tabs` then that sample code will appear in all of the tabs. 
 
-## Creating Code Sample Annotations
+## Code Sample Annotations
 
 > Code Sample Annotations
 
 ```markdown
 > This is a Code Annotation!
 ```
-It is sometimes useful to highlight or annotate a part of the sample code.  This is done with code annotations.  By placing a > as the first character in your GFM line of text, you will create a code annotation that will appear in the area to the right, next to the code samples.
+It is sometimes useful to highlight or annotate a part of the sample code.  This is done with code annotations.  By placing a > as the first character in your DPFM line of text, you will create a code annotation that will appear in the area to the right, next to the code samples.
 
 ~> Make sure that you have a blank line after your Code Annotation.  If you do not, the annotation will continue until there is a blank line.
  
 
-# Fun with the Right Hand Panel
+# Adding Markdown to the Right Hand Panel
 
 When you use the chevron `>` symbol, it takes the entire line and places it into the pannel to the right. Since it does not have a language, it will appear on all of the tabs to the right.  Additionally, because it is not "code" it is not treated as pre-formatted text.  As a result of these factors, the annotation feature can be very useful for placing Markdown or even HTML into the right hand panel.
 
@@ -1076,20 +1087,20 @@ For example, I can use the `>` to place a table into the right hand panel.
 
 Or, I can use the `>` to place an image into the right hand panel.  I can even use the `>` to place HTML code such as a YouTube video or any other content.
 
-# Creating your dpSlate Document
+# Generating your dpSlate Document in Standalone Mode
 
 ## Previewing your Docs
 
 > Command to Start Your Preview Server
 
-```md
+```shell
 bundle exec middleman server
 
 ```
 
 >Output:
 
-```md
+```
   == The Middleman is loading
   == The Middleman is standing watch at http://0.0.0.0:4567
   == Inspect your site configuration at http://0.0.0.0:4567/__middleman/
@@ -1099,12 +1110,12 @@ bundle exec middleman server
 
 > Command to create your HTML Files
 
-```md
+```shell
 rake build
 ```
 > Output:
 
-```md
+```shell
 cd dpSlate
 bundle exec middleman build --clean
       create  build/images/logo.png
@@ -1133,13 +1144,13 @@ The `rake build` command tells Middleman to build your website to the `build` di
 
 > Command to create your HTML Files
 
-```md
+```shell
 bundle exec middleman build --clean
 
 ```
 > Output:
 
-```md
+```
       create  build/images/logo.png
       create  build/images/Untitled.png
       create  build/fonts/icomoon.svg
@@ -1160,7 +1171,7 @@ bundle exec middleman build --clean
 ```
 The Middleman _build_ option builds your document to the `build` directory of your project.
 
-# Includes or Partials
+# Ruby Includes or Partials
 
 >
 
@@ -1213,7 +1224,7 @@ This contains the text that is the body of the dpSlate document.  I can put what
 
 ```
 
-Often, users want to be able to share a common set of markdown text between multiple documents.  Unfortunately, standard GFM does not have a facility to do that.  Fortunately, dpSlate does.
+Often, users want to be able to share a common set of markdown text between multiple documents.  Unfortunately, standard DPFM does not have a facility to do that.  Fortunately, dpSlate does.
 
 The way that I recommend using includes is using the _Partial_ feature of Middleman - the static document generator behind dpSlate.  Middleman is a ruby static site generator that knows how to transform different document types into HTML including Markdown.  One of the supported document types is the .erb file which is the Embedded RuBy file.  Typically these are files with the .html.erb extension which says that it is an HTML file with embedded ruby tags, but we're interested in the .md.erb file type which is a Markdown File with embedded ruby tags.
 
@@ -1223,26 +1234,6 @@ For example, let's say that we have a document in the folder `source/site/exampl
 
 
 -> You should note, that the file name starts with a `_` (underscore) character while the reference to it in the partial tag does not.  With dpSlate, any file that begins with an `_` (underscore) will not be processed and thus it is used for partials and other files that are included into your document.  
-
-# Elements of Style for API Documentation
-
-Now that you understand the mechanics of dpSlate.  Now we need to get into the specifics of how to use these tools to present a common, consistent, and great developer experience on DevNet for your API.
-
-## The Basics
-
-Before we get into the specifics, let's deal with the high-level guidelines or ground rules:
-
-* _Keep it Simple_ - how you use English to communicate to developers is important.  One of the ways you can simplify things is to use person pronouns (e.g., you, we, us) as this approach will naturally simplify your English.
-* _Tell Them How Not What_ - It's possible to simply list all of your API calls, but this does not help the developer.  Instead, group your API end points into what they are used for.  For example, have headings that say "Starting a New Discovery Job" rather than "The Post Discovery Method".
-* _Use Examples_ - this format is designed around code samples; use it!  Try to create an example for each of your API calls.
-* _Test the Examples_ - when you use an example, make sure that it works.
-* _Use Graphics_ - a picture is worth a thousand words.  The right graphic in the right place helps you to keep things simple.
-
-## Language Libraries
-
-REST (or RESTful) APIs are becoming the standard.  Developers like using REST APIs because they are simple and universal.  Because REST APIs use HTTP protocol along with JSON or XML, it is easy to call a REST API from pretty much any programming language.  As a result, there is a natural tendency for the API engineer to think that language libraries (wrappers that make the REST call in the programming language of choice) is not needed. This is a fallacy.
-
-A Programmer can call REST in a language like Python, Java, or C, with four to five lines of code.  When faced with this, the Programmer will typically write their own library of wrappers (code that encapsulates each REST end point) to make programming more module and cleaner.  Thus, if you want your API to be simple to use, you should have the wrappers for popular libraries built.  Next, you should use the language tabs of dpSlate to provide the syntax for each of the programming languages that you will be supporting.
 
 # Release Notes - dpSlate V4.1
 
@@ -1265,7 +1256,7 @@ To enable this to work, we needed to change the way that dpSlate works and as su
 
 > dpSlate V4.0
 
-```md
+```
 
 [/images/myimage.png]
 
@@ -1273,7 +1264,7 @@ To enable this to work, we needed to change the way that dpSlate works and as su
 
 > dpSlate V4.1
 
-```md
+```
 
 [/static/images/myimage.png]
 
@@ -1281,7 +1272,7 @@ To enable this to work, we needed to change the way that dpSlate works and as su
 
 Previously, your images were located in a root `/images` directory.  To ensure that your dpSlate images do not conflict with other images being used on dpSlate, images are now located in the file `/static/images`.  Thus, you will need to add the `/dpSlateStatic` to the front of your image references.  For example, if you have an imag
 
-### Updated YAML Directives
+### Changes to YAML Directives
 
 In V4.0, some of the YAML directives were in _camel case_ format while others were not.  We've decided to make these consistent by placing them all in _camel case_ format.  Below are the old directives and new:
 
@@ -1327,3 +1318,20 @@ _Asides_ have been renamed _alerts_ and have been added as Markdown rather thatn
 ## Glyph Fonts
 
 Because dpSlate now includes Bootstrap, the slate Glyph Font has been removed from the source and references to glyph icons have been converted to the Bootstrap Glyph Font.
+
+# Footnotes
+
+{{$footnotes}}
+
+
+# Abbreviations
+
+{{$abbreviations}}
+
+*[DPFM]: dp Flavored Markdown
+
+*[HTML]: Hyper Text Markup Language
+
+*[W3C]: World Wide Web Consortium
+
+*[YAML]: Yet Another Markup Language
