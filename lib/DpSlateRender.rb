@@ -1,12 +1,14 @@
 require "middleman-core/renderers/redcarpet"
+require "middleman-core/logger"
 require "pp"
 
 $headCount =0       # create a sequential counter use in rendering headers to ensure each has a unique ID cross the site
-$footnoteDefs = {}  # create a hash that contains the footnote defs for creating the popovers in cleanup
-$footnoteDiv = ""   # a global string with the ordered list of all of the footnotes
-$abbrList = []      # create an array of strings that contain all of the abbreviations for the end of the document
-
+      
 class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
+
+  $footnoteDefs = {}  # create a hash that contains the footnote defs for creating the popovers in cleanup
+  $footnoteDiv = ""   # a global string with the ordered list of all of the footnotes
+  $abbrList = []      # create an array of strings that contain all of the abbreviations for the end of the document
 
   #
   # add_abbr - Change abbreviation markdown into HMTL and span each occurance in the document

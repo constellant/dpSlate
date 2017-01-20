@@ -51,7 +51,7 @@ To accommodate the need to deal with different types of documents, dpSlate allow
 
 * _Right Hand Panel_ used for code samples and other technical reference materials. 
 
-## Document with Left and Right Panel Turned On
+## Three Panel Mode
 
 > dpSlate Document with all three panels on
 
@@ -59,7 +59,7 @@ To accommodate the need to deal with different types of documents, dpSlate allow
 
 When all three panels are turned on, the dpSlate document will look as shown.  The three panels are for the document meta-data (left), body of the document, and supporting materials to the right.
 
-## Document with Right Panel Turned Off
+## Two Panel Mode
 
 > dpSlate Document with two panels on
 
@@ -68,7 +68,7 @@ When all three panels are turned on, the dpSlate document will look as shown.  T
 
 When the right panel is turned off, the supporting materials that were in the right hand panel are not brought into the center panel at the appropriate place.  The left hand panel is not imacted.
 
-## Document with the Left Panel Turned Off
+## One Panel Mode
 
 > dpSlate Document with one panel on
 
@@ -79,11 +79,11 @@ Finally, when the left hand panel is turned off, the document becomes a single c
 -> When the Left Hand Panel is turned off, the Right Hand Panel will also be turned off at the same time.
  
 
-# Getting Started with dpSlate
+# Getting Started
 
 dpSlate can be used either stand alone on a PC or can be used to automatically publish documents to your portal if it is powered by dpEngine.  When you use dpSlate, you need to determine if you want to work in _Stand Alone Mode_ or _dpEngine Mode_.  
 
-## Installing and Using dpSlate in Stand Alone Mode  
+## Installing Stand Alone Mode  
 
 > What Version of Ruby is Installed?
 
@@ -129,7 +129,7 @@ You can now see the docs using your browser at <http://localhost:4567>. And as y
 
 When you use dpSlate in a standalone mode, your markdown source will be in your `/source` subdirectory in your dpSlate folder while the generated output will be stored in the `/site` directory in your dpSlate folder.
 
-## Using dpSlate with dpEngine
+## Using with dpEngine
 
 > Directory structure of the _dpSlate source repo_ on Bitbucket
 
@@ -183,7 +183,7 @@ The images that you include into your dpSlate markdown document will be stored i
 
 As mentioned earlier, when you use dpEngine, there is no need to install dpSlate, it is part of your dpEngine environment. 
 
-### Editing a dpSlate/dpEngine Document  
+### Editing with dpEngine  
 
 There are two ways to edit the Markdown for a dpSlate document hosted in dpEngine; you can either edit it locally using Git or you can edit it inside Bitbucket using a web browser.
 
@@ -206,18 +206,17 @@ To get a consistent look and feel to your web documentation, you will want your 
 
 As you look at this document, you will notice that there are a couple of feature.  First, to the left is the Table of Contents area.  Next, in the center is the Body of the document, and to the Right (in the dark area) are code examples.  Each of these elements have the following characteristics:
 
-## Table of Contents
+## Left Hand Panel
 
-The TOC panel on the left hand side of the panel is composed of the following elements starting at the top and moving to the bottom:
+The panel to the left contains meta-data about your document.  It contains three things, the _Title Page_, the _Search Box_, and the _Table of Contents_.
 
 * _Title Page_ - At the very top, is the title of the document.  If you've enabled the Title Page function, then an _about_ link will be created and when clicked it will open up a title page and provide more information about the document.
 * _Search Box_ - If search is enabled, a Search Box will appear above the Table of Contents.  The Search Box is used to search the document looking for phrases of interest.  The phrases are then highlighted in the Table of Contents.
 * _The Table of Contents_ - The Table of Contents are automatically built if the feature has been turned on.  By default, on the H1 is normally displayed.  If a user selects a H1 item, the TOC will expand to display the H2 items underneath it.  If the user selects a H2 item, the TOC will expand to display the H3 items underneath it.  Directives are used to control the table of contents.
-* _The TOC Footer_ - you can use this to store information at the bottom of the table of contents.
 
-## Document Body
+## Center Panel
 
-The body of the document is found in the center panel and contains the main textual description of the API.  It uses a number of different elements and features to communicate what the API actually does and these include:
+The center panel contains the body of the document is found in the center panel and contains the main textual description of the API.  It uses a number of different elements and features to communicate what the API actually does and these include:
 
 * Headers - these are titles of document section of which the H1 and H2 will automatically appear in the TOC
 * Paragraphs - these are simple paragraphs of text
@@ -232,9 +231,9 @@ The body of the document is found in the center panel and contains the main text
 * Notes - These are Blue Highlighted Text
 * Links - HTML hyperlinks to external documents
 
-## Code Samples
+## Right Hand Panel
 
-The key part of the dpSlate format for API documentation is that code samples can be viewed alongside of the API call that they illustrate.  Further sample code can be held simultaneously in several different programming languages (important for SOAP and REST API's).  Because programmers tend to only work in a single language at a time, the dpSlate format accommodates this by having the programming language as a tab on the far right panel.  Thus, the developer is able to choose a programming language and then use the documentation in that language without being distracted by any other language.
+The key feature of dpSlate documents is when it is used for technical information.  When the right hand panel in turned on, code samples can be viewed alongside of the API call that they illustrate.  Further sample code can be held simultaneously in several different programming languages (important for SOAP and REST API's).  Because programmers tend to only work in a single language at a time, the dpSlate format accommodates this by having the programming language as a tab on the far right panel.  Thus, the developer is able to choose a programming language and then use the documentation in that language without being distracted by any other language.
 
 Sample code is anchored to either the H1 or H2 heading that they are inserted under; that is, they are placed under the Heading and will move up or down with the main text body. Code samples have the following elements that are used to control their placement:
 
@@ -247,7 +246,7 @@ Sample code is anchored to either the H1 or H2 heading that they are inserted un
   
 # Document Directives
 
-> Directives for this Document
+> Directives in the Document
 
 ```yaml
 ---
@@ -372,7 +371,7 @@ There are a number of directives for controlling how the Table of Contents is pr
 
 -> When the leftPanel is turned off, the `tocAccordion` has no effect.  This is because the Table of Contents will be moved to be above the main body of the document and the accordion nature of the Table of Contents would interfere with the scrolling through the document.
 
-# Default Directives
+## Default Directives
 
 The YAML directives can be set at a site wide level for all of your documents. Thus, you can avoid typing in the same text for each of the directives for each document.  This feature also allows you to set your site defaults for directives and then change them for all documents quickly.  You do this by modifying the file at `\site\_defaults.yml`.  This file contains all of the directives that you will see in your document and you can set them globally for your site.  If you later define a directive in a specific document, the document value will overide the default value that you set.
 
@@ -543,7 +542,7 @@ ___
 
 Underscores
 
-## Using HTML in Markdown
+## HTML in Markdown
 
 ```html
 <dl>
@@ -566,7 +565,7 @@ You can also use raw HTML in your Markdown, and it'll mostly work pretty well.
 
 !> Just because you can, doesn't mean that you should.  One of the features of Markdown is that you don't have to worry about the formatting details of HTML.  Also, it provides a separation of content and format which you loose when you start placing HTML into your Markdown.
 
-## Table
+## Tables
 
 > DPFM for Creating a Table
 
@@ -672,7 +671,21 @@ Footnotes are created using the markdown for footnotes and then defining the foo
 
 -> footnotes only works in the web pages and not on the printed page.  If you would like to include a list of all of the footnotes at the end of the document, you can do this by using the include markdown tag with the special variable for the footnotes, _i.e._, `{{$footnotes}}.`
 
-## Creating Alerts - Special Notes and Warnings
+## Abbreviations
+
+```markdown
+  
+  *[XYZ]: Xray Yankee Zulu  
+
+```
+
+dpSlate markdown includes support for the PHP Markdown for abbreviations.  The examples to the right show two cases of abbreviations which are also included below.  The markdown must begin at a new line, if it does not, it will be recognized as text.
+
+Because these abbreviations have been defined in the document, every occurance of HTML and W3C in the document will appeared as underlined with dashes.  When you hover over the abbreviation, a `?` will appear and eventually a _tool tip_ will appear with the defintion of the abbreviation.
+
+-> abbreviation only works in the web pages and not on the printed page.  If you would like to include a sorted list of all abbreviations in your document you can do this by using the include markdown tag with the special variable for the abbreviations, _i.e._, `{{$abbreviations}}.`
+
+## Alerts
 
 > Sample for creating Notes and Warnings
 
@@ -702,21 +715,7 @@ Technical documents often have _alerts_ which are warning and notes that are int
 
 ~> In previous versions of dpSlate, alerts were called _asides_ and they were done with HTML tags.  It is highly recommended that your use of asides be ported to the new markdown methods as you can now use markdown in your alerts.  Eventually, HTML tags will be deprecated and turned off to provide better security against cross site scripting.
 
-## Abbreviations
-
-```markdown
-  
-  *[XYZ]: Xray Yankee Zulu  
-
-```
-
-dpSlate markdown includes support for the PHP Markdown for abbreviations.  The examples to the right show two cases of abbreviations which are also included below.  The markdown must begin at a new line, if it does not, it will be recognized as text.
-
-Because these abbreviations have been defined in the document, every occurance of HTML and W3C in the document will appeared as underlined with dashes.  When you hover over the abbreviation, a `?` will appear and eventually a _tool tip_ will appear with the defintion of the abbreviation.
-
--> abbreviation only works in the web pages and not on the printed page.  If you would like to include a sorted list of all abbreviations in your document you can do this by using the include markdown tag with the special variable for the abbreviations, _i.e._, `{{$abbreviations}}.`
-
-## Using Markdown Includes
+## Includes
 
 ```markdown
 
@@ -1020,7 +1019,7 @@ class PageElement(object):
 
 Sometimes you will need to insert a very large block of sample code that might be too wide or extremely deep.  dpSlate manages this by automatically creating vertical and horizontal scroll bars such that the sample code is preserved without taking up too much space.  The example to the right is an extremely large python program pulled from the Internet.  There is no wrapping of text, instead, your readers need to use horizontal scrolling to see the full code sample.  Also, it is very long, but a maximum height of 50 cm has been set for the display area.  If your sample code exceeds this, then dpSlate will also provide vertical scrolling such that the space is better managed. 
 
-## Sample Code and the Language Tabs
+## Language Tabs
 
 You denote a code samples by using three left-single-quote marks followed by the name of the language.  The name of the language is used to place the code sample into the proper tab. Each code samples will appear in the dark area to the right of the main text. Code samples need to appear right under the Level 1 or Level 2 headers in your markdown file to allow them to be anchored properly.
 
@@ -1032,7 +1031,7 @@ But just because a language is used as sample code within a dpSlate document it 
 
 => Sometimes it is useful to share code between multiple tabs, you can do this by placing tagging the sample code using a language that is not used as a tab name.  For example if you tag sample code as `all` and `all` is not listed in the `language-tabs` then that sample code will appear in all of the tabs. 
 
-## Code Sample Annotations
+## Annotations
 
 > Code Sample Annotations
 
@@ -1044,11 +1043,11 @@ It is sometimes useful to highlight or annotate a part of the sample code.  This
 ~> Make sure that you have a blank line after your Code Annotation.  If you do not, the annotation will continue until there is a blank line.
  
 
-# Adding Markdown to the Right Hand Panel
+## Using Markdown
 
 When you use the chevron `>` symbol, it takes the entire line and places it into the pannel to the right. Since it does not have a language, it will appear on all of the tabs to the right.  Additionally, because it is not "code" it is not treated as pre-formatted text.  As a result of these factors, the annotation feature can be very useful for placing Markdown or even HTML into the right hand panel.
 
-## A Markdown Table
+### Tables
 
 >The following markdown code:
 
@@ -1070,7 +1069,7 @@ When you use the chevron `>` symbol, it takes the entire line and places it into
 
 For example, I can use the `>` to place a table into the right hand panel.
 
-## An Image 
+### Images 
 
 >The following markdown code:
 
@@ -1087,7 +1086,7 @@ For example, I can use the `>` to place a table into the right hand panel.
 
 Or, I can use the `>` to place an image into the right hand panel.  I can even use the `>` to place HTML code such as a YouTube video or any other content.
 
-# Generating your dpSlate Document in Standalone Mode
+# Using Stand Alone Mode
 
 ## Previewing your Docs
 
@@ -1106,7 +1105,7 @@ bundle exec middleman server
   == Inspect your site configuration at http://0.0.0.0:4567/__middleman/
 ```
 
-## Building Your Docs If You Forked and Cloned
+## Building HTML from Markdown
 
 > Command to create your HTML Files
 
@@ -1140,38 +1139,7 @@ cd -
 
 The `rake build` command tells Middleman to build your website to the `build` directory of your project in a way that is Github compatible.  You then need to share those static HTML files with the DevNet team for publishing.  You can do this via Box.net or Dropbox.
 
-## Building Your Docs If You Installed From Zip
-
-> Command to create your HTML Files
-
-```shell
-bundle exec middleman build --clean
-
-```
-> Output:
-
-```
-      create  build/images/logo.png
-      create  build/images/Untitled.png
-      create  build/fonts/icomoon.svg
-      create  build/fonts/icomoon.woff
-      create  build/fonts/icomoon.ttf
-      create  build/fonts/icomoon.eot
-      create  build/javascripts/lang_selector.js
-      create  build/javascripts/all.js
-      create  build/javascripts/jquery_ui.js
-      create  build/javascripts/jquery.tocify.js
-      create  build/stylesheets/variables.css
-      create  build/stylesheets/icon-font.css
-      create  build/stylesheets/normalize.css
-      create  build/stylesheets/syntax.css
-      create  build/stylesheets/screen.css
-      create  build/stylesheets/print.css
-      create  build/index.html
-```
-The Middleman _build_ option builds your document to the `build` directory of your project.
-
-# Ruby Includes or Partials
+# Partials
 
 >
 
@@ -1235,7 +1203,9 @@ For example, let's say that we have a document in the folder `source/site/exampl
 
 -> You should note, that the file name starts with a `_` (underscore) character while the reference to it in the partial tag does not.  With dpSlate, any file that begins with an `_` (underscore) will not be processed and thus it is used for partials and other files that are included into your document.  
 
-# Release Notes - dpSlate V4.1
+# Release Notes
+
+## dpSlate V4.1
 
 dpSlate v4.1 adds new features that allows improved integration into dpEngine, this was the major goal of v4.1.  To achieve this goal, we made it such that dpSlate is:
 
@@ -1245,8 +1215,6 @@ dpSlate v4.1 adds new features that allows improved integration into dpEngine, t
 * enable the ability to create a default `defaults.yml` file in the `/source` directory which will allow you to set your document directives globally for the site.  Thus, you will no longer need to bother with YAML directives which do not change from page to page; you just set it in the new defaults.yml.  As part of this we changed the name of the directives to make them more consistent. 
 
 To enable this to work, we needed to change the way that dpSlate works and as such there will be some conversion that you will need to make some changes to migrate your documents to dpSlate V4.1.
-
-## Migrating to dpSlate V4.1
 
 ### The build directory has moved.  
  
@@ -1297,27 +1265,21 @@ In V4.0, some of the YAML directives were in _camel case_ format while others we
 
 Make sure that you take advantage of the new default YAML directive capability by setting your default values in the file at `/dpSlate/source/_defaults.yml`.
 
-# Release Notes - dpSlate V4.2
+## dpSlate V4.2
 
-## Includes
+### New DPFM
 
-There is a new markdown that allows you to include another markdown file using the syntax `{{path\file.ext}}`.  
+dpSlate v4.2 includes many new markdown features that allow you to create richer technical documentation.  These new markdown features are documented in this document but below is a summary of the features:
 
-## Footnotes
+* _Includes_ - There is a new markdown tag that allows you to include another markdown file using the syntax `{{path\file.ext}}`.  
 
-You can now add footnotes to your markdown using the PHP Flavored Markdown.
+* _Footnotes_ - You can now add footnotes to your markdown using the PHP Flavored Markdown syntax.  This allows you to define the reference point for the footnote and then the footnote separately. The footnotes are inserted in numerical order using superscripts which have links.  If the user clicks the link, a popup will open that contains the footnote. There is also a special include tag to place the list footnotes anywhere that you want in the document. 
 
-## Abbreviations
+* _Abbreviations_ You can now create/add abbreviations and acronym defintions to your document using the PHP Flavored Markdown syntax.  Any and all occurances of the abbreviation will be a link that when clicked will open a popover with the defintion.  There is also a special include tag to allow you to place an alphabetical list of all of the abbreviations defined in your document whereever you want.
 
-You can now add abbreviations using the PHP Flavored Markdown.
+* _Alerts_ - _Asides_ have been renamed _alerts_ and have been added as Markdown rather thatn using HTML.  There are now four different levels or types of alerts; information, note, warning, alert.  In the future you should replace all of your HTML _asides_ with the new markdown _alerts_.
 
-## Alerts
-
-_Asides_ have been renamed _alerts_ and have been added as Markdown rather thatn using HTML.  In the future you should replace all of your HTML _asides_ with the new markdown _alerts_.
-
-## Glyph Fonts
-
-Because dpSlate now includes Bootstrap, the slate Glyph Font has been removed from the source and references to glyph icons have been converted to the Bootstrap Glyph Font.
+* _Glyph Fonts_ - Because dpSlate now includes Bootstrap, the old slate Glyph Font has been removed from the source and references to glyph icons have been converted to the Bootstrap Glyph Font.
 
 # Footnotes
 

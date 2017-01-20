@@ -1,4 +1,6 @@
-require "./lib/DpSlateRender"  # pull in the dpSlate Markdown with extensions to redcarpet markdown
+require "./lib/DpSlateRender"   # pull in the dpSlate Markdown with extensions to redcarpet markdown
+require "./lib/DpSlateHelpers"  # get the dpSlate Helpers
+helpers DpSlateHelpers
 
 # set the folders up for dpEngine
 

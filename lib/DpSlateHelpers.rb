@@ -1,7 +1,20 @@
 
-module DPSlateHelpers
+module DpSlateHelpers
   require 'pathname'
   require 'pp'
+
+#
+# add_sections() - routine to add section tags (page breaks) wherever there is a <p></p> with a string that contains "+++"
+# inputs
+#   document - the html output from the page
+# outputs
+#   document - the html output 
+#    
+
+  def add_sections (document)
+    return "<section>" + document.gsub(/\<p\>\+\+\+.*\n\<\/p\>/,"</section><section>") + "</section>"
+  end  
+    
 #
 # build_toc - routine to build a static toc using HTML
 # inputs
@@ -46,17 +59,6 @@ module DPSlateHelpers
   def datestring()
     Time.now.strftime('%B %d, %Y at %H:%M %Z')
   end
-
-#
-# hash_to_yaml (hash) - routine to convert a ruby hash to a YAML string
-# input 
-#   hash - the hash that is to be converted
-# output
-#   string that contains a YAML version of the hash
-#  
-  def hash_to_yaml (hash) 
-      return "<pre> " + PP.pp(hash, "") + "</pre>"
-  end    
     
 #
 # get_defaults() - routine to get and merge the values of the _default.yml files along the directory path
@@ -89,7 +91,18 @@ module DPSlateHelpers
         this_defaults = read_defaults (dirspec + "/_defaults.yml")
         return get_defaults(Pathname.new(dirspec).parent.to_s).update(this_defaults)    
       end 
-  end
+  end  
+    
+#
+# hash_to_yaml (hash) - routine to convert a ruby hash to a YAML string
+# input 
+#   hash - the hash that is to be converted
+# output
+#   string that contains a YAML version of the hash
+#  
+  def hash_to_yaml (hash) 
+      return "<pre> " + PP.pp(hash, "") + "</pre>"
+  end    
     
 #
 # read_defaults() - routine to read the _default.yml files
@@ -106,19 +119,6 @@ module DPSlateHelpers
         return defaults = {}
       end  
   end
-
-
-#
-# add_sections() - routine to add section tags (page breaks) wherever there is a <p></p> with a string that contains "+++"
-# inputs
-#   document - the html output from the page
-# outputs
-#   document - the html output 
-#    
-
-  def add_sections (document)
-    return "<section>" + document.gsub(/\<p\>\+\+\+.*\n\<\/p\>/,"</section><section>") + "</section>"
-  end  
 
 end 
 
