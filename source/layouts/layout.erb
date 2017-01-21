@@ -43,9 +43,10 @@
 
         <div id="slateWrapper">
 
-          <div class="span3 <% if !defaults["leftPanel"] %> col-xs-12 <% else %>col-xs-12 col-md-3<% end %>">
+          <div class="span2 <% if !defaults["leftPanel"] %> col-xs-12 <% else %>col-xs-12 col-md-2<% end %>">
 
-            <div id="frontmatter">
+            <div id="frontmatter"
+                 >
 
             <% if defaults["tableOfContents"] %>
 
@@ -57,124 +58,8 @@
                        <a href="#" onclick="showsearch();"><span class="glyphicon glyphicon-search"></span></a>
                     <% end %>
                 </div>
-
-                  <!-- Modals -->
-                  <div class="modal fade"
-                       id="titlePage"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Title Page
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="title-page">
-                                <h1>
-                                  <%= defaults["title"] %>
-                                </h1>
-
-                                <h2>
-                                  <%= defaults["version"] %>
-                                </h2>
-
-                                <p>
-                                  <%= defaults["copyright"] %>
-                                </p>
-
-                                <p>
-                                  <%= defaults["publisher"] %>
-                                </p>
-
-                                <p>
-                                  <%= defaults["publisherAddress"] %>
-                                </p>
-
-                                <p>
-                                  <%= defaults["comments"] %>
-                                </p>
-
-                                <p>
-                                  <%= datestring %>
-                                </p>
-                                
-                            </div>
-
-                        </div>
-
-                        <div class="modal-footer">
-                          <a href="#pageDirectives" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-cog"></span></a> 
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
-                      </div>
-
-                    </div>
-                      
-                    </div>
-                    
-                <div class="modal fade"
-                       id="pageDirectives"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Page Directives
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="page-directives">
-                              <p>
-                                <%= hash_to_yaml (defaults) %>
-                              </p>
-
-                            </div>
-
-                        </div>
-
-                        <div class="modal-footer">
-
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
+                <%= build_title_page_modal (defaults) %>
+                <%= build_page_directives_modal (defaults) %>
 
               <% end %>
 
@@ -240,7 +125,7 @@
 
         </div>
 
-        <div class="span9 col-xs-12 col-md-9">
+        <div class="span10 col-xs-12 col-md-10">
 
           <div class="page-wrapper">
 

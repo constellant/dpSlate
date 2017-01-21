@@ -13,7 +13,37 @@ module DpSlateHelpers
 
   def add_sections (document)
     return "<section>" + document.gsub(/\<p\>\+\+\+.*\n\<\/p\>/,"</section><section>") + "</section>"
-  end  
+  end 
+
+#
+# build_page_directives_modal - routine to build the modal for displaying the page directives
+# inputs
+#   defaults - the hash that contains all of the settings/directives that were used on the page
+# outputs
+#   string that contains the HTML for modal
+#    
+  def build_page_directives_modal (defaults)
+      return "<!-- Page Directive Modal -->
+              <div class='modal fade' id='pageDirectives' tabindex='-1' role='dialog' aria-labelledby='pageDirectivesLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                      <span aria-hidden='true'>&times;</span></button>
+                      <h4 class='modal-title' id='pageDirectivesLabel'>Page Directives</h4>
+                    </div>
+                    <div class='modal-body about'>
+                        <div class='page-directives'>
+                          <p><pre>#{PP.pp(defaults,'')}</pre></p>
+                        </div>
+                    </div>
+                    <div class='modal-footer'>
+                      <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>"
+  end      
     
 #
 # build_toc - routine to build a static toc using HTML
@@ -51,15 +81,42 @@ module DpSlateHelpers
   end  
     
 #
-# datestring() - routine to return the current time as a formatted date string
-# input - none
-# output
-#   string that contains a formatted version of the current date and time of the system
-#    
-  def datestring()
-    Time.now.strftime('%B %d, %Y at %H:%M %Z')
+# build_title_page_modal - routine to build the modal for displaying the document title page
+# inputs
+#   defaults - the hash that contains all of the settings/directives that were used on the page
+# outputs
+#   string that contains the HTML for modal
+#      
+  def build_title_page_modal (defaults)
+      return "<!-- Title Page Modal -->
+              <div class='modal fade' id='titlePage' tabindex='-1' role='dialog' aria-labelledby='titlePageLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                          <h4 class='modal-title' id='titlePageLabel'>Title Page</h4>
+                    </div>
+                    <div class='modal-body about'>
+                      <div class='title-page'>
+                        <h1>#{defaults['title']}</h1>
+                        <h2>#{defaults['version']}</h2>
+                        <p>#{defaults['copyright']}</p>
+                        <p>#{defaults['publisher']}</p>
+                        <p>#{defaults['publisherAddress']}</p>
+                        <p>#{defaults['comments']}</p>
+                        <p>#{Time.now.strftime('%B %d, %Y at %H:%M %Z')}</p>
+                      </div>
+                    </div>
+                    <div class='modal-footer'>
+                      <a href='#pageDirectives' class='texttrigger' data-toggle='modal'><span class='glyphicon glyphicon-cog'></span></a> 
+                        <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>"
   end
     
+
 #
 # get_defaults() - routine to get and merge the values of the _default.yml files along the directory path
 # inputs
@@ -92,18 +149,7 @@ module DpSlateHelpers
         return get_defaults(Pathname.new(dirspec).parent.to_s).update(this_defaults)    
       end 
   end  
-    
-#
-# hash_to_yaml (hash) - routine to convert a ruby hash to a YAML string
-# input 
-#   hash - the hash that is to be converted
-# output
-#   string that contains a YAML version of the hash
-#  
-  def hash_to_yaml (hash) 
-      return "<pre> " + PP.pp(hash, "") + "</pre>"
-  end    
-    
+     
 #
 # read_defaults() - routine to read the _default.yml files
 # inputs
