@@ -34,3 +34,13 @@ tocSelectors: "h1,h2,h3"
 # Below you should see a file error message
 
 {{path/withnofileinmain.md}}
+
+# Below are tests of special includes
+
+dpSlate also can use the include markdown to display settings variables (a.k.a., YAML Page directives).  These are in the form of `=variable` Below are some Page directives
+
+`=version` is:  {{ =version }}
+
+`=copyright` is:  {{=copyright}}
+
+`=undefined` is:  {{  =undefined }}

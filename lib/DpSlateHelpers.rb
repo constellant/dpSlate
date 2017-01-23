@@ -13,8 +13,8 @@ module DpSlateHelpers
 
   def add_sections (document)
     return "<section>" + document.gsub(/\<p\>\+\+\+.*\n\<\/p\>/,"</section><section>") + "</section>"
-  end 
-
+  end    
+    
 #
 # build_page_directives_modal - routine to build the modal for displaying the page directives
 # inputs
@@ -148,6 +148,37 @@ module DpSlateHelpers
         this_defaults = read_defaults (dirspec + "/_defaults.yml")
         return get_defaults(Pathname.new(dirspec).parent.to_s).update(this_defaults)    
       end 
+  end  
+    
+
+#
+# get_settings_variables() - routine to replace string variables from defaults wherever there is a string that contains "{{ =variable }}"
+# inputs
+#   document - the html output from the page
+#   defaults - the hash that contains the page directives and variables    
+# outputs
+#   document - the html output 
+#    
+  def get_settings_variables (document, defaults)
+    # look for an include of the form {{= setting }} split it into the leftHandString, the setting name, and the rightHandString
+    if n = document.match(/\{\{\s*\=.*\s*\}\}/)
+        setting = n[0].gsub(/\{\{\s*\=|\}\}/, '').strip
+        puts setting
+        parts = document.split(/\{\{\s*\=.*\}\}/, 2)
+        if defaults[setting].nil? 
+            parts[0] = parts[0] + n[0]
+            replacement = ""
+        else
+            replacement = defaults[setting].to_s 
+        end
+        if parts[1].nil? || parts[1].empty?
+            return parts[0] + replacement
+        else
+            return parts[0] + replacement + get_settings_variables(parts[1], defaults)
+        end
+    else
+      return document
+    end
   end  
      
 #

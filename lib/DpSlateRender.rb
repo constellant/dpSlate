@@ -2,7 +2,7 @@ require "middleman-core/renderers/redcarpet"
 require "middleman-core/logger"
 require "pp"
 
-$headCount =0       # create a sequential counter use in rendering headers to ensure each has a unique ID cross the site
+$headCount =0                             # create a sequential counter use in rendering headers to ensure each has a unique ID cross the site
       
 class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
 
@@ -62,6 +62,7 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
       return "<p>" + text + "</p>"
     end
   end
+
   
   # footnote_def - create the list element for each footnote definition.  Take the number of the footnote and the defintion and
   # place it into a global hash such that it can be used in postprocessing to insert the definition into the footnote ref's popover
@@ -114,16 +115,20 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
   def get_includes(markdown)
     # look for an include of the form {{filename}} split it into the leftHandString, the filename, and the rightHandString
     if n = markdown.match(/^\{\{.*\}\}/)
-        include = n[0].gsub(/^\{\{|\}\}/, '').strip
+        include = n[0].gsub(/^\{\{|\}\}/, '')
         parts = markdown.split(/^\{\{.*\}\}/, 2)
-        if File.exists? (include)
-            file = File.open(include, "r")
-            newmd = file.read
-            newmd = "\n<!--include markdown-section data-src='#{include}' include-->\n" + newmd + "\n\n<!--include /markdown-section include-->\n"
+        if include.strip[0] == '=' or include.strip[0] == '$'
+            newmd = ""
+            parts[0] = parts[0] + "{{" +include + "}}"
+        else 
+          if File.exists? (include.strip)
+            file = File.open(include.strip, "r")
+            newmd = "\n<!--include markdown-section data-src='#{include}' include-->\n" + file.read + "\n\n<!--include /markdown-section include-->\n"
             file.close
-        else
+          else
             parts[0] = parts[0] + "{{ #{include} }}"
             newmd = ""
+          end
         end
         return [parts[0], get_includes([newmd, parts[1]].join(""))].join("")
     else
@@ -178,11 +183,12 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
   # @return [String] - the text of the markdown paragraph with the include bracket transformed into xHTML
   #
   def postprocess(document)
-    document.gsub!(/^\<\!\-\-include /, "<!--")
-    document.gsub!(/ include\-\-\>/, "-->")
-    $footnoteDefs.each_pair { |ref, fndef| document.gsub!(/#{ref}/,fndef) }  
-    document.gsub!(/\{\{\s\$abbreviations\s\}\}/, $abbrList.sort.map { |s| "#{s}" }.join(' ') )
-    document.gsub!(/\{\{\s\$footnotes\s\}\}/, $footnoteDiv )
+    document.gsub!(/^\<\!\-\-include /, "<!--")                                 # fix the start of the include markers
+    document.gsub!(/ include\-\-\>/, "-->")                                     # fix the end of the include markets
+    $footnoteDefs.each_pair { |ref, fndef| document.gsub!(/#{ref}/,fndef) }     # Loop through the footnote refs replace with popover text
+    document.gsub!(/\{\{\s*\$abbreviations\s*\}\}/, $abbrList.sort.map { |s| "#{s}" }.join(' ') )  
+                                                                                # output the list of abbreviations
+    document.gsub!(/\{\{\s*\$footnotes\s*\}\}/, $footnoteDiv )                  # output the list of footnotes
     return document
   end      
       
@@ -196,7 +202,7 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
   #
       
   def preprocess(document)
-     add_abbr(get_includes (document))
+    add_abbr(get_includes (document))
   end
 
 end      

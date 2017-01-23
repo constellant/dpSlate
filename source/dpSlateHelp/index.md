@@ -683,7 +683,7 @@ dpSlate markdown includes support for the PHP Markdown for abbreviations.  The e
 
 Because these abbreviations have been defined in the document, every occurance of HTML and W3C in the document will appeared as underlined with dashes.  When you hover over the abbreviation, a `?` will appear and eventually a _tool tip_ will appear with the defintion of the abbreviation.
 
--> abbreviation only works in the web pages and not on the printed page.  If you would like to include a sorted list of all abbreviations in your document you can do this by using the include markdown tag with the special variable for the abbreviations, _i.e._, `{{$abbreviations}}.`
+-> abbreviation only works in the web pages and not on the printed page.  If you would like to include a sorted list of all abbreviations in your document you can do this by using the include markdown tag with the special variable for the abbreviations, _i.e._, `$abbreviations`.
 
 ## Alerts
 
@@ -719,7 +719,7 @@ Technical documents often have _alerts_ which are warning and notes that are int
 
 ```markdown
 
- {{source/dpSlateHelp/goodmen.md}}
+ {{source/dpSlateHelp/_goodmen.md}}
 
  {{error.md}}
 
@@ -727,24 +727,37 @@ Technical documents often have _alerts_ which are warning and notes that are int
 
 Sometimes you might want to break a markdown file into multiple parts such that you can reuse the parts in different documents. Although standard markdown does not support the concept of _includes_, dpSlate markdown has been extended to provide this support.  Anywhere within the markdown, you can add the contents of another file by simply using markdown include using two open curly brackets, followed by the path and filespec, and closed with two close curly brackets.  The include markdown statement must be at the start of a new line and of the form `{{filepath/filename.ext}}`  If the file is not found an error message is inserted in place of the include.  Below are two examples of includes.  In the markdown source, the statements to the right have been inserted.  
 
-Below is an example, the first include is for the file, called `goodmen.md`.  This file exsists and contains the markdown text of `Now is the _time_ for all good men...`.  In this case the markdown tag is replaced with the markdown in the referenced file.
+Below is an example, the first include is for the file, called `_goodmen.md`.  This file exsists and contains the markdown text of `Now is the _time_ for all good men...`.  In this case the markdown tag is replaced with the markdown in the referenced file.
 
-{{source/dpSlateHelp/goodmen.md}}
+{{source/dpSlateHelp/_goodmen.md}}
 
 This is followed by the second example, the file, `error.md` which does not exsist.  When this occurs, the markdown tag is left intact.
 
 {{error.md}}
 
-The include tag can also be used with special variables below:
-
-* $footnotes - when a markdown include tag has this variable, it will be substituted with the HTML list of all footnotes in order.  This can be used to place the footnotes at the end of the document for printing.
-* $abbreviations - when a markdown include tag has this variable, it will be substituted with the HTML text for an alphbetically ordered list of all abbreviations that were included in the document.  This can be used to place a list of abbreviations/acronyms in the document.
-
+The include tag can also be used to include either the contents of your page directives (e.g., settings) or for special variables.  
 -> The include directive for markdown __must__ start on a new line or it will be ignored.
 
 ~> It is highly recommended that your included markdown files have a file name that begins with a `_` (underscore).  The dpSlate static file generator does not generate build files for files with filenames that begin with a `_` and thus, if you name your file this way, the fragment files that you are including will not be generated into their own, stand-alone page.
 
 !> The new markdown include feature is the recommended method for doing includes.  Future versions of dpSlate will eliminate other include methods.
+
+### Including Special Variables
+
+To include the contents of special variables you use the include of the form`{{ $variable }}` where the `$variable` denotes a collection of HTML content that was generated when processing the document.  The special variables are either: 
+
+* $footnotes - when a markdown include tag has this variable, it will be substituted with the HTML list of all footnotes in order.  This can be used to place the footnotes at the end of the document for printing.
+* $abbreviations - when a markdown include tag has this variable, it will be substituted with the HTML text for an alphbetically ordered list of all abbreviations that were included in the document.  This can be used to place a list of abbreviations/acronyms in the document.
+
+-> If there are no footnotes or abbreviations, then the null string will be substituted for the tag.  If you misspell the special variable name, then the original tag will remain.
+
+### Including Settings Variables
+
+To include the contents of a Settings Variable you use the include of the form`{{ =variable }}` where the `=variable` denotes a variable that contains the contents of one of the YAML page directives or settings.  In addition to the predefined page directives or settings that are used to control the formating of the page, you can also define any Settings Variable that you later wish to use in the document.
+
+For example, lets say that in your YAML settings you add a line called `myDocumentVersion: "Version 4.5"`.  If you then insert the markdown of `{{ =myDocumentVersion }}` into your document, that markdown tag will be replaced with the contents of the settings variable, in this example, "Version 4.5".
+
+~> If your Settings Variable is not defined, then the tag will remain.
 
 # Sample Code
 
@@ -1289,6 +1302,7 @@ dpSlate v4.2 includes many new markdown features that allow you to create richer
 # Abbreviations
 
 {{$abbreviations}}
+
 
 *[DPFM]: dp Flavored Markdown
 
