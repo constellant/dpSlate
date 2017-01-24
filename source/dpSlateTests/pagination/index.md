@@ -724,7 +724,7 @@ Because these abbreviations have been defined in the document, every occurance o
 
 ``` markdown
 
- {{source/dpSlateHelp/goodmen.md}}
+ {{source/dpSlateHelp/_goodmen.md}}
 
  {{error.md}}
 

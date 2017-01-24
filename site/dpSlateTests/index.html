@@ -107,9 +107,10 @@
 
         <div id="slateWrapper">
 
-          <div class="span3 col-xs-12 col-md-3">
+          <div class="span2 col-xs-12 col-md-2">
 
-            <div id="frontmatter">
+            <div id="frontmatter"
+                 >
 
 
 
@@ -117,104 +118,44 @@
                     Test Suite <a href="#titlePage" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-info-sign"></span></a>
                        <a href="#" onclick="showsearch();"><span class="glyphicon glyphicon-search"></span></a>
                 </div>
-
-                  <!-- Modals -->
-                  <div class="modal fade"
-                       id="titlePage"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Title Page
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="title-page">
-                                <h1>
-                                  Test Suite
-                                </h1>
-
-                                <h2>
-                                  V4.1
-                                </h2>
-
-                                <p>
-                                  Copyright &copy; 2013-2015 Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.
-                                </p>
-
-                                <p>
-                                  DeveloperProgram.com
-                                </p>
-
-                                <p>
-                                  Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA
-                                </p>
-
-                                <p>
-                                  dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.
-                                </p>
-
-                                <p>
-                                  January 16, 2017 at 19:16 PST
-                                </p>
-                                
-                            </div>
-
-                        </div>
-
-                        <div class="modal-footer">
-                          <a href="#pageDirectives" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-cog"></span></a> 
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
+                <!-- Title Page Modal -->
+              <div class='modal fade' id='titlePage' tabindex='-1' role='dialog' aria-labelledby='titlePageLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                          <h4 class='modal-title' id='titlePageLabel'>Title Page</h4>
+                    </div>
+                    <div class='modal-body about'>
+                      <div class='title-page'>
+                        <h1>Test Suite</h1>
+                        <h2>V4.1</h2>
+                        <p>Copyright &copy; 2013-2015 Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.</p>
+                        <p>DeveloperProgram.com</p>
+                        <p>Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA</p>
+                        <p>dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.</p>
+                        <p>2016-10-30 19:27:27 -0700</p>
                       </div>
-
                     </div>
-                      
+                    <div class='modal-footer'>
+                      <a href='#pageDirectives' class='texttrigger' data-toggle='modal'><span class='glyphicon glyphicon-cog'></span></a> 
+                        <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
                     </div>
-                    
-                <div class="modal fade"
-                       id="pageDirectives"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Page Directives
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="page-directives">
-                              <p>
-                                <pre> {"title"=>"Test Suite",
+                  </div>
+                </div>
+              </div>
+                <!-- Page Directive Modal -->
+              <div class='modal fade' id='pageDirectives' tabindex='-1' role='dialog' aria-labelledby='pageDirectivesLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                      <span aria-hidden='true'>&times;</span></button>
+                      <h4 class='modal-title' id='pageDirectivesLabel'>Page Directives</h4>
+                    </div>
+                    <div class='modal-body about'>
+                        <div class='page-directives'>
+                          <p><pre>{"title"=>"Test Suite",
  "version"=>"V4.1",
  "copyright"=>
   "Copyright &copy; 2013-2015 Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.",
@@ -232,28 +173,17 @@
  "tocSelectors"=>"h1,h2,h3",
  "tocFooters"=>nil,
  "titlePage"=>true,
- "paginateDocument"=>false}
-</pre>
-                              </p>
-
-                            </div>
-
+ "paginateDocument"=>false,
+ "mtime"=>2016-10-30 19:27:27 -0700}
+</pre></p>
                         </div>
-
-                        <div class="modal-footer">
-
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
-                      </div>
-
                     </div>
-
+                    <div class='modal-footer'>
+                      <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
+                    </div>
                   </div>
-
+                </div>
+              </div>
 
 
 
@@ -286,7 +216,7 @@
                      data-offset-top="205"
                      data-offset-bottom="20">
 
-                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#dpslate-regression-test-144" class="toc-h1"> dpSlate Regression Test </a> </li> <li class="toc-h1"> <a href="#success-criteria-145" class="toc-h1"> Success Criteria </a> </li> <li class="toc-h1"> <a href="#test-cases-146" class="toc-h1"> Test Cases </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#em-test-em-abbreviations-147" class="toc-h2"> Test: abbreviations </a> </li> <li class="toc-h2"> <a href="#em-test-em-erb-include-links-148" class="toc-h2"> Test: erb-include-links </a> </li> <li class="toc-h2"> <a href="#em-test-em-erb-partials-149" class="toc-h2"> Test: erb-partials </a> </li> <li class="toc-h2"> <a href="#em-test-em-identical-headers-150" class="toc-h2"> Test: identical-headers </a> </li> <li class="toc-h2"> <a href="#em-test-em-language-tabs-151" class="toc-h2"> Test: language-tabs </a> </li> <li class="toc-h2"> <a href="#em-test-em-lazy-load-152" class="toc-h2"> Test: lazy-load </a> </li> <li class="toc-h2"> <a href="#em-test-em-markdown-includes-153" class="toc-h2"> Test: markdown-includes </a> </li> <li class="toc-h2"> <a href="#em-test-em-one-column-154" class="toc-h2"> Test: one-column </a> </li> <li class="toc-h2"> <a href="#em-test-em-pagination-155" class="toc-h2"> Test: pagination </a> </li> <li class="toc-h2"> <a href="#em-test-em-sample-getting-started-156" class="toc-h2"> Test: sample-getting-started </a> </li> <li class="toc-h2"> <a href="#em-test-em-sample-tutorial-157" class="toc-h2"> Test: sample-tutorial </a> </li> <li class="toc-h2"> <a href="#em-test-em-toc-selectors-and-accordion-158" class="toc-h2"> Test: toc-selectors-and-accordion </a> </li> <li class="toc-h2"> <a href="#em-test-em-two-column-markdown-fidelity-159" class="toc-h2"> Test: two-column-markdown-fidelity </a> </li> <li class="toc-h2"> <a href="#em-test-em-yml-defaults-160" class="toc-h2"> Test: yml-defaults </a> </ul>
+                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#dpslate-regression-test-125" class="toc-h1"> dpSlate Regression Test </a> </li> <li class="toc-h1"> <a href="#success-criteria-126" class="toc-h1"> Success Criteria </a> </li> <li class="toc-h1"> <a href="#test-cases-127" class="toc-h1"> Test Cases </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#em-test-em-abbreviations-128" class="toc-h2"> Test: abbreviations </a> </li> <li class="toc-h2"> <a href="#em-test-em-erb-include-links-129" class="toc-h2"> Test: erb-include-links </a> </li> <li class="toc-h2"> <a href="#em-test-em-erb-partials-130" class="toc-h2"> Test: erb-partials </a> </li> <li class="toc-h2"> <a href="#em-test-em-identical-headers-131" class="toc-h2"> Test: identical-headers </a> </li> <li class="toc-h2"> <a href="#em-test-em-language-tabs-132" class="toc-h2"> Test: language-tabs </a> </li> <li class="toc-h2"> <a href="#em-test-em-lazy-load-133" class="toc-h2"> Test: lazy-load </a> </li> <li class="toc-h2"> <a href="#em-test-em-markdown-includes-134" class="toc-h2"> Test: markdown-includes </a> </li> <li class="toc-h2"> <a href="#em-test-em-one-column-135" class="toc-h2"> Test: one-column </a> </li> <li class="toc-h2"> <a href="#em-test-em-pagination-136" class="toc-h2"> Test: pagination </a> </li> <li class="toc-h2"> <a href="#em-test-em-toc-selectors-and-accordion-137" class="toc-h2"> Test: toc-selectors-and-accordion </a> </li> <li class="toc-h2"> <a href="#em-test-em-two-column-markdown-fidelity-138" class="toc-h2"> Test: two-column-markdown-fidelity </a> </li> <li class="toc-h2"> <a href="#em-test-em-yml-defaults-139" class="toc-h2"> Test: yml-defaults </a> </ul>
 
                 </div>
 
@@ -298,16 +228,16 @@
 
         </div>
 
-        <div class="span9 col-xs-12 col-md-9">
+        <div class="span10 col-xs-12 col-md-10">
 
           <div class="page-wrapper">
 
             <div class="dark-box"></div>
 
             <div class="content" id="documentContent">
-                   <h1 id="dpslate-regression-test-144">dpSlate Regression Test</h1><p>This file contains a number of test cases for performing regression testing on dpSlate.  Each test case is its own subdirectory in the source directory of <code>/dpSlateTests</code>.  The directories should have meaningful names as the directory names are used to distinguish the test cases.  In each test case subdirectory there should be an index file to execute the test.  The extension of the file should be set depending upon the type of test that is being run.
+                   <h1 id="dpslate-regression-test-125">dpSlate Regression Test</h1><p>This file contains a number of test cases for performing regression testing on dpSlate.  Each test case is its own subdirectory in the source directory of <code>/dpSlateTests</code>.  The directories should have meaningful names as the directory names are used to distinguish the test cases.  In each test case subdirectory there should be an index file to execute the test.  The extension of the file should be set depending upon the type of test that is being run.
 </p><p>There is no need to modify this file.  Any subdirectory will automatically be included onto this page as this page is Embedded Ruby and it loops through the directories building a header and paragraph for each test.  As such this page is also a test.
-</p><h1 id="success-criteria-145">Success Criteria</h1>
+</p><h1 id="success-criteria-126">Success Criteria</h1>
 <ul>
 <li>This page should be displayed in the two column format - there is no right hand column.</li>
 <li>The page should have a collapsable title page on the left.</li>
@@ -317,21 +247,19 @@
 <li>The Table of Contents should be fully expanded for the Test Cases (not accordian mode).</li>
 <li>Each test case should have a link that goes to the test case page.</li>
 </ul>
-<h1 id="test-cases-146">Test Cases</h1><p>Below are links to each of the test cases that are located in sub-directories of <code>/source/dpSlateTests/</code>.
-</p><h2 id="em-test-em-abbreviations-147"><em>Test:</em> abbreviations</h2><p>Click here for the test at <a href="/dpSlateTests/abbreviations"> /dpSlateTests/abbreviations</a>.
-</p><h2 id="em-test-em-erb-include-links-148"><em>Test:</em> erb-include-links</h2><p>Click here for the test at <a href="/dpSlateTests/erb-include-links"> /dpSlateTests/erb-include-links</a>.
-</p><h2 id="em-test-em-erb-partials-149"><em>Test:</em> erb-partials</h2><p>Click here for the test at <a href="/dpSlateTests/erb-partials"> /dpSlateTests/erb-partials</a>.
-</p><h2 id="em-test-em-identical-headers-150"><em>Test:</em> identical-headers</h2><p>Click here for the test at <a href="/dpSlateTests/identical-headers"> /dpSlateTests/identical-headers</a>.
-</p><h2 id="em-test-em-language-tabs-151"><em>Test:</em> language-tabs</h2><p>Click here for the test at <a href="/dpSlateTests/language-tabs"> /dpSlateTests/language-tabs</a>.
-</p><h2 id="em-test-em-lazy-load-152"><em>Test:</em> lazy-load</h2><p>Click here for the test at <a href="/dpSlateTests/lazy-load"> /dpSlateTests/lazy-load</a>.
-</p><h2 id="em-test-em-markdown-includes-153"><em>Test:</em> markdown-includes</h2><p>Click here for the test at <a href="/dpSlateTests/markdown-includes"> /dpSlateTests/markdown-includes</a>.
-</p><h2 id="em-test-em-one-column-154"><em>Test:</em> one-column</h2><p>Click here for the test at <a href="/dpSlateTests/one-column"> /dpSlateTests/one-column</a>.
-</p><h2 id="em-test-em-pagination-155"><em>Test:</em> pagination</h2><p>Click here for the test at <a href="/dpSlateTests/pagination"> /dpSlateTests/pagination</a>.
-</p><h2 id="em-test-em-sample-getting-started-156"><em>Test:</em> sample-getting-started</h2><p>Click here for the test at <a href="/dpSlateTests/sample-getting-started"> /dpSlateTests/sample-getting-started</a>.
-</p><h2 id="em-test-em-sample-tutorial-157"><em>Test:</em> sample-tutorial</h2><p>Click here for the test at <a href="/dpSlateTests/sample-tutorial"> /dpSlateTests/sample-tutorial</a>.
-</p><h2 id="em-test-em-toc-selectors-and-accordion-158"><em>Test:</em> toc-selectors-and-accordion</h2><p>Click here for the test at <a href="/dpSlateTests/toc-selectors-and-accordion"> /dpSlateTests/toc-selectors-and-accordion</a>.
-</p><h2 id="em-test-em-two-column-markdown-fidelity-159"><em>Test:</em> two-column-markdown-fidelity</h2><p>Click here for the test at <a href="/dpSlateTests/two-column-markdown-fidelity"> /dpSlateTests/two-column-markdown-fidelity</a>.
-</p><h2 id="em-test-em-yml-defaults-160"><em>Test:</em> yml-defaults</h2><p>Click here for the test at <a href="/dpSlateTests/yml-defaults"> /dpSlateTests/yml-defaults</a>.
+<h1 id="test-cases-127">Test Cases</h1><p>Below are links to each of the test cases that are located in sub-directories of <code>/source/dpSlateTests/</code>.
+</p><h2 id="em-test-em-abbreviations-128"><em>Test:</em> abbreviations</h2><p>Click here for the test at <a href="/dpSlateTests/abbreviations"> /dpSlateTests/abbreviations</a>.
+</p><h2 id="em-test-em-erb-include-links-129"><em>Test:</em> erb-include-links</h2><p>Click here for the test at <a href="/dpSlateTests/erb-include-links"> /dpSlateTests/erb-include-links</a>.
+</p><h2 id="em-test-em-erb-partials-130"><em>Test:</em> erb-partials</h2><p>Click here for the test at <a href="/dpSlateTests/erb-partials"> /dpSlateTests/erb-partials</a>.
+</p><h2 id="em-test-em-identical-headers-131"><em>Test:</em> identical-headers</h2><p>Click here for the test at <a href="/dpSlateTests/identical-headers"> /dpSlateTests/identical-headers</a>.
+</p><h2 id="em-test-em-language-tabs-132"><em>Test:</em> language-tabs</h2><p>Click here for the test at <a href="/dpSlateTests/language-tabs"> /dpSlateTests/language-tabs</a>.
+</p><h2 id="em-test-em-lazy-load-133"><em>Test:</em> lazy-load</h2><p>Click here for the test at <a href="/dpSlateTests/lazy-load"> /dpSlateTests/lazy-load</a>.
+</p><h2 id="em-test-em-markdown-includes-134"><em>Test:</em> markdown-includes</h2><p>Click here for the test at <a href="/dpSlateTests/markdown-includes"> /dpSlateTests/markdown-includes</a>.
+</p><h2 id="em-test-em-one-column-135"><em>Test:</em> one-column</h2><p>Click here for the test at <a href="/dpSlateTests/one-column"> /dpSlateTests/one-column</a>.
+</p><h2 id="em-test-em-pagination-136"><em>Test:</em> pagination</h2><p>Click here for the test at <a href="/dpSlateTests/pagination"> /dpSlateTests/pagination</a>.
+</p><h2 id="em-test-em-toc-selectors-and-accordion-137"><em>Test:</em> toc-selectors-and-accordion</h2><p>Click here for the test at <a href="/dpSlateTests/toc-selectors-and-accordion"> /dpSlateTests/toc-selectors-and-accordion</a>.
+</p><h2 id="em-test-em-two-column-markdown-fidelity-138"><em>Test:</em> two-column-markdown-fidelity</h2><p>Click here for the test at <a href="/dpSlateTests/two-column-markdown-fidelity"> /dpSlateTests/two-column-markdown-fidelity</a>.
+</p><h2 id="em-test-em-yml-defaults-139"><em>Test:</em> yml-defaults</h2><p>Click here for the test at <a href="/dpSlateTests/yml-defaults"> /dpSlateTests/yml-defaults</a>.
 </p>
            </div>
 

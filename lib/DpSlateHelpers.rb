@@ -88,6 +88,7 @@ module DpSlateHelpers
 #   string that contains the HTML for modal
 #      
   def build_title_page_modal (defaults)
+      datetime = defaults['mtime'].to_s
       return "<!-- Title Page Modal -->
               <div class='modal fade' id='titlePage' tabindex='-1' role='dialog' aria-labelledby='titlePageLabel'>
                 <div class='modal-dialog' role='document'>
@@ -104,7 +105,7 @@ module DpSlateHelpers
                         <p>#{defaults['publisher']}</p>
                         <p>#{defaults['publisherAddress']}</p>
                         <p>#{defaults['comments']}</p>
-                        <p>#{Time.now.strftime('%B %d, %Y at %H:%M %Z')}</p>
+                        <p>#{datetime[0..15]}</p>
                       </div>
                     </div>
                     <div class='modal-footer'>
@@ -163,7 +164,6 @@ module DpSlateHelpers
     # look for an include of the form {{= setting }} split it into the leftHandString, the setting name, and the rightHandString
     if n = document.match(/\{\{\s*\=.*\s*\}\}/)
         setting = n[0].gsub(/\{\{\s*\=|\}\}/, '').strip
-        puts setting
         parts = document.split(/\{\{\s*\=.*\}\}/, 2)
         if defaults[setting].nil? 
             parts[0] = parts[0] + n[0]

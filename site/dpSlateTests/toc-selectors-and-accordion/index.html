@@ -108,9 +108,10 @@
 
         <div id="slateWrapper">
 
-          <div class="span3 col-xs-12 col-md-3">
+          <div class="span2 col-xs-12 col-md-2">
 
-            <div id="frontmatter">
+            <div id="frontmatter"
+                 >
 
 
 
@@ -118,104 +119,44 @@
                     dpSlate tocSelector and tocAccordion Test <a href="#titlePage" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-info-sign"></span></a>
                        <a href="#" onclick="showsearch();"><span class="glyphicon glyphicon-search"></span></a>
                 </div>
-
-                  <!-- Modals -->
-                  <div class="modal fade"
-                       id="titlePage"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Title Page
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="title-page">
-                                <h1>
-                                  dpSlate tocSelector and tocAccordion Test
-                                </h1>
-
-                                <h2>
-                                  V4.1
-                                </h2>
-
-                                <p>
-                                  Copyright &copy; 2013-2016 by Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.
-                                </p>
-
-                                <p>
-                                  DeveloperProgram.com
-                                </p>
-
-                                <p>
-                                  Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA
-                                </p>
-
-                                <p>
-                                  dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.
-                                </p>
-
-                                <p>
-                                  January 16, 2017 at 19:16 PST
-                                </p>
-                                
-                            </div>
-
-                        </div>
-
-                        <div class="modal-footer">
-                          <a href="#pageDirectives" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-cog"></span></a> 
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
+                <!-- Title Page Modal -->
+              <div class='modal fade' id='titlePage' tabindex='-1' role='dialog' aria-labelledby='titlePageLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                          <h4 class='modal-title' id='titlePageLabel'>Title Page</h4>
+                    </div>
+                    <div class='modal-body about'>
+                      <div class='title-page'>
+                        <h1>dpSlate tocSelector and tocAccordion Test</h1>
+                        <h2>V4.1</h2>
+                        <p>Copyright &copy; 2013-2016 by Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.</p>
+                        <p>DeveloperProgram.com</p>
+                        <p>Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA</p>
+                        <p>dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.</p>
+                        <p>2016-11-01 10:32:42 -0700</p>
                       </div>
-
                     </div>
-                      
+                    <div class='modal-footer'>
+                      <a href='#pageDirectives' class='texttrigger' data-toggle='modal'><span class='glyphicon glyphicon-cog'></span></a> 
+                        <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
                     </div>
-                    
-                <div class="modal fade"
-                       id="pageDirectives"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Page Directives
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="page-directives">
-                              <p>
-                                <pre> {"title"=>"dpSlate tocSelector and tocAccordion Test",
+                  </div>
+                </div>
+              </div>
+                <!-- Page Directive Modal -->
+              <div class='modal fade' id='pageDirectives' tabindex='-1' role='dialog' aria-labelledby='pageDirectivesLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                      <span aria-hidden='true'>&times;</span></button>
+                      <h4 class='modal-title' id='pageDirectivesLabel'>Page Directives</h4>
+                    </div>
+                    <div class='modal-body about'>
+                        <div class='page-directives'>
+                          <p><pre>{"title"=>"dpSlate tocSelector and tocAccordion Test",
  "version"=>"V4.1",
  "copyright"=>
   "Copyright &copy; 2013-2016 by Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.",
@@ -233,28 +174,17 @@
  "tocSelectors"=>"h1,h2,h3,h4,h5,h6",
  "tocFooters"=>nil,
  "titlePage"=>true,
- "paginateDocument"=>false}
-</pre>
-                              </p>
-
-                            </div>
-
+ "paginateDocument"=>false,
+ "mtime"=>2016-11-01 10:32:42 -0700}
+</pre></p>
                         </div>
-
-                        <div class="modal-footer">
-
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
-                      </div>
-
                     </div>
-
+                    <div class='modal-footer'>
+                      <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
+                    </div>
                   </div>
-
+                </div>
+              </div>
 
 
 
@@ -287,7 +217,7 @@
                      data-offset-top="205"
                      data-offset-bottom="20">
 
-                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#introduction-22" class="toc-h1"> Introduction </a> </li> <li class="toc-h1"> <a href="#h1-header-23" class="toc-h1"> H1 Header </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#h2-header-24" class="toc-h2"> H2 Header </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#h3-header-25" class="toc-h3"> H3 Header </a> <ul class="toc-submenu-4 nav"> <li class="toc-h4"> <a href="#h4-header-26" class="toc-h4"> H4 Header </a> <ul class="toc-submenu-5 nav"> <li class="toc-h5"> <a href="#h5-header-27" class="toc-h5"> H5 Header </a> <ul class="toc-submenu-6 nav"> <li class="toc-h6"> <a href="#h6-header-28" class="toc-h6"> H6 Header </a> </ul></li> </ul></li> </ul></li> </ul></li> </ul></li> <li class="toc-h1"> <a href="#h1-header-29" class="toc-h1"> H1 Header </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#h2-header-30" class="toc-h2"> H2 Header </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#h3-header-31" class="toc-h3"> H3 Header </a> <ul class="toc-submenu-4 nav"> <li class="toc-h4"> <a href="#h4-header-32" class="toc-h4"> H4 Header </a> <ul class="toc-submenu-5 nav"> <li class="toc-h5"> <a href="#h5-header-33" class="toc-h5"> H5 Header </a> <ul class="toc-submenu-6 nav"> <li class="toc-h6"> <a href="#h6-header-34" class="toc-h6"> H6 Header </a> </ul></li> </ul></li> </ul></li> </ul></li> </ul></li> <li class="toc-h1"> <a href="#h1-header-35" class="toc-h1"> H1 Header </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#h2-header-36" class="toc-h2"> H2 Header </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#h3-header-37" class="toc-h3"> H3 Header </a> <ul class="toc-submenu-4 nav"> <li class="toc-h4"> <a href="#h4-header-38" class="toc-h4"> H4 Header </a> <ul class="toc-submenu-5 nav"> <li class="toc-h5"> <a href="#h5-header-39" class="toc-h5"> H5 Header </a> <ul class="toc-submenu-6 nav"> <li class="toc-h6"> <a href="#h6-header-40" class="toc-h6"> H6 Header </a> </ul>
+                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#introduction-24" class="toc-h1"> Introduction </a> </li> <li class="toc-h1"> <a href="#h1-header-25" class="toc-h1"> H1 Header </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#h2-header-26" class="toc-h2"> H2 Header </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#h3-header-27" class="toc-h3"> H3 Header </a> <ul class="toc-submenu-4 nav"> <li class="toc-h4"> <a href="#h4-header-28" class="toc-h4"> H4 Header </a> <ul class="toc-submenu-5 nav"> <li class="toc-h5"> <a href="#h5-header-29" class="toc-h5"> H5 Header </a> <ul class="toc-submenu-6 nav"> <li class="toc-h6"> <a href="#h6-header-30" class="toc-h6"> H6 Header </a> </ul></li> </ul></li> </ul></li> </ul></li> </ul></li> <li class="toc-h1"> <a href="#h1-header-31" class="toc-h1"> H1 Header </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#h2-header-32" class="toc-h2"> H2 Header </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#h3-header-33" class="toc-h3"> H3 Header </a> <ul class="toc-submenu-4 nav"> <li class="toc-h4"> <a href="#h4-header-34" class="toc-h4"> H4 Header </a> <ul class="toc-submenu-5 nav"> <li class="toc-h5"> <a href="#h5-header-35" class="toc-h5"> H5 Header </a> <ul class="toc-submenu-6 nav"> <li class="toc-h6"> <a href="#h6-header-36" class="toc-h6"> H6 Header </a> </ul></li> </ul></li> </ul></li> </ul></li> </ul></li> <li class="toc-h1"> <a href="#h1-header-37" class="toc-h1"> H1 Header </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#h2-header-38" class="toc-h2"> H2 Header </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#h3-header-39" class="toc-h3"> H3 Header </a> <ul class="toc-submenu-4 nav"> <li class="toc-h4"> <a href="#h4-header-40" class="toc-h4"> H4 Header </a> <ul class="toc-submenu-5 nav"> <li class="toc-h5"> <a href="#h5-header-41" class="toc-h5"> H5 Header </a> <ul class="toc-submenu-6 nav"> <li class="toc-h6"> <a href="#h6-header-42" class="toc-h6"> H6 Header </a> </ul>
 
                 </div>
 
@@ -299,14 +229,14 @@
 
         </div>
 
-        <div class="span9 col-xs-12 col-md-9">
+        <div class="span10 col-xs-12 col-md-10">
 
           <div class="page-wrapper">
 
             <div class="dark-box"></div>
 
             <div class="content" id="documentContent">
-                   <h1 id="introduction-22">Introduction</h1><p>This test will examine the tocSelector and tocAccordion directives.  The document will have three groups of six headers below called &quot;Header 1&quot; through &quot;Header 6&quot; in the body of the document.  If sucessful, then:
+                   <h1 id="introduction-24">Introduction</h1><p>This test will examine the tocSelector and tocAccordion directives.  The document will have three groups of six headers below called &quot;Header 1&quot; through &quot;Header 6&quot; in the body of the document.  If sucessful, then:
 </p>
 <ol>
 <li> All three groups of the six headers will be displayed properly.</li>
@@ -314,24 +244,24 @@
 <li> Only the &quot;Headers 1&quot; through &quot;Headers 4&quot; will be displayed when the document opens, but when you click on the &quot;Header 4&quot; the &quot;Header 5&quot; is displayed in the Table of Contents</li>
 <li> When you click on the &quot;Header 5&quot; in the Table of Contents, then the &quot;Header 6&quot; is displayed.</li>
 </ol>
-<h1 id="h1-header-23">H1 Header</h1><p>The is the text for Header 1.
-</p><h2 id="h2-header-24">H2 Header</h2><p>The is the text for Header 2.
-</p><h3 id="h3-header-25">H3 Header</h3><p>The is the text for Header 3.
-</p><h4 id="h4-header-26">H4 Header</h4><p>The is the text for Header 4.
-</p><h5 id="h5-header-27">H5 Header</h5><p>The is the text for Header 5.
-</p><h6 id="h6-header-28">H6 Header</h6><p>The is the text for Header 6.
-</p><h1 id="h1-header-29">H1 Header</h1><p>The is the text for second, Header 1.
-</p><h2 id="h2-header-30">H2 Header</h2><p>The is the text for second, Header 2.
-</p><h3 id="h3-header-31">H3 Header</h3><p>The is the text for second, Header 3.
-</p><h4 id="h4-header-32">H4 Header</h4><p>The is the text for second, Header 4.
-</p><h5 id="h5-header-33">H5 Header</h5><p>The is the text for second, Header 5.
-</p><h6 id="h6-header-34">H6 Header</h6><p>The is the text for second, Header 6.
-</p><h1 id="h1-header-35">H1 Header</h1><p>The is the text for third, Header 1.
-</p><h2 id="h2-header-36">H2 Header</h2><p>The is the text for third, Header 2.
-</p><h3 id="h3-header-37">H3 Header</h3><p>The is the text for third, Header 3.
-</p><h4 id="h4-header-38">H4 Header</h4><p>The is the text for third, Header 4.
-</p><h5 id="h5-header-39">H5 Header</h5><p>The is the text for third, Header 5.
-</p><h6 id="h6-header-40">H6 Header</h6><p>The is the text for third, Header 6.
+<h1 id="h1-header-25">H1 Header</h1><p>The is the text for Header 1.
+</p><h2 id="h2-header-26">H2 Header</h2><p>The is the text for Header 2.
+</p><h3 id="h3-header-27">H3 Header</h3><p>The is the text for Header 3.
+</p><h4 id="h4-header-28">H4 Header</h4><p>The is the text for Header 4.
+</p><h5 id="h5-header-29">H5 Header</h5><p>The is the text for Header 5.
+</p><h6 id="h6-header-30">H6 Header</h6><p>The is the text for Header 6.
+</p><h1 id="h1-header-31">H1 Header</h1><p>The is the text for second, Header 1.
+</p><h2 id="h2-header-32">H2 Header</h2><p>The is the text for second, Header 2.
+</p><h3 id="h3-header-33">H3 Header</h3><p>The is the text for second, Header 3.
+</p><h4 id="h4-header-34">H4 Header</h4><p>The is the text for second, Header 4.
+</p><h5 id="h5-header-35">H5 Header</h5><p>The is the text for second, Header 5.
+</p><h6 id="h6-header-36">H6 Header</h6><p>The is the text for second, Header 6.
+</p><h1 id="h1-header-37">H1 Header</h1><p>The is the text for third, Header 1.
+</p><h2 id="h2-header-38">H2 Header</h2><p>The is the text for third, Header 2.
+</p><h3 id="h3-header-39">H3 Header</h3><p>The is the text for third, Header 3.
+</p><h4 id="h4-header-40">H4 Header</h4><p>The is the text for third, Header 4.
+</p><h5 id="h5-header-41">H5 Header</h5><p>The is the text for third, Header 5.
+</p><h6 id="h6-header-42">H6 Header</h6><p>The is the text for third, Header 6.
 </p>
            </div>
 

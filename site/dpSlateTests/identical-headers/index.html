@@ -108,9 +108,10 @@
 
         <div id="slateWrapper">
 
-          <div class="span3 col-xs-12 col-md-3">
+          <div class="span2 col-xs-12 col-md-2">
 
-            <div id="frontmatter">
+            <div id="frontmatter"
+                 >
 
 
 
@@ -118,104 +119,44 @@
                     dpSlate Identical Headers Test <a href="#titlePage" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-info-sign"></span></a>
                        <a href="#" onclick="showsearch();"><span class="glyphicon glyphicon-search"></span></a>
                 </div>
-
-                  <!-- Modals -->
-                  <div class="modal fade"
-                       id="titlePage"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Title Page
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="title-page">
-                                <h1>
-                                  dpSlate Identical Headers Test
-                                </h1>
-
-                                <h2>
-                                  
-                                </h2>
-
-                                <p>
-                                  Copyright &copy; 2013-2016 by Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.
-                                </p>
-
-                                <p>
-                                  DeveloperProgram.com
-                                </p>
-
-                                <p>
-                                  Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA
-                                </p>
-
-                                <p>
-                                  dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.
-                                </p>
-
-                                <p>
-                                  January 16, 2017 at 19:16 PST
-                                </p>
-                                
-                            </div>
-
-                        </div>
-
-                        <div class="modal-footer">
-                          <a href="#pageDirectives" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-cog"></span></a> 
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
+                <!-- Title Page Modal -->
+              <div class='modal fade' id='titlePage' tabindex='-1' role='dialog' aria-labelledby='titlePageLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                          <h4 class='modal-title' id='titlePageLabel'>Title Page</h4>
+                    </div>
+                    <div class='modal-body about'>
+                      <div class='title-page'>
+                        <h1>dpSlate Identical Headers Test</h1>
+                        <h2></h2>
+                        <p>Copyright &copy; 2013-2016 by Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.</p>
+                        <p>DeveloperProgram.com</p>
+                        <p>Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA</p>
+                        <p>dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.</p>
+                        <p>2016-09-21 10:44:16 -0700</p>
                       </div>
-
                     </div>
-                      
+                    <div class='modal-footer'>
+                      <a href='#pageDirectives' class='texttrigger' data-toggle='modal'><span class='glyphicon glyphicon-cog'></span></a> 
+                        <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
                     </div>
-                    
-                <div class="modal fade"
-                       id="pageDirectives"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Page Directives
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="page-directives">
-                              <p>
-                                <pre> {"title"=>"dpSlate Identical Headers Test",
+                  </div>
+                </div>
+              </div>
+                <!-- Page Directive Modal -->
+              <div class='modal fade' id='pageDirectives' tabindex='-1' role='dialog' aria-labelledby='pageDirectivesLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                      <span aria-hidden='true'>&times;</span></button>
+                      <h4 class='modal-title' id='pageDirectivesLabel'>Page Directives</h4>
+                    </div>
+                    <div class='modal-body about'>
+                        <div class='page-directives'>
+                          <p><pre>{"title"=>"dpSlate Identical Headers Test",
  "version"=>"",
  "copyright"=>
   "Copyright &copy; 2013-2016 by Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.",
@@ -233,28 +174,17 @@
  "tocSelectors"=>"h1,h2,h3",
  "tocFooters"=>nil,
  "titlePage"=>true,
- "paginateDocument"=>false}
-</pre>
-                              </p>
-
-                            </div>
-
+ "paginateDocument"=>false,
+ "mtime"=>2016-09-21 10:44:16 -0700}
+</pre></p>
                         </div>
-
-                        <div class="modal-footer">
-
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
-                      </div>
-
                     </div>
-
+                    <div class='modal-footer'>
+                      <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
+                    </div>
                   </div>
-
+                </div>
+              </div>
 
 
 
@@ -287,7 +217,7 @@
                      data-offset-top="205"
                      data-offset-bottom="20">
 
-                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#introduction-161" class="toc-h1"> Introduction </a> </li> <li class="toc-h1"> <a href="#success-criteria-162" class="toc-h1"> Success Criteria </a> </li> <li class="toc-h1"> <a href="#test-cases-163" class="toc-h1"> Test Cases </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#h2-164" class="toc-h2"> H2 </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#h3-165" class="toc-h3"> H3 </a> </ul></li> </ul></li> <li class="toc-h1"> <a href="#test-cases-166" class="toc-h1"> Test Cases </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#h2-167" class="toc-h2"> H2 </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#h3-168" class="toc-h3"> H3 </a> </ul></li> </ul></li> <li class="toc-h1"> <a href="#test-cases-169" class="toc-h1"> Test Cases </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#h2-170" class="toc-h2"> H2 </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#h3-171" class="toc-h3"> H3 </a> </ul>
+                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#introduction-140" class="toc-h1"> Introduction </a> </li> <li class="toc-h1"> <a href="#success-criteria-141" class="toc-h1"> Success Criteria </a> </li> <li class="toc-h1"> <a href="#test-cases-142" class="toc-h1"> Test Cases </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#h2-143" class="toc-h2"> H2 </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#h3-144" class="toc-h3"> H3 </a> </ul></li> </ul></li> <li class="toc-h1"> <a href="#test-cases-145" class="toc-h1"> Test Cases </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#h2-146" class="toc-h2"> H2 </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#h3-147" class="toc-h3"> H3 </a> </ul></li> </ul></li> <li class="toc-h1"> <a href="#test-cases-148" class="toc-h1"> Test Cases </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#h2-149" class="toc-h2"> H2 </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#h3-150" class="toc-h3"> H3 </a> </ul>
 
                 </div>
 
@@ -299,15 +229,15 @@
 
         </div>
 
-        <div class="span9 col-xs-12 col-md-9">
+        <div class="span10 col-xs-12 col-md-10">
 
           <div class="page-wrapper">
 
             <div class="dark-box"></div>
 
             <div class="content" id="documentContent">
-                   <h1 id="introduction-161">Introduction</h1><p>This is a test to make sure that dpSlate can handle identical headers properly in the Table of Contents.  That is, the same header text will be used in the same document to ensure that the Table of Contents can distinguish them.
-</p><h1 id="success-criteria-162">Success Criteria</h1><p>This test is successful if the markdown generates the proper HTML.  The test is successful if:
+                   <h1 id="introduction-140">Introduction</h1><p>This is a test to make sure that dpSlate can handle identical headers properly in the Table of Contents.  That is, the same header text will be used in the same document to ensure that the Table of Contents can distinguish them.
+</p><h1 id="success-criteria-141">Success Criteria</h1><p>This test is successful if the markdown generates the proper HTML.  The test is successful if:
 </p>
 <ul>
 <li>The content below is rendered properly.</li>
@@ -320,15 +250,15 @@
 <li>The document has a Table of contents under the Title Page</li>
 <li>Headers h1, h2, and h3 are shown in the Table of contents</li>
 </ul>
-<h1 id="test-cases-163">Test Cases</h1><p>This is the first H1 in the document.
-</p><h2 id="h2-164">H2</h2><p>This is the first H2.
-</p><h3 id="h3-165">H3</h3><p>This is the first H3.
-</p><h1 id="test-cases-166">Test Cases</h1><p>This is a second instance of the same H1.
-</p><h2 id="h2-167">H2</h2><p>This is the second identical H2.
-</p><h3 id="h3-168">H3</h3><p>This is the second identical H3.
-</p><h1 id="test-cases-169">Test Cases</h1><p>This is a third instance of the same H1.
-</p><h2 id="h2-170">H2</h2><p>This is the third identical H2.
-</p><h3 id="h3-171">H3</h3><p>This is the third identical H3.
+<h1 id="test-cases-142">Test Cases</h1><p>This is the first H1 in the document.
+</p><h2 id="h2-143">H2</h2><p>This is the first H2.
+</p><h3 id="h3-144">H3</h3><p>This is the first H3.
+</p><h1 id="test-cases-145">Test Cases</h1><p>This is a second instance of the same H1.
+</p><h2 id="h2-146">H2</h2><p>This is the second identical H2.
+</p><h3 id="h3-147">H3</h3><p>This is the second identical H3.
+</p><h1 id="test-cases-148">Test Cases</h1><p>This is a third instance of the same H1.
+</p><h2 id="h2-149">H2</h2><p>This is the third identical H2.
+</p><h3 id="h3-150">H3</h3><p>This is the third identical H3.
 </p>
            </div>
 

@@ -108,9 +108,10 @@
 
         <div id="slateWrapper">
 
-          <div class="span3 col-xs-12 col-md-3">
+          <div class="span2 col-xs-12 col-md-2">
 
-            <div id="frontmatter">
+            <div id="frontmatter"
+                 >
 
 
 
@@ -118,104 +119,44 @@
                     dpSlate Markdown Fidelity Test <a href="#titlePage" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-info-sign"></span></a>
                        <a href="#" onclick="showsearch();"><span class="glyphicon glyphicon-search"></span></a>
                 </div>
-
-                  <!-- Modals -->
-                  <div class="modal fade"
-                       id="titlePage"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Title Page
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="title-page">
-                                <h1>
-                                  dpSlate Markdown Fidelity Test
-                                </h1>
-
-                                <h2>
-                                  v4.1
-                                </h2>
-
-                                <p>
-                                  Copyright &copy; 2013-2016 by Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.
-                                </p>
-
-                                <p>
-                                  DeveloperProgram.com
-                                </p>
-
-                                <p>
-                                  Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA
-                                </p>
-
-                                <p>
-                                  dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.
-                                </p>
-
-                                <p>
-                                  January 16, 2017 at 19:16 PST
-                                </p>
-                                
-                            </div>
-
-                        </div>
-
-                        <div class="modal-footer">
-                          <a href="#pageDirectives" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-cog"></span></a> 
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
+                <!-- Title Page Modal -->
+              <div class='modal fade' id='titlePage' tabindex='-1' role='dialog' aria-labelledby='titlePageLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                          <h4 class='modal-title' id='titlePageLabel'>Title Page</h4>
+                    </div>
+                    <div class='modal-body about'>
+                      <div class='title-page'>
+                        <h1>dpSlate Markdown Fidelity Test</h1>
+                        <h2>v4.1</h2>
+                        <p>Copyright &copy; 2013-2016 by Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.</p>
+                        <p>DeveloperProgram.com</p>
+                        <p>Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA</p>
+                        <p>dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.</p>
+                        <p>2017-01-17 17:32:46 -0800</p>
                       </div>
-
                     </div>
-                      
+                    <div class='modal-footer'>
+                      <a href='#pageDirectives' class='texttrigger' data-toggle='modal'><span class='glyphicon glyphicon-cog'></span></a> 
+                        <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
                     </div>
-                    
-                <div class="modal fade"
-                       id="pageDirectives"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Page Directives
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="page-directives">
-                              <p>
-                                <pre> {"title"=>"dpSlate Markdown Fidelity Test",
+                  </div>
+                </div>
+              </div>
+                <!-- Page Directive Modal -->
+              <div class='modal fade' id='pageDirectives' tabindex='-1' role='dialog' aria-labelledby='pageDirectivesLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                      <span aria-hidden='true'>&times;</span></button>
+                      <h4 class='modal-title' id='pageDirectivesLabel'>Page Directives</h4>
+                    </div>
+                    <div class='modal-body about'>
+                        <div class='page-directives'>
+                          <p><pre>{"title"=>"dpSlate Markdown Fidelity Test",
  "version"=>"v4.1",
  "copyright"=>
   "Copyright &copy; 2013-2016 by Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.",
@@ -233,28 +174,17 @@
  "tocSelectors"=>"h1,h2",
  "tocFooters"=>nil,
  "titlePage"=>true,
- "paginateDocument"=>false}
-</pre>
-                              </p>
-
-                            </div>
-
+ "paginateDocument"=>false,
+ "mtime"=>2017-01-17 17:32:46 -0800}
+</pre></p>
                         </div>
-
-                        <div class="modal-footer">
-
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
-                      </div>
-
                     </div>
-
+                    <div class='modal-footer'>
+                      <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
+                    </div>
                   </div>
-
+                </div>
+              </div>
 
 
 
@@ -287,7 +217,7 @@
                      data-offset-top="205"
                      data-offset-bottom="20">
 
-                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#introduction-1" class="toc-h1"> Introduction </a> </li> <li class="toc-h1"> <a href="#success-criteria-2" class="toc-h1"> Success Criteria </a> </li> <li class="toc-h1"> <a href="#test-cases-3" class="toc-h1"> Test Cases </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#headers-4" class="toc-h2"> Headers </a> </li> <li class="toc-h2"> <a href="#text-attributes-9" class="toc-h2"> Text Attributes </a> </li> <li class="toc-h2"> <a href="#strikethrough-10" class="toc-h2"> Strikethrough </a> </li> <li class="toc-h2"> <a href="#markdown-links-11" class="toc-h2"> Markdown Links </a> </li> <li class="toc-h2"> <a href="#html-standard-links-12" class="toc-h2"> HTML Standard Links </a> </li> <li class="toc-h2"> <a href="#images-13" class="toc-h2"> Images </a> </li> <li class="toc-h2"> <a href="#inserting-horizontal-rules-14" class="toc-h2"> Inserting Horizontal Rules </a> </li> <li class="toc-h2"> <a href="#html-in-markdown-15" class="toc-h2"> HTML in Markdown </a> </li> <li class="toc-h2"> <a href="#creating-a-table-16" class="toc-h2"> Creating a Table </a> </li> <li class="toc-h2"> <a href="#creating-numbered-lists-17" class="toc-h2"> Creating Numbered Lists </a> </li> <li class="toc-h2"> <a href="#creating-bulleted-lists-18" class="toc-h2"> Creating Bulleted Lists </a> </li> <li class="toc-h2"> <a href="#creating-special-notes-and-warnings-19" class="toc-h2"> Creating Special Notes and Warnings </a> </li> <li class="toc-h2"> <a href="#sample-code-20" class="toc-h2"> Sample Code </a> </li> <li class="toc-h2"> <a href="#creating-code-sample-annotations-21" class="toc-h2"> Creating Code Sample Annotations </a> </ul>
+                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#introduction-3" class="toc-h1"> Introduction </a> </li> <li class="toc-h1"> <a href="#success-criteria-4" class="toc-h1"> Success Criteria </a> </li> <li class="toc-h1"> <a href="#test-cases-5" class="toc-h1"> Test Cases </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#headers-6" class="toc-h2"> Headers </a> </li> <li class="toc-h2"> <a href="#text-attributes-11" class="toc-h2"> Text Attributes </a> </li> <li class="toc-h2"> <a href="#strikethrough-12" class="toc-h2"> Strikethrough </a> </li> <li class="toc-h2"> <a href="#markdown-links-13" class="toc-h2"> Markdown Links </a> </li> <li class="toc-h2"> <a href="#html-standard-links-14" class="toc-h2"> HTML Standard Links </a> </li> <li class="toc-h2"> <a href="#images-15" class="toc-h2"> Images </a> </li> <li class="toc-h2"> <a href="#inserting-horizontal-rules-16" class="toc-h2"> Inserting Horizontal Rules </a> </li> <li class="toc-h2"> <a href="#html-in-markdown-17" class="toc-h2"> HTML in Markdown </a> </li> <li class="toc-h2"> <a href="#creating-a-table-18" class="toc-h2"> Creating a Table </a> </li> <li class="toc-h2"> <a href="#creating-numbered-lists-19" class="toc-h2"> Creating Numbered Lists </a> </li> <li class="toc-h2"> <a href="#creating-bulleted-lists-20" class="toc-h2"> Creating Bulleted Lists </a> </li> <li class="toc-h2"> <a href="#creating-special-notes-and-warnings-21" class="toc-h2"> Creating Special Notes and Warnings </a> </li> <li class="toc-h2"> <a href="#sample-code-22" class="toc-h2"> Sample Code </a> </li> <li class="toc-h2"> <a href="#creating-code-sample-annotations-23" class="toc-h2"> Creating Code Sample Annotations </a> </ul>
 
                 </div>
 
@@ -299,15 +229,15 @@
 
         </div>
 
-        <div class="span9 col-xs-12 col-md-9">
+        <div class="span10 col-xs-12 col-md-10">
 
           <div class="page-wrapper">
 
             <div class="dark-box"></div>
 
             <div class="content" id="documentContent">
-                   <h1 id="introduction-1">Introduction</h1><p>This is a Markdown Fidelity test.  It is used to test various Markdown facilities to determine if they are working.
-</p><h1 id="success-criteria-2">Success Criteria</h1><p>This test is successful if the markdown generates the proper HTML.  The test is successful if:
+                   <h1 id="introduction-3">Introduction</h1><p>This is a Markdown Fidelity test.  It is used to test various Markdown facilities to determine if they are working.
+</p><h1 id="success-criteria-4">Success Criteria</h1><p>This test is successful if the markdown generates the proper HTML.  The test is successful if:
 </p>
 <ul>
 <li>The content below is rendered properly.</li>
@@ -318,8 +248,8 @@
 <li>The document has a Table of contents under the Title Page</li>
 <li>Only Headers h1 and h2 are shown in the Table of contents</li>
 </ul>
-<h1 id="test-cases-3">Test Cases</h1><p>Below are the test cases for the document.
-</p><h2 id="headers-4">Headers</h2><p>On the right are a list of headers in markdown and below is how they will appear in the document:
+<h1 id="test-cases-5">Test Cases</h1><p>Below are the test cases for the document.
+</p><h2 id="headers-6">Headers</h2><p>On the right are a list of headers in markdown and below is how they will appear in the document:
 </p>
 <blockquote>
 <p>Headings - Only H1 and H2 are shown in the TOC
@@ -331,7 +261,7 @@
 <span class="gu">#### H6 Header</span>
 
 </code></pre>
-<h3 id="h3-header-5">H3 Header</h3><h4 id="h4-header-6">H4 Header</h4><h4 id="h5-header-7">H5 Header</h4><h4 id="h6-header-8">H6 Header</h4><h2 id="text-attributes-9">Text Attributes</h2>
+<h3 id="h3-header-7">H3 Header</h3><h4 id="h4-header-8">H4 Header</h4><h4 id="h5-header-9">H5 Header</h4><h4 id="h6-header-10">H6 Header</h4><h2 id="text-attributes-11">Text Attributes</h2>
 <blockquote>
 <p>Formatting Text in GFM
 </p></blockquote>
@@ -349,14 +279,14 @@
 </p><p><code>Inline code block in the main section.</code>
 </p><p>You can also use underscores to create <strong>bold</strong> or <em>italic</em>.
 </p><p>Finally, you can combine <strong><em>bold and italic</em></strong>.
-</p><h2 id="strikethrough-10">Strikethrough</h2><pre class="highlight markdown"><code>
+</p><h2 id="strikethrough-12">Strikethrough</h2><pre class="highlight markdown"><code>
 Strikethrough allows you to show text that is ~~no longer relevant by using strikethrough~~<span class="sb">
 
 
 </span></code></pre>
 <p>You can format text with a strikethrough by enclosing the text in double tildes, <code>~~</code>.  The example to the right becomes:
 </p><p>Strikethrough allows you to show text that is <del>no longer relevant by using strikethrough</del>
-</p><h2 id="markdown-links-11">Markdown Links</h2>
+</p><h2 id="markdown-links-13">Markdown Links</h2>
 <blockquote>
 <p>The Three Ways to Create GFM Links
 </p></blockquote>
@@ -372,7 +302,7 @@ Here's a very readable link to <span class="p">[</span><span class="nv">Yahoo!</
 Here&#39;s a reference-style link to <a href="http://www.google.com/">Google</a>.
 Here&#39;s a very readable link to <a href="http://www.yahoo.com/">Yahoo!</a>.
 </p><p>The link definitions can appear anywhere in the document -- before or after the place where you use them. The link definition names <a href="http://www.google.com/">1</a> and <a href="http://www.yahoo.com/">yahoo</a> can be any unique string, and are case-insensitive; <a href="http://www.yahoo.com/">yahoo</a> is the same as <a href="http://www.yahoo.com/">YAHOO</a>.
-</p><h2 id="html-standard-links-12">HTML Standard Links</h2>
+</p><h2 id="html-standard-links-14">HTML Standard Links</h2>
 <blockquote>
 <p>Using HTML Links in GRM
 </p></blockquote>
@@ -380,7 +310,7 @@ Here&#39;s a very readable link to <a href="http://www.yahoo.com/">Yahoo!</a>.
 </code></pre>
 <p>You can also use standard HTML hyperlink syntax.  The HTML example to the right produces the text below:
 </p><p><a href="http://www.developerprogram.com" title="DP.com">DeveloperProgram.com Web Site</a>
-</p><h2 id="images-13">Images</h2>
+</p><h2 id="images-15">Images</h2>
 <blockquote>
 <p>GFM for Inserting an Image Stored Locally
 </p></blockquote>
@@ -388,7 +318,7 @@ Here&#39;s a very readable link to <a href="http://www.yahoo.com/">Yahoo!</a>.
 </code></pre>
 <p><img class='lazy'  alt='DP Logo' data-original='/static/images/logo.png' />.
 </p><p>The Markdown to the right shows how an image can be inserted, in this case, it is the DP Logo that is right above this.  The text inside the square brackets, <code>[DP Logo]</code> will become the alt text for the image in the HTML <code>alt=</code> parameter.
-</p><h2 id="inserting-horizontal-rules-14">Inserting Horizontal Rules</h2><p>Sometimes you just need a Horizontal Rule (line) to convey something.  GFM does this with either three or more consecutive Hyphens <code>-</code>, Asterisks <code>*</code>, or Underscores <code>_</code>.
+</p><h2 id="inserting-horizontal-rules-16">Inserting Horizontal Rules</h2><p>Sometimes you just need a Horizontal Rule (line) to convey something.  GFM does this with either three or more consecutive Hyphens <code>-</code>, Asterisks <code>*</code>, or Underscores <code>_</code>.
 </p><pre class="highlight markdown"><code>Three or more...
 <span class="p">
 ---
@@ -413,7 +343,7 @@ Underscores
 </p>
 <hr>
 <p>Underscores
-</p><h2 id="html-in-markdown-15">HTML in Markdown</h2><pre class="highlight markdown"><code><span class="nt">&lt;dl&gt;</span>
+</p><h2 id="html-in-markdown-17">HTML in Markdown</h2><pre class="highlight markdown"><code><span class="nt">&lt;dl&gt;</span>
   <span class="nt">&lt;dt&gt;</span>Definition list<span class="nt">&lt;/dt&gt;</span>
   <span class="nt">&lt;dd&gt;</span>Is something people use sometimes.<span class="nt">&lt;/dd&gt;</span>
 
@@ -430,7 +360,7 @@ Underscores
   <dt>Markdown in HTML</dt>
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
 </dl>
-<h2 id="creating-a-table-16">Creating a Table</h2>
+<h2 id="creating-a-table-18">Creating a Table</h2>
 <blockquote>
 <p>GFM for Creating a Table
 </p></blockquote>
@@ -460,7 +390,7 @@ Row 2 col 1 | Row 2 col 2 | Row 2 col 3
 </tr>
 </tbody></table>
 <p>Notice the colons in the line underneath the header line.  These are used align that columns of the table. A no colon or only a colon to the left will cause the column to align to the left.  A colon to the right will cause the column to align right.  And a colon to the left and the right will cause the column to center.
-</p><h2 id="creating-numbered-lists-17">Creating Numbered Lists</h2>
+</p><h2 id="creating-numbered-lists-19">Creating Numbered Lists</h2>
 <blockquote>
 <p>GFM for Numbered Lists
 </p></blockquote>
@@ -488,7 +418,7 @@ Row 2 col 1 | Row 2 col 2 | Row 2 col 3
 <li>Ordered</li>
 <li>List</li>
 </ol>
-<h2 id="creating-bulleted-lists-18">Creating Bulleted Lists</h2>
+<h2 id="creating-bulleted-lists-20">Creating Bulleted Lists</h2>
 <blockquote>
 <p>GFM for created bullet lists
 </p></blockquote>
@@ -515,7 +445,7 @@ to the right will create the list below:
 <li>Bullet</li>
 <li>List</li>
 </ul>
-<h2 id="creating-special-notes-and-warnings-19">Creating Special Notes and Warnings</h2>
+<h2 id="creating-special-notes-and-warnings-21">Creating Special Notes and Warnings</h2>
 <blockquote>
 <p>Sample for creating Notes and Warnings
 </p></blockquote>
@@ -536,7 +466,7 @@ to the right will create the list below:
 
 <aside class="success"> This is a sample hint.</aside>
 <p>Use the <code>class=&quot;notice&quot;</code> for blue notes, <code>class=&quot;warning&quot;</code> for red warnings, and <code>class=&quot;success&quot;</code> for green notes.
-</p><h2 id="sample-code-20">Sample Code</h2>
+</p><h2 id="sample-code-22">Sample Code</h2>
 <blockquote>
 <p>Sample GFM to Denote Sample Code
 </p></blockquote>
@@ -547,7 +477,7 @@ to the right will create the list below:
     # this is some ruby code
     <span class="sb">```</span>
 </code></pre>
-<h2 id="creating-code-sample-annotations-21">Creating Code Sample Annotations</h2>
+<h2 id="creating-code-sample-annotations-23">Creating Code Sample Annotations</h2>
 <blockquote>
 <p>Code Sample Annotations
 </p></blockquote>

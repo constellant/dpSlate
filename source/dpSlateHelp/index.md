@@ -1154,67 +1154,7 @@ The `rake build` command tells Middleman to build your website to the `build` di
 
 # Partials
 
->
-
-```erb
-
----
-
-title: "Document Built from Partials"
-
-version: "V4.0" 
-
-copyright: "Copyright &copy; 2013-2016"
-
-publisher: "Paul Nerger"
-
-publisher_address: "San Francisco, CA 94110"
-
-comments: "dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
-
-titlePage: ON
-
-tableOfContents: ON
-
-tocAccordian: ON
-
-rightPanel: ON
-
-leftPanel: ON
-
-documentSearch: ON
-
-language_tabs:
-  - shell: Sample
-  - python: Python
-  - ruby: Ruby
-  
-toc_selectors: "h1,h2,h3"
-  
-toc_footers:
-
----
-
-<%= partial "site/test/includes/intro.md" %>
-
-# Body of the Document
-
-This contains the text that is the body of the dpSlate document.  I can put whatever Markdown that I want in the body.
-
-<%= partial "site/test/includes/close.md" %>
-
-```
-
-Often, users want to be able to share a common set of markdown text between multiple documents.  Unfortunately, standard DPFM does not have a facility to do that.  Fortunately, dpSlate does.
-
-The way that I recommend using includes is using the _Partial_ feature of Middleman - the static document generator behind dpSlate.  Middleman is a ruby static site generator that knows how to transform different document types into HTML including Markdown.  One of the supported document types is the .erb file which is the Embedded RuBy file.  Typically these are files with the .html.erb extension which says that it is an HTML file with embedded ruby tags, but we're interested in the .md.erb file type which is a Markdown File with embedded ruby tags.
-
-When you have an .md.erb file, you can embed Ruby Logic into the file and Middleman will process the logic building a temporary Markdown file which is then processed into an HTML file using the dpSlate logic.  Thus, it is possible to build an markdown file that includes other Markdown files using the erb tag called the partial.
-
-For example, let's say that we have a document in the folder `source/site/example/index.md.erg` and we want to build this from two included Markdown files that are `source/site/example/includes/_intro.md` and `source/site/example/includes/_close.md'.  We can use these includes using the code to the right in our `index.md.erb` file.   
-
-
--> You should note, that the file name starts with a `_` (underscore) character while the reference to it in the partial tag does not.  With dpSlate, any file that begins with an `_` (underscore) will not be processed and thus it is used for partials and other files that are included into your document.  
+!> Partials were deprecated in this version of dpSlate.  The same functionality is provided with markdown includes and including of settings variables. It is not recommended that you continue to use this feature as it is not as fullproof as the newer methods.  The old partial method of using erb files will continue to work but will no longer be supported.
 
 # Release Notes
 

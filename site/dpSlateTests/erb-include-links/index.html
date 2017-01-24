@@ -107,9 +107,10 @@
 
         <div id="slateWrapper">
 
-          <div class="span3 col-xs-12 col-md-3">
+          <div class="span2 col-xs-12 col-md-2">
 
-            <div id="frontmatter">
+            <div id="frontmatter"
+                 >
 
 
 
@@ -117,104 +118,44 @@
                     Test of Erb includes <a href="#titlePage" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-info-sign"></span></a>
                        <a href="#" onclick="showsearch();"><span class="glyphicon glyphicon-search"></span></a>
                 </div>
-
-                  <!-- Modals -->
-                  <div class="modal fade"
-                       id="titlePage"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Title Page
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="title-page">
-                                <h1>
-                                  Test of Erb includes
-                                </h1>
-
-                                <h2>
-                                  Version 1.0
-                                </h2>
-
-                                <p>
-                                  
-                                </p>
-
-                                <p>
-                                  
-                                </p>
-
-                                <p>
-                                  
-                                </p>
-
-                                <p>
-                                   
-                                </p>
-
-                                <p>
-                                  January 16, 2017 at 19:16 PST
-                                </p>
-                                
-                            </div>
-
-                        </div>
-
-                        <div class="modal-footer">
-                          <a href="#pageDirectives" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-cog"></span></a> 
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
+                <!-- Title Page Modal -->
+              <div class='modal fade' id='titlePage' tabindex='-1' role='dialog' aria-labelledby='titlePageLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                          <h4 class='modal-title' id='titlePageLabel'>Title Page</h4>
+                    </div>
+                    <div class='modal-body about'>
+                      <div class='title-page'>
+                        <h1>Test of Erb includes</h1>
+                        <h2>Version 1.0</h2>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p> </p>
+                        <p>2016-09-12 19:51:26 -0700</p>
                       </div>
-
                     </div>
-                      
+                    <div class='modal-footer'>
+                      <a href='#pageDirectives' class='texttrigger' data-toggle='modal'><span class='glyphicon glyphicon-cog'></span></a> 
+                        <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
                     </div>
-                    
-                <div class="modal fade"
-                       id="pageDirectives"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Page Directives
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="page-directives">
-                              <p>
-                                <pre> {"title"=>"Test of Erb includes",
+                  </div>
+                </div>
+              </div>
+                <!-- Page Directive Modal -->
+              <div class='modal fade' id='pageDirectives' tabindex='-1' role='dialog' aria-labelledby='pageDirectivesLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                      <span aria-hidden='true'>&times;</span></button>
+                      <h4 class='modal-title' id='pageDirectivesLabel'>Page Directives</h4>
+                    </div>
+                    <div class='modal-body about'>
+                        <div class='page-directives'>
+                          <p><pre>{"title"=>"Test of Erb includes",
  "version"=>"Version 1.0",
  "copyright"=>"",
  "publisher"=>"",
@@ -230,28 +171,17 @@
  "tocFooters"=>nil,
  "titlePage"=>true,
  "paginateDocument"=>false,
- "tocAccordian"=>6}
-</pre>
-                              </p>
-
-                            </div>
-
+ "tocAccordian"=>6,
+ "mtime"=>2016-09-12 19:51:26 -0700}
+</pre></p>
                         </div>
-
-                        <div class="modal-footer">
-
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
-                      </div>
-
                     </div>
-
+                    <div class='modal-footer'>
+                      <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
+                    </div>
                   </div>
-
+                </div>
+              </div>
 
 
 
@@ -284,7 +214,7 @@
                      data-offset-top="205"
                      data-offset-bottom="20">
 
-                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#test-description-174" class="toc-h1"> Test description </a> </li> <li class="toc-h1"> <a href="#test-results-175" class="toc-h1"> Test results </a> </ul>
+                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#test-description-153" class="toc-h1"> Test description </a> </li> <li class="toc-h1"> <a href="#test-results-154" class="toc-h1"> Test results </a> </ul>
 
                 </div>
 
@@ -296,19 +226,19 @@
 
         </div>
 
-        <div class="span9 col-xs-12 col-md-9">
+        <div class="span10 col-xs-12 col-md-10">
 
           <div class="page-wrapper">
 
             <div class="dark-box"></div>
 
             <div class="content" id="documentContent">
-                   <h1 id="test-description-174">Test description</h1><pre class="highlight erb"><code>
+                   <h1 id="test-description-153">Test description</h1><pre class="highlight erb"><code>
 <span class="cp">&lt;%=</span> <span class="n">partial</span> <span class="s2">"_ErbVariables.erb"</span> <span class="cp">%&gt;</span>
 
 </code></pre>
 <p>Include the erb partial show on the right.
-</p><h1 id="test-results-175">Test results</h1><pre class="highlight erb"><code>
+</p><h1 id="test-results-154">Test results</h1><pre class="highlight erb"><code>
 <span class="cp">&lt;%</span> <span class="no">VariableOne</span> <span class="o">=</span> <span class="s2">"VariableOne"</span> <span class="cp">%&gt;</span>
 <span class="cp">&lt;%</span> <span class="no">VariableTwo</span> <span class="o">=</span> <span class="s2">"Another Variable"</span> <span class="cp">%&gt;</span>
 

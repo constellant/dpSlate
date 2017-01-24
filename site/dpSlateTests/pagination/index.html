@@ -107,9 +107,10 @@
 
         <div id="slateWrapper">
 
-          <div class="span3 col-xs-12 col-md-3">
+          <div class="span2 col-xs-12 col-md-2">
 
-            <div id="frontmatter">
+            <div id="frontmatter"
+                 >
 
 
 
@@ -117,104 +118,44 @@
                     dpSlate User's Guide <a href="#titlePage" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-info-sign"></span></a>
                        <a href="#" onclick="showsearch();"><span class="glyphicon glyphicon-search"></span></a>
                 </div>
-
-                  <!-- Modals -->
-                  <div class="modal fade"
-                       id="titlePage"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Title Page
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="title-page">
-                                <h1>
-                                  dpSlate User's Guide
-                                </h1>
-
-                                <h2>
-                                  V4.2
-                                </h2>
-
-                                <p>
-                                  Copyright &copy; 2013-2015 Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.
-                                </p>
-
-                                <p>
-                                  DeveloperProgram.com
-                                </p>
-
-                                <p>
-                                  Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA
-                                </p>
-
-                                <p>
-                                  dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.
-                                </p>
-
-                                <p>
-                                  January 16, 2017 at 19:16 PST
-                                </p>
-                                
-                            </div>
-
-                        </div>
-
-                        <div class="modal-footer">
-                          <a href="#pageDirectives" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-cog"></span></a> 
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
+                <!-- Title Page Modal -->
+              <div class='modal fade' id='titlePage' tabindex='-1' role='dialog' aria-labelledby='titlePageLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                          <h4 class='modal-title' id='titlePageLabel'>Title Page</h4>
+                    </div>
+                    <div class='modal-body about'>
+                      <div class='title-page'>
+                        <h1>dpSlate User's Guide</h1>
+                        <h2>V4.2</h2>
+                        <p>Copyright &copy; 2013-2015 Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.</p>
+                        <p>DeveloperProgram.com</p>
+                        <p>Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA</p>
+                        <p>dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.</p>
+                        <p>2017-01-23 21:36:06 -0800</p>
                       </div>
-
                     </div>
-                      
+                    <div class='modal-footer'>
+                      <a href='#pageDirectives' class='texttrigger' data-toggle='modal'><span class='glyphicon glyphicon-cog'></span></a> 
+                        <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
                     </div>
-                    
-                <div class="modal fade"
-                       id="pageDirectives"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Page Directives
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="page-directives">
-                              <p>
-                                <pre> {"title"=>"dpSlate User's Guide",
+                  </div>
+                </div>
+              </div>
+                <!-- Page Directive Modal -->
+              <div class='modal fade' id='pageDirectives' tabindex='-1' role='dialog' aria-labelledby='pageDirectivesLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                      <span aria-hidden='true'>&times;</span></button>
+                      <h4 class='modal-title' id='pageDirectivesLabel'>Page Directives</h4>
+                    </div>
+                    <div class='modal-body about'>
+                        <div class='page-directives'>
+                          <p><pre>{"title"=>"dpSlate User's Guide",
  "version"=>"V4.2",
  "copyright"=>
   "Copyright &copy; 2013-2015 Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.",
@@ -232,28 +173,17 @@
  "tocSelectors"=>"h1,h2,h3",
  "tocFooters"=>nil,
  "titlePage"=>true,
- "paginateDocument"=>true}
-</pre>
-                              </p>
-
-                            </div>
-
+ "paginateDocument"=>true,
+ "mtime"=>2017-01-23 21:36:06 -0800}
+</pre></p>
                         </div>
-
-                        <div class="modal-footer">
-
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
-                      </div>
-
                     </div>
-
+                    <div class='modal-footer'>
+                      <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
+                    </div>
                   </div>
-
+                </div>
+              </div>
 
 
 
@@ -286,7 +216,7 @@
                      data-offset-top="205"
                      data-offset-bottom="20">
 
-                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#introduction-61" class="toc-h1"> Introduction </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#document-with-left-and-right-panel-turned-on-62" class="toc-h2"> Document with Left and Right Panel Turned On </a> </li> <li class="toc-h2"> <a href="#document-with-right-panel-turned-off-63" class="toc-h2"> Document with Right Panel Turned Off </a> </li> <li class="toc-h2"> <a href="#document-with-the-left-panel-turned-off-64" class="toc-h2"> Document with the Left Panel Turned Off </a> </ul></li> <li class="toc-h1"> <a href="#getting-started-with-dpslate-65" class="toc-h1"> Getting Started with dpSlate </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#installing-and-using-dpslate-in-stand-alone-mode-66" class="toc-h2"> Installing and Using dpSlate in Stand Alone Mode </a> </li> <li class="toc-h2"> <a href="#using-dpslate-with-dpengine-67" class="toc-h2"> Using dpSlate with dpEngine </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#editing-a-dpslate-dpengine-document-68" class="toc-h3"> Editing a dpSlate/dpEngine Document </a> </ul></li> </ul></li> <li class="toc-h1"> <a href="#how-dpslate-works-69" class="toc-h1"> How dpSlate Works </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#structure-of-a-dpslate-document-70" class="toc-h2"> Structure of a dpSlate Document </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#table-of-contents-71" class="toc-h3"> Table of Contents </a> </li> <li class="toc-h3"> <a href="#document-body-72" class="toc-h3"> Document Body </a> </li> <li class="toc-h3"> <a href="#code-samples-73" class="toc-h3"> Code Samples </a> </ul></li> </ul></li> <li class="toc-h1"> <a href="#specifying-your-document-directives-74" class="toc-h1"> Specifying Your Document Directives </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#document-panels-75" class="toc-h2"> Document Panels </a> </li> <li class="toc-h2"> <a href="#title-page-76" class="toc-h2"> Title Page </a> </li> <li class="toc-h2"> <a href="#turning-on-language-tabs-77" class="toc-h2"> Turning on Language Tabs </a> </li> <li class="toc-h2"> <a href="#the-left-hand-panel-78" class="toc-h2"> The Left Hand Panel </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#toc-directives-79" class="toc-h3"> ToC Directives </a> </ul></li> <li class="toc-h2"> <a href="#default-directives-80" class="toc-h2"> Default Directives </a> </ul></li> <li class="toc-h1"> <a href="#using-dpslate-markdown-81" class="toc-h1"> Using dpSlate Markdown </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#creating-headers-82" class="toc-h2"> Creating Headers </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#h3-header-83" class="toc-h3"> H3 Header </a> </ul></li> <li class="toc-h2"> <a href="#creating-a-paragraphs-87" class="toc-h2"> Creating a Paragraphs </a> </li> <li class="toc-h2"> <a href="#creating-formatted-text-88" class="toc-h2"> Creating Formatted Text </a> </li> <li class="toc-h2"> <a href="#strikethrough-89" class="toc-h2"> Strikethrough </a> </li> <li class="toc-h2"> <a href="#creating-markdown-links-90" class="toc-h2"> Creating Markdown Links </a> </li> <li class="toc-h2"> <a href="#using-a-href-javascript-void-0-data-toggle-popover-data-trigger-focus-data-content-hyper-text-markup-language-html-a-standard-links-91" class="toc-h2"> Using HTML Standard Links </a> </li> <li class="toc-h2"> <a href="#inserting-an-image-92" class="toc-h2"> Inserting an Image </a> </li> <li class="toc-h2"> <a href="#inserting-horizontal-rules-93" class="toc-h2"> Inserting Horizontal Rules </a> </li> <li class="toc-h2"> <a href="#using-a-href-javascript-void-0-data-toggle-popover-data-trigger-focus-data-content-hyper-text-markup-language-html-a-in-markdown-94" class="toc-h2"> Using HTML in Markdown </a> </li> <li class="toc-h2"> <a href="#creating-a-table-95" class="toc-h2"> Creating a Table </a> </li> <li class="toc-h2"> <a href="#creating-numbered-lists-96" class="toc-h2"> Creating Numbered Lists </a> </li> <li class="toc-h2"> <a href="#creating-bulleted-lists-97" class="toc-h2"> Creating Bulleted Lists </a> </li> <li class="toc-h2"> <a href="#creating-footnotes-98" class="toc-h2"> Creating Footnotes </a> </li> <li class="toc-h2"> <a href="#creating-alerts-special-notes-and-warnings-99" class="toc-h2"> Creating Alerts - Special Notes and Warnings </a> </li> <li class="toc-h2"> <a href="#using-markdown-abbreviations-100" class="toc-h2"> Using Markdown Abbreviations </a> </li> <li class="toc-h2"> <a href="#using-markdown-includes-101" class="toc-h2"> Using Markdown Includes </a> </ul></li> <li class="toc-h1"> <a href="#sample-code-102" class="toc-h1"> Sample Code </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#inserting-large-code-samples-103" class="toc-h2"> Inserting Large Code Samples </a> </li> <li class="toc-h2"> <a href="#inserting-a-sample-code-into-a-particular-tab-104" class="toc-h2"> Inserting a Sample Code into a Particular Tab </a> </li> <li class="toc-h2"> <a href="#creating-code-sample-annotations-105" class="toc-h2"> Creating Code Sample Annotations </a> </ul></li> <li class="toc-h1"> <a href="#fun-with-the-right-hand-panel-106" class="toc-h1"> Fun with the Right Hand Panel </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#a-markdown-table-107" class="toc-h2"> A Markdown Table </a> </li> <li class="toc-h2"> <a href="#an-image-108" class="toc-h2"> An Image </a> </ul></li> <li class="toc-h1"> <a href="#creating-your-dpslate-document-109" class="toc-h1"> Creating your dpSlate Document </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#previewing-your-docs-110" class="toc-h2"> Previewing your Docs </a> </li> <li class="toc-h2"> <a href="#building-your-docs-if-you-forked-and-cloned-111" class="toc-h2"> Building Your Docs If You Forked and Cloned </a> </li> <li class="toc-h2"> <a href="#building-your-docs-if-you-installed-from-zip-112" class="toc-h2"> Building Your Docs If You Installed From Zip </a> </ul></li> <li class="toc-h1"> <a href="#partials-113" class="toc-h1"> Partials </a> </li> <li class="toc-h1"> <a href="#elements-of-style-for-api-documentation-114" class="toc-h1"> Elements of Style for API Documentation </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#the-basics-115" class="toc-h2"> The Basics </a> </li> <li class="toc-h2"> <a href="#language-libraries-116" class="toc-h2"> Language Libraries </a> </ul></li> <li class="toc-h1"> <a href="#release-notes-dpslate-v4-1-117" class="toc-h1"> Release Notes - dpSlate V4.1 </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#migrating-to-dpslate-v4-1-118" class="toc-h2"> Migrating to dpSlate V4.1 </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#the-build-directory-has-moved-119" class="toc-h3"> The build directory has moved. </a> </li> <li class="toc-h3"> <a href="#the-code-images-code-directory-has-moved-120" class="toc-h3"> The \images directory has moved. </a> </li> <li class="toc-h3"> <a href="#updated-yaml-directives-121" class="toc-h3"> Updated YAML Directives </a> </li> <li class="toc-h3"> <a href="#default-yaml-directives-122" class="toc-h3"> Default YAML Directives </a> </ul></li> </ul></li> <li class="toc-h1"> <a href="#release-notes-dpslate-v4-2-123" class="toc-h1"> Release Notes - dpSlate V4.2 </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#includes-124" class="toc-h2"> Includes </a> </li> <li class="toc-h2"> <a href="#footnotes-125" class="toc-h2"> Footnotes </a> </li> <li class="toc-h2"> <a href="#abbreviations-126" class="toc-h2"> Abbreviations </a> </li> <li class="toc-h2"> <a href="#alerts-127" class="toc-h2"> Alerts </a> </li> <li class="toc-h2"> <a href="#glyph-fonts-128" class="toc-h2"> Glyph Fonts </a> </ul></li> <li class="toc-h1"> <a href="#footnotes-129" class="toc-h1"> Footnotes </a> </ul>
+                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#introduction-43" class="toc-h1"> Introduction </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#document-with-left-and-right-panel-turned-on-44" class="toc-h2"> Document with Left and Right Panel Turned On </a> </li> <li class="toc-h2"> <a href="#document-with-right-panel-turned-off-45" class="toc-h2"> Document with Right Panel Turned Off </a> </li> <li class="toc-h2"> <a href="#document-with-the-left-panel-turned-off-46" class="toc-h2"> Document with the Left Panel Turned Off </a> </ul></li> <li class="toc-h1"> <a href="#getting-started-with-dpslate-47" class="toc-h1"> Getting Started with dpSlate </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#installing-and-using-dpslate-in-stand-alone-mode-48" class="toc-h2"> Installing and Using dpSlate in Stand Alone Mode </a> </li> <li class="toc-h2"> <a href="#using-dpslate-with-dpengine-49" class="toc-h2"> Using dpSlate with dpEngine </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#editing-a-dpslate-dpengine-document-50" class="toc-h3"> Editing a dpSlate/dpEngine Document </a> </ul></li> </ul></li> <li class="toc-h1"> <a href="#how-dpslate-works-51" class="toc-h1"> How dpSlate Works </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#structure-of-a-dpslate-document-52" class="toc-h2"> Structure of a dpSlate Document </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#table-of-contents-53" class="toc-h3"> Table of Contents </a> </li> <li class="toc-h3"> <a href="#document-body-54" class="toc-h3"> Document Body </a> </li> <li class="toc-h3"> <a href="#code-samples-55" class="toc-h3"> Code Samples </a> </ul></li> </ul></li> <li class="toc-h1"> <a href="#specifying-your-document-directives-56" class="toc-h1"> Specifying Your Document Directives </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#document-panels-57" class="toc-h2"> Document Panels </a> </li> <li class="toc-h2"> <a href="#title-page-58" class="toc-h2"> Title Page </a> </li> <li class="toc-h2"> <a href="#turning-on-language-tabs-59" class="toc-h2"> Turning on Language Tabs </a> </li> <li class="toc-h2"> <a href="#the-left-hand-panel-60" class="toc-h2"> The Left Hand Panel </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#toc-directives-61" class="toc-h3"> ToC Directives </a> </ul></li> <li class="toc-h2"> <a href="#default-directives-62" class="toc-h2"> Default Directives </a> </ul></li> <li class="toc-h1"> <a href="#using-dpslate-markdown-63" class="toc-h1"> Using dpSlate Markdown </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#creating-headers-64" class="toc-h2"> Creating Headers </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#h3-header-65" class="toc-h3"> H3 Header </a> </ul></li> <li class="toc-h2"> <a href="#creating-a-paragraphs-69" class="toc-h2"> Creating a Paragraphs </a> </li> <li class="toc-h2"> <a href="#creating-formatted-text-70" class="toc-h2"> Creating Formatted Text </a> </li> <li class="toc-h2"> <a href="#strikethrough-71" class="toc-h2"> Strikethrough </a> </li> <li class="toc-h2"> <a href="#creating-markdown-links-72" class="toc-h2"> Creating Markdown Links </a> </li> <li class="toc-h2"> <a href="#using-a-href-javascript-void-0-data-toggle-popover-data-placement-bottom-data-trigger-focus-data-content-hyper-text-markup-language-html-a-standard-links-73" class="toc-h2"> Using HTML Standard Links </a> </li> <li class="toc-h2"> <a href="#inserting-an-image-74" class="toc-h2"> Inserting an Image </a> </li> <li class="toc-h2"> <a href="#inserting-horizontal-rules-75" class="toc-h2"> Inserting Horizontal Rules </a> </li> <li class="toc-h2"> <a href="#using-a-href-javascript-void-0-data-toggle-popover-data-placement-bottom-data-trigger-focus-data-content-hyper-text-markup-language-html-a-in-markdown-76" class="toc-h2"> Using HTML in Markdown </a> </li> <li class="toc-h2"> <a href="#creating-a-table-77" class="toc-h2"> Creating a Table </a> </li> <li class="toc-h2"> <a href="#creating-numbered-lists-78" class="toc-h2"> Creating Numbered Lists </a> </li> <li class="toc-h2"> <a href="#creating-bulleted-lists-79" class="toc-h2"> Creating Bulleted Lists </a> </li> <li class="toc-h2"> <a href="#creating-footnotes-80" class="toc-h2"> Creating Footnotes </a> </li> <li class="toc-h2"> <a href="#creating-alerts-special-notes-and-warnings-81" class="toc-h2"> Creating Alerts - Special Notes and Warnings </a> </li> <li class="toc-h2"> <a href="#using-markdown-abbreviations-82" class="toc-h2"> Using Markdown Abbreviations </a> </li> <li class="toc-h2"> <a href="#using-markdown-includes-83" class="toc-h2"> Using Markdown Includes </a> </ul></li> <li class="toc-h1"> <a href="#sample-code-84" class="toc-h1"> Sample Code </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#inserting-large-code-samples-85" class="toc-h2"> Inserting Large Code Samples </a> </li> <li class="toc-h2"> <a href="#inserting-a-sample-code-into-a-particular-tab-86" class="toc-h2"> Inserting a Sample Code into a Particular Tab </a> </li> <li class="toc-h2"> <a href="#creating-code-sample-annotations-87" class="toc-h2"> Creating Code Sample Annotations </a> </ul></li> <li class="toc-h1"> <a href="#fun-with-the-right-hand-panel-88" class="toc-h1"> Fun with the Right Hand Panel </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#a-markdown-table-89" class="toc-h2"> A Markdown Table </a> </li> <li class="toc-h2"> <a href="#an-image-90" class="toc-h2"> An Image </a> </ul></li> <li class="toc-h1"> <a href="#creating-your-dpslate-document-91" class="toc-h1"> Creating your dpSlate Document </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#previewing-your-docs-92" class="toc-h2"> Previewing your Docs </a> </li> <li class="toc-h2"> <a href="#building-your-docs-if-you-forked-and-cloned-93" class="toc-h2"> Building Your Docs If You Forked and Cloned </a> </li> <li class="toc-h2"> <a href="#building-your-docs-if-you-installed-from-zip-94" class="toc-h2"> Building Your Docs If You Installed From Zip </a> </ul></li> <li class="toc-h1"> <a href="#partials-95" class="toc-h1"> Partials </a> </li> <li class="toc-h1"> <a href="#elements-of-style-for-api-documentation-96" class="toc-h1"> Elements of Style for API Documentation </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#the-basics-97" class="toc-h2"> The Basics </a> </li> <li class="toc-h2"> <a href="#language-libraries-98" class="toc-h2"> Language Libraries </a> </ul></li> <li class="toc-h1"> <a href="#release-notes-dpslate-v4-1-99" class="toc-h1"> Release Notes - dpSlate V4.1 </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#migrating-to-dpslate-v4-1-100" class="toc-h2"> Migrating to dpSlate V4.1 </a> <ul class="toc-submenu-3 nav"> <li class="toc-h3"> <a href="#the-build-directory-has-moved-101" class="toc-h3"> The build directory has moved. </a> </li> <li class="toc-h3"> <a href="#the-code-images-code-directory-has-moved-102" class="toc-h3"> The \images directory has moved. </a> </li> <li class="toc-h3"> <a href="#updated-yaml-directives-103" class="toc-h3"> Updated YAML Directives </a> </li> <li class="toc-h3"> <a href="#default-yaml-directives-104" class="toc-h3"> Default YAML Directives </a> </ul></li> </ul></li> <li class="toc-h1"> <a href="#release-notes-dpslate-v4-2-105" class="toc-h1"> Release Notes - dpSlate V4.2 </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#includes-106" class="toc-h2"> Includes </a> </li> <li class="toc-h2"> <a href="#footnotes-107" class="toc-h2"> Footnotes </a> </li> <li class="toc-h2"> <a href="#abbreviations-108" class="toc-h2"> Abbreviations </a> </li> <li class="toc-h2"> <a href="#alerts-109" class="toc-h2"> Alerts </a> </li> <li class="toc-h2"> <a href="#glyph-fonts-110" class="toc-h2"> Glyph Fonts </a> </ul></li> <li class="toc-h1"> <a href="#footnotes-111" class="toc-h1"> Footnotes </a> </ul>
 
                 </div>
 
@@ -298,14 +228,14 @@
 
         </div>
 
-        <div class="span9 col-xs-12 col-md-9">
+        <div class="span10 col-xs-12 col-md-10">
 
           <div class="page-wrapper">
 
             <div class="dark-box"></div>
 
             <div class="content" id="documentContent">
-                   <section><h1 id="introduction-61">Introduction</h1><p>dpSlate is an <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> authoring tool that help authors more effectively communicate to an audience.  Originally designed specifically to author API reference manuals, it has been expanded to create a much wider selection of documents.  As a result of enhancements to dpSlate, it can now be used to create many different types of documents including:
+                   <section><h1 id="introduction-43">Introduction</h1><p>dpSlate is an <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> authoring tool that help authors more effectively communicate to an audience.  Originally designed specifically to author API reference manuals, it has been expanded to create a much wider selection of documents.  As a result of enhancements to dpSlate, it can now be used to create many different types of documents including:
 </p>
 <ul>
 <li>Overviews</li>
@@ -324,19 +254,19 @@
 <li><p><em>Right Hand Panel</em> used for code samples and other technical reference materials.
 </p></li>
 </ul>
-<h2 id="document-with-left-and-right-panel-turned-on-62">Document with Left and Right Panel Turned On</h2>
+<h2 id="document-with-left-and-right-panel-turned-on-44">Document with Left and Right Panel Turned On</h2>
 <blockquote>
 <p>dpSlate Document with all three panels on
 </p><p><img class='lazy'  alt='dpSlate with Three Panels' data-original='/dpSlateStatic/images/dpSlateHelp/threePanel.png' />
 </p></blockquote>
 <p>When all three panels are turned on, the dpSlate document will look as shown.  The three panels are for the document meta-data (left), body of the document, and supporting materials to the right.
-</p><h2 id="document-with-right-panel-turned-off-63">Document with Right Panel Turned Off</h2>
+</p><h2 id="document-with-right-panel-turned-off-45">Document with Right Panel Turned Off</h2>
 <blockquote>
 <p>dpSlate Document with two panels on
 </p><p><img class='lazy'  alt='dpSlate with Two Panels' data-original='/dpSlateStatic/images/dpSlateHelp/twoPanel.png' />
 </p></blockquote>
 <p>When the right panel is turned off, the supporting materials that were in the right hand panel are not brought into the center panel at the appropriate place.  The left hand panel is not imacted.
-</p><h2 id="document-with-the-left-panel-turned-off-64">Document with the Left Panel Turned Off</h2>
+</p><h2 id="document-with-the-left-panel-turned-off-46">Document with the Left Panel Turned Off</h2>
 <blockquote>
 <p>dpSlate Document with one panel on
 </p><p><img class='lazy'  alt='dpSlate with One Panels' data-original='/dpSlateStatic/images/dpSlateHelp/onePanel.png' />.
@@ -344,8 +274,8 @@
 <p>Finally, when the left hand panel is turned off, the document becomes a single column document with the meta-data at the top and the body of the document below.
 </p><aside class="notice">When the Left Hand Panel is turned off, the Right Hand Panel will also be turned off at the same time.
 </aside>
-</section><section><h1 id="getting-started-with-dpslate-65">Getting Started with dpSlate</h1><p>dpSlate can be used either stand alone on a PC or can be used to automatically publish documents to your portal if it is powered by dpEngine.  When you use dpSlate, you need to determine if you want to work in <em>Stand Alone Mode</em> or <em>dpEngine Mode</em>.
-</p><h2 id="installing-and-using-dpslate-in-stand-alone-mode-66">Installing and Using dpSlate in Stand Alone Mode</h2>
+</section><section><h1 id="getting-started-with-dpslate-47">Getting Started with dpSlate</h1><p>dpSlate can be used either stand alone on a PC or can be used to automatically publish documents to your portal if it is powered by dpEngine.  When you use dpSlate, you need to determine if you want to work in <em>Stand Alone Mode</em> or <em>dpEngine Mode</em>.
+</p><h2 id="installing-and-using-dpslate-in-stand-alone-mode-48">Installing and Using dpSlate in Stand Alone Mode</h2>
 <blockquote>
 <p>What Version of Ruby is Installed?
 </p></blockquote>
@@ -389,7 +319,7 @@ $ bundle install
 <li>Start the test server: <code>bundle exec middleman server</code></li>
 </ol>
 <p>You can now see the docs using your browser at <a href="http://localhost:4567">http://localhost:4567</a>. And as you edit and save your <code>source/index.md</code>, your server should automatically update! Whoa! That was fast!
-</p><h2 id="using-dpslate-with-dpengine-67">Using dpSlate with dpEngine</h2>
+</p><h2 id="using-dpslate-with-dpengine-49">Using dpSlate with dpEngine</h2>
 <blockquote>
 <p>dpSlate directory structure in Bitbucket
 </p></blockquote>
@@ -429,11 +359,11 @@ $ bundle install
 </code></pre>
 <p>If you have a portal that is powered by dpEngine, there is nothing to install for dpSlate works automatically with dpEngine.
 </p><p>When you use dpEngine, your web portal content is stored in a version of Git called Bitbucket.  You will be provided with access to Bitbucket for your portal&#39;s repository.  Your portal will contain a number of folders that in turn contain the documents that will be published to your portal.
-</p><p>When you create a GFM markdown file in \dpslate\site\source the markdown will automatically be converted into dpSlate <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> and placed in the shadow directory in the \dpslate\site\build folder.  Additionally, a shadow directory will be created in \site that will contain a <code>.gsp</code> file that is used by dpEngine to place headers and foooters into the document and to control access to the web page.
+</p><p>When you create a GFM markdown file in \dpslate\site\source the markdown will automatically be converted into dpSlate <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> and placed in the shadow directory in the \dpslate\site\build folder.  Additionally, a shadow directory will be created in \site that will contain a <code>.gsp</code> file that is used by dpEngine to place headers and foooters into the document and to control access to the web page.
 </p><p>The images that you include into your dpSlate markdown document will be stored in the \dpslate\source\images directory.  Once they are here, they will be automatically managed by dpSlate and dpEngine.  We recommend that you also use the additional directory structure for images as you do with your source file to help you better manage your images.
 </p><p>As mentioned earlier, when you use dpEngine, there is no need to install dpSlate, it is part of your dpEngine environment.
-</p><h3 id="editing-a-dpslate-dpengine-document-68">Editing a dpSlate/dpEngine Document</h3><p>There are two ways to edit the Markdown for a dpSlate document hosted in dpEngine; you can either edit it locally using Git or you can edit it inside Bitbucket using a web browser.
-</p><p>When you edit the document locally, you will need to find the document markdown source in the \dpslate\source folder tree in your local Git repository.  After you are done with the edit, you will commit and push the document to your dpEngine stage branch.  Your Bitbucket server will automatically build the <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> instance of the document and it will be accessible in the staging environment for your portal.  You can use any of hundreds of different markdown editors to edit your dpSlate source documents.
+</p><h3 id="editing-a-dpslate-dpengine-document-50">Editing a dpSlate/dpEngine Document</h3><p>There are two ways to edit the Markdown for a dpSlate document hosted in dpEngine; you can either edit it locally using Git or you can edit it inside Bitbucket using a web browser.
+</p><p>When you edit the document locally, you will need to find the document markdown source in the \dpslate\source folder tree in your local Git repository.  After you are done with the edit, you will commit and push the document to your dpEngine stage branch.  Your Bitbucket server will automatically build the <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> instance of the document and it will be accessible in the staging environment for your portal.  You can use any of hundreds of different markdown editors to edit your dpSlate source documents.
 </p><p>The second method is to view the document using your browser in the staging environment.  If you are an authorized <em>Author</em> or <em>Editor</em> for the document, you will see the following buttons on the document:
 </p>
 <ul>
@@ -441,10 +371,10 @@ $ bundle install
 <li><em>Images</em> - allows you to manage the images in the dpslate image folder for use within your markdown document.  You can upload or delete images.</li>
 <li><em>Publish</em> - allows you to publish your new document to your production environment.  The <em>Publish</em> button is only available to those with the <em>Editor</em> role.</li>
 </ul>
-</section><section><h1 id="how-dpslate-works-69">How dpSlate Works</h1><p>When used in <em>Stand Alone Mode</em>, dpSlate generates <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> documents from Github Flavored Markdown (GFM), a particular dialect of Markdown.  When used in <em>dpEngine Mode</em>, dpSlate generates GSP documents from the GFM Markdown in a particular format that dpEngine wants. dpSlate software is written in Ruby and takes advantage of some popular Ruby software including Middleman, RedCarpet, and Rouge.  The dpSlate software reads a .md (markdown) source-file and will output a .html file along with the accompanying Javascript and CSS files.
+</section><section><h1 id="how-dpslate-works-51">How dpSlate Works</h1><p>When used in <em>Stand Alone Mode</em>, dpSlate generates <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> documents from Github Flavored Markdown (GFM), a particular dialect of Markdown.  When used in <em>dpEngine Mode</em>, dpSlate generates GSP documents from the GFM Markdown in a particular format that dpEngine wants. dpSlate software is written in Ruby and takes advantage of some popular Ruby software including Middleman, RedCarpet, and Rouge.  The dpSlate software reads a .md (markdown) source-file and will output a .html file along with the accompanying Javascript and CSS files.
 </p><p>To get a consistent look and feel to your web documentation, you will want your  authors to use the GFM tags in a particular to we get a common and consistent look and feel.
-</p><h2 id="structure-of-a-dpslate-document-70">Structure of a dpSlate Document</h2><p>As you look at this document, you will notice that there are a couple of feature.  First, to the left is the Table of Contents area.  Next, in the center is the Body of the document, and to the Right (in the dark area) are code examples.  Each of these elements have the following characteristics:
-</p><h3 id="table-of-contents-71">Table of Contents</h3><p>The TOC panel on the left hand side of the panel is composed of the following elements starting at the top and moving to the bottom:
+</p><h2 id="structure-of-a-dpslate-document-52">Structure of a dpSlate Document</h2><p>As you look at this document, you will notice that there are a couple of feature.  First, to the left is the Table of Contents area.  Next, in the center is the Body of the document, and to the Right (in the dark area) are code examples.  Each of these elements have the following characteristics:
+</p><h3 id="table-of-contents-53">Table of Contents</h3><p>The TOC panel on the left hand side of the panel is composed of the following elements starting at the top and moving to the bottom:
 </p>
 <ul>
 <li><em>Title Page</em> - At the very top, is the title of the document.  If you&#39;ve enabled the Title Page function, then an <em>about</em> link will be created and when clicked it will open up a title page and provide more information about the document.</li>
@@ -452,7 +382,7 @@ $ bundle install
 <li><em>The Table of Contents</em> - The Table of Contents are automatically built if the feature has been turned on.  By default, on the H1 is normally displayed.  If a user selects a H1 item, the TOC will expand to display the H2 items underneath it.  If the user selects a H2 item, the TOC will expand to display the H3 items underneath it.  Directives are used to control the table of contents.</li>
 <li><em>The TOC Footer</em> - you can use this to store information at the bottom of the table of contents.</li>
 </ul>
-<h3 id="document-body-72">Document Body</h3><p>The body of the document is found in the center panel and contains the main textual description of the API.  It uses a number of different elements and features to communicate what the API actually does and these include:
+<h3 id="document-body-54">Document Body</h3><p>The body of the document is found in the center panel and contains the main textual description of the API.  It uses a number of different elements and features to communicate what the API actually does and these include:
 </p>
 <ul>
 <li>Headers - these are titles of document section of which the H1 and H2 will automatically appear in the TOC</li>
@@ -466,9 +396,9 @@ $ bundle install
 <li>Hints - These are Green Highlighted Text</li>
 <li>Warnings - These are Red Highlighted Text</li>
 <li>Notes - These are Blue Highlighted Text</li>
-<li>Links - <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> hyperlinks to external documents</li>
+<li>Links - <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> hyperlinks to external documents</li>
 </ul>
-<h3 id="code-samples-73">Code Samples</h3><p>The key part of the dpSlate format for API documentation is that code samples can be viewed alongside of the API call that they illustrate.  Further sample code can be held simultaneously in several different programming languages (important for SOAP and REST API&#39;s).  Because programmers tend to only work in a single language at a time, the dpSlate format accommodates this by having the programming language as a tab on the far right panel.  Thus, the developer is able to choose a programming language and then use the documentation in that language without being distracted by any other language.
+<h3 id="code-samples-55">Code Samples</h3><p>The key part of the dpSlate format for API documentation is that code samples can be viewed alongside of the API call that they illustrate.  Further sample code can be held simultaneously in several different programming languages (important for SOAP and REST API&#39;s).  Because programmers tend to only work in a single language at a time, the dpSlate format accommodates this by having the programming language as a tab on the far right panel.  Thus, the developer is able to choose a programming language and then use the documentation in that language without being distracted by any other language.
 </p><p>Sample code is anchored to either the H1 or H2 heading that they are inserted under; that is, they are placed under the Heading and will move up or down with the main text body. Code samples have the following elements that are used to control their placement:
 </p>
 <ul>
@@ -478,7 +408,7 @@ $ bundle install
 </ul>
 <aside class="notice">The default behavior is to place code samples into a dedicated right-hand panel.  However, you can also turn off the right-hand panel and the code samples will appear inline with the text in the main panel of the document.
 </aside>
-</section><section><h1 id="specifying-your-document-directives-74">Specifying Your Document Directives</h1>
+</section><section><h1 id="specifying-your-document-directives-56">Specifying Your Document Directives</h1>
 <blockquote>
 <p>Directives for this Document
 </p></blockquote>
@@ -517,7 +447,7 @@ $ bundle install
 <span class="nn">---</span>
 </code></pre>
 <p>A GitHub Flavored Markdown (GFM) source document is used to generate each of the dpSlate Documents that are presented on the portal.  Each dpSlate GFM source document is a plain text document that starts with a Yet Another Markup Language (YAML) header that contains directives used to control how the document will be formatted.  The YAML header starts and ends with a line that has three dashes, <code>---</code>, that start in the first column of the line.
-</p><p>The YAML header contains directives that control how the document will look and appear when it is converted to <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a>.  The directives consist of a YAML variable name, the directive, followed by a <code>:</code>.  There are four types of YAML variables:
+</p><p>The YAML header contains directives that control how the document will look and appear when it is converted to <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a>.  The directives consist of a YAML variable name, the directive, followed by a <code>:</code>.  There are four types of YAML variables:
 </p>
 <ul>
 <li><p><em>Boolean</em> - booleans variables are used to turn things on or off using various keywords to represent true or false.  YAML is flexible and the values for true and false are anything that kinda looks like a true or false.  For example true can be represented by <code>T, TRUE, Y, Yes, or ON</code> independent of case while the values for false are similar and can be represented by <code>F, FALSE, N, NO, or OFF</code> regardless of case.
@@ -530,7 +460,7 @@ $ bundle install
 </p></li>
 </ul>
 <p>The valid dpSlate YAML document directives include:
-</p><h2 id="document-panels-75">Document Panels</h2><p>A dpSlate document is made up of up to three panels which are turned on or off with the following directives:
+</p><h2 id="document-panels-57">Document Panels</h2><p>A dpSlate document is made up of up to three panels which are turned on or off with the following directives:
 </p>
 <ul>
 <li><code>leftPanel:</code> is a boolean directive that is used to turn on the left hand panel.  When turned on, the left hand panel will contain the title page, the document search box, the table of contents, and the ToC footer if each of them are turned on.  If the leftPanel is turned off, then the items that should be included in the leftPanel are placed at the top of the center panel.</li>
@@ -542,11 +472,11 @@ $ bundle install
 <li><code>rightPanel:</code> is a boolean directive that is used to turn on the right hand panel.  When turned on, the right hand panel contains tabs for each programming language that has sample code associated with it.  When the right hand panel is turned off, the code samples are inserted in-line in the center panel.</li>
 </ul>
 <p>The Center Panel is always on and cannot be turned on or off.
-</p><h2 id="title-page-76">Title Page</h2><p>There are a number of variables that are used for display in the title page of the document.  The Title Page is displayed at the very top of the document is the text &quot;About this Document&quot; which is a link.  When the link is selected, the Title Page will open up and display information about the document from the variables in the header including:
+</p><h2 id="title-page-58">Title Page</h2><p>There are a number of variables that are used for display in the title page of the document.  The Title Page is displayed at the very top of the document is the text &quot;About this Document&quot; which is a link.  When the link is selected, the Title Page will open up and display information about the document from the variables in the header including:
 </p>
 <ul>
 <li><code>titlePage:</code> is a boolean that when set to true will turn on the Title Page feature. </li>
-<li><code>title:</code> text string that contains the name of the document.  It is used for both in the Title Page and the &lt;title&gt; tag in the header of the resulting <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> page.</li>
+<li><code>title:</code> text string that contains the name of the document.  It is used for both in the Title Page and the &lt;title&gt; tag in the header of the resulting <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> page.</li>
 <li><code>version:</code> a text string used to display the current version of the document in both the Title Page and the TOC Footer (if both are turned on).</li>
 <li><code>copyright:</code> a text string that contains the copyright statement for the document.  Copyright statements should contain the word &quot;Copyright&quot;, followed by the copyright symbol of &copy;, followed by the years that the work was first created and the year that it was last modified, and finished off with the phrase &quot;All Rights Reserved.&quot;</li>
 <li><code>publisher:</code> a text string that contains the name of the document publisher.</li>
@@ -554,14 +484,14 @@ $ bundle install
 <li><code>comments:</code>  a free text string that allows the author to put in information about the document that will help the reader understand the context.</li>
 </ul>
 <p>In addition to these values that are set for the Title Page, the date that the document was &quot;built&quot; is displayed at the bottom of the &quot;Title Page&quot; as the &quot;Published Date&quot;.
-</p><h2 id="turning-on-language-tabs-77">Turning on Language Tabs</h2><p>The <em>languageTab</em> directive is used to create the programming language tabs that make up the right hand panel of a dpSlate document.  The <em>languageTab</em> directive is a list and thus the <em>languageTab</em> statement is followed by one or more lines containing a statement that contains two blank spaces, a dash, the name of the language for use in encoding the document, an option &quot;:&quot;, followed by an optional display name for the language.
+</p><h2 id="turning-on-language-tabs-59">Turning on Language Tabs</h2><p>The <em>languageTab</em> directive is used to create the programming language tabs that make up the right hand panel of a dpSlate document.  The <em>languageTab</em> directive is a list and thus the <em>languageTab</em> statement is followed by one or more lines containing a statement that contains two blank spaces, a dash, the name of the language for use in encoding the document, an option &quot;:&quot;, followed by an optional display name for the language.
 </p><p>The name of the language must be recognized by the system such that the display engine will automatically perform syntax highlighting on the code.  The engine supports lots of different languages but the most common values used are:
 </p>
 <ul>
 <li>c++:C++</li>
 <li>c#:C#</li>
 <li>css:CSS</li>
-<li>html:<a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a></li>
+<li>html:<a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a></li>
 <li>json:JSON</li>
 <li>java:Java</li>
 <li>javascript:JavaScript</li>
@@ -578,8 +508,8 @@ $ bundle install
 </ul>
 <aside class="notice">Only list the languages that you want to have as tabs in your document.  Each time you list a language as a <em>languageTab</em>, dpSlate will automatically create the language tab regardless if that language is used in the document.
 </aside>
-<h2 id="the-left-hand-panel-78">The Left Hand Panel</h2><p>When turned on, the far left panel of a dpSlate document contains the title page, the document search box, and the Table of Contents.  The title page is generated from the directives already discussed, the ToC is automatically generated from the Headers found in your GFM source document but it is controlled by the values you set for directives in the headers of your documents.
-</p><h3 id="toc-directives-79">ToC Directives</h3><p>There are a number of directives for controlling how the Table of Contents is presented.  These are:
+<h2 id="the-left-hand-panel-60">The Left Hand Panel</h2><p>When turned on, the far left panel of a dpSlate document contains the title page, the document search box, and the Table of Contents.  The title page is generated from the directives already discussed, the ToC is automatically generated from the Headers found in your GFM source document but it is controlled by the values you set for directives in the headers of your documents.
+</p><h3 id="toc-directives-61">ToC Directives</h3><p>There are a number of directives for controlling how the Table of Contents is presented.  These are:
 </p>
 <ul>
 <li><code>documentSearch:</code> a boolean used to turn the document search feature on and off.</li>
@@ -593,8 +523,8 @@ $ bundle install
 </ul>
 <aside class="notice">When the leftPanel is turned off, the <code>tocAccordion</code> has no effect.  This is because the Table of Contents will be moved to be above the main body of the document and the accordion nature of the Table of Contents would interfere with the scrolling through the document.
 </aside>
-<h2 id="default-directives-80">Default Directives</h2><p>The YAML directives can be set at a site wide level for all of your documents. Thus, you can avoid typing in the same text for each of the directives for each document.  This feature also allows you to set your site defaults for directives and then change them for all documents quickly.  You do this by modifying the file at <code>\dpSlate\source\_defaults.yml</code>.  This file contains all of the directives that you will see in your document and you can set them globally for your site.  If you later define a directive in a specific document, the document value will overide the default value that you set.
-</p></section><section><h1 id="using-dpslate-markdown-81">Using dpSlate Markdown</h1><h2 id="creating-headers-82">Creating Headers</h2><p>Headers are created by using one or more # characters starting in the first line of text within the GFM document. The sample to the right shows GFM that will result in a level 1, level 2, and level 3 headers.  Only the level 1 and level 2 headers will appear in the Table of Contents.  When you create sample code, it will anchor to a header.
+<h2 id="default-directives-62">Default Directives</h2><p>The YAML directives can be set at a site wide level for all of your documents. Thus, you can avoid typing in the same text for each of the directives for each document.  This feature also allows you to set your site defaults for directives and then change them for all documents quickly.  You do this by modifying the file at <code>\dpSlate\source\_defaults.yml</code>.  This file contains all of the directives that you will see in your document and you can set them globally for your site.  If you later define a directive in a specific document, the document value will overide the default value that you set.
+</p></section><section><h1 id="using-dpslate-markdown-63">Using dpSlate Markdown</h1><h2 id="creating-headers-64">Creating Headers</h2><p>Headers are created by using one or more # characters starting in the first line of text within the GFM document. The sample to the right shows GFM that will result in a level 1, level 2, and level 3 headers.  Only the level 1 and level 2 headers will appear in the Table of Contents.  When you create sample code, it will anchor to a header.
 </p><p>On the right are a list of headers in markdown and below is how they will appear in the document:
 </p>
 <blockquote>
@@ -609,12 +539,12 @@ $ bundle install
 
 </code></pre>
 <p>Below are some sample headers.
-</p><h3 id="h3-header-83">H3 Header</h3><h4 id="h4-header-84">H4 Header</h4><h4 id="h5-header-85">H5 Header</h4><h4 id="h6-header-86">H6 Header</h4><aside class="notice">Remember that only the headers that you specify in the YAML directives at the top of your document using the <em>tocSelector</em> directive will appear in the <em>Table of Contents</em>.
+</p><h3 id="h3-header-65">H3 Header</h3><h4 id="h4-header-66">H4 Header</h4><h4 id="h5-header-67">H5 Header</h4><h4 id="h6-header-68">H6 Header</h4><aside class="notice">Remember that only the headers that you specify in the YAML directives at the top of your document using the <em>tocSelector</em> directive will appear in the <em>Table of Contents</em>.
 </aside>
-<h2 id="creating-a-paragraphs-87">Creating a Paragraphs</h2><p>For normal text, just type your paragraph on a single line.
+<h2 id="creating-a-paragraphs-69">Creating a Paragraphs</h2><p>For normal text, just type your paragraph on a single line.
 </p><p>This is some paragraph text. Exciting, no?
 </p><p>Make sure the lines above below your paragraph are empty.
-</p><h2 id="creating-formatted-text-88">Creating Formatted Text</h2>
+</p><h2 id="creating-formatted-text-70">Creating Formatted Text</h2>
 <blockquote>
 <p>Formatting Text in GFM
 </p></blockquote>
@@ -634,14 +564,14 @@ $ bundle install
 </p><p>Finally, you can combine <strong><em>bold and italic</em></strong>.
 </p><aside class="success">You can use those formatting rules in code annotations, tables, paragraphs, lists, wherever.
 </aside>
-<h2 id="strikethrough-89">Strikethrough</h2><pre class="highlight markdown"><code>
+<h2 id="strikethrough-71">Strikethrough</h2><pre class="highlight markdown"><code>
 Strikethrough allows you to show text that is ~~no longer relevant by using strikethrough~~<span class="sb">
 
 
 </span></code></pre>
 <p>You can format text with a strikethrough by enclosing the text in double tildes, <code>~~</code>.  The example to the right becomes:
 </p><p>Strikethrough allows you to show text that is <del>no longer relevant by using strikethrough</del>
-</p><h2 id="creating-markdown-links-90">Creating Markdown Links</h2>
+</p><h2 id="creating-markdown-links-72">Creating Markdown Links</h2>
 <blockquote>
 <p>The Three Ways to Create GFM Links
 </p></blockquote>
@@ -657,27 +587,27 @@ Here's a very readable link to <span class="p">[</span><span class="nv">Yahoo!</
 Here&#39;s a reference-style link to <a href="http://www.google.com/">Google</a>.
 Here&#39;s a very readable link to <a href="http://www.yahoo.com/">Yahoo!</a>.
 </p><p>The link definitions can appear anywhere in the document -- before or after the place where you use them. The link definition names <a href="http://www.google.com/">1</a> and <a href="http://www.yahoo.com/">yahoo</a> can be any unique string, and are case-insensitive; <a href="http://www.yahoo.com/">yahoo</a> is the same as <a href="http://www.yahoo.com/">YAHOO</a>.
-</p><h2 id="using-a-href-javascript-void-0-data-toggle-popover-data-trigger-focus-data-content-hyper-text-markup-language-html-a-standard-links-91">Using <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> Standard Links</h2>
+</p><h2 id="using-a-href-javascript-void-0-data-toggle-popover-data-placement-bottom-data-trigger-focus-data-content-hyper-text-markup-language-html-a-standard-links-73">Using <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> Standard Links</h2>
 <blockquote>
-<p>Using <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> Links in GRM
+<p>Using <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> Links in GRM
 </p></blockquote>
 <pre class="highlight html"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.developerprogram.com"</span> <span class="na">title=</span><span class="s">"DP.com"</span><span class="nt">&gt;</span>DeveloperProgram.com Web Site<span class="nt">&lt;/a&gt;</span>
 </code></pre>
-<p>You can also use standard <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> hyperlink syntax.  The <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> example to the right produces the text below:
+<p>You can also use standard <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> hyperlink syntax.  The <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> example to the right produces the text below:
 </p><p><a href="http://www.developerprogram.com" title="DP.com">DeveloperProgram.com Web Site</a>
-</p><h2 id="inserting-an-image-92">Inserting an Image</h2>
+</p><h2 id="inserting-an-image-74">Inserting an Image</h2>
 <blockquote>
 <p>GFM for Inserting an Image Stored Locally
 </p></blockquote>
 <pre class="highlight markdown"><code><span class="p">![</span><span class="nv">DP Logo</span><span class="p">](</span><span class="sx">/dpSlateStatic/images/logo.png</span><span class="p">)</span>.
 </code></pre>
 <p><img class='lazy'  alt='DP Logo' data-original='/dpSlateStatic/images/logo.png' />.
-</p><p>The Markdown to the right shows how an image can be inserted, in this case, it is the DP Logo that is right above this.  The text inside the square brackets, <code>[DP Logo]</code> will become the alt text for the image in the <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> <code>alt=</code> parameter.
+</p><p>The Markdown to the right shows how an image can be inserted, in this case, it is the DP Logo that is right above this.  The text inside the square brackets, <code>[DP Logo]</code> will become the alt text for the image in the <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> <code>alt=</code> parameter.
 </p><aside class="success">Images essentially look just like a link except that they start with a &#39;!&#39; .
 </aside>
 <aside class="notice">Notice that this image is coming from the local image folder.  We recommend that you place your images inside the image folder within your source directory.
 </aside>
-<h2 id="inserting-horizontal-rules-93">Inserting Horizontal Rules</h2><p>Sometimes you just need a Horizontal Rule (line) to convey something.  GFM does this with either three or more consecutive Hyphens <code>-</code>, Asterisks <code>*</code>, or Underscores <code>_</code>.
+<h2 id="inserting-horizontal-rules-75">Inserting Horizontal Rules</h2><p>Sometimes you just need a Horizontal Rule (line) to convey something.  GFM does this with either three or more consecutive Hyphens <code>-</code>, Asterisks <code>*</code>, or Underscores <code>_</code>.
 </p><pre class="highlight markdown"><code>Three or more...
 <span class="p">
 ---
@@ -702,26 +632,26 @@ Underscores
 </p>
 <hr>
 <p>Underscores
-</p><h2 id="using-a-href-javascript-void-0-data-toggle-popover-data-trigger-focus-data-content-hyper-text-markup-language-html-a-in-markdown-94">Using <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> in Markdown</h2><pre class="highlight markdown"><code><span class="nt">&lt;dl&gt;</span>
+</p><h2 id="using-a-href-javascript-void-0-data-toggle-popover-data-placement-bottom-data-trigger-focus-data-content-hyper-text-markup-language-html-a-in-markdown-76">Using <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> in Markdown</h2><pre class="highlight markdown"><code><span class="nt">&lt;dl&gt;</span>
   <span class="nt">&lt;dt&gt;</span>Definition list<span class="nt">&lt;/dt&gt;</span>
   <span class="nt">&lt;dd&gt;</span>Is something people use sometimes.<span class="nt">&lt;/dd&gt;</span>
 
-  <span class="nt">&lt;dt&gt;</span>Markdown in <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript: void(0)"</span> <span class="na">data-toggle=</span><span class="s">"popover"</span> <span class="na">data-trigger=</span><span class="s">"focus"</span> <span class="na">data-content=</span><span class="s">"Hyper Text Markup Language"</span><span class="nt">&gt;</span>HTML<span class="nt">&lt;/a&gt;&lt;/dt&gt;</span>
-  <span class="nt">&lt;dd&gt;</span>Does <span class="ge">*not*</span> work <span class="gs">**very**</span> well. Use <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript: void(0)"</span> <span class="na">data-toggle=</span><span class="s">"popover"</span> <span class="na">data-trigger=</span><span class="s">"focus"</span> <span class="na">data-content=</span><span class="s">"Hyper Text Markup Language"</span><span class="nt">&gt;</span>HTML<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;em&gt;</span>tags<span class="nt">&lt;/em&gt;</span>.<span class="nt">&lt;/dd&gt;</span>
+  <span class="nt">&lt;dt&gt;</span>Markdown in <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'javascript: void(0)'</span> <span class="na">data-toggle=</span><span class="s">'popover'</span> <span class="na">data-placement=</span><span class="s">'bottom'</span> <span class="na">data-trigger=</span><span class="s">'focus'</span> <span class="na">data-content=</span><span class="s">'Hyper Text Markup Language'</span><span class="nt">&gt;</span>HTML<span class="nt">&lt;/a&gt;&lt;/dt&gt;</span>
+  <span class="nt">&lt;dd&gt;</span>Does <span class="ge">*not*</span> work <span class="gs">**very**</span> well. Use <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'javascript: void(0)'</span> <span class="na">data-toggle=</span><span class="s">'popover'</span> <span class="na">data-placement=</span><span class="s">'bottom'</span> <span class="na">data-trigger=</span><span class="s">'focus'</span> <span class="na">data-content=</span><span class="s">'Hyper Text Markup Language'</span><span class="nt">&gt;</span>HTML<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;em&gt;</span>tags<span class="nt">&lt;/em&gt;</span>.<span class="nt">&lt;/dd&gt;</span>
 <span class="nt">&lt;/dl&gt;</span>
 </code></pre>
-<p>You can also use raw <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> in your Markdown, and it&#39;ll mostly work pretty well.
+<p>You can also use raw <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> in your Markdown, and it&#39;ll mostly work pretty well.
 </p>
 <dl>
   <dt>Definition list</dt>
   <dd>Is something people use sometimes.</dd>
 
-  <dt>Markdown in <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a></dt>
-  <dd>Does *not* work **very** well. Use <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> <em>tags</em>.</dd>
+  <dt>Markdown in <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a></dt>
+  <dd>Does *not* work **very** well. Use <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> <em>tags</em>.</dd>
 </dl>
-<aside class="danger">Just because you can, doesn&#39;t mean that you should.  One of the features of Markdown is that you don&#39;t have to worry about the formatting details of <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a>.  Also, it provides a separation of content and format which you loose when you start placing <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> into your Markdown.
+<aside class="danger">Just because you can, doesn&#39;t mean that you should.  One of the features of Markdown is that you don&#39;t have to worry about the formatting details of <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a>.  Also, it provides a separation of content and format which you loose when you start placing <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> into your Markdown.
 </aside>
-<h2 id="creating-a-table-95">Creating a Table</h2>
+<h2 id="creating-a-table-77">Creating a Table</h2>
 <blockquote>
 <p>GFM for Creating a Table
 </p></blockquote>
@@ -757,7 +687,7 @@ Row 2 col 1 | Row 2 col 2 | Row 2 col 3
 </aside>
 <aside class="success">If you don&#39;t like that syntax, feel free to use normal html &lt;table&gt;`s directly in your markdown.
 </aside>
-<h2 id="creating-numbered-lists-96">Creating Numbered Lists</h2>
+<h2 id="creating-numbered-lists-78">Creating Numbered Lists</h2>
 <blockquote>
 <p>GFM for Numbered Lists
 </p></blockquote>
@@ -789,7 +719,7 @@ Row 2 col 1 | Row 2 col 2 | Row 2 col 3
 </aside>
 <aside class="notice">Note that by indenting by two characters, you are creating an indented list and the numbering restarts and when you go back, the numbering resumes.
 </aside>
-<h2 id="creating-bulleted-lists-97">Creating Bulleted Lists</h2>
+<h2 id="creating-bulleted-lists-79">Creating Bulleted Lists</h2>
 <blockquote>
 <p>GFM for created bullet lists
 </p></blockquote>
@@ -820,14 +750,17 @@ to the right will create the list below:
 </aside>
 <aside class="notice">Note that by indenting by two characters, you are creating an indented list.
 </aside>
-<h2 id="creating-footnotes-98">Creating Footnotes</h2><pre class="highlight markdown"><code>
+<h2 id="creating-footnotes-80">Creating Footnotes</h2><pre class="highlight markdown"><code>
 ...defining the footnote.<span class="p">[</span><span class="nv">^somesamplefootnote</span><span class="p">]</span>
 
 <span class="p">[</span><span class="ss">^somesamplefootnote</span><span class="p">]:</span> <span class="sx">Here</span> is the text of the footnote itself.
 
 </code></pre>
-<p>Footnotes are created using the markdown for footnotes and then defining the footnote.<sup id='fnref1'><a data-toggle='modal' class='texttrigger' data-target='#fn1' href='#fn1'>1</a></sup>  When printing the document, the footnotes will appear at the end of the document and will be ordered sequentially starting with the cardinal number 1.
-</p><h2 id="creating-alerts-special-notes-and-warnings-99">Creating Alerts - Special Notes and Warnings</h2>
+<p>Footnotes are created using the markdown for footnotes and then defining the footnote.<sup id='fnref1'>
+                <a href='javascript: void(0)' data-toggle='popover' data-container='body' data-placement='bottom' data-trigger='focus' data-html='true' data-content='Here is the text of the footnote itself.  Footnotes can be a large body of text.  They will appear at the end of the document with a horizontal rule above them.  Footnotes can contain <em>markdown</em> which will be processed properly.
+'>1</a>
+              </sup>  When printing the document, the footnotes will appear at the end of the document and will be ordered sequentially starting with the cardinal number 1.
+</p><h2 id="creating-alerts-special-notes-and-warnings-81">Creating Alerts - Special Notes and Warnings</h2>
 <blockquote>
 <p>Sample for creating Notes and Warnings
 </p></blockquote>
@@ -841,7 +774,7 @@ to the right will create the list below:
 !&gt; This is a danger message.
 
 </code></pre>
-<p>Technical documents often have <em>alerts</em> which are warning and notes that are intended for the reader.  Although standard markdown does not support this concept, dpSlate has been extended to support <em>alerts</em>.  You can add warnings and notes with just a little <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> embedded in your markdown document.  To the right, are three different examples of highlights using html.  Below you will see how each of the three examples will manifest themselves in the final document.
+<p>Technical documents often have <em>alerts</em> which are warning and notes that are intended for the reader.  Although standard markdown does not support this concept, dpSlate has been extended to support <em>alerts</em>.  You can add warnings and notes with just a little <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> embedded in your markdown document.  To the right, are three different examples of highlights using html.  Below you will see how each of the three examples will manifest themselves in the final document.
 </p><aside class="success">This is a success message.
 </aside>
 <aside class="notice">This is an info or note message.
@@ -850,39 +783,32 @@ to the right will create the list below:
 </aside>
 <aside class="danger">This is a danger message.
 </aside>
-<aside class="warning">In previous versions of dpSlate, alerts were called <em>asides</em> and they were done with <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> tags.  It is highly recommended that your use of asides be ported to the new markdown methods as you can now use markdown in your alerts.  Eventually, <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> tags will be deprecated and turned off to provide better security against cross site scripting.
+<aside class="warning">In previous versions of dpSlate, alerts were called <em>asides</em> and they were done with <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> tags.  It is highly recommended that your use of asides be ported to the new markdown methods as you can now use markdown in your alerts.  Eventually, <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> tags will be deprecated and turned off to provide better security against cross site scripting.
 </aside>
-<h2 id="using-markdown-abbreviations-100">Using Markdown Abbreviations</h2><pre class="highlight markdown"><code>
- <span class="err">*</span><span class="p">[</span><span class="nv">&lt;a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language"&gt;HTML&lt;/a&gt;</span><span class="p">]</span>: Hyper Text Markup Language
+<h2 id="using-markdown-abbreviations-82">Using Markdown Abbreviations</h2><pre class="highlight markdown"><code>
+ <span class="err">*</span><span class="p">[</span><span class="nv">&lt;a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'&gt;HTML&lt;/a&gt;</span><span class="p">]</span>: Hyper Text Markup Language
 
- <span class="err">*</span><span class="p">[</span><span class="nv">&lt;a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="World Wide Web Consortium"&gt;W3C&lt;/a&gt;</span><span class="p">]</span>: World Wide Web Consortium
+ <span class="err">*</span><span class="p">[</span><span class="nv">&lt;a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='World Wide Web Consortium'&gt;W3C&lt;/a&gt;</span><span class="p">]</span>: World Wide Web Consortium
 
 </code></pre>
 <p>dpSlate markdown includes support for the PHP Markdown for abbreviations.  The examples to the right show two cases of abbreviations which are also included below.  The markdown must begin at a new line, if it does not, it will be recognized as text.
-</p><p>Because these abbreviations have been defined in the document, every occurance of <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> and <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="World Wide Web Consortium">W3C</a> in the document will appeared as underlined with dashes.  When you hover over the abbreviation, a <code>?</code> will appear and eventually a <em>tool tip</em> will appear with the defintion of the abbreviation.
+</p><p>Because these abbreviations have been defined in the document, every occurance of <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> and <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='World Wide Web Consortium'>W3C</a> in the document will appeared as underlined with dashes.  When you hover over the abbreviation, a <code>?</code> will appear and eventually a <em>tool tip</em> will appear with the defintion of the abbreviation.
 </p><aside class="notice">abbreviation only works in the web pages and not on the printed page.
 </aside>
-<h2 id="using-markdown-includes-101">Using Markdown Includes</h2><pre class="highlight markdown"><code>
- {{source/dpSlateHelp/goodmen.md}}
+<h2 id="using-markdown-includes-83">Using Markdown Includes</h2><pre class="highlight markdown"><code>
+ {{source/dpSlateHelp/_goodmen.md}}
 
  {{error.md}}
 
 </code></pre>
 <p>Sometimes you might want to break a markdown file into multiple parts such that you can reuse the parts in different documents. Although standard markdown does not support the concept of <em>includes</em>, dpSlate markdown has been extended to provide this support.  Anywhere within the markdown, you can add the contents of another file by simply using markdown include using two open curly brackets, followed by the path and filespec, and closed with two close curly brackets.  The include markdown statement must be at the start of a new line and of the form <code>{{filepath/filename.ext}}</code>  If the file is not found an error message is inserted in place of the include.  Below are two examples of includes.  In the markdown source, the statements to the right have been inserted.  In the first file, called <code>goodmen.md</code> the file exsists and contains the markdown text of <code>Now is the _time_ for all good men...</code>.  But the second example, the file, <code>error.md</code> does not exsist and will result in an error.
-</p>
-<!--markdown-section data-src='source/dpSlateHelp/goodmen.md'-->
-<p>Now is the <em>time</em> for all good men...
-&lt;!--include /markdown-section include--&gt;
-</p>
-<!--markdown-section data-src='error.md'-->
-<p><strong>dpSlate ERROR</strong>: Include File not found: error.md
-</p>
-<!--/markdown-section-->
-<aside class="notice">The include directive for markdown <strong>must</strong> start on a new line or it will be ignored.
+</p><p>{{ source/dpSlateHelp/goodmen.md }}
+</p><p>{{ error.md }}
+</p><aside class="notice">The include directive for markdown <strong>must</strong> start on a new line or it will be ignored.
 </aside>
 <aside class="warning">It is highly recommended that your included markdown files have a file name that begins with a <code>_</code> (underscore).  The dpSlate static file generator does not generate build files for files with filenames that begin with a <code>_</code> and thus, if you name your file this way, the fragment files that you are including will not be generated into their own, stand-alone page.
 </aside>
-</section><section><h1 id="sample-code-102">Sample Code</h1>
+</section><section><h1 id="sample-code-84">Sample Code</h1>
 <blockquote>
 <p>Sample GFM to Denote Sample Code
 </p></blockquote>
@@ -894,7 +820,7 @@ to the right will create the list below:
     <span class="sb">```</span>
 </code></pre>
 <p>Code samples are an important way of communicating how to use an API.  dpSlate does an excellent job of handling code samples in multiple languages simultaneously through the use of the tabbed sample code panel on the right hand side.
-</p><h2 id="inserting-large-code-samples-103">Inserting Large Code Samples</h2>
+</p><h2 id="inserting-large-code-samples-85">Inserting Large Code Samples</h2>
 <blockquote>
 <p>Large Python Program
 </p></blockquote>
@@ -947,7 +873,7 @@ to the right will create the list below:
     <span class="c"># There are five possible values for the "formatter" argument passed in</span>
     <span class="c"># to methods like encode() and prettify():</span>
     <span class="c">#</span>
-    <span class="c"># "html" - All Unicode characters with corresponding &lt;a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language"&gt;HTML&lt;/a&gt; entities</span>
+    <span class="c"># "html" - All Unicode characters with corresponding &lt;a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'&gt;HTML&lt;/a&gt; entities</span>
     <span class="c">#   are converted to those entities on output.</span>
     <span class="c"># "minimal" - Bare ampersands and angle brackets are converted to</span>
     <span class="c">#   XML entities: &amp;amp; &amp;lt; &amp;gt;</span>
@@ -1149,13 +1075,13 @@ to the right will create the list below:
 
 </code></pre>
 <p>Sometimes you will need to insert a very large block of sample code that might be too wide or extremely deep.  dpSlate manages this by automatically creating vertical and horizontal scroll bars such that the sample code is preserved without taking up too much space.  The example to the right is an extremely large python program pulled from the Internet.  There is no wrapping of text, instead, your readers need to use horizontal scrolling to see the full code sample.  Also, it is very long, but a maximum height of 50 cm has been set for the display area.  If your sample code exceeds this, then dpSlate will also provide vertical scrolling such that the space is better managed.
-</p><h2 id="inserting-a-sample-code-into-a-particular-tab-104">Inserting a Sample Code into a Particular Tab</h2><p>You denote a code samples by using three left-single-quote marks followed by the name of the language.  The name of the language is used to place the code sample into the proper tab. Each code samples will appear in the dark area to the right of the main text. Code samples need to appear right under the Level 1 or Level 2 headers in your markdown file to allow them to be anchored properly.
+</p><h2 id="inserting-a-sample-code-into-a-particular-tab-86">Inserting a Sample Code into a Particular Tab</h2><p>You denote a code samples by using three left-single-quote marks followed by the name of the language.  The name of the language is used to place the code sample into the proper tab. Each code samples will appear in the dark area to the right of the main text. Code samples need to appear right under the Level 1 or Level 2 headers in your markdown file to allow them to be anchored properly.
 </p><p>The &quot;language tabs&quot; are the tabs that appear in the upper right of dpSlate Documents. Users browsing the docs use them to select their programming language of choice.
 </p><p>In the sample GFM code to the right, the Ruby code will appear in the Ruby tab, while the Python code will appear in the Python tab. Because the dpSlate engine understands the syntax of most computer programming languages, the sample code will have its language syntax highlighted automatically in a way that would make sense to the developer.
 </p><p>But just because a language is used as sample code within a dpSlate document it does not mean that the tab will appear.  You tell the system which Language tabs you want to display by editing the <code>language-tabs</code> list at the top of your GFM source document.
 </p><aside class="success">Sometimes it is useful to share code between multiple tabs, you can do this by placing tagging the sample code using a language that is not used as a tab name.  For example if you tag sample code as <code>all</code> and <code>all</code> is not listed in the <code>language-tabs</code> then that sample code will appear in all of the tabs.
 </aside>
-<h2 id="creating-code-sample-annotations-105">Creating Code Sample Annotations</h2>
+<h2 id="creating-code-sample-annotations-87">Creating Code Sample Annotations</h2>
 <blockquote>
 <p>Code Sample Annotations
 </p></blockquote>
@@ -1164,8 +1090,8 @@ to the right will create the list below:
 <p>It is sometimes useful to highlight or annotate a part of the sample code.  This is done with code annotations.  By placing a &gt; as the first character in your GFM line of text, you will create a code annotation that will appear in the area to the right, next to the code samples.
 </p><aside class="warning">Make sure that you have a blank line after your Code Annotation.  If you do not, the annotation will continue until there is a blank line.
 </aside>
-</section><section><h1 id="fun-with-the-right-hand-panel-106">Fun with the Right Hand Panel</h1><p>When you use the chevron <code>&gt;</code> symbol, it takes the entire line and places it into the pannel to the right. Since it does not have a language, it will appear on all of the tabs to the right.  Additionally, because it is not &quot;code&quot; it is not treated as pre-formatted text.  As a result of these factors, the annotation feature can be very useful for placing Markdown or even <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> into the right hand panel.
-</p><h2 id="a-markdown-table-107">A Markdown Table</h2>
+</section><section><h1 id="fun-with-the-right-hand-panel-88">Fun with the Right Hand Panel</h1><p>When you use the chevron <code>&gt;</code> symbol, it takes the entire line and places it into the pannel to the right. Since it does not have a language, it will appear on all of the tabs to the right.  Additionally, because it is not &quot;code&quot; it is not treated as pre-formatted text.  As a result of these factors, the annotation feature can be very useful for placing Markdown or even <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> into the right hand panel.
+</p><h2 id="a-markdown-table-89">A Markdown Table</h2>
 <blockquote>
 <p>The following markdown code:
 </p></blockquote>
@@ -1200,7 +1126,7 @@ to the right will create the list below:
 </tbody></table>
 </blockquote>
 <p>For example, I can use the <code>&gt;</code> to place a table into the right hand panel.
-</p><h2 id="an-image-108">An Image</h2>
+</p><h2 id="an-image-90">An Image</h2>
 <blockquote>
 <p>The following markdown code:
 </p></blockquote>
@@ -1213,8 +1139,8 @@ to the right will create the list below:
 <p>will result in the image placed into the right hand panel:
 </p><p><img class='lazy'  alt='DP Logo' data-original='/dpSlateStatic/images/logo.png' />
 </p></blockquote>
-<p>Or, I can use the <code>&gt;</code> to place an image into the right hand panel.  I can even use the <code>&gt;</code> to place <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> code such as a YouTube video or any other content.
-</p></section><section><h1 id="creating-your-dpslate-document-109">Creating your dpSlate Document</h1><h2 id="previewing-your-docs-110">Previewing your Docs</h2>
+<p>Or, I can use the <code>&gt;</code> to place an image into the right hand panel.  I can even use the <code>&gt;</code> to place <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> code such as a YouTube video or any other content.
+</p></section><section><h1 id="creating-your-dpslate-document-91">Creating your dpSlate Document</h1><h2 id="previewing-your-docs-92">Previewing your Docs</h2>
 <blockquote>
 <p>Command to Start Your Preview Server
 </p></blockquote>
@@ -1229,9 +1155,9 @@ to the right will create the list below:
   == The Middleman is standing watch at http://0.0.0.0:4567
   == Inspect your site configuration at http://0.0.0.0:4567/__middleman/
 </code></pre>
-<h2 id="building-your-docs-if-you-forked-and-cloned-111">Building Your Docs If You Forked and Cloned</h2>
+<h2 id="building-your-docs-if-you-forked-and-cloned-93">Building Your Docs If You Forked and Cloned</h2>
 <blockquote>
-<p>Command to create your <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> Files
+<p>Command to create your <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> Files
 </p></blockquote>
 <pre class="highlight markdown"><code>rake build
 </code></pre>
@@ -1260,10 +1186,10 @@ bundle exec middleman build --clean
       create  build/index.html
 cd -
 </code></pre>
-<p>The <code>rake build</code> command tells Middleman to build your website to the <code>build</code> directory of your project in a way that is Github compatible.  You then need to share those static <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> files with the DevNet team for publishing.  You can do this via Box.net or Dropbox.
-</p><h2 id="building-your-docs-if-you-installed-from-zip-112">Building Your Docs If You Installed From Zip</h2>
+<p>The <code>rake build</code> command tells Middleman to build your website to the <code>build</code> directory of your project in a way that is Github compatible.  You then need to share those static <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> files with the DevNet team for publishing.  You can do this via Box.net or Dropbox.
+</p><h2 id="building-your-docs-if-you-installed-from-zip-94">Building Your Docs If You Installed From Zip</h2>
 <blockquote>
-<p>Command to create your <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> Files
+<p>Command to create your <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> Files
 </p></blockquote>
 <pre class="highlight markdown"><code>bundle exec middleman build --clean
 
@@ -1291,7 +1217,7 @@ cd -
       create  build/index.html
 </code></pre>
 <p>The Middleman <em>build</em> option builds your document to the <code>build</code> directory of your project.
-</p></section><section><h1 id="partials-113">Partials</h1>
+</p></section><section><h1 id="partials-95">Partials</h1>
 <blockquote>
 </blockquote>
 <pre class="highlight erb"><code>
@@ -1344,13 +1270,13 @@ This contains the text that is the body of the dpSlate document.  I can put what
 
 </code></pre>
 <p>Often, users want to be able to share a common set of markdown text between multiple documents.  Unfortunately, standard GFM does not have a facility to do that.  Fortunately, dpSlate does.
-</p><p>The way that I recommend using includes is using the <em>Partial</em> feature of Middleman - the static document generator behind dpSlate.  Middleman is a ruby static site generator that knows how to transform different document types into <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> including Markdown.  One of the supported document types is the .erb file which is the Embedded RuBy file.  Typically these are files with the .html.erb extension which says that it is an <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> file with embedded ruby tags, but we&#39;re interested in the .md.erb file type which is a Markdown File with embedded ruby tags.
-</p><p>When you have an .md.erb file, you can embed Ruby Logic into the file and Middleman will process the logic building a temporary Markdown file which is then processed into an <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> file using the dpSlate logic.  Thus, it is possible to build an markdown file that includes other Markdown files using the erb tag called the partial.
+</p><p>The way that I recommend using includes is using the <em>Partial</em> feature of Middleman - the static document generator behind dpSlate.  Middleman is a ruby static site generator that knows how to transform different document types into <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> including Markdown.  One of the supported document types is the .erb file which is the Embedded RuBy file.  Typically these are files with the .html.erb extension which says that it is an <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> file with embedded ruby tags, but we&#39;re interested in the .md.erb file type which is a Markdown File with embedded ruby tags.
+</p><p>When you have an .md.erb file, you can embed Ruby Logic into the file and Middleman will process the logic building a temporary Markdown file which is then processed into an <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> file using the dpSlate logic.  Thus, it is possible to build an markdown file that includes other Markdown files using the erb tag called the partial.
 </p><p>For example, let&#39;s say that we have a document in the folder <code>source/site/example/index.md.erg</code> and we want to build this from two included Markdown files that are <code>source/site/example/includes/_intro.md</code> and <code>source/site/example/includes/_close.md&#39;.  We can use these includes using the code to the right in our</code>index.md.erb` file.
 </p><aside class="notice">You should note, that the file name starts with a <code>_</code> (underscore) character while the reference to it in the partial tag does not.  With dpSlate, any file that begins with an <code>_</code> (underscore) will not be processed and thus it is used for partials and other files that are included into your document.
 </aside>
-</section><section><h1 id="elements-of-style-for-api-documentation-114">Elements of Style for API Documentation</h1><p>Now that you understand the mechanics of dpSlate.  Now we need to get into the specifics of how to use these tools to present a common, consistent, and great developer experience on DevNet for your API.
-</p><h2 id="the-basics-115">The Basics</h2><p>Before we get into the specifics, let&#39;s deal with the high-level guidelines or ground rules:
+</section><section><h1 id="elements-of-style-for-api-documentation-96">Elements of Style for API Documentation</h1><p>Now that you understand the mechanics of dpSlate.  Now we need to get into the specifics of how to use these tools to present a common, consistent, and great developer experience on DevNet for your API.
+</p><h2 id="the-basics-97">The Basics</h2><p>Before we get into the specifics, let&#39;s deal with the high-level guidelines or ground rules:
 </p>
 <ul>
 <li><em>Keep it Simple</em> - how you use English to communicate to developers is important.  One of the ways you can simplify things is to use person pronouns (e.g., you, we, us) as this approach will naturally simplify your English.</li>
@@ -1359,9 +1285,9 @@ This contains the text that is the body of the dpSlate document.  I can put what
 <li><em>Test the Examples</em> - when you use an example, make sure that it works.</li>
 <li><em>Use Graphics</em> - a picture is worth a thousand words.  The right graphic in the right place helps you to keep things simple.</li>
 </ul>
-<h2 id="language-libraries-116">Language Libraries</h2><p>REST (or RESTful) APIs are becoming the standard.  Developers like using REST APIs because they are simple and universal.  Because REST APIs use HTTP protocol along with JSON or XML, it is easy to call a REST API from pretty much any programming language.  As a result, there is a natural tendency for the API engineer to think that language libraries (wrappers that make the REST call in the programming language of choice) is not needed. This is a fallacy.
+<h2 id="language-libraries-98">Language Libraries</h2><p>REST (or RESTful) APIs are becoming the standard.  Developers like using REST APIs because they are simple and universal.  Because REST APIs use HTTP protocol along with JSON or XML, it is easy to call a REST API from pretty much any programming language.  As a result, there is a natural tendency for the API engineer to think that language libraries (wrappers that make the REST call in the programming language of choice) is not needed. This is a fallacy.
 </p><p>A Programmer can call REST in a language like Python, Java, or C, with four to five lines of code.  When faced with this, the Programmer will typically write their own library of wrappers (code that encapsulates each REST end point) to make programming more module and cleaner.  Thus, if you want your API to be simple to use, you should have the wrappers for popular libraries built.  Next, you should use the language tabs of dpSlate to provide the syntax for each of the programming languages that you will be supporting.
-</p></section><section><h1 id="release-notes-dpslate-v4-1-117">Release Notes - dpSlate V4.1</h1><p>dpSlate v4.1 adds new features that allows improved integration into dpEngine, this was the major goal of v4.1.  To achieve this goal, we made it such that dpSlate is:
+</p></section><section><h1 id="release-notes-dpslate-v4-1-99">Release Notes - dpSlate V4.1</h1><p>dpSlate v4.1 adds new features that allows improved integration into dpEngine, this was the major goal of v4.1.  To achieve this goal, we made it such that dpSlate is:
 </p>
 <ul>
 <li>based upon the Bootstrap CSS framework from Twitter</li>
@@ -1370,8 +1296,8 @@ This contains the text that is the body of the dpSlate document.  I can put what
 <li>enable the ability to create a default <code>defaults.yml</code> file in the <code>/source</code> directory which will allow you to set your document directives globally for the site.  Thus, you will no longer need to bother with YAML directives which do not change from page to page; you just set it in the new defaults.yml.  As part of this we changed the name of the directives to make them more consistent. </li>
 </ul>
 <p>To enable this to work, we needed to change the way that dpSlate works and as such there will be some conversion that you will need to make some changes to migrate your documents to dpSlate V4.1.
-</p><h2 id="migrating-to-dpslate-v4-1-118">Migrating to dpSlate V4.1</h2><h3 id="the-build-directory-has-moved-119">The build directory has moved.</h3><p>Previously, the <code>build</code> directory was located in your git repository.  The new location of the build directory is not in your git repository but will be parallel to your git root directory and will be called <code>/site</code>
-</p><h3 id="the-code-images-code-directory-has-moved-120">The <code>\images</code> directory has moved.</h3>
+</p><h2 id="migrating-to-dpslate-v4-1-100">Migrating to dpSlate V4.1</h2><h3 id="the-build-directory-has-moved-101">The build directory has moved.</h3><p>Previously, the <code>build</code> directory was located in your git repository.  The new location of the build directory is not in your git repository but will be parallel to your git root directory and will be called <code>/site</code>
+</p><h3 id="the-code-images-code-directory-has-moved-102">The <code>\images</code> directory has moved.</h3>
 <blockquote>
 <p>dpSlate V4.0
 </p></blockquote>
@@ -1388,7 +1314,7 @@ This contains the text that is the body of the dpSlate document.  I can put what
 
 </code></pre>
 <p>Previously, your images were located in a root <code>/images</code> directory.  To ensure that your dpSlate images do not conflict with other images being used on dpSlate, images are now located in the file <code>/dpSlateStatic/images</code>.  Thus, you will need to add the <code>/dpSlateStatic</code> to the front of your image references.  For example, if you have an imag
-</p><h3 id="updated-yaml-directives-121">Updated YAML Directives</h3><p>In V4.0, some of the YAML directives were in <em>camel case</em> format while others were not.  We&#39;ve decided to make these consistent by placing them all in <em>camel case</em> format.  Below are the old directives and new:
+</p><h3 id="updated-yaml-directives-103">Updated YAML Directives</h3><p>In V4.0, some of the YAML directives were in <em>camel case</em> format while others were not.  We&#39;ve decided to make these consistent by placing them all in <em>camel case</em> format.  Below are the old directives and new:
 </p>
 <table><thead>
 <tr>
@@ -1460,7 +1386,7 @@ This contains the text that is the body of the dpSlate document.  I can put what
 <tr>
 <td>toc_selectors</td>
 <td>tocSelectors</td>
-<td style="text-align: left">comma list of <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> headings that will be used in the Table of Contents</td>
+<td style="text-align: left">comma list of <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> headings that will be used in the Table of Contents</td>
 </tr>
 <tr>
 <td>toc_footers</td>
@@ -1468,30 +1394,13 @@ This contains the text that is the body of the dpSlate document.  I can put what
 <td style="text-align: left">Deprecated.  You should use <em>comments</em> instead</td>
 </tr>
 </tbody></table>
-<h3 id="default-yaml-directives-122">Default YAML Directives</h3><p>Make sure that you take advantage of the new default YAML directive capability by setting your default values in the file at <code>/dpSlate/source/_defaults.yml</code>.
-</p></section><section><h1 id="release-notes-dpslate-v4-2-123">Release Notes - dpSlate V4.2</h1><h2 id="includes-124">Includes</h2><p>There is a new markdown that allows you to include another markdown file using the syntax <code>{{path\file.ext}}</code>.
-</p><h2 id="footnotes-125">Footnotes</h2><p>You can now add footnotes to your markdown using the PHP Flavored Markdown.
-</p><h2 id="abbreviations-126">Abbreviations</h2><p>You can now add abbreviations using the PHP Flavored Markdown.
-</p><h2 id="alerts-127">Alerts</h2><p><em>Asides</em> have been renamed <em>alerts</em> and have been added as Markdown rather thatn using <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a>.  In the future you should replace all of your <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> <em>asides</em> with the new markdown <em>alerts</em>.
-</p><h2 id="glyph-fonts-128">Glyph Fonts</h2><p>Because dpSlate now includes Bootstrap, the slate Glyph Font has been removed from the source and references to glyph icons have been converted to the Bootstrap Glyph Font.
-</p></section><section><h1 id="footnotes-129">Footnotes</h1><div class='footnotes'>
-
-              <!-- Modals for Footnote Definitions -->
-              <div id='fn1' class='modal fade' role='dialog' >
-               <div class='modal-dialog' role='document'> 
-                 <div class='modal-content'> 
-                   <div class='modal-header' style='display:none'> </div>
-                   <div class='modal-body about'>
-                     <p>1. Here is the text of the footnote itself.  Footnotes can be a large body of text.  They will appear at the end of the document with a horizontal rule above them.  Footnotes can contain <em>markdown</em> which will be processed properly.
-</p>
-                   </div>
-                   <div class='modal-footer'>
-                     <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
-                   </div>
-                 </div>
-               </div>
-             </div>
-            </div></section>
+<h3 id="default-yaml-directives-104">Default YAML Directives</h3><p>Make sure that you take advantage of the new default YAML directive capability by setting your default values in the file at <code>/dpSlate/source/_defaults.yml</code>.
+</p></section><section><h1 id="release-notes-dpslate-v4-2-105">Release Notes - dpSlate V4.2</h1><h2 id="includes-106">Includes</h2><p>There is a new markdown that allows you to include another markdown file using the syntax <code>{{path\file.ext}}</code>.
+</p><h2 id="footnotes-107">Footnotes</h2><p>You can now add footnotes to your markdown using the PHP Flavored Markdown.
+</p><h2 id="abbreviations-108">Abbreviations</h2><p>You can now add abbreviations using the PHP Flavored Markdown.
+</p><h2 id="alerts-109">Alerts</h2><p><em>Asides</em> have been renamed <em>alerts</em> and have been added as Markdown rather thatn using <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a>.  In the future you should replace all of your <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> <em>asides</em> with the new markdown <em>alerts</em>.
+</p><h2 id="glyph-fonts-110">Glyph Fonts</h2><p>Because dpSlate now includes Bootstrap, the slate Glyph Font has been removed from the source and references to glyph icons have been converted to the Bootstrap Glyph Font.
+</p></section><section><h1 id="footnotes-111">Footnotes</h1></section>
                    <ul class="pager" id="sectionNav">
                        <li class="previous" id="prevSection" ><a href="" class="prev">Previous</a></li>
                        <li class="next" id="nextSection" ><a href="" class="next">Next</a></li>

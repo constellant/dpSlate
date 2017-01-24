@@ -33,6 +33,7 @@ set :markdown,
 
 # Activate the syntax highlighter
 activate :syntax
+activate :vcs_time
 
 # Github pages require relative links but dpEngine does not
 #activate :relative_assets

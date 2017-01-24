@@ -108,9 +108,10 @@
 
         <div id="slateWrapper">
 
-          <div class="span3 col-xs-12 col-md-3">
+          <div class="span2 col-xs-12 col-md-2">
 
-            <div id="frontmatter">
+            <div id="frontmatter"
+                 >
 
 
 
@@ -118,104 +119,44 @@
                     dpSlate Abbreviation Markdown Test <a href="#titlePage" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-info-sign"></span></a>
                        <a href="#" onclick="showsearch();"><span class="glyphicon glyphicon-search"></span></a>
                 </div>
-
-                  <!-- Modals -->
-                  <div class="modal fade"
-                       id="titlePage"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Title Page
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="title-page">
-                                <h1>
-                                  dpSlate Abbreviation Markdown Test
-                                </h1>
-
-                                <h2>
-                                  v4.2
-                                </h2>
-
-                                <p>
-                                  Copyright &copy; 2013-2016 by Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.
-                                </p>
-
-                                <p>
-                                  DeveloperProgram.com
-                                </p>
-
-                                <p>
-                                  Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA
-                                </p>
-
-                                <p>
-                                  dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.
-                                </p>
-
-                                <p>
-                                  January 16, 2017 at 19:16 PST
-                                </p>
-                                
-                            </div>
-
-                        </div>
-
-                        <div class="modal-footer">
-                          <a href="#pageDirectives" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-cog"></span></a> 
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
+                <!-- Title Page Modal -->
+              <div class='modal fade' id='titlePage' tabindex='-1' role='dialog' aria-labelledby='titlePageLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                          <h4 class='modal-title' id='titlePageLabel'>Title Page</h4>
+                    </div>
+                    <div class='modal-body about'>
+                      <div class='title-page'>
+                        <h1>dpSlate Abbreviation Markdown Test</h1>
+                        <h2>v4.2</h2>
+                        <p>Copyright &copy; 2013-2016 by Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.</p>
+                        <p>DeveloperProgram.com</p>
+                        <p>Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA</p>
+                        <p>dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.</p>
+                        <p>2016-12-24 16:05:20 -0800</p>
                       </div>
-
                     </div>
-                      
+                    <div class='modal-footer'>
+                      <a href='#pageDirectives' class='texttrigger' data-toggle='modal'><span class='glyphicon glyphicon-cog'></span></a> 
+                        <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
                     </div>
-                    
-                <div class="modal fade"
-                       id="pageDirectives"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Page Directives
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="page-directives">
-                              <p>
-                                <pre> {"title"=>"dpSlate Abbreviation Markdown Test",
+                  </div>
+                </div>
+              </div>
+                <!-- Page Directive Modal -->
+              <div class='modal fade' id='pageDirectives' tabindex='-1' role='dialog' aria-labelledby='pageDirectivesLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                      <span aria-hidden='true'>&times;</span></button>
+                      <h4 class='modal-title' id='pageDirectivesLabel'>Page Directives</h4>
+                    </div>
+                    <div class='modal-body about'>
+                        <div class='page-directives'>
+                          <p><pre>{"title"=>"dpSlate Abbreviation Markdown Test",
  "version"=>"v4.2",
  "copyright"=>
   "Copyright &copy; 2013-2016 by Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.",
@@ -233,28 +174,17 @@
  "tocSelectors"=>"h1,h2",
  "tocFooters"=>nil,
  "titlePage"=>true,
- "paginateDocument"=>false}
-</pre>
-                              </p>
-
-                            </div>
-
+ "paginateDocument"=>false,
+ "mtime"=>2016-12-24 16:05:20 -0800}
+</pre></p>
                         </div>
-
-                        <div class="modal-footer">
-
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
-                      </div>
-
                     </div>
-
+                    <div class='modal-footer'>
+                      <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
+                    </div>
                   </div>
-
+                </div>
+              </div>
 
 
 
@@ -287,7 +217,7 @@
                      data-offset-top="205"
                      data-offset-bottom="20">
 
-                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#introduction-176" class="toc-h1"> Introduction </a> </li> <li class="toc-h1"> <a href="#success-criteria-177" class="toc-h1"> Success Criteria </a> </li> <li class="toc-h1"> <a href="#test-cases-178" class="toc-h1"> Test Cases </a> </ul>
+                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#introduction-155" class="toc-h1"> Introduction </a> </li> <li class="toc-h1"> <a href="#success-criteria-156" class="toc-h1"> Success Criteria </a> </li> <li class="toc-h1"> <a href="#test-cases-157" class="toc-h1"> Test Cases </a> </ul>
 
                 </div>
 
@@ -299,21 +229,21 @@
 
         </div>
 
-        <div class="span9 col-xs-12 col-md-9">
+        <div class="span10 col-xs-12 col-md-10">
 
           <div class="page-wrapper">
 
             <div class="dark-box"></div>
 
             <div class="content" id="documentContent">
-                   <h1 id="introduction-176">Introduction</h1><p>This is a Markdown Abbreviation test to insure support for the abbreviation markup.
-</p><h1 id="success-criteria-177">Success Criteria</h1><p>This test is successful if the markdown generates the proper <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a>.  The test is successful if in the text below:
+                   <h1 id="introduction-155">Introduction</h1><p>This is a Markdown Abbreviation test to insure support for the abbreviation markup.
+</p><h1 id="success-criteria-156">Success Criteria</h1><p>This test is successful if the markdown generates the proper <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a>.  The test is successful if in the text below:
 </p>
 <ul>
-<li>each occurance of <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> in the text has a hover tool tip that defines the abbreviation.</li>
-<li>each occurance of <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="World Wide Web Consortium">W3C</a> in the text has a hover tool tip that defines the abbreviation.</li>
+<li>each occurance of <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> in the text has a hover tool tip that defines the abbreviation.</li>
+<li>each occurance of <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='World Wide Web Consortium'>W3C</a> in the text has a hover tool tip that defines the abbreviation.</li>
 </ul>
-<h1 id="test-cases-178">Test Cases</h1><p>The <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="Hyper Text Markup Language">HTML</a> standard is maintained by the <a href="javascript: void(0)" data-toggle="popover" data-trigger="focus" data-content="World Wide Web Consortium">W3C</a>.
+<h1 id="test-cases-157">Test Cases</h1><p>The <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> standard is maintained by the <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='World Wide Web Consortium'>W3C</a>.
 </p>
            </div>
 

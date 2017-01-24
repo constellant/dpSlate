@@ -107,9 +107,10 @@
 
         <div id="slateWrapper">
 
-          <div class="span3 col-xs-12 col-md-3">
+          <div class="span2 col-xs-12 col-md-2">
 
-            <div id="frontmatter">
+            <div id="frontmatter"
+                 >
 
 
 
@@ -117,104 +118,44 @@
                     dpSlate YAML Default Tests <a href="#titlePage" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-info-sign"></span></a>
                        <a href="#" onclick="showsearch();"><span class="glyphicon glyphicon-search"></span></a>
                 </div>
-
-                  <!-- Modals -->
-                  <div class="modal fade"
-                       id="titlePage"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Title Page
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="title-page">
-                                <h1>
-                                  dpSlate YAML Default Tests
-                                </h1>
-
-                                <h2>
-                                  dpSlate V4.1
-                                </h2>
-
-                                <p>
-                                  Loaded from the local file
-                                </p>
-
-                                <p>
-                                  DeveloperProgram.com
-                                </p>
-
-                                <p>
-                                  Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA
-                                </p>
-
-                                <p>
-                                  this is read from the defaults.yml in the same directory as the markdown
-                                </p>
-
-                                <p>
-                                  January 16, 2017 at 19:16 PST
-                                </p>
-                                
-                            </div>
-
-                        </div>
-
-                        <div class="modal-footer">
-                          <a href="#pageDirectives" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-cog"></span></a> 
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
+                <!-- Title Page Modal -->
+              <div class='modal fade' id='titlePage' tabindex='-1' role='dialog' aria-labelledby='titlePageLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                          <h4 class='modal-title' id='titlePageLabel'>Title Page</h4>
+                    </div>
+                    <div class='modal-body about'>
+                      <div class='title-page'>
+                        <h1>dpSlate YAML Default Tests</h1>
+                        <h2>dpSlate V4.1</h2>
+                        <p>Loaded from the local file</p>
+                        <p>DeveloperProgram.com</p>
+                        <p>Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA</p>
+                        <p>this is read from the defaults.yml in the same directory as the markdown</p>
+                        <p>2017-01-03 16:35:31 -0800</p>
                       </div>
-
                     </div>
-                      
+                    <div class='modal-footer'>
+                      <a href='#pageDirectives' class='texttrigger' data-toggle='modal'><span class='glyphicon glyphicon-cog'></span></a> 
+                        <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
                     </div>
-                    
-                <div class="modal fade"
-                       id="pageDirectives"
-                       tabindex="-1"
-                       role="dialog"
-                       aria-labelledby="myModalLabel">
-
-                    <div class="modal-dialog" role="document">
-
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-                            Page Directives
-                          </h4>
-
-                        </div>
-
-                        <div class="modal-body about">
-
-                            <div class="page-directives">
-                              <p>
-                                <pre> {"title"=>"dpSlate YAML Default Tests",
+                  </div>
+                </div>
+              </div>
+                <!-- Page Directive Modal -->
+              <div class='modal fade' id='pageDirectives' tabindex='-1' role='dialog' aria-labelledby='pageDirectivesLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                      <span aria-hidden='true'>&times;</span></button>
+                      <h4 class='modal-title' id='pageDirectivesLabel'>Page Directives</h4>
+                    </div>
+                    <div class='modal-body about'>
+                        <div class='page-directives'>
+                          <p><pre>{"title"=>"dpSlate YAML Default Tests",
  "version"=>"dpSlate V4.1",
  "copyright"=>"Loaded from the local file",
  "publisher"=>"DeveloperProgram.com",
@@ -236,28 +177,17 @@
  "titlePage"=>true,
  "paginateDocument"=>false,
  "userDefinedVariable1"=>true,
- "userDefinedVariable2"=>"test"}
-</pre>
-                              </p>
-
-                            </div>
-
+ "userDefinedVariable2"=>"test",
+ "mtime"=>2017-01-03 16:35:31 -0800}
+</pre></p>
                         </div>
-
-                        <div class="modal-footer">
-
-                          <button type="button" class="btn btn-default tocHelp" data-dismiss="modal">
-                            Close
-                          </button>
-
-                        </div>
-
-                      </div>
-
                     </div>
-
+                    <div class='modal-footer'>
+                      <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
+                    </div>
                   </div>
-
+                </div>
+              </div>
 
 
 
@@ -290,7 +220,7 @@
                      data-offset-top="205"
                      data-offset-bottom="20">
 
-                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#introduction-130" class="toc-h1"> Introduction </a> </li> <li class="toc-h1"> <a href="#success-criteria-131" class="toc-h1"> Success Criteria </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#default-values-132" class="toc-h2"> Default Values </a> </li> <li class="toc-h2"> <a href="#page-overides-133" class="toc-h2"> Page Overides </a> </ul>
+                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#introduction-112" class="toc-h1"> Introduction </a> </li> <li class="toc-h1"> <a href="#success-criteria-113" class="toc-h1"> Success Criteria </a> <ul class="toc-submenu-2 nav"> <li class="toc-h2"> <a href="#default-values-114" class="toc-h2"> Default Values </a> </li> <li class="toc-h2"> <a href="#page-overides-115" class="toc-h2"> Page Overides </a> </ul>
 
                 </div>
 
@@ -302,15 +232,15 @@
 
         </div>
 
-        <div class="span9 col-xs-12 col-md-9">
+        <div class="span10 col-xs-12 col-md-10">
 
           <div class="page-wrapper">
 
             <div class="dark-box"></div>
 
             <div class="content" id="documentContent">
-                   <h1 id="introduction-130">Introduction</h1><p>This is a test of the new YAML default tests.  dpSlate from V4.1 and on uses YAML to define variables that are used to configure dpSlate.  The system has defaults which are hard coded, next the system will apply the site level defaults found in <code>/dpslate/source/defaults.yml</code>.  The system will then look for <code>defaults.yml</code> files all the way down the directory tree applying those defaults.  Finally, the values that are found in the document are applied.
-</p><h1 id="success-criteria-131">Success Criteria</h1><p>This test is successful if the markdown generates the proper HTML and the resulting dpSlate document exhibits the behavior defined in the default YAML file in <code>/source/defaults.yml</code>  The test is successful if:
+                   <h1 id="introduction-112">Introduction</h1><p>This is a test of the new YAML default tests.  dpSlate from V4.1 and on uses YAML to define variables that are used to configure dpSlate.  The system has defaults which are hard coded, next the system will apply the site level defaults found in <code>/dpslate/source/defaults.yml</code>.  The system will then look for <code>defaults.yml</code> files all the way down the directory tree applying those defaults.  Finally, the values that are found in the document are applied.
+</p><h1 id="success-criteria-113">Success Criteria</h1><p>This test is successful if the markdown generates the proper HTML and the resulting dpSlate document exhibits the behavior defined in the default YAML file in <code>/source/defaults.yml</code>  The test is successful if:
 </p>
 <ol>
 <li> The page displays the Title Page and Table of Contents</li>
@@ -323,7 +253,7 @@
 </ul></li>
 <li> The Language Tabs will show up with Text from the local page.</li>
 </ol>
-<h2 id="default-values-132">Default Values</h2><pre class="highlight yaml"><code>
+<h2 id="default-values-114">Default Values</h2><pre class="highlight yaml"><code>
 <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
 
 <span class="s">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> 
@@ -357,7 +287,7 @@
 
 </code></pre>
 <p>The page will use the values of the YAML directives to the right as default as these are set in the file <code>/source/_defaults.yml</code>.
-</p><h2 id="page-overides-133">Page Overides</h2><pre class="highlight yaml"><code>
+</p><h2 id="page-overides-115">Page Overides</h2><pre class="highlight yaml"><code>
 <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">dpSlate</span><span class="nv"> </span><span class="s">YAML</span><span class="nv"> </span><span class="s">Default</span><span class="nv"> </span><span class="s">Tests"</span>
 
 <span class="s">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">dpSlate</span><span class="nv"> </span><span class="s">V4.1"</span>
