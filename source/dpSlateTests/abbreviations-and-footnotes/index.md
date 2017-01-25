@@ -31,11 +31,11 @@ This is a Markdown Abbreviation test to insure support for the abbreviation mark
 
 ```md
 
-[HTML]: Hyper Text Markup Language
+*[HTML]: Hyper Text Markup Language
 
-[W3C]: World Wide Web Consortium
+*[W3C]: World Wide Web Consortium
 
-[YXZ]: An Abbreviation that is not in the document
+*[YXZ]: An Abbreviation that is not in the document
 
 ```
 
