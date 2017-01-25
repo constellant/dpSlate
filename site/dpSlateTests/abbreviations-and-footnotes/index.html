@@ -12,7 +12,6 @@
     <link href="/static/css/screen.css" rel="stylesheet" media="screen" />
     <link href="/static/css/print.css" rel="stylesheet" media="print" />
 
-      <link href="/static/css/inlinecode_screen.css" rel="stylesheet" media="screen" />
 
      <style>
       .highlight table td { padding: 5px; }
@@ -97,10 +96,10 @@
 
   </head>
 
-  <body class="dpSlateTests dpSlateTests_abbreviations dpSlateTests_abbreviations_index"
+  <body class="dpSlateTests dpSlateTests_abbreviations-and-footnotes dpSlateTests_abbreviations-and-footnotes_index"
         data-spy="scroll"
         data-target=".scrollspy"
-        data-languages="[]">
+        data-languages="["md"]">
 
  <div class="container-fluid slate-fluid">
    <!-- Example row of columns -->
@@ -135,7 +134,7 @@
                         <p>DeveloperProgram.com</p>
                         <p>Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA</p>
                         <p>dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.</p>
-                        <p>2016-12-24 16:05</p>
+                        <p>2017-01-25 12:50</p>
                       </div>
                     </div>
                     <div class='modal-footer'>
@@ -167,15 +166,15 @@
   "dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.",
  "tableOfContents"=>true,
  "tocAccordion"=>2,
- "rightPanel"=>false,
+ "rightPanel"=>true,
  "leftPanel"=>true,
  "documentSearch"=>true,
- "languageTabs"=>[],
+ "languageTabs"=>[{"md"=>"Markdown"}],
  "tocSelectors"=>"h1,h2",
  "tocFooters"=>nil,
  "titlePage"=>true,
  "paginateDocument"=>false,
- "mtime"=>2016-12-24 16:05:20 -0800}
+ "mtime"=>2017-01-25 12:50:35 -0800}
 </pre></p>
                         </div>
                     </div>
@@ -217,7 +216,7 @@
                      data-offset-top="205"
                      data-offset-bottom="20">
 
-                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#introduction-155" class="toc-h1"> Introduction </a> </li> <li class="toc-h1"> <a href="#success-criteria-156" class="toc-h1"> Success Criteria </a> </li> <li class="toc-h1"> <a href="#test-cases-157" class="toc-h1"> Test Cases </a> </ul>
+                      <ul class="nav submenu-1" id="nav"> </li> <li class="toc-h1"> <a href="#introduction-155" class="toc-h1"> Introduction </a> </li> <li class="toc-h1"> <a href="#abbreviations-156" class="toc-h1"> Abbreviations </a> </li> <li class="toc-h1"> <a href="#footnotes-157" class="toc-h1"> Footnotes </a> </li> <li class="toc-h1"> <a href="#test-cases-158" class="toc-h1"> Test Cases </a> </li> <li class="toc-h1"> <a href="#footnotes-159" class="toc-h1"> Footnotes </a> </li> <li class="toc-h1"> <a href="#abbreviations-160" class="toc-h1"> Abbreviations </a> </ul>
 
                 </div>
 
@@ -237,19 +236,57 @@
 
             <div class="content" id="documentContent">
                    <h1 id="introduction-155">Introduction</h1><p>This is a Markdown Abbreviation test to insure support for the abbreviation markup.
-</p><h1 id="success-criteria-156">Success Criteria</h1><p>This test is successful if the markdown generates the proper <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a>.  The test is successful if in the text below:
+</p><h1 id="abbreviations-156">Abbreviations</h1>
+<blockquote>
+<p>Abbreviations Markdown
+</p></blockquote>
+<pre class="highlight markdown"><code>
+<span class="err">*</span><span class="p">[</span><span class="nv">HTML</span><span class="p">]</span>: Hyper Text Markup Language
+
+<span class="err">*</span><span class="p">[</span><span class="nv">W3C</span><span class="p">]</span>: World Wide Web Consortium
+
+<span class="err">*</span><span class="p">[</span><span class="nv">YXZ</span><span class="p">]</span>: An Abbreviation that is not in the document
+
+</code></pre>
+<p>This test is successful if the markdown generates the proper <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a>.  The test is successful if in the text below:
 </p>
 <ul>
 <li>each occurance of <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> in the text has a hover tool tip that defines the abbreviation.</li>
 <li>each occurance of <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='World Wide Web Consortium'>W3C</a> in the text has a hover tool tip that defines the abbreviation.</li>
 </ul>
-<h1 id="test-cases-157">Test Cases</h1><p>The <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> standard is maintained by the <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='World Wide Web Consortium'>W3C</a>.
+<p><code>this is an abbreviation HTML inside of back ticks</code>
+</p><h1 id="footnotes-157">Footnotes</h1>
+<blockquote>
+<p>Footnotes Markdown
+</p></blockquote>
+<pre class="highlight markdown"><code>Now is the time<span class="p">[</span><span class="nv">^undefinedFootnote</span><span class="p">]</span> for all goodmen<span class="p">[</span><span class="nv">^somesamplefootnote</span><span class="p">]</span> to come to the aid of their country.
+
+Right after the word <span class="sb">`time`</span> above is a footnote reference which has not been defined.
+
+<span class="p">[</span><span class="ss">^somesamplefootnote</span><span class="p">]:</span> <span class="sx">Here</span> is the text of the footnote itself.  Footnotes can be a large body of text.  They will appear at the end of the document with a horizontal rule above them.  Footnotes can contain _markdown_ which will be processed properly.
+
+<span class="p">[</span><span class="ss">^footnotewithoutaref</span><span class="p">]:</span> <span class="sx">Here</span> is a definition of a footnote that does not have a reference in the text.
+
+</code></pre>
+<p>Now is the time[^undefinedFootnote] for all goodmen<sup id='fnref1'>
+                <a href='javascript: void(0)' data-toggle='popover' data-container='body' data-placement='bottom' data-trigger='focus' data-html='true' data-content='Here is the text of the footnote itself.  Footnotes can be a large body of text.  They will appear at the end of the document with a horizontal rule above them.  Footnotes can contain <em>markdown</em> which will be processed properly.
+'>1</a>
+              </sup> to come to the aid of their country.
+</p><p>Right after the word <code>time</code> above is a footnote reference which has not been defined.
+</p><p>[^footnotewithoutaref]&quot; Here is a definition of a footnote that does not have a reference in the text.
+</p><h1 id="test-cases-158">Test Cases</h1><p>The <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='Hyper Text Markup Language'>HTML</a> standard is maintained by the <a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='World Wide Web Consortium'>W3C</a>.
+</p><h1 id="footnotes-159">Footnotes</h1><p>Use the <code>$footnotes</code> include to see all of the footnotes printed below:
+</p><p><ol><li>Here is the text of the footnote itself.  Footnotes can be a large body of text.  They will appear at the end of the document with a horizontal rule above them.  Footnotes can contain <em>markdown</em> which will be processed properly.
+</li></ol>
+</p><h1 id="abbreviations-160">Abbreviations</h1><p>Use the <code>$abbreviations</code> include to see all of the abreviations printed below:
+</p><p><p><em>HTML</em> - Hyper Text Markup Language</p> <p><em>W3C</em> - World Wide Web Consortium</p> <p><em>YXZ</em> - An Abbreviation that is not in the document</p>
 </p>
            </div>
 
             <div class="dark-box">
 
                 <div class="lang-selector" id="myLang">
+                      <a href="#" data-language-name="md" class='active' >Markdown</a>
                 </div>
 
             </div>
@@ -304,7 +341,7 @@
   <script>
 
     $(function() {
-        setupLanguages([]);
+        setupLanguages(["md"]);
     });
 
    $('#myLang').scrollToFixed({marginTop: 0,
