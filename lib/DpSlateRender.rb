@@ -115,9 +115,9 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
       
   def get_includes(markdown)
     # look for an include of the form {{filename}} split it into the leftHandString, the filename, and the rightHandString
-    if n = markdown.match(/^\{\{.*\}\}/)
-        include = n[0].gsub(/^\{\{|\}\}/, '')
-        parts = markdown.split(/^\{\{.*\}\}/, 2)
+    if n = markdown.match(/^\{\{.*\}\}(?=(?:[^`]*`[^`]*`)*[^`]*\Z)/)
+        include = n[0].gsub(/^\{\{|\}\}(?=(?:[^`]*`[^`]*`)*[^`]*\Z)/, '')
+        parts = markdown.split(/^\{\{.*\}(?=(?:[^`]*`[^`]*`)*[^`]*\Z)\}/, 2)
         if include.strip[0] == '=' or include.strip[0] == '$'
             newmd = ""
             parts[0] = parts[0] + "{{" +include + "}}"
