@@ -18,6 +18,7 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
   #      
       
   def add_abbr(markdown)
+    # abbrRegex = /(^\*\[([-A-Z0-9]+)\]: (.+)$)(,)(?=(?:[^`]|`[^`]*`)*$)/
     abbrRegex = /^\*\[([-A-Z0-9]+)\]: (.+)$/
     abbreviations = markdown.scan(abbrRegex)
     abbreviations = Hash[*abbreviations.flatten]
@@ -27,7 +28,8 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
       abbreviations.each do |key, value|
         html = "<a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='#{value}'>#{key}</a>"
         # html = '<abbr title="' + value +'">' + key + '</abbr>'
-        markdown.gsub!(/\b#{key}\b/, html)
+        markdown.gsub!(/(\b#{key}\b)(?=(?:[^`]*`[^`]*`)*[^`]*\Z)/, html)
+        # look for the key, but ignore occurances inside of code blocks
         $abbrList.push ("<p><em>#{key}</em> - #{value}</p>")  
       end
     end
