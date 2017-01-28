@@ -37,49 +37,53 @@
         data-spy="scroll"
         data-target=".scrollspy"
         data-languages="<%= defaults["languageTabs"].map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
+      
+   <!-- All bootstrap modals should be directly in the body tag to overide problems with modal display -->  
+   <div class="title-page" >
+        <%= build_title_page_modal (defaults) %>
+        <%= build_page_directives_modal (defaults) %>
+   </div> 
 
- <div class="container-fluid slate-fluid">
+   <div class="container-fluid slate-fluid">
    <!-- Example row of columns -->
       <div class="row-fluid slate-fluid">
 
         <div id="slateWrapper">
 
-          <div class="span2 <% if !defaults["leftPanel"] %> col-xs-12 <% else %>col-xs-12 col-md-2<% end %>">
+          <div id="leftPanel" class="span2 <% if !defaults["leftPanel"] %> col-xs-12 <% else %>col-xs-12 col-md-2<% end %>">
 
-            <div id="frontmatter"
+            <div id="frontmatter" class="scrollspy"
+                     data-spy="affix"
+                     data-offset-top="0"
+                     data-offset-bottom="0"
                  >
+                
+                <div class="doc-title" >
+                    <%= defaults["title"] %>
+                </div>
 
-            <% if defaults["tableOfContents"] %>
-
-              <% if defaults["titlePage"] %>
-
-                <div class=doc-title class=title-page >
-                    <%= defaults["title"] %> <a href="#titlePage" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-info-sign"></span></a>
-                    <% if defaults["documentSearch"] %>
-                       <a href="#" onclick="showsearch();"><span class="glyphicon glyphicon-search"></span></a>
+                
+                <div class="nav-bar">
+                    <% if defaults["titlePage"] %>
+                      <a href="#titlePage" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-info-sign"></span></a>
                     <% end %>
-                </div>
-                <%= build_title_page_modal (defaults) %>
-                <%= build_page_directives_modal (defaults) %>
-
-              <% end %>
-
-              <% if defaults["documentSearch"] %>
-
-                <div class="search">
-
-                  <input type="text"
-                         class="search"
-                         id="input-search"
-                         placeholder="Search Document">
-
-                  <ul class="search-results invisible"></ul>
-
-                </div>
-
-              <% end %>
-
-              <div id="toc">
+                    <% if defaults["documentSearch"] %>
+                      <a href="#" onclick="toggleSearch()"><span class="glyphicon glyphicon-search"></span></a>
+                    <% end %>
+                </div> 
+                
+                <% if defaults["documentSearch"] %>
+                  <div id="searchTool" class="search collapse">
+                    <input type="text"
+                      class="search"
+                      id="input-search"
+                      placeholder="Search Document">
+                    <ul class="search-results"></ul>
+                  </div>
+                <% end %>
+                
+            <% if defaults["tableOfContents"] %>
+              <div id="toc" class="collapse in">
 
                 <div class=toc-header>
 
@@ -91,32 +95,11 @@
 
                 </div>
 
-                <div class="scrollspy"
-                     data-spy="affix"
-                     data-offset-top="205"
-                     data-offset-bottom="20">
+                <div >
 
                       <%= build_toc(page_content, defaults["tocSelectors"]) %>
 
                 </div>
-
-                <% if !defaults["tocFooters"].blank? %>
-
-                <div class="toc-footer">
-
-                  <ul class="toc-footer">
-
-                    <% defaults["tocFooters"].each do |footer| %>
-
-                      <li><%= footer %></li>
-
-                    <% end %>
-
-                  </ul>
-
-                </div>
-
-                <% end %>
 
               </div>
 
@@ -224,6 +207,14 @@
   <%= javascript_include_tag  "lunr" %>
   <%= javascript_include_tag  "jquery.highlight" %>
   <%= javascript_include_tag  "search" %>
+  <script>
+    function toggleSearch() {
+      $("#input-search").val("").keyup();
+      $("#searchTool").collapse("toggle");
+      $("#toc").collapse("toggle");
+      $("#input-search").focus();
+    };
+  </script>
 <% end %>
 
 <script>
@@ -231,6 +222,11 @@
     $('[data-toggle="tooltip"]').tooltip(); 
     $('[data-toggle="popover"]').popover();   
   });
+
+</script>
+
+<script>
+
     
 </script>
 

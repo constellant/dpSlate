@@ -198,9 +198,9 @@ The second method is to view the document using your browser in the staging envi
 
 # How dpSlate Works
 
-When used in _Stand Alone Mode_, dpSlate generates HTML documents from _dp Flavored Markdown (DPFM)_, a particular dialect of Markdown.  When used in _dpEngine Mode_, dpSlate generates GSP documents from the DPFM Markdown in a particular format that dpEngine wants. dpSlate software is written in Ruby and takes advantage of some popular Ruby software including Middleman, RedCarpet, and Rouge.  The dpSlate software reads a .md (markdown) source-file and will output a .html file along with the accompanying Javascript and CSS files.
+When used in _Stand Alone Mode_, dpSlate generates HTML documents from _dp Flavored Markdown (dpFM)_, a particular dialect of Markdown.  When used in _dpEngine Mode_, dpSlate generates GSP documents from the dpFM Markdown in a particular format that dpEngine wants. dpSlate software is written in Ruby and takes advantage of some popular Ruby software including Middleman, RedCarpet, and Rouge.  The dpSlate software reads a .md (markdown) source-file and will output a .html file along with the accompanying Javascript and CSS files.
 
-To get a consistent look and feel to your web documentation, you will want your  authors to use the DPFM tags in a particular to we get a common and consistent look and feel.
+To get a consistent look and feel to your web documentation, you will want your  authors to use the dpFM tags in a particular to we get a common and consistent look and feel.
 
 # Structure of a dpSlate Document
 
@@ -284,7 +284,7 @@ tocSelectors: "h1,h2,h3"
 ---
 ```
 
-A DPFM source document is a document with a `.md` extension.  These source files are used by dpSlate to generate each of HTML or `gsp` documents that are presented on your portal.  Each dpSlate DPFM source document is a plain text document that starts with a YAML header that contains directives used to control how the document will be formatted.  The YAML header starts and ends with a line that has three dashes, `---`, that start in the first column of the line.
+A dpFM source document is a document with a `.md` extension.  These source files are used by dpSlate to generate each of HTML or `gsp` documents that are presented on your portal.  Each dpSlate dpFM source document is a plain text document that starts with a YAML header that contains directives used to control how the document will be formatted.  The YAML header starts and ends with a line that has three dashes, `---`, that start in the first column of the line.
 
 The YAML header contains directives that control how the document will look and appear when it is converted to HTML.  The directives consist of a YAML variable name, the directive, followed by a `:`.  There are four types of YAML variables:
 
@@ -339,7 +339,7 @@ The name of the language must be recognized by the system such that the display 
 * json:JSON
 * java:Java
 * javascript:JavaScript
-* markdown:DPFM
+* markdown:dpFM
 * objective-c:Objective-C
 * perl:Perl
 * php: PHP
@@ -355,7 +355,7 @@ The name of the language must be recognized by the system such that the display 
 
 ## The Left Hand Panel
 
-When turned on, the far left panel of a dpSlate document contains the title page, the document search box, and the Table of Contents.  The title page is generated from the directives already discussed, the ToC is automatically generated from the Headers found in your DPFM source document but it is controlled by the values you set for directives in the headers of your documents.
+When turned on, the far left panel of a dpSlate document contains the title page, the document search box, and the Table of Contents.  The title page is generated from the directives already discussed, the ToC is automatically generated from the Headers found in your dpFM source document but it is controlled by the values you set for directives in the headers of your documents.
 
 ## ToC Directives
 
@@ -379,9 +379,11 @@ Throughout your folder structure
 
 # dpSlate Flavored Markdown
 
+While the YAML directives control the meta-data of the document, the actual content of your document is done using Markdown, in particular dpSlate Flavored Markdown or dpFM.  This is a version of standard markdown that has been extended to encompass the needs of technical documentation.  dpFM has been designed to allow you to control all of the content needs of a dpSlate document using Markdown alone.  Below are the markdown elements that make up dpFM.
+
 ## Headers
 
-Headers are created by using one or more # characters starting in the first line of text within the DPFM document. The sample to the right shows DPFM that will result in a level 1, level 2, and level 3 headers.  Only the level 1 and level 2 headers will appear in the Table of Contents.  When you create sample code, it will anchor to a header.
+Headers are created by using one or more # characters starting in the first line of text within the dpFM document. The sample to the right shows dpFM that will result in a level 1, level 2, and level 3 headers.  Only the level 1 and level 2 headers will appear in the Table of Contents.  When you create sample code, it will anchor to a header.
 
 On the right are a list of headers in markdown and below is how they will appear in the document:
 ######
@@ -416,7 +418,7 @@ Make sure the lines above below your paragraph are empty.
 
 ## Creating Formatted Text
 
-> Formatting Text in DPFM
+> Formatting Text in dpFM
 
 ```markdown
     This text is **bold**, this is *italic*, and this is an
@@ -457,7 +459,7 @@ Strikethrough allows you to show text that is ~~no longer relevant by using stri
 
 ## Links
 
-> The Three Ways to Create DPFM Links
+> The Three Ways to Create dpFM Links
 
 ```markdown
 Here's an inline link to [Google](http://www.google.com/).
@@ -468,7 +470,7 @@ Here's a very readable link to [Yahoo!][yahoo].
   [yahoo]: http://www.yahoo.com/
 ```
 
-There are three ways to write links in DPFM. Each is easier to read than the last.  The code to the right will generate the following:
+There are three ways to write links in dpFM. Each is easier to read than the last.  The code to the right will generate the following:
 
 Here's an inline link to [Google](http://www.google.com/).
 Here's a reference-style link to [Google][1].
@@ -479,22 +481,10 @@ Here's a very readable link to [Yahoo!][yahoo].
   
 The link definitions can appear anywhere in the document -- before or after the place where you use them. The link definition names [1] and [yahoo] can be any unique string, and are case-insensitive; [yahoo] is the same as [YAHOO].
 
-## HTML Standard Links
-
-> Using HTML Links in GRM
-
-```html
-<a href="http://www.developerprogram.com" title="DP.com">DeveloperProgram.com Web Site</a>
-```
-
-You can also use standard HTML hyperlink syntax.  The HTML example to the right produces the text below:
-
-<a href="http://www.developerprogram.com" title="DP.com">DeveloperProgram.com Web Site</a>
-
 
 ## Inserting an Image
 
-> DPFM for Inserting an Image Stored Locally
+> dpFM for Inserting an Image Stored Locally
 
 ```markdown
 ![DP Logo](/static/images/logo.png).
@@ -510,7 +500,7 @@ The Markdown to the right shows how an image can be inserted, in this case, it i
 
 ## Horizontal Rules
 
-Sometimes you just need a Horizontal Rule (line) to convey something.  DPFM does this with either three or more consecutive Hyphens `-`, Asterisks `*`, or Underscores `_`.
+Sometimes you just need a Horizontal Rule (line) to convey something.  dpFM does this with either three or more consecutive Hyphens `-`, Asterisks `*`, or Underscores `_`.
 
 
 ```markdown
@@ -542,32 +532,9 @@ ___
 
 Underscores
 
-## HTML in Markdown
-
-```html
-<dl>
-  <dt>Definition list</dt>
-  <dd>Is something people use sometimes.</dd>
-
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
-</dl>
-```
-You can also use raw HTML in your Markdown, and it'll mostly work pretty well.
-
-<dl>
-  <dt>Definition list</dt>
-  <dd>Is something people use sometimes.</dd>
-
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
-</dl>
-
-!> Just because you can, doesn't mean that you should.  One of the features of Markdown is that you don't have to worry about the formatting details of HTML.  Also, it provides a separation of content and format which you loose when you start placing HTML into your Markdown.
-
 ## Tables
 
-> DPFM for Creating a Table
+> dpFM for Creating a Table
 
 ```markdown
 Table Header 1 | Table Header 2 | Table Header 3
@@ -595,7 +562,7 @@ Notice the colons in the line underneath the header line.  These are used align 
 
 ## Numbered Lists
 
-> DPFM for Numbered Lists
+> dpFM for Numbered Lists
 
 ```markdown
 1. This
@@ -608,7 +575,7 @@ Notice the colons in the line underneath the header line.  These are used align 
 9. List
 ```
 
-Numbered lists are created using the DPFM markdown code to the right.  You can create nested lists, but the bullets are indented by two spaces.  The sample code to the right will create the list below:
+Numbered lists are created using the dpFM markdown code to the right.  You can create nested lists, but the bullets are indented by two spaces.  The sample code to the right will create the list below:
 
 1. This
 2. Is
@@ -625,7 +592,7 @@ Numbered lists are created using the DPFM markdown code to the right.  You can c
 
 ## Bulleted Lists
 
-> DPFM for created bullet lists
+> dpFM for created bullet lists
 
 ```markdown
 - This
@@ -637,7 +604,7 @@ Numbered lists are created using the DPFM markdown code to the right.  You can c
 * List
 ```
 
-Numbered lists are created using the DPFM markdown code to the right.  you can create nested lists, but the bullets are indented by two spaces.  The sample code
+Numbered lists are created using the dpFM markdown code to the right.  you can create nested lists, but the bullets are indented by two spaces.  The sample code
 to the right will create the list below:
 
 - This
@@ -675,7 +642,7 @@ Footnotes are created using the markdown for footnotes and then defining the foo
 
 ```markdown
   
-  *[XYZ]: Xray Yankee Zulu  
+*[XYZ]: Xray Yankee Zulu  
 
 ```
 
@@ -683,7 +650,21 @@ dpSlate markdown includes support for the PHP Markdown for abbreviations.  The e
 
 Because these abbreviations have been defined in the document, every occurance of HTML and W3C in the document will appeared as underlined with dashes.  When you hover over the abbreviation, a `?` will appear and eventually a _tool tip_ will appear with the defintion of the abbreviation.
 
--> abbreviation only works in the web pages and not on the printed page.  If you would like to include a sorted list of all abbreviations in your document you can do this by using the include markdown tag with the special variable for the abbreviations, _i.e._, `$abbreviations`.
+Abbreviations can be composed of lower and upper case letters and numbers.
+
+-> abbreviation only works in the web pages and not on the printed page.  If you would like to include a sorted list of all abbreviations in your document you can do this by using the include markdown tag with the special variable for the abbreviations, _i.e._, `{{$abbreviations}}`.
+
+## Definitions
+
+```markdown
+
+=[Markdown]: a language used with plain text to indicate formating options.  Markdown is often used to process documents into HTML.
+ 
+```
+
+Definitions are like abbreviations but unlike an abbreviation, they will not be used to create a popover in the HTML document.  However, they can be output as a sorted collection using the the include markdown tag with the special variable for definitions, _i.e._, `{{$definitions}}`.  The example to the right shows the markdown tag for a definition.  The definition is made up of two areas, the name of the term and the rest of the paragraph which defines the term.
+
+-> In addition to having markdown include tags to output abbreviations, `{{$abbreviations}}`, and definitions, `{{$definitions}}`, you can also output a the combined and sorted abbreviations and definitions (_e.g._, terms used in the document) then use the markdown include tag `{{$terms}}`
 
 ## Alerts
 
@@ -746,8 +727,10 @@ The include tag can also be used to include either the contents of your page dir
 
 To include the contents of special variables you use the include of the form`{{ $variable }}` where the `$variable` denotes a collection of HTML content that was generated when processing the document.  The special variables are either: 
 
-* $footnotes - when a markdown include tag has this variable, it will be substituted with the HTML list of all footnotes in order.  This can be used to place the footnotes at the end of the document for printing.
-* $abbreviations - when a markdown include tag has this variable, it will be substituted with the HTML text for an alphbetically ordered list of all abbreviations that were included in the document.  This can be used to place a list of abbreviations/acronyms in the document.
+* `{{$footnotes}}` - when a markdown include tag has this variable, it will be substituted with the HTML list of all footnotes in order.  This can be used to place the footnotes at the end of the document for printing.
+* `{{$abbreviations}}` - when a markdown include tag has this variable, it will be substituted with the HTML text for an alphbetically ordered list of all abbreviations that were included in the document.  This can be used to place a list of abbreviations/acronyms in the document.
+* `{{$definitions}}` when a markdown include tag has this variable, it will be substituted with the HTML text for an alphbetically ordered list of all definitions that were included in the document.  This can be used to place a list of definitions used in the document.
+* `{{$terms}}` - when a markdown include tag has this variable, it will be substituted with the HTML text for an alphbetically ordered list of both the abbreviations and definitions that were included in the document.  This can be used to place a list of terms (_i.e._, definitions, abbreviations, and acronyms) in the document.
 
 -> If there are no footnotes or abbreviations, then the null string will be substituted for the tag.  If you misspell the special variable name, then the original tag will remain.
 
@@ -759,9 +742,24 @@ For example, lets say that in your YAML settings you add a line called `myDocume
 
 ~> If your Settings Variable is not defined, then the tag will remain.
 
-# Sample Code
+## HTML in Markdown
 
-> Sample DPFM to Denote Sample Code
+You can also use raw HTML in your Markdown, and it'll mostly work pretty well.  But there really is no reason for this as most markdown that you want can be created using dpFM.
+
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>Markdown in HTML</dt>
+  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
+
+!> Just because you can, doesn't mean that you should.  One of the features of Markdown is that you don't have to worry about the formatting details of HTML.  Also, it provides a separation of content and format which you loose when you start placing HTML into your Markdown.
+
+
+## Code Blocks
+
+> Sample dpFM to Denote Sample Code
 
 ```markdown
     ```python
@@ -774,273 +772,16 @@ For example, lets say that in your YAML settings you add a line called `myDocume
 
 Code samples are an important way of communicating how to use an API.  dpSlate does an excellent job of handling code samples in multiple languages simultaneously through the use of the tabbed sample code panel on the right hand side.
 
-## Large Code Samples
 
-> Large Python Program
-
-```python
-import collections
-import itertools
-import re
-import sys
-import warnings
-from bs4.dammit import EntitySubstitution
-try:
-    next
-except NameError:
-    from bs4._compatibility import next_function as next
-
-
-DEFAULT_OUTPUT_ENCODING = "utf-8"
-PY3K = (sys.version_info[0] > 2)
-
-whitespace_re = re.compile("\s+")
-
-def _alias(attr):
-    """Alias one attribute name to another for backward compatibility"""
-    def _get_alias(self):
-        return getattr(self, attr)
-
-    def _set_alias(self):
-        return setattr(self, attr)
-
-    alias = property(_get_alias, _set_alias)
-    return alias
-
-
-class NamespacedAttribute(unicode):
-
-    def __new__(cls, prefix, name, namespace=None):
-        if name is None:
-            obj = unicode.__new__(cls, prefix)
-        else:
-            obj = unicode.__new__(cls, prefix + ":" + name)
-        obj.prefix = prefix
-        obj.name = name
-        obj.namespace = namespace
-        return obj
-
-
-class PageElement(object):
-    """Contains the navigational information for some part of the page
-    (either a tag or a piece of text)"""
-
-    # There are five possible values for the "formatter" argument passed in
-    # to methods like encode() and prettify():
-    #
-    # "html" - All Unicode characters with corresponding HTML entities
-    #   are converted to those entities on output.
-    # "minimal" - Bare ampersands and angle brackets are converted to
-    #   XML entities: &amp; &lt; &gt;
-    # None - The null formatter. Unicode characters are never
-    #   converted to entities.  This is not recommended, but it's
-    #   faster than "minimal".
-    # A function - This function will be called on every string that
-    #  needs to undergo entity substition
-    FORMATTERS = {
-        "html" : EntitySubstitution.substitute_html,
-        "minimal" : EntitySubstitution.substitute_xml,
-        None : None
-        }
-
-    def setup(self, parent=None, previous_element=None):
-        """Sets up the initial relations between this element and
-        other elements."""
-        self.parent = parent
-        self.previous_element = previous_element
-        self.next_element = None
-        self.previous_sibling = None
-        self.next_sibling = None
-        if self.parent is not None and self.parent.contents:
-            self.previous_sibling = self.parent.contents[-1]
-            self.previous_sibling.next_sibling = self
-
-    nextSibling = _alias("next_sibling")  # BS3
-    previousSibling = _alias("previous_sibling")  # BS3
-
-    def replace_with(self, replace_with):
-        if replace_with is self:
-            return
-        if replace_with is self.parent:
-            raise ValueError("Cannot replace a Tag with its parent.")
-        old_parent = self.parent
-        my_index = self.parent.index(self)
-        if (hasattr(replace_with, 'parent')
-            and replace_with.parent is self.parent):
-            # We're replacing this element with one of its siblings.
-            if self.parent.index(replace_with) < my_index:
-                # Furthermore, it comes before this element. That
-                # means that when we extract it, the index of this
-                # element will change.
-                my_index -= 1
-        self.extract()
-        old_parent.insert(my_index, replace_with)
-        return self
-    replaceWith = replace_with  # BS3
-
-    def replace_with_children(self):
-        my_parent = self.parent
-        my_index = self.parent.index(self)
-        self.extract()
-        for child in reversed(self.contents[:]):
-            my_parent.insert(my_index, child)
-        return self
-    replaceWithChildren = replace_with_children  # BS3
-
-    def extract(self):
-        """Destructively rips this element out of the tree."""
-        if self.parent is not None:
-            del self.parent.contents[self.parent.index(self)]
-
-        #Find the two elements that would be next to each other if
-        #this element (and any children) hadn't been parsed. Connect
-        #the two.
-        last_child = self._last_descendant()
-        next_element = last_child.next_element
-
-        if self.previous_element is not None:
-            self.previous_element.next_element = next_element
-        if next_element is not None:
-            next_element.previous_element = self.previous_element
-        self.previous_element = None
-        last_child.next_element = None
-
-        self.parent = None
-        if self.previous_sibling is not None:
-            self.previous_sibling.next_sibling = self.next_sibling
-        if self.next_sibling is not None:
-            self.next_sibling.previous_sibling = self.previous_sibling
-        self.previous_sibling = self.next_sibling = None
-        return self
-
-    def _last_descendant(self):
-        "Finds the last element beneath this object to be parsed."
-        last_child = self
-        while hasattr(last_child, 'contents') and last_child.contents:
-            last_child = last_child.contents[-1]
-        return last_child
-    # BS3: Not part of the API!
-    _lastRecursiveChild = _last_descendant
-
-    def insert(self, position, new_child):
-        if new_child is self:
-            raise ValueError("Cannot insert a tag into itself.")
-        if (isinstance(new_child, basestring)
-            and not isinstance(new_child, NavigableString)):
-            new_child = NavigableString(new_child)
-
-        position = min(position, len(self.contents))
-        if hasattr(new_child, 'parent') and new_child.parent is not None:
-            # We're 'inserting' an element that's already one
-            # of this object's children.
-            if new_child.parent is self:
-                if self.index(new_child) > position:
-                    # Furthermore we're moving it further down the
-                    # list of this object's children. That means that
-                    # when we extract this element, our target index
-                    # will jump down one.
-                    position -= 1
-            new_child.extract()
-
-        new_child.parent = self
-        previous_child = None
-        if position == 0:
-            new_child.previous_sibling = None
-            new_child.previous_element = self
-        else:
-            previous_child = self.contents[position - 1]
-            new_child.previous_sibling = previous_child
-            new_child.previous_sibling.next_sibling = new_child
-            new_child.previous_element = previous_child._last_descendant()
-        if new_child.previous_element is not None:
-            new_child.previous_element.next_element = new_child
-
-        new_childs_last_element = new_child._last_descendant()
-
-        if position >= len(self.contents):
-            new_child.next_sibling = None
-
-            parent = self
-            parents_next_sibling = None
-            while parents_next_sibling is None and parent is not None:
-                parents_next_sibling = parent.next_sibling
-                parent = parent.parent
-                if parents_next_sibling is not None:
-                    # We found the element that comes next in the document.
-                    break
-            if parents_next_sibling is not None:
-                new_childs_last_element.next_element = parents_next_sibling
-            else:
-                # The last element of this tag is the last element in
-                # the document.
-                new_childs_last_element.next_element = None
-        else:
-            next_child = self.contents[position]
-            new_child.next_sibling = next_child
-            if new_child.next_sibling is not None:
-                new_child.next_sibling.previous_sibling = new_child
-            new_childs_last_element.next_element = next_child
-
-        if new_childs_last_element.next_element is not None:
-            new_childs_last_element.next_element.previous_element = new_childs_last_element
-        self.contents.insert(position, new_child)
-
-    def append(self, tag):
-        """Appends the given tag to the contents of this tag."""
-        self.insert(len(self.contents), tag)
-
-    def insert_before(self, predecessor):
-        """Makes the given element the immediate predecessor of this one.
-
-        The two elements will have the same parent, and the given element
-        will be immediately before this one.
-        """
-        if self is predecessor:
-            raise ValueError("Can't insert an element before itself.")
-        parent = self.parent
-        if parent is None:
-            raise ValueError(
-                "Element has no parent, so 'before' has no meaning.")
-        # Extract first so that the index won't be screwed up if they
-        # are siblings.
-        if isinstance(predecessor, PageElement):
-            predecessor.extract()
-        index = parent.index(self)
-        parent.insert(index, predecessor)
-
-    def insert_after(self, successor):
-        """Makes the given element the immediate successor of this one.
-
-        The two elements will have the same parent, and the given element
-        will be immediately after this one.
-        """
-        if self is successor:
-            raise ValueError("Can't insert an element after itself.")
-        parent = self.parent
-        if parent is None:
-            raise ValueError(
-                "Element has no parent, so 'after' has no meaning.")
-        # Extract first so that the index won't be screwed up if they
-        # are siblings.
-        if isinstance(successor, PageElement):
-            successor.extract()
-        index = parent.index(self)
-        parent.insert(index+1, successor)
-
-
-```
-
-Sometimes you will need to insert a very large block of sample code that might be too wide or extremely deep.  dpSlate manages this by automatically creating vertical and horizontal scroll bars such that the sample code is preserved without taking up too much space.  The example to the right is an extremely large python program pulled from the Internet.  There is no wrapping of text, instead, your readers need to use horizontal scrolling to see the full code sample.  Also, it is very long, but a maximum height of 50 cm has been set for the display area.  If your sample code exceeds this, then dpSlate will also provide vertical scrolling such that the space is better managed. 
-
-## Language Tabs
+### Language Tabs
 
 You denote a code samples by using three left-single-quote marks followed by the name of the language.  The name of the language is used to place the code sample into the proper tab. Each code samples will appear in the dark area to the right of the main text. Code samples need to appear right under the Level 1 or Level 2 headers in your markdown file to allow them to be anchored properly.
 
 The "language tabs" are the tabs that appear in the upper right of dpSlate Documents. Users browsing the docs use them to select their programming language of choice.
 
-In the sample DPFM code to the right, the Ruby code will appear in the Ruby tab, while the Python code will appear in the Python tab. Because the dpSlate engine understands the syntax of most computer programming languages, the sample code will have its language syntax highlighted automatically in a way that would make sense to the developer.
+In the sample dpFM code to the right, the Ruby code will appear in the Ruby tab, while the Python code will appear in the Python tab. Because the dpSlate engine understands the syntax of most computer programming languages, the sample code will have its language syntax highlighted automatically in a way that would make sense to the developer.
 
-But just because a language is used as sample code within a dpSlate document it does not mean that the tab will appear.  You tell the system which Language tabs you want to display by editing the `language-tabs` list at the top of your DPFM source document.
+But just because a language is used as sample code within a dpSlate document it does not mean that the tab will appear.  You tell the system which Language tabs you want to display by editing the `language-tabs` list at the top of your dpFM source document.
 
 => Sometimes it is useful to share code between multiple tabs, you can do this by placing tagging the sample code using a language that is not used as a tab name.  For example if you tag sample code as `all` and `all` is not listed in the `language-tabs` then that sample code will appear in all of the tabs. 
 
@@ -1051,16 +792,12 @@ But just because a language is used as sample code within a dpSlate document it 
 ```markdown
 > This is a Code Annotation!
 ```
-It is sometimes useful to highlight or annotate a part of the sample code.  This is done with code annotations.  By placing a > as the first character in your DPFM line of text, you will create a code annotation that will appear in the area to the right, next to the code samples.
+It is sometimes useful to highlight or annotate a part of the sample code.  This is done with code annotations.  By placing a > as the first character in your dpFM line of text, you will create a code annotation that will appear in the area to the right, next to the code samples.
 
 ~> Make sure that you have a blank line after your Code Annotation.  If you do not, the annotation will continue until there is a blank line.
  
 
-## Using Markdown
-
-When you use the chevron `>` symbol, it takes the entire line and places it into the pannel to the right. Since it does not have a language, it will appear on all of the tabs to the right.  Additionally, because it is not "code" it is not treated as pre-formatted text.  As a result of these factors, the annotation feature can be very useful for placing Markdown or even HTML into the right hand panel.
-
-### Tables
+### Using Markdown in Annotations
 
 >The following markdown code:
 
@@ -1071,7 +808,11 @@ When you use the chevron `>` symbol, it takes the entire line and places it into
 > Row 1 col 1 | Row 1 col 2 | Row 1 col 3
 > Row 2 col 1 | Row 2 col 2 | Row 2 col 3 
 
+> ![DP Logo](/static/images/logo.png).
+
 ```
+
+When you use the chevron `>` symbol, it takes the entire line and places it into the pannel to the right. Since it does not have a language, it will appear on all of the tabs to the right.  Additionally, because it is not "code" it is not treated as pre-formatted text.  As a result of these factors, the annotation feature can be very useful for placing Markdown or even HTML into the right hand panel.
 
 > will result in the table in the right hand panel:
 
@@ -1080,26 +821,13 @@ When you use the chevron `>` symbol, it takes the entire line and places it into
 > Row 1 col 1 | Row 1 col 2 | Row 1 col 3
 > Row 2 col 1 | Row 2 col 2 | Row 2 col 3 
 
-For example, I can use the `>` to place a table into the right hand panel.
-
-### Images 
-
->The following markdown code:
-
-```markdown
-
 > ![DP Logo](/static/images/logo.png).
 
-```
-
-> will result in the image placed into the right hand panel:
-
-> ![DP Logo](/static/images/logo.png)
-
-
-Or, I can use the `>` to place an image into the right hand panel.  I can even use the `>` to place HTML code such as a YouTube video or any other content.
+For example, I can use the `>` to place a table into the right hand panel and just beneath it I placee an image.
 
 # Using Stand Alone Mode
+
+dpSlate can be installed on any Windows, Mac, or Linux system.  After it is installed, you can use your local copy of dpSlate in conjuntion with the markdown editor of your choice to test and preview your documents. 
 
 ## Previewing your Docs
 
@@ -1117,6 +845,9 @@ bundle exec middleman server
   == The Middleman is standing watch at http://0.0.0.0:4567
   == Inspect your site configuration at http://0.0.0.0:4567/__middleman/
 ```
+Open a terminal window and `cd` to your document directory.  Next type the command to the left and you will start the server.
+
+using the server command to the left, you can view your documents in any web browser.  When you change the source document and refresh your browser window, you will see the changes that you made to your document.  
 
 ## Building HTML from Markdown
 
@@ -1220,7 +951,7 @@ Make sure that you take advantage of the new default YAML directive capability b
 
 ## dpSlate V4.2
 
-### New DPFM
+### New dpFM
 
 dpSlate v4.2 includes many new markdown features that allow you to create richer technical documentation.  These new markdown features are documented in this document but below is a summary of the features:
 
@@ -1236,18 +967,54 @@ dpSlate v4.2 includes many new markdown features that allow you to create richer
 
 # Footnotes
 
+```markdown
+{{$footnotes}}
+```
+
+Below are all of the footnotes used in the markdown.  This was output using the include markdown in the example.
+
 {{$footnotes}}
 
 
 # Abbreviations
 
+```markdown
+{{$abbreviations}}
+```
+Below are all of the abbreviations in the markdown.  This was output using the include markdown in the example.
+
 {{$abbreviations}}
 
 
-*[DPFM]: dp Flavored Markdown
+# Definitions
+```markdown
+{{$definitions}}
+```
+
+Below are all of the definitions in the markdown.  This was output using the include markdown in the example.
+
+{{$definitions}}
+
+# Terms Used In This Document
+
+```markdown
+{{$terms}}
+```
+
+Below are all of the definitions and abbreviations in a sorted, combined list in the markdown.  This was output using the include markdown in the example.
+
+{{$terms}}
+
+
+*[dpFM]: dp Flavored Markdown
 
 *[HTML]: Hyper Text Markup Language
 
 *[W3C]: World Wide Web Consortium
 
 *[YAML]: Yet Another Markup Language
+
+
+=[Markdown]: Markdown is a lighter language than HTML for formating text into documents.  Markdown is typically used to output HTML.
+
+=[dpEngine]: dpEngine is the business eco-system automation SaaS from dp.com.  It is typically used to create developer and partner eco-systems.

@@ -804,8 +804,8 @@ to the right will create the list below:
 
 </code></pre>
 <p>Sometimes you might want to break a markdown file into multiple parts such that you can reuse the parts in different documents. Although standard markdown does not support the concept of <em>includes</em>, dpSlate markdown has been extended to provide this support.  Anywhere within the markdown, you can add the contents of another file by simply using markdown include using two open curly brackets, followed by the path and filespec, and closed with two close curly brackets.  The include markdown statement must be at the start of a new line and of the form <code>{{filepath/filename.ext}}</code>  If the file is not found an error message is inserted in place of the include.  Below are two examples of includes.  In the markdown source, the statements to the right have been inserted.  In the first file, called <code>goodmen.md</code> the file exsists and contains the markdown text of <code>Now is the _time_ for all good men...</code>.  But the second example, the file, <code>error.md</code> does not exsist and will result in an error.
-</p><p>{{ source/dpSlateHelp/goodmen.md }}
-</p><p>{{ error.md }}
+</p><p>{{source/dpSlateHelp/goodmen.md}}
+</p><p>{{error.md}}
 </p><aside class="notice">The include directive for markdown <strong>must</strong> start on a new line or it will be ignored.
 </aside>
 <aside class="warning">It is highly recommended that your included markdown files have a file name that begins with a <code>_</code> (underscore).  The dpSlate static file generator does not generate build files for files with filenames that begin with a <code>_</code> and thus, if you name your file this way, the fragment files that you are including will not be generated into their own, stand-alone page.

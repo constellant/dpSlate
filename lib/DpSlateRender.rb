@@ -1,6 +1,7 @@
 require "middleman-core/renderers/redcarpet"
 require "middleman-core/logger"
 require "pp"
+require "nokogiri"
 
 $headCount =0                             # create a sequential counter use in rendering headers to ensure each has a unique ID cross the site
       
@@ -8,7 +9,8 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
 
   $footnoteDefs = {}  # create a hash that contains the footnote defs for creating the popovers in cleanup
   $footnoteDiv = ""   # a global string with the ordered list of all of the footnotes
-  $abbrList = []      # create an array of strings that contain all of the abbreviations for the end of the document
+  $abbrList = []      # create an array of strings that contain all of the abbreviations specified in the document
+  $defList = []       # create an array of strings that contain all of the definitions specified in the document
 
   #
   # add_abbr - Change abbreviation markdown into HMTL and span each occurance in the document
@@ -18,7 +20,7 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
   #      
       
   def add_abbr(markdown)
-    abbrRegex = /^\*\[([-A-Z0-9]+)\]: (.+)$(?=(?:[^`]*`[^`]*`)*[^`]*\Z)/
+    abbrRegex = /^\*\[([-A-Za-z0-9]+)\]: (.+)$(?=(?:[^`]*`[^`]*`)*[^`]*\Z)/
     # Regex to scan for the abbreviations and definitions but ignoring those in code blocks
     abbreviations = markdown.scan(abbrRegex)
     abbreviations = Hash[*abbreviations.flatten]
@@ -27,9 +29,9 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
       markdown.rstrip!
       abbreviations.each do |key, value|
         html = "<a href='javascript: void(0)' data-toggle='popover' data-placement='bottom' data-trigger='focus' data-content='#{value}'>#{key}</a>"
-        markdown.gsub!(/(\b#{key}\b)(?=(?:[^`]*`[^`]*`)*[^`]*\Z)/, html)
+        markdown.gsub!(/(\b#{key}\b)/, html)
         # look for the key, but ignore occurances inside of code blocks
-        $abbrList.push ("<p><em>#{key}</em> - #{value}</p>")  
+        $abbrList.push ("<dt><dfn>#{key}</dfn><dt><dd>#{value}</dd>")  
       end
     end
     markdown
@@ -62,6 +64,28 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
     else
       return "<p>" + text + "</p>"
     end
+  end
+
+  #
+  # add_def - Change abbreviation markdown into HMTL and span each occurance in the document
+  #
+  # @param [String] full_document - the markdown text of the entire document prior to any processing
+  # @return [String] - the markdown text with all of the abbreviations processed
+  #      
+      
+  def add_def(markdown)
+    defRegex = /^\=\[([-A-Za-z0-9]+)\]: (.+)$(?=(?:[^`]*`[^`]*`)*[^`]*\Z)/
+    # Regex to scan for the abbreviations and definitions but ignoring those in code blocks
+    defs = markdown.scan(defRegex)
+    defs = Hash[*defs.flatten]
+    if defs.any?
+      markdown.gsub!(defRegex, "")
+      markdown.rstrip!
+      defs.each do |key, value|
+        $defList.push ("<dt><dfn>#{key}</dfn><dt><dd>#{value}</dd>")  
+      end
+    end
+    markdown
   end
 
   
@@ -184,12 +208,18 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
   # @return [String] - the text of the markdown paragraph with the include bracket transformed into xHTML
   #
   def postprocess(document)
+    
     document.gsub!(/^\<\!\-\-include /, "<!--")                                 # fix the start of the include markers
     document.gsub!(/ include\-\-\>/, "-->")                                     # fix the end of the include markets
     $footnoteDefs.each_pair { |ref, fndef| document.gsub!(/#{ref}/,fndef) }     # Loop through the footnote refs replace with popover text
-    document.gsub!(/\{\{\s*\$abbreviations\s*\}\}/, $abbrList.sort.map { |s| "#{s}" }.join(' ') )  
+    document.gsub!(/<p>\{\{\s*\$abbreviations\s*\}\}\s<\/p>/, "<dl>" + $abbrList.sort.map { |s| "#{s}" }.join(' ') + "</dl>" )  
                                                                                 # output the list of abbreviations
-    document.gsub!(/\{\{\s*\$footnotes\s*\}\}/, $footnoteDiv )                  # output the list of footnotes
+    document.gsub!(/<p>\{\{\s*\$definitions\s*\}\}\s<\/p>/, "<dl>" + $defList.sort.map { |s| "#{s}" }.join(' ') + "</dl>" )  
+                                                                                # output the list of definitions
+    document.gsub!(/<p>\{\{\s*\$terms\s*\}\}\s<\/p>/, "<dl>" + ($abbrList+$defList).sort.map { |s| "#{s}" }.join(' ') + "</dl>" )  
+
+                                                                                # output the list of definitions
+    document.gsub!(/<p>\{\{\s*\$footnotes\s*\}\}\s<\/p>/, $footnoteDiv )        # output the list of footnotes
     return document
   end      
       
@@ -203,8 +233,13 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
   #
       
   def preprocess(document)
-    add_abbr(get_includes (document))
+    $footnoteDefs = {}  
+    $footnoteDiv = "" 
+    $abbrList = []     
+    $defList = []       
+    add_def(add_abbr(get_includes (document)))
   end
+
 
 end      
 

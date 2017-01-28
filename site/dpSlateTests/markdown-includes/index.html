@@ -134,7 +134,7 @@
                         <p>DeveloperProgram.com</p>
                         <p>Perigee Capital LLC., 2300 Greenhill Drive, Suite 400, Round Rock, TX 78664, USA</p>
                         <p>dpSlate is Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License on the site http://www.apache.org at /licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, the dpSlate software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  The Perigee Capital, DevelopProgram.com, DP.com, dpSlate, and the dp.com Logo are trademarks of Perigee Capital, LLC.</p>
-                        <p>2017-01-23 09:36</p>
+                        <p>2017-01-25 15:08</p>
                       </div>
                     </div>
                     <div class='modal-footer'>
@@ -174,7 +174,7 @@
  "tocFooters"=>nil,
  "titlePage"=>true,
  "paginateDocument"=>false,
- "mtime"=>2017-01-23 09:36:14 -0800}
+ "mtime"=>2017-01-25 15:08:17 -0800}
 </pre></p>
                         </div>
                     </div>
@@ -236,6 +236,13 @@
 
             <div class="content" id="documentContent">
                    <h1 id="header-from-main-file-116">Header from Main File</h1>
+<blockquote>
+<p>below are the includes used to the left
+</p></blockquote>
+<pre class="highlight markdown"><code>{{ source/dpSlateTests/markdown-includes/includes/_intro.md  }}
+{{source/dpSlateTests/markdown-includes/includes/_close.md}}
+</code></pre>
+
 <!--markdown-section data-src=' source/dpSlateTests/markdown-includes/includes/_intro.md  '-->
 <h1 id="this-is-contents-of-the-first-partial-117">This is contents of the first partial</h1>
 <!--/markdown-section-->
@@ -248,7 +255,13 @@
 <!--/markdown-section-->
 
 <!--/markdown-section-->
-<h1 id="below-you-should-see-a-file-error-message-121">Below you should see a file error message</h1><p>{{ path/withnofileinmain.md }}
+<h1 id="below-you-should-see-a-file-error-message-121">Below you should see a file error message</h1>
+<blockquote>
+<p>below are the includes used to the left
+</p></blockquote>
+<pre class="highlight markdown"><code>{{path/withnofileinmain.md}}
+</code></pre>
+<p>{{ path/withnofileinmain.md }}
 </p><h1 id="below-are-tests-of-special-includes-122">Below are tests of special includes</h1><p>dpSlate also can use the include markdown to display settings variables (a.k.a., YAML Page directives).  These are in the form of <code>=variable</code> Below are some Page directives
 </p><p><code>=version</code> is:  V4.2
 </p><p><code>=copyright</code> is:  Copyright &copy; 2013-2016 by Perigee Capital, LLC., Portions Copyright 2008-2013 by Concur Technologies, Inc. All Rights Reserved.

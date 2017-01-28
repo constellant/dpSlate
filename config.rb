@@ -6,7 +6,7 @@ helpers DpSlateHelpers
 
 set :source, 'source'
 set :build_dir, 'site'
-set :layouts_dir, 'layouts'
+set :layouts_dir, 'layouts/html/'
 set :partials_dir, 'includes'
 set :images_dir, 'static/images'
 

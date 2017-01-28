@@ -13,7 +13,7 @@
 
   $(populate);
   $(bind);
-
+    
   function populate() {
     $('h1, h2').each(function() {
       var title = $(this);
@@ -51,7 +51,7 @@
         match.call(this);
         searchResults.html('<li style="color:green"></li>');
         var matches = $('.match');
-        $('.search-results li').text( matches.length.toLocaleString('en') + ' Results Found and Highlighted');
+        $('.search-results li').text( matches.length.toLocaleString('en') + ' Found and Highlighted');
         $('.search-results li').append('<br><span id="searchPrev"> &lt;&lt;prev </span><span id="searchNext"> next&gt;&gt; </span>');
         // keep track of next and previous. Start at one because on SEARCH the forst one was already highlightes
         var matchIndex = 0;

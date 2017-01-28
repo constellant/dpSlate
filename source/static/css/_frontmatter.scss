@@ -1,5 +1,11 @@
 @charset "utf-8";  
 
+.scrollspy {
+    height: 100vh; /* %-height of the viewport */
+    position: fixed;
+    overflow-y: scroll;
+}
+
 // Title Page Rules
 
 .doc-title {
@@ -11,7 +17,7 @@
     font-style: italic;
     font-weight: bold;
     overflow-x: visible;
-    font-size: 20px;
+    font-size: 16px;
     color: #0097E6;
 }
 
@@ -88,10 +94,10 @@
     padding-bottom: 0px;
     margin-top: 20px;
     margin-bottom: 0px;
-    font-style: italic;
-    font-weight: bold;
+    font-style: normal;
+    font-weight: normal;
     overflow-x: visible;
-    font-size: 20px;
+    font-size: 16px;
     color: #0097E6;
 }
 
@@ -115,8 +121,8 @@
 }
 
 #nav{
-    overflow-y:scroll;
-    width:310px;
+    //overflow-y:scroll;
+    width: inherit;
 }
 
 

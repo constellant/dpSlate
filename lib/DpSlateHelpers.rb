@@ -116,7 +116,36 @@ module DpSlateHelpers
                 </div>
               </div>"
   end
-    
+
+#
+# build_versions_modal - routine to build the modal for displaying different versions of the document
+# inputs
+#   defaults - the hash that contains all of the settings/directives that were used on the page
+# outputs
+#   string that contains the HTML for modal
+#      
+  def build_versions_modal (defaults)
+      
+      return "<!-- Versions Modal -->
+              <div class='modal fade' id='versionsPage' tabindex='-1' role='dialog' aria-labelledby='versionsPageLabel'>
+                <div class='modal-dialog' role='document'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                          <h4 class='modal-title' id='titlePageLabel'>Versions of this Document</h4>
+                    </div>
+                    <div class='modal-body about'>
+                      <div class='versions'>
+                        #{versionsHTML}
+                      </div>
+                    </div>
+                    <div class='modal-footer'>
+                        <button type='button' class='btn btn-default tocHelp' data-dismiss='modal'>Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>"
+  end
 
 #
 # get_defaults() - routine to get and merge the values of the _default.yml files along the directory path
