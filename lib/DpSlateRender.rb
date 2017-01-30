@@ -211,13 +211,13 @@ class DpSlateRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
     
     document.gsub!(/^\<\!\-\-include /, "<!--")                                 # fix the start of the include markers
     document.gsub!(/ include\-\-\>/, "-->")                                     # fix the end of the include markets
+    document.gsub!(/\$\{/, "&#36;{")                                            # fix the end of the include markets   
     $footnoteDefs.each_pair { |ref, fndef| document.gsub!(/#{ref}/,fndef) }     # Loop through the footnote refs replace with popover text
     document.gsub!(/<p>\{\{\s*\$abbreviations\s*\}\}\s<\/p>/, "<dl>" + $abbrList.sort.map { |s| "#{s}" }.join(' ') + "</dl>" )  
                                                                                 # output the list of abbreviations
     document.gsub!(/<p>\{\{\s*\$definitions\s*\}\}\s<\/p>/, "<dl>" + $defList.sort.map { |s| "#{s}" }.join(' ') + "</dl>" )  
                                                                                 # output the list of definitions
     document.gsub!(/<p>\{\{\s*\$terms\s*\}\}\s<\/p>/, "<dl>" + ($abbrList+$defList).sort.map { |s| "#{s}" }.join(' ') + "</dl>" )  
-
                                                                                 # output the list of definitions
     document.gsub!(/<p>\{\{\s*\$footnotes\s*\}\}\s<\/p>/, $footnoteDiv )        # output the list of footnotes
     return document

@@ -41,6 +41,10 @@ This test is successful if the markdown generates the proper HTML.  The test is 
 
 Below are the test cases for the document.
 
+## Special Characters that must be escaped
+
+The sequence ${ must be escaped in HTML to ensure that it does not cause problems with grails.
+
 ## Headers
 
 On the right are a list of headers in markdown and below is how they will appear in the document:
