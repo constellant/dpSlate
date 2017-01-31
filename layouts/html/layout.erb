@@ -38,13 +38,10 @@
         data-target=".scrollspy"
         data-languages="<%= defaults["languageTabs"].map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
       
-   <!-- All bootstrap modals should be directly in the body tag to overide problems with modal display -->  
-   <div class="title-page" >
-        <%= build_title_page_modal (defaults) %>
-        <%= build_page_directives_modal (defaults) %>
-   </div> 
-
-   <div class="container-fluid slate-fluid">
+   <!-- All bootstrap modals should be directly in the body tag to overide problems with modal display; Title Page, Settings, Versions, and Links -->  
+   <%= build_modals (defaults) %>
+   
+      <div class="container-fluid slate-fluid">
    <!-- Example row of columns -->
       <div class="row-fluid slate-fluid">
 
@@ -62,24 +59,17 @@
                     <%= defaults["title"] %>
                 </div>
 
-                
                 <div class="nav-bar">
-                    <% if defaults["titlePage"] %>
-                      <a href="#titlePage" class="texttrigger" data-toggle="modal"><span class="glyphicon glyphicon-info-sign"></span></a>
-                    <% end %>
-                    <% if defaults["documentSearch"] %>
-                      <a href="#" onclick="toggleSearch()"><span class="glyphicon glyphicon-search"></span></a>
-                    <% end %>
+                    <%= build_button_group (defaults) %>
                 </div> 
                 
                 <% if defaults["documentSearch"] %>
-                  <div id="searchTool" class="search collapse">
-                    <input type="text"
-                      class="search"
-                      id="input-search"
-                      placeholder="Search Document">
-                    <ul class="search-results"></ul>
-                  </div>
+                    <div id="searchTool" class="search collapse">
+                      <form>
+                        <input type="text" id="input-search" placeholder="Search Document">
+                      </form>
+                      <div class="search-results"></div>
+                    </div>
                 <% end %>
                 
             <% if defaults["tableOfContents"] %>
@@ -208,12 +198,18 @@
   <%= javascript_include_tag  "jquery.highlight" %>
   <%= javascript_include_tag  "search" %>
   <script>
-    function toggleSearch() {
+    $('#documentSearch').on('click', function toggleSearch(e) {
+      if($('button.docSearchBtn span').hasClass('glyphicon glyphicon-search')) {
+        $('button.docSearchBtn').html('<span class="glyphicon glyphicon-th-list"></span>'); 
+      }
+      else {      
+        $('button.docSearchBtn').html('<span class="glyphicon glyphicon-search"></span>'); 
+      }
       $("#input-search").val("").keyup();
       $("#searchTool").collapse("toggle");
       $("#toc").collapse("toggle");
       $("#input-search").focus();
-    };
+    });
   </script>
 <% end %>
 

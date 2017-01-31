@@ -49,10 +49,10 @@
       if (results.length) {
         searchResults.empty();
         match.call(this);
-        searchResults.html('<li style="color:green"></li>');
+        searchResults.html('<p style="color:green"></p>');
         var matches = $('.match');
-        $('.search-results li').text( matches.length.toLocaleString('en') + ' Found and Highlighted');
-        $('.search-results li').append('<br><span id="searchPrev"> &lt;&lt;prev </span><span id="searchNext"> next&gt;&gt; </span>');
+        $('.search-results p').text( matches.length.toLocaleString('en') + ' Found and Highlighted');
+        $('.search-results p').append('<br><span id="searchPrev"> &lt;&lt;prev </span><span id="searchNext"> next&gt;&gt; </span>');
         // keep track of next and previous. Start at one because on SEARCH the forst one was already highlightes
         var matchIndex = 0;
         // look out for user click on NEXT
@@ -84,12 +84,12 @@
           $(window).scrollTop(previousMatch.offset().top-30);
         });
       } else {
-        searchResults.html('<li style="color:red"></li>');
-        $('.search-results li').text('No Results Found for "' + this.value + '"');
+        searchResults.html('<p style="color:red"></p>');
+        $('.search-results p').text('No Results Found for "' + this.value + '"');
       }
     } else {
       unmatch();
-      $('.search-results li').text('');
+      $('.search-results p').text('');
       searchResults.addClass('invisible');
       //$(".toc-title").removeClass('invisible'); 
       $("#toc").removeClass('invisible');  //restore the toc

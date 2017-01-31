@@ -1,0 +1,22 @@
+---
+
+versionLinks:
+  - title: "v4.2"
+    link: "dpSlateHelp/index.html"
+    newTab: true
+  - title: "v4.1"
+    link: "dpSlateHelp/v4.1/index.html"
+    newTab: false
+  - title: "v4.0"
+    link: "dpSlateHelp/v4.0/index.html"
+    newTab: true
+
+siteLinks:
+  - title: "dpSlate Help" 
+    link: "dpSlateHelp/index.html"
+    newTab: true
+  - title: wikipedia
+    link: "http://www.wikpedia.com/"
+    newTab: true
+
+---

@@ -28,7 +28,7 @@
 
 // Search Rules
 
-.search {
+#searchTool {
     position: relative;
 
     #input-search {
@@ -37,8 +37,8 @@
       border-color: $search-box-border-color;
       padding: 6px 0 6px 20px;
       box-sizing: border-box;
-      margin: $nav-v-padding $nav-padding;
-      width: $nav-width - 45;
+      margin-top: $nav-v-padding;
+      width: $nav-width - 35;
       outline: none;
       color: $nav-text;
       border-radius: 6px; /* ios has a default border radius */
@@ -47,7 +47,7 @@
     &::before {
       position: absolute;
       top: 18px;
-      left: $nav-padding+4px;
+      left: 4px;
       color: $nav-text;
       @extend %icon-search;
     z-index: 99;
@@ -55,7 +55,6 @@
 
     .search-results {
         margin: 0;
-        margin-left: -20px;
         box-sizing: border-box;
         overflow-y: auto;
         overflow-x: visible;
@@ -67,8 +66,7 @@
         transition-timing-function: ease-in-out;
     }
 
-    .search-results a, li {
-        margin: 0px;
+    .search-results a, p {
         padding: 5px;
         display: block;
         overflow-x: visible;
@@ -99,6 +97,7 @@
     overflow-x: visible;
     font-size: 16px;
     color: #0097E6;
+    width: inherit;
 }
 
 #navbar2 .col-sm-6, #navbar2 col-md-6{display:none;}
@@ -107,17 +106,16 @@
 
 .affix {
     top: 0;
-    width: 100%;
+    width:inherit;
 }
 
 
 .affix-top {
-  width: 100%;
+
 }
 
 .affix-bottom {
   position: absolute;
-  width: 100%;
 }
 
 #nav{
