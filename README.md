@@ -27,7 +27,7 @@ Features
 
 * **Automatic, smoothly scrolling table of contents** on the far left of the page. As you scroll, it displays your current position in the document. It's fast, too. We're using Slate at TripIt to build documentation for our new API, where our table of contents has over 180 entries. We've made sure that the performance remains excellent, even for larger documents.
 
-Getting starting with dpSlate is super easy! Simply fork this repository, and then follow the instructions below. Or, if you'd like to check out what Slate is capable of, take a look at the [Authoring a API Tutorial Using dpSlate] (build/index.html)
+Getting starting with dpSlate is super easy! Simply fork this repository, and then follow the instructions below. Or, if you'd like to check out what Slate is capable of, take a look at the [Authoring a API Tutorial Using dpSlate](build/index.html).
 
 Getting Started with Slate
 ------------------------------
